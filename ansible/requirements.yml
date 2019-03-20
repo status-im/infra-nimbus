@@ -1,0 +1,19 @@
+- name: origin-cert
+  src: git@github.com:status-im/infra-role-origin-cert.git
+  scm: git
+
+- name: infra-role-tinc
+  src: git@github.com:status-im/infra-role-tinc.git
+  scm: git
+
+- name: infra-role-bootstrap
+  src: git@github.com:status-im/infra-role-bootstrap.git
+  scm: git
+
+- name: consul-service
+  src: git@github.com:status-im/infra-role-consul-service.git
+  scm: git
+
+- name: nimbus
+  src: git@github.com:status-im/infra-role-nimbus.git
+  scm: git
