@@ -37,4 +37,40 @@ terraform {
 
 /* RESOURCES ------------------------------------*/
 
-/* TODO */
+module "nimbus-master" {
+  source = "github.com/status-im/infra-tf-digital-ocean"
+  name   = "master"
+  env    = "nimbus"
+  group  = "nimbus-master"
+  size   = "s-4vcpu-8gb"
+  count  = 1
+  domain = "${var.domain}"
+  open_ports = [
+    "80",        /* HTTP */
+    "443",       /* HTTPS */
+    "9630-9633", /* Nimbus ports */
+  ]
+}
+
+resource "cloudflare_record" "serenity-testnets" {
+  domain  = "${var.public_domain}"
+  name    = "serenity-testnets"
+  type    = "A"
+  proxied = true
+  value   = "${module.nimbus-master.public_ips[0]}"
+}
+
+module "nimbus-nodes" {
+  source = "github.com/status-im/infra-tf-digital-ocean"
+  name   = "node"
+  env    = "nimbus"
+  group  = "nimbus-slaves"
+  size   = "s-4vcpu-8gb"
+  domain = "${var.domain}"
+  count  = "${var.hosts_count}"
+  open_ports = [
+    "80",    /* HTTP */
+    "443",   /* HTTPS */
+    "40404", /* peer connection */
+  ]
+}

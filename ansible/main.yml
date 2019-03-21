@@ -4,7 +4,12 @@
   roles:
     - origin-cert
 
+#- name: Configure Nimbus master
+#  hosts: nimbus-master
+#  roles:
+#    - nimbus
+
 - name: Configure Nimbus cluster
-  hosts: nimbus
+  hosts: nimbus-nodes
   roles:
     - nimbus

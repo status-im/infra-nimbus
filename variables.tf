@@ -40,3 +40,10 @@ variable domain {
   description = "DNS Domain to update"
   default     = "statusim.net"
 }
+
+/* RESOURCES ------------------------------------*/
+
+variable hosts_count {
+  description = "Count of hosts in nimbus cluster"
+  default     = 1
+}
