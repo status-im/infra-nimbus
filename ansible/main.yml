@@ -1,15 +1,11 @@
 ---
-- name: Add CloudFlare Origin certs
-  hosts: all
-  roles:
-    - origin-cert
-
 #- name: Configure Nimbus master
 #  hosts: nimbus-master
 #  roles:
+#    - origin-cert
 #    - nimbus
 
 - name: Configure Nimbus cluster
-  hosts: nimbus-nodes
+  hosts: nimbus-slaves
   roles:
-    - nimbus
+    - infra-role-nimbus
