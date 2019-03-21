@@ -1,0 +1,21 @@
+---
+#
+# This playbook configures most basic things about the hosts:
+#
+# - Admin and Additional users
+# - Disables root login
+# - Installs Common packages
+# - Starts Consul client agent
+#
+# This is run on every newly provisioned host.
+#
+- name: Bootstrap Python support for Ansible
+  gather_facts: False
+  hosts: all
+  roles:
+    - infra-role-bootstrap/raw
+
+- name: Bootstrap admin users and Consul
+  hosts: all
+  roles:
+    - infra-role-bootstrap
