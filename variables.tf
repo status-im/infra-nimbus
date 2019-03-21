@@ -45,5 +45,5 @@ variable domain {
 
 variable hosts_count {
   description = "Count of hosts in nimbus cluster"
-  default     = 1
+  default     = 9
 }
