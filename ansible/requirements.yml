@@ -18,6 +18,6 @@
   src: git@github.com:status-im/infra-role-beacon-node.git
   scm: git
 
-- name: eth2-testnet-site
+- name: infra-role-eth2-testnet-site
   src: git@github.com:status-im/infra-role-eth2-testnet-site.git
   scm: git
