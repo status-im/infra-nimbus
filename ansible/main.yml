@@ -1,11 +1,11 @@
 ---
-#- name: Configure Nimbus master
-#  hosts: nimbus-master
-#  roles:
-#    - origin-cert
-#    - nimbus
+- name: Configure Nimbus master
+  hosts: nimbus-master
+  roles:
+    - origin-cert
+    - infra-role-eth2-testnet-site
 
 - name: Configure Nimbus cluster
   hosts: nimbus-slaves
   roles:
-    - infra-role-nimbus
+    - infra-role-beacon-node
