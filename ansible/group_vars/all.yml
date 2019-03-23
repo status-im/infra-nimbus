@@ -1,0 +1,15 @@
+---
+# general container config
+cont_state: started
+cont_recreate: false
+cont_restart: false
+
+# CloudFlare Origin certificates
+cloudflare_origin_crt: '{{lookup("passwordstore", "cloud/Cloudflare/origin.crt returnall=true")}}'
+cloudflare_origin_key: '{{lookup("passwordstore", "cloud/Cloudflare/origin.key returnall=true")}}'
+
+# Root password
+bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
+
+# Consul Encryption
+consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
