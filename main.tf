@@ -69,8 +69,9 @@ module "nimbus-nodes" {
   domain = "${var.domain}"
   count  = "${var.hosts_count}"
   open_ports = [
-    "80",    /* HTTP */
-    "443",   /* HTTPS */
-    "40404", /* peer connection */
+    "80",        /* HTTP */
+    "443",       /* HTTPS */
+    "40404",     /* peer connection */
+    "9100-9110", /* beacon node */
   ]
 }
