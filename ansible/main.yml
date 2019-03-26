@@ -7,7 +7,7 @@
     - { role: infra-role-beacon-node,
         beacon_node_network: 'testnet0',
         beacon_node_build_flavour: 'rlpx',
-        beacon_node_total_nodes: 1,
+        beacon_node_total_nodes: 2,
         beacon_node_disovery_port: 9000,
         beacon_node_listening_port: 9000 }
     - { role: infra-role-beacon-node,
