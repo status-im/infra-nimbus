@@ -1,0 +1,19 @@
+server {
+    listen 80;
+    server_name {{ nimbus_stats_domain }};
+    return 302 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name {{ nimbus_stats_domain }};
+
+    ssl_certificate     /certs/origin.crt;
+    ssl_certificate_key /certs/origin.key;
+
+    root {{ nimbus_stats_web_root }};
+
+    location = / {
+        try_files /{{ nimbus_stats_json_name }} =404;
+    }
+}

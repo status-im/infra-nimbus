@@ -52,6 +52,14 @@ module "nimbus-master" {
   ]
 }
 
+resource "cloudflare_record" "nimbus-test-stats" {
+  domain  = "${var.public_domain}"
+  name    = "nimbus-test-stats"
+  type    = "A"
+  proxied = true
+  value   = "${module.nimbus-master.public_ips[0]}"
+}
+
 resource "cloudflare_record" "serenity-testnets" {
   domain  = "${var.public_domain}"
   name    = "serenity-testnets"

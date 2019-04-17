@@ -1,0 +1,75 @@
+---
+- name: Make sure python3 is installed
+  apt:
+    name:
+      - python3
+      - python3-pip
+
+- name: Install ElasticSearch python module
+  pip:
+    name: elasticsearch
+    executable: pip3
+
+- name: Find out the name of ES load balancer
+  uri:
+    url: '{{ consul_query_url }}'
+  register: es_lbs
+
+- name: Install stat collecting script
+  copy:
+    src: collect.py
+    dest: '{{ nimbus_stats_script }}'
+    mode: 0755
+  register: nimbus_script
+
+- name: Create the cron script
+  copy:
+    dest: '{{ nimbus_stats_cron_script }}'
+    mode: 0755
+    content: |
+      #!/usr/bin/env bash
+      exec {{ nimbus_stats_script }} \
+          -H {{ es_lbs.json[0].ServiceAddress }} \
+          -o {{ nimbus_stats_json }}
+
+- name: Create www directory
+  file:
+    path: '{{ nimbus_stats_web_root }}'
+    state: directory
+    group: www-data
+    mode: 0755
+
+- name: Run the script before Nginx configuration
+  command: '{{ nimbus_stats_cron_script }}'
+  when: nimbus_script.changed
+
+- name: Create nginx config
+  template:
+    src: proxy.conf.j2
+    dest: '/etc/nginx/sites-available/{{ nimbus_stats_domain | mandatory }}.conf'
+  notify:
+    - reload nginx
+
+- name: Enable site
+  file:
+    src: '/etc/nginx/sites-available/{{ nimbus_stats_domain | mandatory }}.conf'
+    dest: '/etc/nginx/sites-enabled/{{ nimbus_stats_domain | mandatory }}.conf'
+    state: link
+
+- name: Enable HTTPS port
+  iptables:
+    comment: 'HTTPS'
+    chain: INPUT
+    jump: ACCEPT
+    source: '0.0.0.0/0'
+    protocol: tcp
+    destination_port: 443
+  notify:
+    - Save iptables rules
+
+- name: Create a cron job for updating stats
+  cron:
+    name: Nimbus Fleet Stats
+    minute: '*/5'
+    user: root
+    job: '{{ nimbus_stats_cron_script }}'

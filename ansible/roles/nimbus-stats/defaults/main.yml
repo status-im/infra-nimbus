@@ -1,0 +1,13 @@
+---
+nimbus_stats_domain: ~
+nimbus_stats_web_root: /var/www/nimbus
+nimbus_stats_json_name: nimbus_stats.json
+nimbus_stats_json: '{{ nimbus_stats_web_root }}/{{ nimbus_stats_json_name }}'
+nimbus_stats_script: /usr/local/bin/collect_nimbus_stats.py
+nimbus_stats_cron_script: /usr/local/bin/save_nimbus_stats.py
+
+# necessary to query for ES lb
+consul_base_url: 'http://localhost:8500/v1/catalog'
+consul_service_name: elasticsearch-lb
+consul_service_tag: status-logs-search
+consul_query_url: '{{ consul_base_url }}/service/{{ consul_service_name }}?tag={{ consul_service_tag }}'

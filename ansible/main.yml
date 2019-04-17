@@ -2,8 +2,9 @@
 - name: Configure Nimbus master
   hosts: nimbus-master
   roles:
-    # - { role: origin-cert }
+    - { role: origin-cert }
     # - { role: infra-role-eth2-testnet-site }
+    - { role: nimbus-stats, tags: nimbus-stats }
     - { role: infra-role-beacon-node,
         beacon_node_network: 'testnet0',
         beacon_node_build_flavour: 'rlpx',
