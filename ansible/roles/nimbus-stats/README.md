@@ -1,6 +1,6 @@
 # Description
 
-This role defined a simple service which lists the current state of the nodes in the fleet.
+This role defined a simple service which lists the current state of the nodes in the fleet. It does it by collecting most recent messages from the logs stored in ElasticSearch cluster and saves them in a JSON file which is then hosted publicly via Nginx.
 
 # Configuration
 
