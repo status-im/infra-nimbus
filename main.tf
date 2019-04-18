@@ -48,7 +48,8 @@ module "nimbus-master" {
   open_ports = [
     "80",        /* HTTP */
     "443",       /* HTTPS */
-    "9630-9633", /* Nimbus ports */
+    "9000-9010", /* Nimbus ports */
+    "9100-9110", /* Nimbus ports */
   ]
 }
 
@@ -79,7 +80,7 @@ module "nimbus-nodes" {
   open_ports = [
     "80",        /* HTTP */
     "443",       /* HTTPS */
-    "40404",     /* peer connection */
+    "9000-9010", /* beacon node */
     "9100-9110", /* beacon node */
   ]
 }
