@@ -29,15 +29,18 @@ class ES:
         self.page_size = page_size
         self.es = Elasticsearch([host], port=port, timeout=30)
 
-    def make_query(self, fleet, program, message, after):
+    def make_query(self, fleet, program, messages, after):
         return {
             'query': { 'bool': {
                 'must': [
                     { 'match': { 'fleet': fleet } },
                     { 'match': { 'program': program } },
-                    { 'match_phrase': { 'message': message } },
                     { 'range': { '@timestamp': { 'gt': after } } },
                 ],
+                'should': [
+                    { 'match_phrase': { 'message': msg } } for msg in messages
+                ],
+                'minimum_should_match': 1,
             }, },
             'sort': [
                 { '@timestamp': { 'order': 'desc' } },
@@ -59,9 +62,29 @@ def get_first_for_node(logs):
     for log_obj in logs:
         log = log_obj['_source']
         host_obj = data.setdefault(log['logsource'], {})
-        prog_obj = host_obj.setdefault(log['program'], {})
+        # remove "docker/" prefix from program name
+        program = log['program'].replace('docker/', '')
+        prog_obj = host_obj.setdefault(program, {})
         prog_obj[log['message']] = json.loads(log['raw'])
     return data
+
+def save_stats(data, output_file):
+    # add metadata for easier debugging
+    output = {
+        'meta': {
+            'hostname': socket.gethostname(),
+            'timestamp': datetime.utcnow().isoformat(),
+        },
+        'data': data,
+    }
+    
+    if output_file:
+        LOG.info('Saving to file: %s', output_file)
+        with open(output_file, 'w') as f:
+            json.dump(data, f, indent=4)
+    else:
+        LOG.info('Printing results to STDOUT')
+        print(json.dumps(data, indent=4))
 
 def parse_opts():
     parser = OptionParser(description=HELP_DESCRIPTION, epilog=HELP_EXAMPLE)
@@ -102,31 +125,16 @@ def main():
 
     es = ES(opts.es_host, opts.es_port, opts.page_size)
     
-    logs = []
-
     LOG.info('Querying fleet: %s', opts.fleet)
-    for msg in opts.messages:
-        query = es.make_query(opts.fleet, opts.program, msg, opts.since)
-        rval = es.get_logs(query)
-        LOG.info('Message: "%s" Found: %d', msg, rval['hits']['total'])
-        logs.extend(rval['hits']['hits'])
+    query = es.make_query(opts.fleet, opts.program, opts.messages, opts.since)
+    rval = es.get_logs(query)
+
+    LOG.info('Found matching logs: %d', rval['hits']['total'])
+    logs = rval['hits']['hits']
     
     data = get_first_for_node(logs)
     
-    # add metadata for easier debugging
-    output = {
-        'meta': {
-            'hostname': socket.gethostname(),
-            'timestamp': datetime.utcnow().isoformat(),
-        },
-        'data': data,
-    }
-    
-    if opts.output_file:
-        with open(opts.output_file, 'w') as f:
-            json.dump(data, f, indent=4)
-    else:
-        print(json.dumps(data, indent=4))
+    save_stats(data, opts.output_file)
 
 if __name__ == '__main__':
     main()
