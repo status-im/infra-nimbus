@@ -1,2 +1,4 @@
 ---
 nimbus_stats_domain: nimbus-test-status.status.im
+# temporary
+beacon_node_log_level: DEBUG
