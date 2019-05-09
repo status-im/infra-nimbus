@@ -9,12 +9,14 @@
         beacon_node_network: 'testnet0',
         beacon_node_build_flavour: 'rlpx',
         beacon_node_total_nodes: 2,
+        beacon_node_running_nodes: 2,
         beacon_node_discovery_port: 9000,
         beacon_node_listening_port: 9000 }
     - { role: infra-role-beacon-node,
         beacon_node_network: 'testnet1',
         beacon_node_build_flavour: 'rlpx',
         beacon_node_total_nodes: 5,
+        beacon_node_running_nodes: 2,
         beacon_node_discovery_port: 9100,
         beacon_node_listening_port: 9100 }
 
@@ -22,8 +24,16 @@
   hosts: nimbus-slaves
   roles:
     - { role: infra-role-beacon-node,
+        beacon_node_network: 'testnet0',
+        beacon_node_build_flavour: 'rlpx',
+        beacon_node_total_nodes: 2,
+        beacon_node_running_nodes: 2,
+        beacon_node_discovery_port: 9000,
+        beacon_node_listening_port: 9000 }
+    - { role: infra-role-beacon-node,
         beacon_node_network: 'testnet1',
         beacon_node_build_flavour: 'rlpx',
         beacon_node_total_nodes: 10,
+        beacon_node_running_nodes: 2,
         beacon_node_discovery_port: 9100,
         beacon_node_listening_port: 9100 }
