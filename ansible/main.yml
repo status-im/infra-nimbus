@@ -13,7 +13,7 @@
         beacon_node_network: 'testnet0'
         beacon_node_public_tcp_port: '{{ 9000 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9000 - 1 + item|int }}'
-        beacon_node_cont_name: 'beacon-node-{{ beacon_node_build_flavour }}-{{ beacon_node_network}}-{{ item }}'
+        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
 
     - include_role:
         name: infra-role-beacon-node
@@ -22,7 +22,7 @@
         beacon_node_network: 'testnet1'
         beacon_node_public_tcp_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9100 - 1 + item|int }}'
-        beacon_node_cont_name: 'beacon-node-{{ beacon_node_build_flavour }}-{{ beacon_node_network}}-{{ item }}'
+        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
 
 - name: Configure Nimbus cluster
   hosts: nimbus-slaves
@@ -34,7 +34,7 @@
         beacon_node_network: 'testnet0'
         beacon_node_public_tcp_port: '{{ 9000 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9000 - 1 + item|int }}'
-        beacon_node_cont_name: 'beacon-node-{{ beacon_node_build_flavour }}-{{ beacon_node_network}}-{{ item }}'
+        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
 
     - include_role:
         name: infra-role-beacon-node
@@ -43,4 +43,4 @@
         beacon_node_network: 'testnet1'
         beacon_node_public_tcp_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9100 - 1 + item|int }}'
-        beacon_node_cont_name: 'beacon-node-{{ beacon_node_build_flavour }}-{{ beacon_node_network}}-{{ item }}'
+        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
