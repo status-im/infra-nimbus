@@ -11,6 +11,7 @@
       with_sequence: count=2
       vars:
         beacon_node_network: 'testnet0'
+        beacon_node_metrics_port : '{{ 9200 - 1 + item|int }}'
         beacon_node_public_tcp_port: '{{ 9000 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9000 - 1 + item|int }}'
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
@@ -20,6 +21,7 @@
       with_sequence: count=2
       vars:
         beacon_node_network: 'testnet1'
+        beacon_node_metrics_port : '{{ 9200 - 1 + item|int }}'
         beacon_node_public_tcp_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
@@ -32,6 +34,7 @@
       with_sequence: count=2
       vars:
         beacon_node_network: 'testnet0'
+        beacon_node_metrics_port : '{{ 9200 - 1 + item|int }}'
         beacon_node_public_tcp_port: '{{ 9000 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9000 - 1 + item|int }}'
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
@@ -41,6 +44,7 @@
       with_sequence: count=2
       vars:
         beacon_node_network: 'testnet1'
+        beacon_node_metrics_port : '{{ 9200 - 1 + item|int }}'
         beacon_node_public_tcp_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_public_udp_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
