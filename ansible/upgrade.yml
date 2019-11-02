@@ -1,0 +1,12 @@
+- name: Update and upgrade apt packages
+  gather_facts: false
+  hosts: all
+  tasks:
+    - name: Upgrade packages
+      apt:
+        upgrade: true
+        update_cache: true
+        cache_valid_time: 86400
+    - name: Remove unused packages
+      apt:
+        autoremove: true

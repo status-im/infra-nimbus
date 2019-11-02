@@ -1,0 +1,42 @@
+- name: Cleanup to regain disk space
+  hosts: all
+  tasks:
+    - name: Save available space
+      set_fact:
+        free_before: '{{ ansible_mounts | selectattr("mount", "equalto", "/") | map(attribute="size_available") | first }}'
+
+    - name: Clean apt packages
+      apt:
+        autoremove: true
+        purge: true
+
+    - name: Uninstall snapd
+      apt:
+        name: snapd
+        state: absent
+
+    - name: Remove snapd files
+      file:
+        path: '/var/lib/snapd'
+        state: absent
+
+    - name: Remove logs older than 1 day
+      command: journalctl --vacuum-time=1d
+
+    - name: Remove log gzipped archives
+      shell: 'rm -f /var/log/*.gz /var/log/docker/*/*.gz'
+
+    - name: Remove old backups
+      shell: 'rm -f /var/tmp/backups/*/*'
+
+    - name: Gather space info
+      setup:
+        gather_subset: 'hardware'
+
+    - name: Save available space
+      set_fact:
+        free_after: '{{ ansible_mounts | selectattr("mount", "equalto", "/") | map(attribute="size_available") | first }}'
+
+    - name: Show space recovered
+      debug:
+        msg: '~ {{ ((free_after|int - free_before|int)/(1024*1024)) | round | int }} MB'
