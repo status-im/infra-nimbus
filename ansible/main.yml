@@ -10,6 +10,7 @@
   hosts:
     - nimbus-master
     - nimbus-slaves
+  tags: beacon-node
   tasks:
     - include_role:
         name: infra-role-beacon-node
