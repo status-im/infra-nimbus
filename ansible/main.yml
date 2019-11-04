@@ -1,8 +1,9 @@
 ---
 - name: Configure Nimbus master
-  hosts: nimbus-master
+  hosts:
+    - nimbus-master
   roles:
-    - { role: origin-cert }
+    - { role: origin-cert,  tags: origin-cert }
     - { role: nimbus-stats, tags: nimbus-stats }
 
 - name: Configure Nimbus cluster
@@ -12,7 +13,7 @@
   tasks:
     - include_role:
         name: infra-role-beacon-node
-        tags: beacon-node
+      tags: beacon-node
       with_sequence: count=2
       vars:
         beacon_node_network: 'testnet0'
@@ -23,7 +24,7 @@
 
     - include_role:
         name: infra-role-beacon-node
-        tags: beacon-node
+      tags: beacon-node
       with_sequence: count=2
       vars:
         beacon_node_network: 'testnet1'
