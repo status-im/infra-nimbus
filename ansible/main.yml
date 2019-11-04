@@ -1,4 +1,12 @@
 ---
+- name: Pre-playbook checks
+  hosts: localhost
+  tasks:
+    - name: 'Verify Ansible version is 2.8 or newer'
+      assert:
+        that: 'ansible_version.full is version_compare("2.8", ">=")'
+        msg: 'Your Ansible version is lower than 2.8. Upgrade it.'
+
 - name: Configure Nimbus master
   hosts:
     - nimbus-master
