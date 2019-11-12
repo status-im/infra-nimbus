@@ -5,8 +5,11 @@ cont_recreate: false
 cont_restart: false
 
 # CloudFlare Origin certificates
-cloudflare_origin_crt: '{{lookup("passwordstore", "cloud/Cloudflare/origin.crt returnall=true")}}'
-cloudflare_origin_key: '{{lookup("passwordstore", "cloud/Cloudflare/origin.key returnall=true")}}'
+origin_certs:
+  - domain: 'status.im'
+    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
+    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
+    default: true
 
 # Root password
 bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'

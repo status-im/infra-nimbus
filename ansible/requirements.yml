@@ -1,5 +1,5 @@
-- name: origin-cert
-  src: git@github.com:status-im/infra-role-origin-cert.git
+- name: origin-certs
+  src: git@github.com:status-im/infra-role-origin-certs.git
   scm: git
 
 - name: infra-role-tinc
