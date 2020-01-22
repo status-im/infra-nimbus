@@ -5,9 +5,9 @@ provider "digitalocean" {
 }
 
 provider "cloudflare" {
-  email  = var.cloudflare_email
-  token  = var.cloudflare_token
-  org_id = var.cloudflare_org_id
+  email      = var.cloudflare_email
+  api_key    = var.cloudflare_token
+  account_id = var.cloudflare_account
 }
 
 provider "google" {
@@ -39,6 +39,22 @@ terraform {
     key_file  = "ansible/files/consul-client.key"
   }
 }
+
+/* CF Zones ------------------------------------*/
+
+/* CloudFlare Zone IDs required for records */
+data "cloudflare_zones" "active" {
+  filter { status = "active" }
+}
+
+/* For easier access to zone ID by domain name */
+locals {
+  zones = {
+    for zone in data.cloudflare_zones.active.zones:
+      zone.name => zone.id
+  }
+}
+
 
 /* RESOURCES ------------------------------------*/
 
@@ -79,7 +95,7 @@ module "nimbus-nodes" {
 /* DNS ------------------------------------------*/
 
 resource "cloudflare_record" "nimbus-test-stats" {
-  domain  = var.public_domain
+  zone_id = local.zones["status.im"]
   name    = "nimbus-test-stats"
   type    = "A"
   proxied = true
@@ -88,7 +104,7 @@ resource "cloudflare_record" "nimbus-test-stats" {
 }
 
 resource "cloudflare_record" "serenity-testnets" {
-  domain  = var.public_domain
+  zone_id = local.zones["status.im"]
   name    = "serenity-testnets"
   type    = "A"
   proxied = true

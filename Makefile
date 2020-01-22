@@ -56,12 +56,12 @@ secrets:
 	pass services/consul/client-crt > ansible/files/consul-client.crt
 	pass services/consul/client-key > ansible/files/consul-client.key
 	echo "Saving secrets to: terraform.tfvars"
-	@echo "\
+	@echo -e "\
 # secrets extracted from password-store\n\
-digitalocean_token  = \"$(shell pass cloud/DigitalOcean/token)\"\n\
 cloudflare_token    = \"$(shell pass cloud/Cloudflare/token)\"\n\
 cloudflare_email    = \"$(shell pass cloud/Cloudflare/email)\"\n\
-cloudflare_org_id   = \"$(shell pass cloud/Cloudflare/org_id)\"\n\
+cloudflare_account  = \"$(shell pass cloud/Cloudflare/account)\"\n\
+digitalocean_token  = \"$(shell pass cloud/DigitalOcean/token)\"\n\
 alicloud_access_key = \"$(shell pass cloud/Alibaba/access-key)\"\n\
 alicloud_secret_key = \"$(shell pass cloud/Alibaba/secret-key)\"\n\
 " > terraform.tfvars

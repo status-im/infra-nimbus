@@ -1,19 +1,19 @@
 /* REQUIRED -------------------------------------*/
 
-variable "cloudflare_token" {
-  description = "Token for interacting with Cloudflare API."
-}
-
-variable "digitalocean_token" {
-  description = "Token for interacting with DigitalOcean API."
-}
-
 variable "cloudflare_email" {
   description = "Email address of Cloudflare account."
 }
 
-variable "cloudflare_org_id" {
+variable "cloudflare_token" {
+  description = "Token for interacting with Cloudflare API."
+}
+
+variable "cloudflare_account" {
   description = "ID of the CloudFlare organization."
+}
+
+variable "digitalocean_token" {
+  description = "Token for interacting with DigitalOcean API."
 }
 
 variable "alicloud_access_key" {
