@@ -17,6 +17,9 @@ bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 # Consul Encryption
 consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
 
+# Disable Watchtower cleanup to avoid removal errors
+bootstrap__watchtower_cleanup_flag: false
+
 # Custom SSH accounts for Nimbus fleet
 bootstrap__active_users:
   - { name: adamb,   uid: 7003, groups: [] }
