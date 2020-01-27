@@ -58,12 +58,11 @@ secrets:
 	echo "Saving secrets to: terraform.tfvars"
 	@echo -e "\
 # secrets extracted from password-store\n\
-cloudflare_token    = \"$(shell pass cloud/Cloudflare/token)\"\n\
-cloudflare_email    = \"$(shell pass cloud/Cloudflare/email)\"\n\
-cloudflare_account  = \"$(shell pass cloud/Cloudflare/account)\"\n\
-digitalocean_token  = \"$(shell pass cloud/DigitalOcean/token)\"\n\
-alicloud_access_key = \"$(shell pass cloud/Alibaba/access-key)\"\n\
-alicloud_secret_key = \"$(shell pass cloud/Alibaba/secret-key)\"\n\
+cloudflare_token   = \"$(shell pass cloud/Cloudflare/token)\"\n\
+cloudflare_email   = \"$(shell pass cloud/Cloudflare/email)\"\n\
+cloudflare_account = \"$(shell pass cloud/Cloudflare/account)\"\n\
+aws_access_key     = \"$(shell pass cloud/AWS/Nimbus/access-key)\"\n\
+aws_secret_key     = \"$(shell pass cloud/AWS/Nimbus/secret-key)\"\n\
 " > terraform.tfvars
 
 cleanup:

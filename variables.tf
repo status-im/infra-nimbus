@@ -12,21 +12,17 @@ variable "cloudflare_account" {
   description = "ID of the CloudFlare organization."
 }
 
-variable "digitalocean_token" {
-  description = "Token for interacting with DigitalOcean API."
+variable "aws_access_key" {
+  description = "Access key for the AWS API."
 }
 
-variable "alicloud_access_key" {
-  description = "Alibaba Cloud API access key."
+variable "aws_secret_key" {
+  description = "Secret key for the AWS API."
 }
 
-variable "alicloud_secret_key" {
-  description = "Alibaba Cloud API secret key."
-}
-
-variable "alicloud_region" {
-  description = "Alibaba Cloud hosting region."
-  default     = "cn-hongkong"
+variable "aws_zone" {
+  description = "Name of the AWS Availability Zone."
+  default     = "eu-central-1"
 }
 
 /* GENERAL --------------------------------------*/

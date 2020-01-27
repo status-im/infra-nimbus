@@ -1,7 +1,10 @@
 /* PROVIDERS ------------------------------------*/
 
-provider "digitalocean" {
-  token = var.digitalocean_token
+provider "aws" {
+  version    = "~> 2.0"
+  region     = var.aws_zone
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 provider "cloudflare" {
@@ -10,33 +13,14 @@ provider "cloudflare" {
   account_id = var.cloudflare_account
 }
 
-provider "google" {
-  credentials = file("google-cloud.json")
-  project     = "russia-servers"
-  region      = "us-central1"
-}
-
-provider "alicloud" {
-  access_key = var.alicloud_access_key
-  secret_key = var.alicloud_secret_key
-  region     = var.alicloud_region
-}
-
 /* DATA -----------------------------------------*/
 
 terraform {
-  backend "consul" {
-    address = "https://consul.statusim.net:8400"
-    lock    = true
-
-    /* KV store has a limit of 512KB */
-    gzip = true
-
-    /* WARNING This needs to be changed for every repo. */
-    path      = "terraform/nimbus/"
-    ca_file   = "ansible/files/consul-ca.crt"
-    cert_file = "ansible/files/consul-client.crt"
-    key_file  = "ansible/files/consul-client.key"
+  backend "s3" {
+    bucket  = "tf-state-infra-nimbus"
+    key     = "infra-dapps"
+    region  = "eu-central-1"
+    encrypt = true
   }
 }
 
@@ -55,60 +39,9 @@ locals {
   }
 }
 
+/* ACCESS KEY ------------------------------------------------------*/
 
-/* RESOURCES ------------------------------------*/
-
-module "nimbus-master" {
-  source     = "github.com/status-im/infra-tf-digital-ocean"
-
-  name       = "master"
-  env        = "nimbus"
-  group      = "nimbus-master"
-  size       = "s-4vcpu-8gb"
-  host_count = 1
-  domain     = var.domain
-  open_ports = [
-    "80", /* HTTP */
-    "443", /* HTTPS */
-    "9000-9010", /* Nimbus ports */
-    "9100-9110", /* Nimbus ports */
-  ]
+resource "aws_key_pair" "jakubgs" {
+  key_name   = "jakubgs"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA6mutbRHO8VvZ61MYvjIVv1Re9NiJGE1piTQq4IFwXOvAi1HkXkMlsjmzYt+CEv0HmMGCHmdrw5xpqnDTWg18lM5RYLzrAv9hBOQ10IC+8FH2XWDKoyz+PBQsNEbbJ23QQtu0O5mpsOzI/KBT9CkiYUYlEBwHI0vNqsdHDLwv3Yt7PhauguXDHpYnwH/OseVHLBg2+/3aJIfOMVVRnhptQGYAhTNUZ9F1EwvQETMhM/vEsk8+o9B3tK/Ii/RD2EtVUlpRG4q6QTFbssLMImUfcdoggHsfCqjq3apUs8bR81oN9UVoYiP8tn5sWIUyRBxIEzXpqa4rx04KY8xNYqeZ jakub@status.im"
 }
-
-module "nimbus-nodes" {
-  source     = "github.com/status-im/infra-tf-digital-ocean"
-
-  name       = "node"
-  env        = "nimbus"
-  group      = "nimbus-slaves"
-  size       = "s-4vcpu-8gb"
-  domain     = var.domain
-  host_count = var.hosts_count
-  open_ports = [
-    "80", /* HTTP */
-    "443", /* HTTPS */
-    "9000-9010", /* beacon node */
-    "9100-9110", /* beacon node */
-  ]
-}
-
-/* DNS ------------------------------------------*/
-
-resource "cloudflare_record" "nimbus-test-stats" {
-  zone_id = local.zones["status.im"]
-  name    = "nimbus-test-stats"
-  type    = "A"
-  proxied = true
-  value   = module.nimbus-master.public_ips[count.index]
-  count   = length(module.nimbus-master.public_ips)
-}
-
-resource "cloudflare_record" "serenity-testnets" {
-  zone_id = local.zones["status.im"]
-  name    = "serenity-testnets"
-  type    = "A"
-  proxied = true
-  value   = module.nimbus-master.public_ips[count.index]
-  count   = length(module.nimbus-master.public_ips)
-}
-
