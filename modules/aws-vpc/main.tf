@@ -70,12 +70,13 @@ resource "aws_security_group" "main" {
     self      = true
     protocol  = "-1"
   }
-  /* Allowing outgoing is also necessary */
+
+  /* Allowing ALL outgoing */
   egress {
-    from_port = 0
-    to_port   = 0
-    self      = true
-    protocol  = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   /* TCP */
