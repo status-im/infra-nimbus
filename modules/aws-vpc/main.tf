@@ -1,3 +1,4 @@
+/* The VPN allows us to limit certain traffic to just local network */
 resource "aws_vpc" "main" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
@@ -10,6 +11,7 @@ resource "aws_vpc" "main" {
   }
 }
 
+/* A VPN can't exist by itself, a subnet is necessary to add instances */
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "10.0.1.0/24"
@@ -34,6 +36,7 @@ resource "aws_internet_gateway" "main" {
   }
 }
 
+/* Adds rule for accessing internet via the Gateway */
 resource "aws_route_table" "main" {
   vpc_id = aws_vpc.main.id
 
@@ -48,23 +51,26 @@ resource "aws_route_table" "main" {
   }
 }
 
+/* Add the route to Gateway to the Subnet */
 resource "aws_route_table_association" "main" {
   subnet_id      = aws_subnet.main.id
   route_table_id = aws_route_table.main.id
 }
 
+/* Open the necessary ports to the outside */
 resource "aws_security_group" "main" {
   name        = "${var.name}-${var.stage}"
   description = "Allow inbound traffic for Nimbus fleet"
   vpc_id      = aws_vpc.main.id
 
-  /* Allow local traffic */
+  /* Allow local incoming traffic, necessary for logging */
   ingress {
     from_port = 0
     to_port   = 0
     self      = true
     protocol  = "-1"
   }
+  /* Allowing outgoing is also necessary */
   egress {
     from_port = 0
     to_port   = 0
