@@ -17,6 +17,9 @@ bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 # Consul Encryption
 consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
 
+# Add volume for Nimbus data
+bootstrap_extra_volume_path: '/docker'
+
 # Disable Consul, AWS has no Consul cluster
 bootstrap__consul_enabled: false
 
