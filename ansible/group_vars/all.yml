@@ -20,12 +20,6 @@ consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-ke
 # Add volume for Nimbus data
 bootstrap_extra_volume_path: '/docker'
 
-# Disable Consul, AWS has no Consul cluster
-bootstrap__consul_enabled: false
-
-# Disable Tinc, since it won't work without Consul
-bootstrap__tinc_enabled: false
-
 # Disable Watchtower cleanup to avoid removal errors
 bootstrap__watchtower_cleanup_flag: false
 
