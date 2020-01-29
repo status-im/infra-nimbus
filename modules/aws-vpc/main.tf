@@ -1,6 +1,6 @@
 /* The VPN allows us to limit certain traffic to just local network */
 resource "aws_vpc" "main" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = var.vpc_cidr_block
   instance_tenancy = "default"
 
   enable_dns_support   = true
@@ -14,7 +14,7 @@ resource "aws_vpc" "main" {
 /* A VPN can't exist by itself, a subnet is necessary to add instances */
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.subnet_cidr_block
 
   /* Needs to be the same as the instances zone */
   availability_zone = var.zone
