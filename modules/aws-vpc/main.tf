@@ -112,4 +112,9 @@ resource "aws_security_group" "main" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
+
+  /* Without this aws_route_table is not created in time */
+  depends_on = [
+    aws_route_table_association.main
+  ]
 }
