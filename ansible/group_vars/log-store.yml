@@ -1,0 +1,71 @@
+---
+# Mount extra volume for ElasticSearch container
+bootstrap_extra_volume_path: '/docker'
+
+# ElasticSearch Cluster
+es_master_nodes: |
+  {{ ansible_play_hosts
+   | map('extract', hostvars)
+   | list
+   | json_query(
+   '[].{
+     name: hostname,
+     addr: ansible_local.tinc.vpn_ip,
+     port: to_string(es_node_port)
+   }') }}
+es_cluster_name: 'nimbus-logs-search'
+es_cont_name: 'elasticsearch'
+
+es_image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.2'
+es_api_port: 9200
+es_node_port: 9300
+
+# Since Logstash stores 1 index per day this is fine
+# See: https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster
+es_number_of_replicas: 1
+es_number_of_shards: 3
+
+# JVM memory settings
+es_jvm_mem_ratio: 0.6
+es_jvm_mem: '{{ (ansible_memtotal_mb * es_jvm_mem_ratio) | round(0, "floor") }}'
+es_jvm_min_heap: '{{ es_jvm_mem | int }}m'
+es_jvm_max_heap: '{{ es_jvm_mem | int }}m'
+
+# ElasticSearch HQ
+es_hq_lb_cont_name: '{{ es_cont_name }}'
+
+# oauth access
+oauth_domain: 'nimbus-es.status.im'
+oauth_cont_name: '{{ es_hq_cont_name }}-oauth'
+oauth_upstream_cont: '{{ es_hq_cont_name }}'
+oauth_upstream_port: '{{ es_hq_cont_port }}'
+oauth_public_port: 443
+oauth_local_port: 8090
+oauth_cookie_secret: '{{ lookup("passwordstore", "services/cookie-secret") }}'
+oauth_id: '{{ lookup("passwordstore", "services/elastic-hq-nimbus/oauth-id") }}'
+oauth_secret: '{{ lookup("passwordstore", "services/elastic-hq-nimbus/oauth-secret") }}'
+
+# Proxy for ES HQ
+nginx_sites:
+  elasticsearch_hq_http:
+    - listen 80
+    - server_name {{ oauth_domain }}
+    - return 302 https://$server_name$request_uri
+  elasticsearch_hq_https:
+    - listen 80
+    - listen 443 ssl
+
+    - server_name {{ oauth_domain }}
+
+    - ssl_certificate     /certs/status.im/origin.crt
+    - ssl_certificate_key /certs/status.im/origin.key
+
+    - location / {
+        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:{{ oauth_local_port }}/;
+      }
+
+# Open Nginx Ports
+open_ports_protocol: tcp
+open_ports_comment: 'HTTP & HTTPS'
+open_ports_list: [80, 443]

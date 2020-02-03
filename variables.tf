@@ -40,6 +40,11 @@ variable "domain" {
 /* RESOURCES ------------------------------------*/
 
 variable "hosts_count" {
-  description = "Count of hosts in nimbus cluster"
+  description = "Count of hosts in nimbus cluster."
   default     = 9
+}
+
+variable "log_stores_count" {
+  description = "Count of ElasticSearch cluster hosts."
+  default     = 3
 }

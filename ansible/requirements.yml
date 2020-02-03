@@ -1,5 +1,13 @@
+---
+- name: nginx
+  src: jdauphant.nginx
+
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
+  scm: git
+
+- name: open-ports
+  src: git@github.com:status-im/infra-role-open-ports.git
   scm: git
 
 - name: infra-role-tinc
@@ -8,6 +16,10 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
+  scm: git
+
+- name: oauth-proxy
+  src: git@github.com:status-im/infra-role-oauth-proxy.git
   scm: git
 
 - name: consul-service
@@ -20,4 +32,12 @@
 
 - name: infra-role-eth2-testnet-site
   src: git@github.com:status-im/infra-role-eth2-testnet-site.git
+  scm: git
+
+- name: elasticsearch
+  src: git@github.com:status-im/infra-role-elasticsearch.git
+  scm: git
+
+- name: elasticsearch-hq
+  src: git@github.com:status-im/infra-role-elasticsearch-hq.git
   scm: git

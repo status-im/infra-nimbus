@@ -1,0 +1,16 @@
+---
+- name: Configure ElasticSearch servers
+  hosts: log-store
+  roles:
+    - role: origin-certs
+      tags: origin-certs
+    - role: elasticsearch
+      tags: elasticsearch
+    - role: elasticsearch-hq
+      tags: elasticsearch-hq
+    - role: oauth-proxy
+      tags: oauth-proxy
+    - role: nginx
+      tags: nginx
+    - role: open-ports
+      tags: open-ports
