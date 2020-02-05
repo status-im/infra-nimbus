@@ -11,6 +11,9 @@ origin_certs:
     key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
     default: true
 
+# Consul Catalog Query URL
+consul_catalog_url: 'http://localhost:8500/v1/catalog/service'
+
 # Root password
 bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 
