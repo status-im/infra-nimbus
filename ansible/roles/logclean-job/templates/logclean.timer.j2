@@ -1,0 +1,6 @@
+[Unit]
+After=multi-user.target
+
+[Timer]
+OnCalendar={{ logclean_timer_frequency }}
+Persistent=yes

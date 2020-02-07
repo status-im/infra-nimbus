@@ -1,0 +1,12 @@
+[Unit]
+Description="{{ logclean_service_desc }}"
+Documentation=https://github.com/status-im/infra-nimbus/tree/master/ansible/roles/esclean-job
+Requires=network-online.target
+After=network-online.target
+After={{ logclean_service_after }}
+
+[Service]
+User={{ logclean_service_user }}
+ExecStart={{ logclean_script_path }}
+Type=oneshot
+TimeoutStartSec={{ logclean_service_timeout }}

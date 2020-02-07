@@ -1,0 +1,39 @@
+---
+- name: 'Log Clean | Verify we keep a minimum of 60 indices'
+  assert:
+    quiet: true
+    that:
+      - logclean_keep_indices > 60
+
+- name: 'Log Clean | Create logclean script'
+  template:
+    src: logclean.sh
+    dest: '{{ logclean_script_path }}'
+    mode: 0755
+
+- name: 'Log Clean | Create systemd service: {{ logclean_service_name }}'
+  template:
+    src: logclean.service.j2
+    dest: '{{ logclean_service_path }}/{{ logclean_service_name }}.service'
+    mode: 0644
+
+- name: 'Log Clean | Create systemd timer: {{ logclean_service_name }}'
+  template:
+    src: logclean.timer.j2
+    dest: '{{ logclean_service_path }}/{{ logclean_service_name }}.timer'
+    mode: 0644
+
+- name: Reload systemctl
+  command: systemctl daemon-reload
+
+- name: 'Log Clean | (Re)start fetching service: {{ logclean_service_name }}'
+  service:
+    name: '{{ logclean_service_name }}.service'
+    state: started
+    enabled: true
+
+- name: 'Log Clean | Enable the service timer: {{ logclean_service_name }}'
+  systemd:
+    name: '{{ logclean_service_name }}.timer'
+    state: started
+    enabled: yes

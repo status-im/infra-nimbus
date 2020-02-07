@@ -39,6 +39,8 @@
   roles:
     - role: elasticsearch-lb
       tags: elasticsearch-lb
+    - role: logclean-job
+      tags: logclean-job
     - role: kibana
       tags: kibana
     - role: kibana-logtrail

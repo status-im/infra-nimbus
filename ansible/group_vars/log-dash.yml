@@ -27,6 +27,9 @@ es_lb_data_center: do-ams3
 es_lb_cluster_name: 'nimbus-logs-search'
 es_lb_api_port: 9200
 
+logclean_es_host: 'localhost'
+logclean_es_port: '{{ es_lb_api_port }}'
+
 # JVM Memory settings
 es_lb_jvm_min_heap: 2g
 es_lb_jvm_max_heap: 2g
