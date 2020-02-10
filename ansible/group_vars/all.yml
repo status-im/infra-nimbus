@@ -1,8 +1,8 @@
 ---
 # general container config
-cont_state: started
-cont_recreate: false
 cont_restart: false
+cont_recreate: 'smart'
+cont_state: 'present'
 
 # CloudFlare Origin certificates
 origin_certs:
