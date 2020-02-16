@@ -1,3 +1,7 @@
 ---
 # temporary
 beacon_node_log_level: TRACE
+# lower local retention to save space
+bootstrap__logrotate_frequency: 'hourly'
+bootstrap__logrotate_count: 3
+bootstrap__logrotate_mbytes: 200
