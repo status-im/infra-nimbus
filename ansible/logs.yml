@@ -21,7 +21,7 @@
   pre_tasks:
     - name: Fetch available elasticsearch nodes
       uri:
-        url: '{{ consul_catalog_url }}/elasticsearch?dc={{ data_center }}&tag={{ es_lb_cluster_name }}'
+        url: '{{ consul_catalog_url }}/service/elasticsearch?dc={{ data_center }}&tag={{ es_lb_cluster_name }}'
       register: es_services
     - name: Extract ElasticSearch hostnames
       set_fact:

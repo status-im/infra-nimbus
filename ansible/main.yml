@@ -11,8 +11,8 @@
   hosts:
     - nimbus-master
   roles:
-    #- { role: origin-certs, tags: origin-certs }
-    #- { role: nimbus-stats, tags: nimbus-stats }
+    - { role: origin-certs, tags: origin-certs }
+    - { role: nimbus-stats, tags: nimbus-stats }
 
 - name: Configure Nimbus cluster
   hosts:

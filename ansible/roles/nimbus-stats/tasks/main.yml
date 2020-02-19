@@ -15,6 +15,12 @@
     url: '{{ consul_query_url }}'
   register: es_lbs
 
+- name: Verify a load balancer was found
+  assert:
+    that: es_lbs.json | length > 0
+    quiet: true
+    fail_msg: 'No ElasticSearch LB found!'
+
 - name: Install stat collecting script
   copy:
     src: collect.py
@@ -22,26 +28,14 @@
     mode: 0755
   register: nimbus_script
 
-- name: Create the cron script
-  copy:
-    dest: '{{ nimbus_stats_cron_script }}'
-    mode: 0755
-    content: |
-      #!/usr/bin/env bash
-      exec {{ nimbus_stats_script }} \
-          -H {{ es_lbs.json[0].ServiceAddress }} \
-          -o {{ nimbus_stats_json }}
-
 - name: Create www directory
   file:
     path: '{{ nimbus_stats_web_root }}'
     state: directory
+    owner: www-data
     group: www-data
+    recurse: true
     mode: 0755
-
-- name: Run the script before Nginx configuration
-  command: '{{ nimbus_stats_cron_script }}'
-  when: nimbus_script.changed
 
 - name: Create nginx config
   template:
@@ -67,9 +61,22 @@
   notify:
     - Save iptables rules
 
-- name: Create a cron job for updating stats
-  cron:
-    name: Nimbus Fleet Stats
-    minute: '*/5'
-    user: root
-    job: '{{ nimbus_stats_cron_script }}'
+- name: Set systemd timer
+  include_role: name=systemd-timer
+  vars:
+    systemd_timer_name: '{{ nimbus_stats_service_name }}'
+    systemd_timer_description: 'Generates stats for Nimbus cluster.'
+    systemd_timer_user: 'www-data'
+    systemd_timer_frequency: '*:0/5' # every 5 minutes
+    systemd_timer_timeout_sec: 120
+    systemd_timer_requires_extra: 'network.target'
+    systemd_timer_script_content: |
+      #!/usr/bin/env bash
+      exec {{ nimbus_stats_script }} \
+          -H {{ es_lbs.json[0].ServiceAddress }} \
+          -o {{ nimbus_stats_json }}
+
+- name: Run the script before Nginx configuration
+  systemd:
+    name: '{{ nimbus_stats_service_name }}'
+    state: 'started'

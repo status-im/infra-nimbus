@@ -20,14 +20,14 @@ DEFAULT_MESSAGES = [
 ENV = os.environ
 LOG = logging.getLogger('root')
 handler = logging.StreamHandler(sys.stderr)
-formatter = logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s')
+formatter = logging.Formatter('[%(levelname)s]: %(message)s')
 handler.setFormatter(formatter)
 LOG.addHandler(handler)
 
 class ES:
-    def __init__(self, host, port, page_size):
+    def __init__(self, host, port, page_size, timeout):
         self.page_size = page_size
-        self.es = Elasticsearch([host], port=port, timeout=30)
+        self.es = Elasticsearch([host], port=port, timeout=timeout)
 
     def make_query(self, fleet, program, messages, after):
         return {
@@ -99,12 +99,14 @@ def parse_opts():
                       help='ElasticSearch port. (%default)')
     parser.add_option('-p', '--program', default='*beacon-node-*',
                       help='Program to query for. (%default)')
-    parser.add_option('-s', '--since', default='now-30m',
+    parser.add_option('-s', '--since', default='now-15m',
                       help='Period for which to query logs. (%default)')
     parser.add_option('-S', '--page-size', default=10000,
                       help='Size of results page. (%default)')
     parser.add_option('-f', '--fleet', default='nimbus.test',
                       help='Fleet to query for. (%default)')
+    parser.add_option('-t', '--timeout', default=120,
+                      help='Connection timeout in seconds. (%default)')
     parser.add_option('-l', '--log-level', default='INFO',
                       help='Logging level. (%default)')
     parser.add_option('-o', '--output-file',
@@ -123,13 +125,13 @@ def main():
 
     debug_options(opts)
 
-    es = ES(opts.es_host, opts.es_port, opts.page_size)
+    es = ES(opts.es_host, opts.es_port, opts.page_size, opts.timeout)
     
     LOG.info('Querying fleet: %s', opts.fleet)
     query = es.make_query(opts.fleet, opts.program, opts.messages, opts.since)
     rval = es.get_logs(query)
 
-    LOG.info('Found matching logs: %d', rval['hits']['total'])
+    LOG.info('Found matching logs: %d', rval['hits']['total']['value'])
     logs = rval['hits']['hits']
     
     data = get_first_for_node(logs)

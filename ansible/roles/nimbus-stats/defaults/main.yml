@@ -5,9 +5,10 @@ nimbus_stats_json_name: nimbus_stats.json
 nimbus_stats_json: '{{ nimbus_stats_web_root }}/{{ nimbus_stats_json_name }}'
 nimbus_stats_script: /usr/local/bin/collect_nimbus_stats.py
 nimbus_stats_cron_script: /usr/local/bin/save_nimbus_stats.py
+nimbus_stats_service_name: 'nimbus-stats'
 
 # necessary to query for ES lb
-consul_base_url: 'http://localhost:8500/v1/catalog'
+consul_catalog_url: 'http://localhost:8500/v1/catalog'
 consul_service_name: elasticsearch-lb
-consul_service_tag: status-logs-search
-consul_query_url: '{{ consul_base_url }}/service/{{ consul_service_name }}?tag={{ consul_service_tag }}'
+consul_service_tag: nimbus-logs-search
+consul_query_url: '{{ consul_catalog_url }}/service/{{ consul_service_name }}?tag={{ consul_service_tag }}'

@@ -1,8 +1,12 @@
 ---
 # general container config
 cont_restart: false
-cont_recreate: 'smart'
+cont_recreate: false
 cont_state: 'present'
+# general compose config
+compose_restart: false
+compose_recreate: 'smart'
+compose_state: 'present'
 
 # CloudFlare Origin certificates
 origin_certs:
@@ -12,7 +16,7 @@ origin_certs:
     default: true
 
 # Consul Catalog Query URL
-consul_catalog_url: 'http://localhost:8500/v1/catalog/service'
+consul_catalog_url: 'http://localhost:8500/v1/catalog'
 
 # Root password
 bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
