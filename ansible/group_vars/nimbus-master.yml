@@ -1,5 +1,5 @@
 ---
-nimbus_stats_domain: nimbus-test-status.status.im
+nimbus_stats_domain: nimbus-test-stats.status.im
 # temporary
 beacon_node_log_level: TRACE
 # lower local retention to save space
