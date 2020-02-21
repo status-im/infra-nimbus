@@ -1,5 +1,12 @@
 /* NETWORK --------------------------------------*/
 
+locals {
+  nimbus_ports = [
+    "9000-9010", /* Nimbus ports */
+    "9100-9110", /* Nimbus ports */
+  ]
+}
+
 module "nimbus_network" {
   source = "./modules/aws-vpc"
 
@@ -7,13 +14,8 @@ module "nimbus_network" {
   stage = "test"
 
   /* Firewall */
-  open_tcp_ports = [
-    "22",        /* SSH */
-    "80",        /* HTTP */
-    "443",       /* HTTPS */
-    "9000-9010", /* Nimbus ports */
-    "9100-9110", /* Nimbus ports */
-  ]
+  open_udp_ports = local.nimbus_ports
+  open_tcp_ports = concat(local.nimbus_ports, [ "22", "80", "443" ])
 }
 
 /* HOSTS ----------------------------------------*/
@@ -32,12 +34,8 @@ module "nimbus_master" {
   host_count    = 1
 
   /* Firewall */
-  open_tcp_ports = [
-    "80",        /* HTTP */
-    "443",       /* HTTPS */
-    "9000-9010", /* Nimbus ports */
-    "9100-9110", /* Nimbus ports */
-  ]
+  open_udp_ports = local.nimbus_ports
+  open_tcp_ports = concat(local.nimbus_ports, [ "80", "443" ])
 
   /* Plumbing */
   vpc_id       = module.nimbus_network.vpc_id
@@ -60,13 +58,9 @@ module "nimbus_nodes" {
   host_count    = var.hosts_count
 
   /* Firewall */
-  open_tcp_ports = [
-    "80",        /* HTTP */
-    "443",       /* HTTPS */
-    "9000-9010", /* beacon node */
-    "9100-9110", /* beacon node */
-  ]
-  
+  open_udp_ports = local.nimbus_ports
+  open_tcp_ports = local.nimbus_ports
+
   /* Plumbing */
   vpc_id       = module.nimbus_network.vpc_id
   subnet_id    = module.nimbus_network.subnet_id
