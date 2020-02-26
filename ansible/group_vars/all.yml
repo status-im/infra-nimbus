@@ -25,7 +25,7 @@ bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
 
 # Add volume for Nimbus data
-bootstrap_extra_volume_path: '/docker'
+bootstrap__extra_volume_path: '/docker'
 
 # Disable Watchtower cleanup to avoid removal errors
 bootstrap__watchtower_cleanup_flag: false

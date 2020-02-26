@@ -1,6 +1,6 @@
 ---
 # Mount extra volume for ElasticSearch container
-bootstrap_extra_volume_path: '/docker'
+bootstrap__extra_volume_path: '/docker'
 
 # ElasticSearch Cluster
 es_master_nodes: |
