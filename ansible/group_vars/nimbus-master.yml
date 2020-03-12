@@ -2,6 +2,8 @@
 nimbus_stats_domain: nimbus-test-stats.status.im
 # temporary
 beacon_node_log_level: TRACE
+# TRACE needs more disk space
+bootstrap__rsyslog_docker_logs_path: '/docker/log'
 # lower local retention to save space
 bootstrap__logrotate_frequency: 'hourly'
 bootstrap__logrotate_count: 3
