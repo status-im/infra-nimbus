@@ -30,6 +30,10 @@ bootstrap__extra_volume_path: '/docker'
 # Disable Watchtower cleanup to avoid removal errors
 bootstrap__watchtower_cleanup_flag: false
 
+# Beacon nodes can be quite memory hungry
+swap_file_path: '/docker/main.swap'
+swap_file_size_mb: 2048
+
 # Custom SSH accounts for Nimbus fleet
 bootstrap__active_users:
   - { name: adamb,   uid: 7003, groups: [] }
