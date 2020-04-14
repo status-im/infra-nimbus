@@ -36,10 +36,8 @@ swap_file_size_mb: 2048
 
 # Custom SSH accounts for Nimbus fleet
 bootstrap__active_users:
-  - { name: adamb,   uid: 7003, groups: [] }
   - { name: jakub,   uid: 7006, groups: [] }
   - { name: petty   ,uid: 7028, groups: [] }
-  - { name: igor,    uid: 7015, groups: [] }
   - { name: dustin,  uid: 7016, groups: [], key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrxMjWZZJ7E6EQY77IbOGaj1q6YzlRnQnCbTQqZja4c user@merfeint' }
   - { name: jacek,   uid: 7017, groups: [], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAn/DafiXekTLUKznvRmdEBit5ZQ2DN+C25oom41ZMe8YvUe5y10dEpY5xHq37hMfE/B3LOVuCLOvWvV4wp8VIQHBmtI5olFQc7bNk+VyfHOSj7/e54vfkVHzbicUpMXaKLqxo7u9m5/lTE3JTKxbj6jIEIDMEUglXs8p9FGnKlJeEYBO7NDDfFa1NtrmJeQUQO7PCt4Ik8IAgqua07T1AEm9qADs6UPhjJ9zyr+QPo3Lk6qcQ/MFB4OQ8ZfiPGJ9Bx/doDSED5Ik3Y/yrb0vgWRR0Co5oVCAyx/jyNDxDtDSGE7TTMD3DGQyvnuBsvSm+vyrNuD3Sziy+aX4KNXRCTQ== arnetheduck@creator' }
   - { name: zahary,  uid: 7024, groups: [], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZ4uk6O6e6KgiTGVOntGbUN+tUXM5XbnK4x9RPc8hsmphO0SIi/jim8TDh8SstyNA7IRx5TG3//tAzrjikA3xBfBktiZc7cIklkKwVsby7WEThbu99B+tKfXGrJEaIoXuGc7nk/t1ynMqbLSxo44Yu3+OksozDxtj1mDl2ze+ICa7XteAJgu7vIsfKUZwnpIVXglfqve0x/GJ8oQyp4vx7MFdaaBTl4yLyajwd+h+tINmf4fikUl34gVTLtM2VxXHy2VtbzjQUXb7pCISXELyXy0OnJ6HczNiWA2K0z47pohC5cAFYlErhmbZ1MRhKYysEAm/mAasTPRVKTK4agpSB zahary@status.im' }
@@ -49,5 +47,7 @@ bootstrap__active_users:
   - { name: kim,     uid: 7031, groups: [], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqPvYjYJjO0rCgeYsTp2kn0oyQLKHgvcjIYVeaQzjZ3VB5V+34AadjjYh8ULhuzTPl25gbVI0KAWbsui4im/04tBv9Bn8xAEvLcWwab5t7a8GZLGKXOl3bi6S7Vmal6e94mKht1wflS9hGu0o6q/fHanu/WPKhtc1zwg50Qlrs2/9DYP9Qqo0ekHnuzip1Trdmls33DZB1WehZx7/rNKwppE0aHUv7vgh7vc+FAU/RnyeHM2bJRfq/AxiAs+Fas5MrO+9Mm8jPA2Jm6TRDGmXg5DB+0+u+qZF15eJ+ujKXhgnVPJBkSuAryTPob7FA1Eovc9HBDhOQCKC0ialiJm+5 kim.demey@status.im' }
 
 bootstrap__inactive_users:
+  - { name: adamb,   uid: 7003, groups: [] }
+  - { name: igor,    uid: 7015, groups: [] }
   - { name: bruno,   uid: 7026, groups: [] }
   - { name: yglukhov,uid: 7027, groups: [] }
