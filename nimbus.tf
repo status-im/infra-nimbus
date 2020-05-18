@@ -8,7 +8,7 @@ locals {
 }
 
 module "nimbus_network" {
-  source = "./modules/aws-vpc"
+  source = "github.com/status-im/infra-tf-aws-vpc"
 
   name  = "nimbus"
   stage = "test"
