@@ -12,6 +12,7 @@ module "nimbus_network" {
 
   name  = "nimbus"
   stage = "test"
+  zones = [ "eu-central-1a" ]
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
@@ -38,9 +39,9 @@ module "nimbus_master" {
   open_tcp_ports = concat(local.nimbus_ports, [ "80", "443" ])
 
   /* Plumbing */
-  vpc_id       = module.nimbus_network.vpc_id
-  subnet_id    = module.nimbus_network.subnet_id
-  secgroup_id  = module.nimbus_network.secgroup_id
+  vpc_id       = module.nimbus_network.vpc.id
+  subnet_id    = module.nimbus_network.subnets[0].id
+  secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 
@@ -62,9 +63,9 @@ module "nimbus_nodes" {
   open_tcp_ports = local.nimbus_ports
 
   /* Plumbing */
-  vpc_id       = module.nimbus_network.vpc_id
-  subnet_id    = module.nimbus_network.subnet_id
-  secgroup_id  = module.nimbus_network.secgroup_id
+  vpc_id       = module.nimbus_network.vpc.id
+  subnet_id    = module.nimbus_network.subnets[0].id
+  secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 

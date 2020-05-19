@@ -18,9 +18,9 @@ module "nimbus_dashboard" {
   ]
   
   /* Plumbing */
-  vpc_id       = module.nimbus_network.vpc_id
-  subnet_id    = module.nimbus_network.subnet_id
-  secgroup_id  = module.nimbus_network.secgroup_id
+  vpc_id       = module.nimbus_network.vpc.id
+  subnet_id    = module.nimbus_network.subnets[0].id
+  secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 
