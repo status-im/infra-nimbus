@@ -66,6 +66,7 @@ nginx_sites:
       }
 
 # Open Nginx Ports
-open_ports_protocol: tcp
 open_ports_comment: 'HTTP & HTTPS'
-open_ports_list: [80, 443]
+open_ports_list:
+  - { port: 80, protocol: 'tcp' }
+  - { port: 443, protocol: 'tcp' }
