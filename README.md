@@ -24,7 +24,7 @@ terraform apply
 ```
 Then configure the cluster:
 ```
-ansible-playbook ansible/main.yml
+ansible-playbook ansible/nimbus.yml
 ```
 
 __For more details see `README.md` files in `ansible` folders.__
