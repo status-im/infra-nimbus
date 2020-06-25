@@ -25,7 +25,7 @@
     - include_role:
         name: infra-role-beacon-node
       tags: beacon-node
-      with_sequence: count=2
+      with_sequence: count=1
       vars:
         beacon_node_network: 'testnet0'
         beacon_node_rpc_port: '{{ 10000 - 1 + item|int }}'
@@ -37,7 +37,7 @@
     - include_role:
         name: infra-role-beacon-node
       tags: beacon-node
-      with_sequence: count=2
+      with_sequence: count=1
       vars:
         beacon_node_network: 'testnet1'
         beacon_node_rpc_port: '{{ 11000 - 1 + item|int }}'
