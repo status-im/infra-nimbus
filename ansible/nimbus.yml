@@ -17,11 +17,7 @@
 - name: Configure Nimbus cluster
   hosts:
     - nimbus-master
-    - node-01.aws-eu-central-1a.nimbus.test
-    - node-02.aws-eu-central-1a.nimbus.test
-    - node-03.aws-eu-central-1a.nimbus.test
-    - node-04.aws-eu-central-1a.nimbus.test
-    - node-05.aws-eu-central-1a.nimbus.test
+    - nimbus-slaves[0:4]
   tags: beacon-node
   roles:
     - { role: swap-file, tags: swap-file }
@@ -52,10 +48,7 @@
 
 - name: Configure shared testnet
   hosts:
-    - node-06.aws-eu-central-1a.nimbus.test
-    - node-07.aws-eu-central-1a.nimbus.test
-    - node-08.aws-eu-central-1a.nimbus.test
-    - node-09.aws-eu-central-1a.nimbus.test
+    - nimbus-slaves[5:8]
   tags: beacon-node
   roles:
     - { role: swap-file, tags: swap-file }
