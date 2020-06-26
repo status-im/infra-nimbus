@@ -17,7 +17,7 @@
 - name: Configure Nimbus cluster
   hosts:
     - nimbus-master
-    - nimbus-slaves
+    - nimbus-slaves[0:4]
   tags: beacon-node
   roles:
     - { role: swap-file, tags: swap-file }
@@ -25,7 +25,7 @@
     - include_role:
         name: infra-role-beacon-node
       tags: beacon-node
-      with_sequence: count=2
+      with_sequence: count=1
       vars:
         beacon_node_network: 'testnet0'
         beacon_node_rpc_port: '{{ 10000 - 1 + item|int }}'
@@ -37,9 +37,28 @@
     - include_role:
         name: infra-role-beacon-node
       tags: beacon-node
-      with_sequence: count=2
+      with_sequence: count=1
       vars:
         beacon_node_network: 'testnet1'
+        beacon_node_rpc_port: '{{ 11000 - 1 + item|int }}'
+        beacon_node_metrics_port : '{{ 9300 - 1 + item|int }}'
+        beacon_node_listening_port: '{{ 9100 - 1 + item|int }}'
+        beacon_node_discovery_port: '{{ 9100 - 1 + item|int }}'
+        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
+
+- name: Configure shared testnet
+  hosts:
+    - nimbus-slaves[5:8]
+  tags: beacon-node
+  roles:
+    - { role: swap-file, tags: swap-file }
+  tasks:
+    - include_role:
+        name: infra-role-beacon-node
+      tags: beacon-node
+      with_sequence: count=1
+      vars:
+        beacon_node_network: 'testnet2'
         beacon_node_rpc_port: '{{ 11000 - 1 + item|int }}'
         beacon_node_metrics_port : '{{ 9300 - 1 + item|int }}'
         beacon_node_listening_port: '{{ 9100 - 1 + item|int }}'

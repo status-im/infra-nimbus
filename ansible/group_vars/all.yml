@@ -4,9 +4,7 @@ cont_restart: false
 cont_recreate: false
 cont_state: 'present'
 # general compose config
-compose_restart: false
-compose_recreate: 'smart'
-compose_state: 'present'
+compose_recreate: true
 
 # CloudFlare Origin certificates
 origin_certs:
