@@ -11,7 +11,5 @@ nimbus_stats_domain: nimbus-test-stats.status.im
 # temporary
 beacon_node_log_level: TRACE
 # resource limits
-beacon_node_cpu_limit: 0.80
 beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.60) | int }}'
-beacon_node_cpu_reserve: 0.40
 beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.4) | int }}'
