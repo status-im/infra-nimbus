@@ -65,4 +65,5 @@
         beacon_node_discovery_port: '{{ 9100 - 1 + item|int }}'
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network}}-{{ item }}'
         beacon_node_shared_testnet_cron: true
+        cont_restart: true
 
