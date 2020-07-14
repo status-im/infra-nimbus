@@ -19,8 +19,6 @@
     - nimbus-master
     - nimbus-slaves[0:4]
   tags: beacon-node
-  roles:
-    - { role: swap-file, tags: swap-file }
   tasks:
     - include_role:
         name: infra-role-beacon-node
@@ -50,8 +48,6 @@
   hosts:
     - nimbus-slaves[5:8]
   tags: beacon-node
-  roles:
-    - { role: swap-file, tags: swap-file }
   tasks:
     - include_role:
         name: infra-role-beacon-node
