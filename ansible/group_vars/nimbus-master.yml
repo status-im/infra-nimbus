@@ -11,8 +11,8 @@ bootstrap__logrotate_mbytes: 200
 
 nimbus_stats_domain: nimbus-test-stats.status.im
 
-# temporary
-beacon_node_log_level: TRACE
+beacon_node_log_level: DEBUG
+
 # resource limits
 beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.60) | int }}'
 beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.4) | int }}'
