@@ -2,15 +2,15 @@
 # For emergency use when Consul fails
 [all]
 master-01.aws-eu-central-1a.nimbus.test hostname=master-01.aws-eu-central-1a.nimbus.test ansible_host=18.185.109.239 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-01.aws-eu-central-1a.nimbus.test.statusim.net
-node-01.aws-eu-central-1a.nimbus.test hostname=node-01.aws-eu-central-1a.nimbus.test ansible_host=3.126.82.94 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.nimbus.test.statusim.net
-node-02.aws-eu-central-1a.nimbus.test hostname=node-02.aws-eu-central-1a.nimbus.test ansible_host=54.93.83.30 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-02.aws-eu-central-1a.nimbus.test.statusim.net
-node-03.aws-eu-central-1a.nimbus.test hostname=node-03.aws-eu-central-1a.nimbus.test ansible_host=3.123.41.197 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-03.aws-eu-central-1a.nimbus.test.statusim.net
-node-04.aws-eu-central-1a.nimbus.test hostname=node-04.aws-eu-central-1a.nimbus.test ansible_host=52.59.244.94 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-04.aws-eu-central-1a.nimbus.test.statusim.net
-node-05.aws-eu-central-1a.nimbus.test hostname=node-05.aws-eu-central-1a.nimbus.test ansible_host=54.93.37.91 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-05.aws-eu-central-1a.nimbus.test.statusim.net
-node-06.aws-eu-central-1a.nimbus.test hostname=node-06.aws-eu-central-1a.nimbus.test ansible_host=54.93.165.166 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-06.aws-eu-central-1a.nimbus.test.statusim.net
-node-07.aws-eu-central-1a.nimbus.test hostname=node-07.aws-eu-central-1a.nimbus.test ansible_host=18.194.41.51 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-07.aws-eu-central-1a.nimbus.test.statusim.net
-node-08.aws-eu-central-1a.nimbus.test hostname=node-08.aws-eu-central-1a.nimbus.test ansible_host=54.93.124.151 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-08.aws-eu-central-1a.nimbus.test.statusim.net
-node-09.aws-eu-central-1a.nimbus.test hostname=node-09.aws-eu-central-1a.nimbus.test ansible_host=18.196.31.30 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-09.aws-eu-central-1a.nimbus.test.statusim.net
+node-01.aws-eu-central-1a.nimbus.test hostname=node-01.aws-eu-central-1a.nimbus.test ansible_host=3.123.42.70 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.nimbus.test.statusim.net
+node-02.aws-eu-central-1a.nimbus.test hostname=node-02.aws-eu-central-1a.nimbus.test ansible_host=52.59.222.8 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-02.aws-eu-central-1a.nimbus.test.statusim.net
+node-03.aws-eu-central-1a.nimbus.test hostname=node-03.aws-eu-central-1a.nimbus.test ansible_host=18.185.109.137 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-03.aws-eu-central-1a.nimbus.test.statusim.net
+node-04.aws-eu-central-1a.nimbus.test hostname=node-04.aws-eu-central-1a.nimbus.test ansible_host=18.197.107.93 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-04.aws-eu-central-1a.nimbus.test.statusim.net
+node-05.aws-eu-central-1a.nimbus.test hostname=node-05.aws-eu-central-1a.nimbus.test ansible_host=18.159.206.145 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-05.aws-eu-central-1a.nimbus.test.statusim.net
+node-06.aws-eu-central-1a.nimbus.test hostname=node-06.aws-eu-central-1a.nimbus.test ansible_host=18.185.1.10 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-06.aws-eu-central-1a.nimbus.test.statusim.net
+node-07.aws-eu-central-1a.nimbus.test hostname=node-07.aws-eu-central-1a.nimbus.test ansible_host=18.195.60.178 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-07.aws-eu-central-1a.nimbus.test.statusim.net
+node-08.aws-eu-central-1a.nimbus.test hostname=node-08.aws-eu-central-1a.nimbus.test ansible_host=52.57.20.135 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-08.aws-eu-central-1a.nimbus.test.statusim.net
+node-09.aws-eu-central-1a.nimbus.test hostname=node-09.aws-eu-central-1a.nimbus.test ansible_host=52.59.188.173 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-09.aws-eu-central-1a.nimbus.test.statusim.net
 
 [aws-eu-central-1a]
 master-01.aws-eu-central-1a.nimbus.test
