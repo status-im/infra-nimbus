@@ -31,7 +31,7 @@ module "nimbus_master" {
 
   /* Scaling */
   instance_type = "t3a.medium"
-  data_vol_size = 50
+  data_vol_size = 150
   host_count    = 1
 
   /* Firewall */
@@ -55,7 +55,7 @@ module "nimbus_nodes" {
 
   /* Scaling */
   instance_type = "t3a.medium"
-  data_vol_size = 50
+  data_vol_size = 150
   host_count    = var.hosts_count
 
   /* Firewall */
