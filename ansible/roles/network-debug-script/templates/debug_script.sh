@@ -4,6 +4,7 @@ function get_network_state() {
     set -x
     ip route
     ip --brief address show
+    networkctl list
     docker network list
 }
 
