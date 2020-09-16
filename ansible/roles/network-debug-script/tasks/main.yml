@@ -1,0 +1,24 @@
+---
+- name: Create logs directory
+  file:
+    path: '{{ net_debug_logs_dir }}'
+    state: directory
+
+- name: Copy over the debug script
+  template:
+    src: debug_script.sh
+    dest: '{{ net_debug_script_path }}'
+    mode: 0755
+
+- name: Set systemd timer for debug script
+  include_role: name=systemd-timer
+  vars:
+    systemd_timer_name: 'network-debug-script'
+    systemd_timer_description: 'Network Debug Script'
+    systemd_timer_user: '{{ net_debug_user }}'
+    systemd_timer_frequency: '{{ net_debug_frequency }}'
+    systemd_timer_timeout_sec: '{{ net_debug_timeout}}'
+    systemd_timer_work_dir: '{{ net_debug_logs_dir }}'
+    systemd_timer_requires_extra: 'network.target'
+    systemd_timer_script_path: '{{ net_debug_script_path }}'
+    systemd_timer_start_on_creation: false

@@ -32,6 +32,8 @@
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}'
         beacon_node_shared_testnet_cron: true
         cont_restart: true
+  roles:
+    - { role: 'network-debug-script', tags: 'network-debug-script' }
 
 - name: Configure shared testnet2
   hosts:
@@ -51,4 +53,5 @@
         beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}'
         beacon_node_shared_testnet_cron: true
         cont_restart: true
-
+  roles:
+    - { role: 'network-debug-script', tags: 'network-debug-script' }

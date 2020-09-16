@@ -1,0 +1,7 @@
+---
+net_debug_user: 'root'
+net_debug_frequency: '*:0/5' # every 5 minutes
+net_debug_timeout: 30
+net_debug_logs_dir: '/var/log/net_debug'
+net_debug_keep_logs: 8640 # 12 hours
+net_debug_script_path: '/usr/local/bin/network_debug_script.sh'
