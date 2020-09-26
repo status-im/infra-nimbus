@@ -2,11 +2,6 @@
 *.tfstate
 *.tfstate.d/
 *.tfstate.backup
-*.tfvars
 *.retry
 
-*.zip
-
 ansible/files/*
-
-google-cloud.json

@@ -1,18 +1,3 @@
-/* PROVIDERS ------------------------------------*/
-
-provider "aws" {
-  version    = "~> 2.0"
-  region     = var.aws_zone
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
-
-provider "cloudflare" {
-  email      = var.cloudflare_email
-  api_key    = var.cloudflare_token
-  account_id = var.cloudflare_account
-}
-
 /* DATA -----------------------------------------*/
 
 terraform {

@@ -9,5 +9,9 @@ terraform {
       source  = "hashicorp/aws"
       version = " = 2.46.0"
     }
+    pass = {
+      source  = "camptocamp/pass"
+      version = " = 1.4.0"
+    }
   }
 }
