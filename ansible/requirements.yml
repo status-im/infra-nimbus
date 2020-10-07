@@ -1,6 +1,7 @@
 ---
 - name: nginx
-  src: jdauphant.nginx
+  src: git@github.com:status-im/ansible-role-nginx.git
+  scm: git
 
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
