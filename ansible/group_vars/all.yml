@@ -22,9 +22,6 @@ bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 # Consul Encryption
 consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
 
-# Add volume for Nimbus data
-bootstrap__extra_volume_path: '/docker'
-
 # Beacon nodes can be quite memory hungry
 swap_file_path: '/docker/main.swap'
 swap_file_size_mb: 2048
