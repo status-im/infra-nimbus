@@ -11,47 +11,41 @@
   hosts:
     - nimbus-master
   roles:
-    - { role: origin-certs, tags: origin-certs }
+    - { role: origin-certs, tags: [ origin-certs ] }
     #- { role: nimbus-stats, tags: nimbus-stats }
 
 - name: Configure shared testnet3
   hosts:
-    - nimbus.test[0:5]
-  tags: beacon-node
-  tasks:
-    - include_role:
-        name: infra-role-beacon-node
-      tags: beacon-node
-      vars:
-        beacon_node_network: 'testnet3'
-        beacon_node_shared_testnet: 'medalla'
-        beacon_node_rpc_port: '11000'
-        beacon_node_metrics_port : '9300'
-        beacon_node_listening_port: '9100'
-        beacon_node_discovery_port: '9100'
-        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}'
-        beacon_node_shared_testnet_cron: true
-        cont_restart: true
+    - nimbus-master
+    - nimbus-slaves[0:4]
+  vars:
+    beacon_node_network: 'testnet3'
+    beacon_node_shared_testnet: 'medalla'
+    beacon_node_rpc_port: '11000'
+    beacon_node_metrics_port : '9300'
+    beacon_node_listening_port: '9100'
+    beacon_node_discovery_port: '9100'
+    beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}'
+    beacon_node_timer_rebuild: true
+    cont_restart: true
   roles:
-    - { role: 'network-debug-script', tags: 'network-debug-script' }
+    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+    - { role: network-debug-script,   tags: [ network-debug-script ] }
 
-- name: Configure shared testnet2
+- name: Configure seared testnet2
   hosts:
-    - nimbus.test[6:9]
+    - nimbus-slaves[5:8]
   tags: beacon-node
-  tasks:
-    - include_role:
-        name: infra-role-beacon-node
-      tags: beacon-node
-      vars:
-        beacon_node_network: 'testnet2'
-        beacon_node_shared_testnet: 'altona'
-        beacon_node_rpc_port: '11000'
-        beacon_node_metrics_port : '9300'
-        beacon_node_listening_port: '9100'
-        beacon_node_discovery_port: '9100'
-        beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}'
-        beacon_node_shared_testnet_cron: true
-        cont_restart: true
+  vars:
+    beacon_node_network: 'testnet2'
+    beacon_node_shared_testnet: 'altona'
+    beacon_node_rpc_port: '11000'
+    beacon_node_metrics_port : '9300'
+    beacon_node_listening_port: '9100'
+    beacon_node_discovery_port: '9100'
+    beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}'
+    beacon_node_timer_rebuild: true
+    cont_restart: true
   roles:
-    - { role: 'network-debug-script', tags: 'network-debug-script' }
+    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+    - { role: network-debug-script,   tags: [ network-debug-script ] }
