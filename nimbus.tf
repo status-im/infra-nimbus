@@ -31,6 +31,7 @@ module "nimbus_master" {
 
   /* Scaling */
   instance_type = "t3a.medium"
+  root_vol_size = 20
   data_vol_size = 150
   host_count    = 1
 
@@ -55,6 +56,7 @@ module "nimbus_nodes" {
 
   /* Scaling */
   instance_type = "t3a.medium"
+  root_vol_size = 20
   data_vol_size = 150
   host_count    = var.hosts_count
 
