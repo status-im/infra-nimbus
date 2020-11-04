@@ -33,6 +33,7 @@ module "nimbus_master" {
   instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
+  data_vol_type = "gp2"
   host_count    = 1
 
   /* Firewall */
@@ -58,6 +59,7 @@ module "nimbus_nodes" {
   instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
+  data_vol_type = "gp2"
   host_count    = var.hosts_count
 
   /* Firewall */
