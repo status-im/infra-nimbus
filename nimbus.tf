@@ -30,7 +30,7 @@ module "nimbus_master" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = "t3a.medium"
+  instance_type = "t3a.large"
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"
