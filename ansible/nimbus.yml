@@ -7,7 +7,7 @@
         that: 'ansible_version.full is version_compare("2.8", ">=")'
         msg: 'Your Ansible version is lower than 2.8. Upgrade it.'
 
-- name: Configure shared testnet3
+- name: Configure shared testnet3 using master
   hosts: nimbus.test[0:3]
   vars:
     beacon_node_repo_branch: 'master'
@@ -15,18 +15,18 @@
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
 
-- name: Configure shared testnet2
+- name: Configure shared testnet2 using devel
   hosts: nimbus.test[4:7]
   vars:
-    beacon_node_repo_branch: 'develop'
+    beacon_node_repo_branch: 'devel'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
 
-- name: Configure shared testnet2
+- name: Configure shared testnet3 using libp2p
   hosts: nimbus.test[8:9]
   vars:
-    beacon_node_repo_branch: 'nim-libp2p-auto-bump'
+    beacon_node_repo_branch: 'libp2p'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }

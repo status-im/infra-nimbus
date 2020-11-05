@@ -1,0 +1,4 @@
+---
+# Master host has more memory, but it should be for builds
+beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.25) | int }}'
+beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.2) | int }}'
