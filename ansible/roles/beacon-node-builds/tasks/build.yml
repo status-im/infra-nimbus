@@ -1,0 +1,55 @@
+---
+- name: '{{ item.name }} - Create builds folder'
+  file:
+    path: '{{ beacon_node_builds_path }}'
+    owner: '{{ beacon_node_builds_user }}'
+    group: 'adm'
+    mode: 0755
+    state: 'directory'
+
+- name: '{{ item.name }} - Clone branch'
+  git:
+    repo: 'https://github.com/status-im/nimbus-eth2'
+    version: '{{ item.branch }}'
+    dest: '{{ beacon_node_builds_path }}/{{ item.name }}/repo'
+    update: true
+    force: true
+  become_user: '{{ beacon_node_builds_user }}'
+
+- name: '{{ item.name }} - Create script'
+  template:
+    src: 'build.sh.j2'
+    dest: '{{ beacon_node_builds_path }}/{{ item.name }}/build.sh'
+    owner: '{{ beacon_node_builds_user }}'
+    group: 'adm'
+    mode: 0755
+
+- name: '{{ item.name }} - Create Dockerfile'
+  copy:
+    src: 'Dockerfile'
+    dest: '{{ beacon_node_builds_path }}/{{ item.name }}/Dockerfile'
+    owner: '{{ beacon_node_builds_user }}'
+    group: 'adm'
+    mode: 0644
+
+- name: '{{ item.name }} - Create .dockerignore'
+  copy:
+    src: 'dockerignore'
+    dest: '{{ beacon_node_builds_path }}/{{ item.name }}/.dockerignore'
+    owner: '{{ beacon_node_builds_user }}'
+    group: 'adm'
+    mode: 0644
+
+
+- name: Create timer for rebuilding image
+  include_role: name=systemd-timer
+  vars:
+    systemd_timer_name: 'beacon-node-build-{{ item.name }}'
+    systemd_timer_user: '{{ beacon_node_builds_user }}'
+    systemd_timer_description: 'Docker image build for Nimbus beacon node'
+    systemd_timer_requires_extra: 'docker.service'
+    systemd_timer_start_on_creation: false
+    systemd_timer_frequency: '{{ item.frequency }}'
+    systemd_timer_timeout_sec: '{{ beacon_node_build_timer_timeout }}'
+    systemd_timer_work_dir: '{{ beacon_node_builds_path }}/{{ item.name }}'
+    systemd_timer_script_path: '{{ beacon_node_builds_path }}/{{ item.name }}/build.sh'

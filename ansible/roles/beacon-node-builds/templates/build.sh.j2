@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ "${USER}" != "{{ beacon_node_builds_user }}" ]]; then
+    echo "Incorrect user: ${USER}" >&2
+    echo "Expected: {{ beacon_node_builds_user }}" >&2
+    exit 1
+fi
+
+IMAGE="{{ beacon_node_builds_image_name }}:{{ item.name }}"
+BATCHES=({{ item.batches | join(" ") }})
+
+# Build the Beacon node binaries
+{
+  cd repo
+  COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
+  git pull
+  COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
+
+  if [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
+      echo "Nothing new to build."
+      exit
+  fi
+
+  make update
+  make \
+    LOG_LEVEL="TRACE" \
+    MAKEFLAGS="-j$(nproc)" \
+    NIMFLAGS="-d:insecure -d:testnet_servers_image" \
+    beacon_node signing_process
+}
+
+# Add binary into a simple Alpine image
+docker build -t "${IMAGE}" --build-arg=COMMIT=${COMMIT_AFTER} .
+docker push "${IMAGE}"

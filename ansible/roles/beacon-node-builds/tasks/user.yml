@@ -1,0 +1,17 @@
+---
+- name: Create user for beacon node builds
+  user:
+    name: '{{ beacon_node_builds_user }}'
+    group: 'adm'
+    groups: ['docker']
+    shell: '/bin/zsh'
+
+- name: Set disable rebase as merge strategy
+  command: git config --global pull.rebase false
+  become_user: '{{ beacon_node_builds_user }}'
+
+- name: Configure access to Docker Hub
+  command: |
+    docker login \
+      --username {{ beacon_node_builds_docker_hub_user | mandatory }} \
+      --password {{ beacon_node_builds_docker_hub_token | mandatory }}

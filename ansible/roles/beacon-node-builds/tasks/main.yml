@@ -1,0 +1,5 @@
+---
+- include_tasks: install.yml
+- include_tasks: user.yml
+- include_tasks: build.yml
+  with_items: '{{ beacon_node_builds_branches }}'
