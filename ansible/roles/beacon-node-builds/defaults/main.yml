@@ -11,12 +11,12 @@ beacon_node_builds_docker_hub_token: ~
 beacon_node_build_timer_timeout: 1200
 
 beacon_node_builds_branches:
-  - name: 'master'
-    branch: 'master'
-    frequency: '*-*-* 02:00:00'
   - name: 'devel'
     branch: 'devel'
     frequency: '*-*-* 10:00:00'
+  - name: 'master'
+    branch: 'master'
+    frequency: '*-*-* 02:00:00'
   - name: 'libp2p'
     branch: 'nim-libp2p-auto-bump'
     frequency: '*-*-* 18:00:00'

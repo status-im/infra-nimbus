@@ -1,11 +1,16 @@
-FROM alpine:3.12.1
+FROM debian:bullseye-slim
 
 ARG COMMIT
 
-RUN apk add --no-cache libgcc pcre
+RUN apt-get -qq update \
+ && apt-get -qq -y install libpcre3-dev &>/dev/null \
+ && apt-get -qq clean \
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY repo/build/* /usr/local/bin/
+COPY repo/build/beacon_node repo/build/signing_process /usr/local/bin/
 
 STOPSIGNAL SIGINT
 
 ENTRYPOINT ["/usr/local/bin/beacon_node"]
+
+CMD ["--help"]

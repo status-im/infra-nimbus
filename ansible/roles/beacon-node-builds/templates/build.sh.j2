@@ -8,28 +8,36 @@ if [[ "${USER}" != "{{ beacon_node_builds_user }}" ]]; then
     exit 1
 fi
 
-IMAGE="{{ beacon_node_builds_image_name }}:{{ item.name }}"
+IMAGE="{{ beacon_node_builds_image_name }}"
+TAG="{{ item.name }}"
 
 # Build the Beacon node binaries
-{
-  cd repo
-  COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
-  git pull
-  COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
+pushd repo
 
-  if [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
-      echo "Nothing new to build."
-      exit
-  fi
+COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
+git pull
+COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
 
-  make update
-  make \
+if [[ "$1" == "--force" ]]; then
+    echo "Forcing rebuild!"
+elif [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
+    echo "Nothing new to build."
+    exit
+fi
+
+make update
+make \
     LOG_LEVEL="TRACE" \
     MAKEFLAGS="-j$(nproc)" \
     NIMFLAGS="-d:insecure -d:testnet_servers_image" \
     beacon_node signing_process
-}
+
+popd
 
 # Add binary into a simple Alpine image
-docker build -t "${IMAGE}" --build-arg=COMMIT=${COMMIT_AFTER} .
-docker push "${IMAGE}"
+docker build -t "${IMAGE}:${COMMIT_AFTER}" --build-arg=COMMIT=${COMMIT_AFTER} .
+docker tag "${IMAGE}:${COMMIT_AFTER}" "${IMAGE}:${TAG}"
+docker push "${IMAGE}:${COMMIT_AFTER}"
+docker push "${IMAGE}:${TAG}"
+
+echo "SUCCESS - pushed: ${IMAGE}:${TAG}"
