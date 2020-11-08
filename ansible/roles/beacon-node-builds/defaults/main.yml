@@ -14,12 +14,9 @@ beacon_node_builds_branches:
   - name: 'master'
     branch: 'master'
     frequency: '*-*-* 02:00:00'
-    batches: [ 'a', 'b' ]
   - name: 'devel'
     branch: 'devel'
     frequency: '*-*-* 10:00:00'
-    batches: [ 'a', 'b' ]
   - name: 'libp2p'
     branch: 'nim-libp2p-auto-bump'
     frequency: '*-*-* 18:00:00'
-    batches: [ 'a', 'b' ]

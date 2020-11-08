@@ -40,7 +40,6 @@
     group: 'adm'
     mode: 0644
 
-
 - name: Create timer for rebuilding image
   include_role: name=systemd-timer
   vars:

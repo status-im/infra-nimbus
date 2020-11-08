@@ -9,7 +9,6 @@ if [[ "${USER}" != "{{ beacon_node_builds_user }}" ]]; then
 fi
 
 IMAGE="{{ beacon_node_builds_image_name }}:{{ item.name }}"
-BATCHES=({{ item.batches | join(" ") }})
 
 # Build the Beacon node binaries
 {
