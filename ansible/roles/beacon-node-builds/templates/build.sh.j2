@@ -30,7 +30,7 @@ make \
     LOG_LEVEL="TRACE" \
     MAKEFLAGS="-j$(nproc)" \
     NIMFLAGS="-d:insecure -d:testnet_servers_image" \
-    beacon_node signing_process
+    {{ item.target }}
 
 popd
 
