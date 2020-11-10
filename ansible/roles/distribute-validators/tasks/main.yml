@@ -63,7 +63,6 @@
     state: 'directory'
     owner: 'dockremap'
     group: 'docker'
-    mode: 0750
     recurse: true
   with_items:
     - '{{ dist_validators_data_path }}/validators'
