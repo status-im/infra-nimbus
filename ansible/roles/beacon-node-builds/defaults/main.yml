@@ -26,4 +26,4 @@ beacon_node_builds_branches:
   - name: 'toledo'
     branch: 'devel'
     target: 'toledo'
-    frequency: '*-*-* 18:00:00'
+    frequency: '*-*-* 20:00:00'
