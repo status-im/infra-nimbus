@@ -12,7 +12,7 @@
   roles:
     - { role: beacon-node-builds,     tags: beacon-node-builds }
 
-- name: Configure shared testnet3 using master
+- name: Configure network medalla using master
   hosts: nimbus.test[0:3]
   vars:
     beacon_node_repo_branch: 'master'
@@ -20,7 +20,7 @@
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
 
-- name: Configure shared testnet2 using devel
+- name: Configure network medalla using devel
   hosts: nimbus.test[4:7]
   vars:
     beacon_node_repo_branch: 'devel'
@@ -28,7 +28,7 @@
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
 
-- name: Configure shared testnet3 using libp2p
+- name: Configure network medalla using libp2p
   hosts: nimbus.test[8:9]
   vars:
     beacon_node_repo_branch: 'libp2p'
