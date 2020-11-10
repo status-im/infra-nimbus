@@ -1,0 +1,70 @@
+---
+#- name: Clone repo with secrets/validators
+#  git:
+#    repo: '{{ dist_validators_repo_url }}'
+#    dest: '{{ dist_validators_repo_path }}'
+#    version: '{{ dist_validators_repo_rev }}'
+#    update: true
+#    force: true
+#    accept_hostkey: true
+#  become_user: '{{ dist_validators_repo_user }}'
+
+- name: Find all validators
+  find:
+    paths: '{{ dist_validators_repo_path }}/{{ dist_validators_name | mandatory }}/validators'
+    file_type: directory
+    recurse: true
+    depth: 1
+  register: found_validators_raw
+
+- name: Find all secrets
+  find:
+    paths: '{{ dist_validators_repo_path }}/{{ dist_validators_name | mandatory }}/secrets'
+    file_type: file
+    recurse: true
+    depth: 1
+  register: found_secrets_raw
+
+- name: Extract file paths
+  set_fact:
+    found_validators: '{{ found_validators_raw.files | map(attribute="path") | list }}'
+    found_secrets: '{{ found_secrets_raw.files | map(attribute="path") | list }}'
+
+- name: Verify number of validators and secrets matches
+  assert:
+    that: '{{ (found_validators|length) == (found_secrets|length) }}'
+
+- name: Create validators/secrets folders
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    owner: dockremap
+    group: docker
+    mode: 0750
+  with_items:
+    - '{{ dist_validators_data_path }}/validators'
+    - '{{ dist_validators_data_path }}/secrets'
+
+- name: Copy over validators
+  command: |
+    rsync -ru \
+    {{ found_validators[dist_validators_range["start"]:dist_validators_range["end"]] | join(" ") }} \
+    '{{ dist_validators_data_path }}/validators/'
+
+- name: Copy over secrets
+  command: |
+    rsync -ru \
+    {{ found_secrets[dist_validators_range["start"]:dist_validators_range["end"]] | join(" ") }} \
+    '{{ dist_validators_data_path }}/secrets/'
+
+- name: Adjust validators permissions
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    owner: 'dockremap'
+    group: 'docker'
+    mode: 0750
+    recurse: true
+  with_items:
+    - '{{ dist_validators_data_path }}/validators'
+    - '{{ dist_validators_data_path }}/secrets'
