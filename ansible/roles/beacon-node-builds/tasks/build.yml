@@ -25,8 +25,8 @@
     mode: 0755
 
 - name: '{{ item.name }} - Create Dockerfile'
-  copy:
-    src: 'Dockerfile'
+  template:
+    src: 'Dockerfile.j2'
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/Dockerfile'
     owner: '{{ beacon_node_builds_user }}'
     group: 'adm'

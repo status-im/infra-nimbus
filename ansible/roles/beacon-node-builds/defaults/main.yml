@@ -13,17 +13,17 @@ beacon_node_build_timer_timeout: 1200
 beacon_node_builds_branches:
   - name: 'devel'
     branch: 'devel'
-    target: 'nimbus_beacon_node_spec_0_12_3 nimbus_signing_process'
+    targets: ['nimbus_beacon_node_spec_0_12_3', 'nimbus_signing_process']
     frequency: '*-*-* 10:00:00'
   - name: 'master'
     branch: 'master'
-    target: 'nimbus_beacon_node_spec_0_12_3 nimbus_signing_process'
+    targets: ['nimbus_beacon_node_spec_0_12_3', 'nimbus_signing_process']
     frequency: '*-*-* 02:00:00'
   - name: 'libp2p'
     branch: 'nim-libp2p-auto-bump'
-    target: 'nimbus_beacon_node_spec_0_12_3 nimbus_signing_process'
+    targets: ['nimbus_beacon_node_spec_0_12_3', 'nimbus_signing_process']
     frequency: '*-*-* 18:00:00'
   - name: 'toledo'
     branch: 'devel'
-    target: 'nimbus_beacon_node nimbus_signing_process'
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 20:00:00'
