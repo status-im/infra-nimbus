@@ -11,6 +11,8 @@ node-06.aws-eu-central-1a.nimbus.test hostname=node-06.aws-eu-central-1a.nimbus.
 node-07.aws-eu-central-1a.nimbus.test hostname=node-07.aws-eu-central-1a.nimbus.test ansible_host=18.158.142.165 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-07.aws-eu-central-1a.nimbus.test.statusim.net
 node-08.aws-eu-central-1a.nimbus.test hostname=node-08.aws-eu-central-1a.nimbus.test ansible_host=18.159.24.222 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-08.aws-eu-central-1a.nimbus.test.statusim.net
 node-09.aws-eu-central-1a.nimbus.test hostname=node-09.aws-eu-central-1a.nimbus.test ansible_host=18.195.193.55 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-09.aws-eu-central-1a.nimbus.test.statusim.net
+toledo-01.aws-eu-central-1a.nimbus.test hostname=toledo-01.aws-eu-central-1a.nimbus.test ansible_host=3.124.147.227 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=toledo-01.aws-eu-central-1a.nimbus.test.statusim.net
+toledo-02.aws-eu-central-1a.nimbus.test hostname=toledo-02.aws-eu-central-1a.nimbus.test ansible_host=18.196.164.28 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=toledo-02.aws-eu-central-1a.nimbus.test.statusim.net
 
 [aws-eu-central-1a]
 master-01.aws-eu-central-1a.nimbus.test
@@ -23,6 +25,8 @@ node-06.aws-eu-central-1a.nimbus.test
 node-07.aws-eu-central-1a.nimbus.test
 node-08.aws-eu-central-1a.nimbus.test
 node-09.aws-eu-central-1a.nimbus.test
+toledo-01.aws-eu-central-1a.nimbus.test
+toledo-02.aws-eu-central-1a.nimbus.test
 
 [nimbus-master]
 master-01.aws-eu-central-1a.nimbus.test
@@ -38,6 +42,10 @@ node-07.aws-eu-central-1a.nimbus.test
 node-08.aws-eu-central-1a.nimbus.test
 node-09.aws-eu-central-1a.nimbus.test
 
+[nimbus-slaves-toledo]
+toledo-01.aws-eu-central-1a.nimbus.test
+toledo-02.aws-eu-central-1a.nimbus.test
+
 [nimbus.test]
 master-01.aws-eu-central-1a.nimbus.test
 node-01.aws-eu-central-1a.nimbus.test
@@ -49,4 +57,6 @@ node-06.aws-eu-central-1a.nimbus.test
 node-07.aws-eu-central-1a.nimbus.test
 node-08.aws-eu-central-1a.nimbus.test
 node-09.aws-eu-central-1a.nimbus.test
+toledo-01.aws-eu-central-1a.nimbus.test
+toledo-02.aws-eu-central-1a.nimbus.test
 

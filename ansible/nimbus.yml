@@ -35,3 +35,11 @@
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
+
+- name: Configure network toledo using develop
+  hosts: nimbus-slaves-toledo
+  vars:
+    beacon_node_network: 'toledo'
+    beacon_node_repo_branch: 'devel'
+  roles:
+    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
