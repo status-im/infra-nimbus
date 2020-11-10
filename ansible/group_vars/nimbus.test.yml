@@ -10,7 +10,7 @@ bootstrap__logrotate_count: 3
 bootstrap__logrotate_mbytes: 500
 
 # Nimbus ------------------------------
-beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_repo_branch }}'
+beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_cont_tag }}'
 beacon_node_log_level: DEBUG
 beacon_node_timer_rebuild: true
 

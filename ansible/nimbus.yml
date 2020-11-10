@@ -15,7 +15,7 @@
 - name: Configure network medalla using master
   hosts: nimbus.test[0:3]
   vars:
-    beacon_node_repo_branch: 'master'
+    beacon_node_cont_tag: 'master'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
@@ -23,7 +23,7 @@
 - name: Configure network medalla using devel
   hosts: nimbus.test[4:7]
   vars:
-    beacon_node_repo_branch: 'devel'
+    beacon_node_cont_tag: 'devel'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
@@ -31,7 +31,7 @@
 - name: Configure network medalla using libp2p
   hosts: nimbus.test[8:9]
   vars:
-    beacon_node_repo_branch: 'libp2p'
+    beacon_node_cont_tag: 'libp2p'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
@@ -40,7 +40,7 @@
   hosts: nimbus-slaves-toledo
   vars:
     beacon_node_network: 'toledo'
-    beacon_node_repo_branch: 'devel'
+    beacon_node_cont_tag: 'devel'
     dist_validators_layout:
         "toledo-01.aws-eu-central-1a.nimbus.test": { start: 0, end: 1024 }
         "toledo-02.aws-eu-central-1a.nimbus.test": { start: 1024, end: 2047 }
