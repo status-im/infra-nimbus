@@ -57,13 +57,17 @@
     {{ found_secrets[dist_validators_range["start"]:dist_validators_range["end"]] | join(" ") }} \
     '{{ dist_validators_data_path }}/secrets/'
 
-- name: Adjust validators permissions
-  file:
-    path: '{{ item }}'
-    state: 'directory'
-    owner: 'dockremap'
-    group: 'docker'
-    recurse: true
-  with_items:
-    - '{{ dist_validators_data_path }}/validators'
-    - '{{ dist_validators_data_path }}/secrets'
+- name: Adjust validators dir permissions
+  shell: chmod 0700 -R '{{ dist_validators_data_path }}/validators'
+  args:
+    warn: false
+
+- name: Adjust validators file permissions
+  shell: find '{{ dist_validators_data_path }}/validators/' -type f -exec chmod 0600 {} \;
+  args:
+    warn: false
+
+- name: Adjust secrets permissions
+  shell: chmod 0600 -R '{{ dist_validators_data_path }}/secrets'
+  args:
+    warn: false
