@@ -27,8 +27,8 @@
 
 - name: Extract file paths
   set_fact:
-    found_validators: '{{ found_validators_raw.files | map(attribute="path") | list }}'
-    found_secrets: '{{ found_secrets_raw.files | map(attribute="path") | list }}'
+    found_validators: '{{ found_validators_raw.files | map(attribute="path") | list | sort }}'
+    found_secrets: '{{ found_secrets_raw.files | map(attribute="path") | list | sort }}'
 
 - name: Verify number of validators and secrets matches
   assert:
@@ -47,7 +47,7 @@
 
 - name: Copy over validators
   command: |
-    rsync -ru \
+    rsync -ru --delete --exclude="slashing_protection.sqlite3*" \
     {{ found_validators[dist_validators_range["start"]:dist_validators_range["end"]] | join(" ") }} \
     '{{ dist_validators_data_path }}/validators/'
 

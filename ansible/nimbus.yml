@@ -43,7 +43,7 @@
     beacon_node_cont_tag: 'toledo'
     dist_validators_layout:
         "toledo-01.aws-eu-central-1a.nimbus.test": { start: 0, end: 1024 }
-        "toledo-02.aws-eu-central-1a.nimbus.test": { start: 1024, end: 2047 }
+        "toledo-02.aws-eu-central-1a.nimbus.test": { start: 1024, end: 2048 }
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
