@@ -15,7 +15,9 @@ TAG="{{ item.name }}"
 pushd repo
 
 COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
-git pull
+# We cannot use "git pull" in here, because history may be changed upstream
+git fetch
+git reset --hard origin/{{ item.branch }}
 COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
 
 if [[ "$1" == "--force" ]]; then
@@ -25,10 +27,13 @@ elif [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
     exit
 fi
 
-make update
-make \
+# Lower CPU and I/O priority so it doesn't affect the running beacon node
+NICE="nice -n 19 ionice -c2 -n7"
+
+${NICE} make -j$(nproc) update
+${NICE} make \
+    -j$(nproc) \
     LOG_LEVEL="TRACE" \
-    MAKEFLAGS="-j$(nproc)" \
     NIMFLAGS="-d:insecure -d:testnet_servers_image" \
     {{ item.targets | join(" ") }}
 
