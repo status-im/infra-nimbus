@@ -11,7 +11,7 @@
 
 - name: Find all validators
   find:
-    paths: '{{ dist_validators_repo_path }}/{{ dist_validators_name | mandatory }}/validators'
+    paths: '{{ dist_validators_path }}'
     file_type: directory
     recurse: true
     depth: 1
@@ -19,7 +19,7 @@
 
 - name: Find all secrets
   find:
-    paths: '{{ dist_validators_repo_path }}/{{ dist_validators_name | mandatory }}/secrets'
+    paths: '{{ dist_validators_secrets_path }}'
     file_type: file
     recurse: true
     depth: 1
@@ -27,12 +27,23 @@
 
 - name: Extract file paths
   set_fact:
-    found_validators: '{{ found_validators_raw.files | map(attribute="path") | list | sort }}'
-    found_secrets: '{{ found_secrets_raw.files | map(attribute="path") | list | sort }}'
+    found_validators: '{{ found_validators_raw.files | map(attribute="path") | map("basename") | list | sort }}'
+    found_secrets: '{{ found_secrets_raw.files | map(attribute="path") | map("basename") | list | sort }}'
 
 - name: Verify number of validators and secrets matches
   assert:
     that: '{{ (found_validators|length) == (found_secrets|length) }}'
+    fail_msg: 'Number of total validators and secrets does not match!'
+
+- name: Extract slice for host
+  set_fact:
+    host_validators: '{{ found_validators[dist_validators_range["start"]:dist_validators_range["end"]] }}'
+    host_secrets: '{{ found_secrets[dist_validators_range["start"]:dist_validators_range["end"]] }}'
+
+- name: Verify that validators and secrets overlap
+  assert:
+    that: '{{ (host_validators|intersect(host_secrets)|length) == (host_validators|length) }}'
+    fail_msg: 'List of validators and their secrets does not overlap!'
 
 - name: Create validators/secrets folders
   file:
@@ -40,7 +51,7 @@
     state: 'directory'
     owner: dockremap
     group: docker
-    mode: 0750
+    mode: 0700
   with_items:
     - '{{ dist_validators_data_path }}/validators'
     - '{{ dist_validators_data_path }}/secrets'
@@ -48,14 +59,16 @@
 - name: Copy over validators
   command: |
     rsync -ru --delete --exclude="slashing_protection.sqlite3*" \
-    {{ found_validators[dist_validators_range["start"]:dist_validators_range["end"]] | join(" ") }} \
-    '{{ dist_validators_data_path }}/validators/'
+      {{ host_validators | join(" ") }} '{{ dist_validators_data_path }}/validators/'
+  args:
+    chdir: '{{ dist_validators_path }}'
 
 - name: Copy over secrets
   command: |
     rsync -ru \
-    {{ found_secrets[dist_validators_range["start"]:dist_validators_range["end"]] | join(" ") }} \
-    '{{ dist_validators_data_path }}/secrets/'
+      {{ host_secrets | join(" ") }} '{{ dist_validators_data_path }}/secrets/'
+  args:
+    chdir: '{{ dist_validators_secrets_path }}'
 
 - name: Adjust validators dir permissions
   shell: chmod 0700 -R '{{ dist_validators_data_path }}/validators'
