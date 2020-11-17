@@ -8,7 +8,7 @@ beacon_node_builds_docker_hub_user: ~
 beacon_node_builds_docker_hub_token: ~
 
 # Timers
-beacon_node_build_timer_timeout: 1200
+beacon_node_build_timer_timeout: 3600
 
 beacon_node_builds_branches:
   - name: 'devel'
