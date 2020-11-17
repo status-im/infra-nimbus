@@ -1,0 +1,32 @@
+---
+- name: Pre-playbook checks
+  hosts: localhost
+  tasks:
+    - name: 'Verify Ansible version is 2.8 or newer'
+      assert:
+        that: 'ansible_version.full is version_compare("2.8", ">=")'
+        msg: 'Your Ansible version is lower than 2.8. Upgrade it.'
+
+- name: Configure network pyrmont using master
+  hosts: nimbus-slaves-pyrmont[0:3]
+  vars:
+    beacon_node_cont_tag: 'master'
+  roles:
+    - { role: distribute-validators,  tags: [ distribute-validators ] }
+    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+
+- name: Configure network pyrmont using devel
+  hosts: nimbus-slaves-pyrmont[4:7]
+  vars:
+    beacon_node_cont_tag: 'devel'
+  roles:
+    - { role: distribute-validators,  tags: [ distribute-validators ] }
+    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+
+- name: Configure network pyrmont using libp2p
+  hosts: nimbus-slaves-pyrmont[8:9]
+  vars:
+    beacon_node_cont_tag: 'libp2p'
+  roles:
+    - { role: distribute-validators,  tags: [ distribute-validators ] }
+    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }

@@ -1,0 +1,18 @@
+---
+beacon_node_network: 'pyrmont'
+
+# Distribution of validators and their keys
+dist_validators_layout:
+  # master  branch
+  "pyrmont-01.aws-eu-central-1a.nimbus.test": { start:     0, end:  2500 }
+  "pyrmont-02.aws-eu-central-1a.nimbus.test": { start:  2500, end:  5000 }
+  "pyrmont-03.aws-eu-central-1a.nimbus.test": { start:  5000, end:  7500 }
+  "pyrmont-04.aws-eu-central-1a.nimbus.test": { start:  7500, end: 10000 }
+  # devel branch
+  "pyrmont-05.aws-eu-central-1a.nimbus.test": { start: 10000, end: 12000 }
+  "pyrmont-06.aws-eu-central-1a.nimbus.test": { start: 12000, end: 14000 }
+  "pyrmont-07.aws-eu-central-1a.nimbus.test": { start: 14000, end: 16000 }
+  "pyrmont-08.aws-eu-central-1a.nimbus.test": { start: 16000, end: 18000 }
+  # libp2p branch
+  "pyrmont-09.aws-eu-central-1a.nimbus.test": { start: 18000, end: 19000 }
+  "pyrmont-10.aws-eu-central-1a.nimbus.test": { start: 19000, end: 20000 }
