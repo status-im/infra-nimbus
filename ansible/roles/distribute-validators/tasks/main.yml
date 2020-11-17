@@ -71,7 +71,7 @@
     chdir: '{{ dist_validators_secrets_path }}'
 
 - name: Adjust validators dir permissions
-  shell: chmod 0700 -R '{{ dist_validators_data_path }}/validators/*'
+  shell: chmod 0700 -R {{ dist_validators_data_path }}/validators/*
   args:
     warn: false
 
@@ -81,6 +81,6 @@
     warn: false
 
 - name: Adjust secrets permissions
-  shell: chmod 0600 -R '{{ dist_validators_data_path }}/secrets/*'
+  shell: chmod 0600 -R {{ dist_validators_data_path }}/secrets/*
   args:
     warn: false
