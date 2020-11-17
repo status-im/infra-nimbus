@@ -14,9 +14,6 @@ beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_con
 beacon_node_log_level: DEBUG
 beacon_node_timer_rebuild: true
 
-# network
-beacon_node_network: 'medalla'
-
 # ports
 beacon_node_rpc_port: '11000'
 beacon_node_metrics_port : '9300'
