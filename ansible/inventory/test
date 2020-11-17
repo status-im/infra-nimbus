@@ -11,6 +11,16 @@ node-06.aws-eu-central-1a.nimbus.test hostname=node-06.aws-eu-central-1a.nimbus.
 node-07.aws-eu-central-1a.nimbus.test hostname=node-07.aws-eu-central-1a.nimbus.test ansible_host=18.158.142.165 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-07.aws-eu-central-1a.nimbus.test.statusim.net
 node-08.aws-eu-central-1a.nimbus.test hostname=node-08.aws-eu-central-1a.nimbus.test ansible_host=18.159.24.222 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-08.aws-eu-central-1a.nimbus.test.statusim.net
 node-09.aws-eu-central-1a.nimbus.test hostname=node-09.aws-eu-central-1a.nimbus.test ansible_host=18.195.193.55 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-09.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-01.aws-eu-central-1a.nimbus.test hostname=pyrmont-01.aws-eu-central-1a.nimbus.test ansible_host=3.127.208.1 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-01.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-02.aws-eu-central-1a.nimbus.test hostname=pyrmont-02.aws-eu-central-1a.nimbus.test ansible_host=18.198.94.42 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-02.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-03.aws-eu-central-1a.nimbus.test hostname=pyrmont-03.aws-eu-central-1a.nimbus.test ansible_host=18.193.255.204 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-03.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-04.aws-eu-central-1a.nimbus.test hostname=pyrmont-04.aws-eu-central-1a.nimbus.test ansible_host=18.158.57.49 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-04.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-05.aws-eu-central-1a.nimbus.test hostname=pyrmont-05.aws-eu-central-1a.nimbus.test ansible_host=3.125.107.176 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-05.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-06.aws-eu-central-1a.nimbus.test hostname=pyrmont-06.aws-eu-central-1a.nimbus.test ansible_host=35.156.239.243 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-06.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-07.aws-eu-central-1a.nimbus.test hostname=pyrmont-07.aws-eu-central-1a.nimbus.test ansible_host=18.192.164.99 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-07.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-08.aws-eu-central-1a.nimbus.test hostname=pyrmont-08.aws-eu-central-1a.nimbus.test ansible_host=18.198.163.2 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-08.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-09.aws-eu-central-1a.nimbus.test hostname=pyrmont-09.aws-eu-central-1a.nimbus.test ansible_host=18.158.168.125 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-09.aws-eu-central-1a.nimbus.test.statusim.net
+pyrmont-10.aws-eu-central-1a.nimbus.test hostname=pyrmont-10.aws-eu-central-1a.nimbus.test ansible_host=18.193.16.58 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=pyrmont-10.aws-eu-central-1a.nimbus.test.statusim.net
 toledo-01.aws-eu-central-1a.nimbus.test hostname=toledo-01.aws-eu-central-1a.nimbus.test ansible_host=3.124.147.227 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=toledo-01.aws-eu-central-1a.nimbus.test.statusim.net
 toledo-02.aws-eu-central-1a.nimbus.test hostname=toledo-02.aws-eu-central-1a.nimbus.test ansible_host=18.196.164.28 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=toledo-02.aws-eu-central-1a.nimbus.test.statusim.net
 
@@ -25,6 +35,16 @@ node-06.aws-eu-central-1a.nimbus.test
 node-07.aws-eu-central-1a.nimbus.test
 node-08.aws-eu-central-1a.nimbus.test
 node-09.aws-eu-central-1a.nimbus.test
+pyrmont-01.aws-eu-central-1a.nimbus.test
+pyrmont-02.aws-eu-central-1a.nimbus.test
+pyrmont-03.aws-eu-central-1a.nimbus.test
+pyrmont-04.aws-eu-central-1a.nimbus.test
+pyrmont-05.aws-eu-central-1a.nimbus.test
+pyrmont-06.aws-eu-central-1a.nimbus.test
+pyrmont-07.aws-eu-central-1a.nimbus.test
+pyrmont-08.aws-eu-central-1a.nimbus.test
+pyrmont-09.aws-eu-central-1a.nimbus.test
+pyrmont-10.aws-eu-central-1a.nimbus.test
 toledo-01.aws-eu-central-1a.nimbus.test
 toledo-02.aws-eu-central-1a.nimbus.test
 
@@ -42,6 +62,18 @@ node-07.aws-eu-central-1a.nimbus.test
 node-08.aws-eu-central-1a.nimbus.test
 node-09.aws-eu-central-1a.nimbus.test
 
+[nimbus-slaves-pyrmont]
+pyrmont-01.aws-eu-central-1a.nimbus.test
+pyrmont-02.aws-eu-central-1a.nimbus.test
+pyrmont-03.aws-eu-central-1a.nimbus.test
+pyrmont-04.aws-eu-central-1a.nimbus.test
+pyrmont-05.aws-eu-central-1a.nimbus.test
+pyrmont-06.aws-eu-central-1a.nimbus.test
+pyrmont-07.aws-eu-central-1a.nimbus.test
+pyrmont-08.aws-eu-central-1a.nimbus.test
+pyrmont-09.aws-eu-central-1a.nimbus.test
+pyrmont-10.aws-eu-central-1a.nimbus.test
+
 [nimbus-slaves-toledo]
 toledo-01.aws-eu-central-1a.nimbus.test
 toledo-02.aws-eu-central-1a.nimbus.test
@@ -57,6 +89,16 @@ node-06.aws-eu-central-1a.nimbus.test
 node-07.aws-eu-central-1a.nimbus.test
 node-08.aws-eu-central-1a.nimbus.test
 node-09.aws-eu-central-1a.nimbus.test
+pyrmont-01.aws-eu-central-1a.nimbus.test
+pyrmont-02.aws-eu-central-1a.nimbus.test
+pyrmont-03.aws-eu-central-1a.nimbus.test
+pyrmont-04.aws-eu-central-1a.nimbus.test
+pyrmont-05.aws-eu-central-1a.nimbus.test
+pyrmont-06.aws-eu-central-1a.nimbus.test
+pyrmont-07.aws-eu-central-1a.nimbus.test
+pyrmont-08.aws-eu-central-1a.nimbus.test
+pyrmont-09.aws-eu-central-1a.nimbus.test
+pyrmont-10.aws-eu-central-1a.nimbus.test
 toledo-01.aws-eu-central-1a.nimbus.test
 toledo-02.aws-eu-central-1a.nimbus.test
 
