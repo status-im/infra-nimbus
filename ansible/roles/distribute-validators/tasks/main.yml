@@ -1,13 +1,13 @@
----
-#- name: Clone repo with secrets/validators
-#  git:
-#    repo: '{{ dist_validators_repo_url }}'
-#    dest: '{{ dist_validators_repo_path }}'
-#    version: '{{ dist_validators_repo_rev }}'
-#    update: true
-#    force: true
-#    accept_hostkey: true
-#  become_user: '{{ dist_validators_repo_user }}'
+--- 
+- name: Clone repo with secrets/validators
+  git:
+    repo: '{{ dist_validators_repo_url }}'
+    dest: '{{ dist_validators_repo_path }}'
+    version: '{{ dist_validators_repo_rev }}'
+    update: true
+    force: true
+    accept_hostkey: true
+  become_user: '{{ dist_validators_repo_user }}'
 
 - name: Find all validators
   find:
