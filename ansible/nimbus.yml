@@ -16,6 +16,8 @@
   hosts: nimbus.test[0:3]
   vars:
     beacon_node_cont_tag: 'master'
+    # Legacy binary necessary for medalla network
+    beacon_node_cont_entrypoint: '/usr/local/bin/nimbus_beacon_node_spec_0_12_3'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
@@ -24,6 +26,8 @@
   hosts: nimbus.test[4:7]
   vars:
     beacon_node_cont_tag: 'devel'
+    # Legacy binary necessary for medalla network
+    beacon_node_cont_entrypoint: '/usr/local/bin/nimbus_beacon_node_spec_0_12_3'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
@@ -32,6 +36,8 @@
   hosts: nimbus.test[8:9]
   vars:
     beacon_node_cont_tag: 'libp2p'
+    # Legacy binary necessary for medalla network
+    beacon_node_cont_entrypoint: '/usr/local/bin/nimbus_beacon_node_spec_0_12_3'
   roles:
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
     - { role: network-debug-script,   tags: [ network-debug-script ] }
