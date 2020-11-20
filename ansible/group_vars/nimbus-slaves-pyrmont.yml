@@ -4,15 +4,19 @@ beacon_node_network: 'pyrmont'
 # Distribution of validators and their keys
 dist_validators_layout:
   # master  branch
-  "master-large-01.aws-eu-central-1a.nimbus.pyrmont": { start:     0, end:  2500 }
+  "master-large-01.aws-eu-central-1a.nimbus.pyrmont": { start:     0, end:  2500 } # 2500 each
   "master-large-02.aws-eu-central-1a.nimbus.pyrmont": { start:  2500, end:  5000 }
-  "master-small-01.aws-eu-central-1a.nimbus.pyrmont": { start:  5000, end:  7500 }
-  "master-small-02.aws-eu-central-1a.nimbus.pyrmont": { start:  7500, end: 10000 }
+  "master-small-01.aws-eu-central-1a.nimbus.pyrmont": { start:  5000, end:  6250 } # 1250 each
+  "master-small-02.aws-eu-central-1a.nimbus.pyrmont": { start:  6250, end:  7500 }
+  "master-small-03.aws-eu-central-1a.nimbus.pyrmont": { start:  7500, end:  8750 }
+  "master-small-04.aws-eu-central-1a.nimbus.pyrmont": { start:  8750, end: 10000 }
   # devel branch
-  "devel-large-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 10000, end: 12000 }
+  "devel-large-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 10000, end: 12000 } # 2000 each
   "devel-large-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 12000, end: 14000 }
-  "devel-small-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 14000, end: 16000 }
-  "devel-small-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 16000, end: 18000 }
+  "devel-small-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 14000, end: 15000 } # 1000 each
+  "devel-small-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 15000, end: 16000 }
+  "devel-small-03.aws-eu-central-1a.nimbus.pyrmont":  { start: 16000, end: 17000 }
+  "devel-small-04.aws-eu-central-1a.nimbus.pyrmont":  { start: 17000, end: 18000 }
   # libp2p branch
-  "libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont": { start: 18000, end: 19000 }
+  "libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont": { start: 18000, end: 19000 } # 1000 each
   "libp2p-small-02.aws-eu-central-1a.nimbus.pyrmont": { start: 19000, end: 20000 }
