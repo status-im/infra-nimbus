@@ -7,7 +7,10 @@
     shell: '/bin/zsh'
 
 - name: Set disable rebase as merge strategy
-  command: git config --global pull.rebase false
+  git_config:
+    scope: 'global'
+    name: 'pull.rebase'
+    value: false
   become_user: '{{ beacon_node_builds_user }}'
 
 - name: Configure access to Docker Hub
