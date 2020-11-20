@@ -4,6 +4,7 @@ dist_validators_repo_rev: 'master'
 dist_validators_repo_user: 'admin'
 dist_validators_repo_path: '/home/{{ dist_validators_repo_user }}/distribute-validators'
 
+dist_validators_cont_name: ~
 dist_validators_data_path: ~
 dist_validators_name: ~
 dist_validators_path: '{{ dist_validators_repo_path }}/{{ dist_validators_name | mandatory }}/validators'

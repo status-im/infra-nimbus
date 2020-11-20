@@ -1,0 +1,61 @@
+---
+- name: Stop container if running
+  command: docker-compose stop
+  args:
+    chdir: '/docker/{{ dist_validators_cont_name }}'
+  ignore_errors: true
+
+- name: Remove validators/secrets folders
+  file:
+    path: '{{ item }}'
+    state: 'absent'
+  with_items:
+    - '{{ dist_validators_data_path }}/validators'
+    - '{{ dist_validators_data_path }}/secrets'
+
+- name: Create validators/secrets folders
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    owner: dockremap
+    group: docker
+    mode: 0700
+  with_items:
+    - '{{ dist_validators_data_path }}/validators'
+    - '{{ dist_validators_data_path }}/secrets'
+
+- name: Copy over validators
+  command: |
+    rsync -ru --delete --exclude="slashing_protection.sqlite3*" \
+      {{ new_validators | join(" ") }} '{{ dist_validators_data_path }}/validators/'
+  args:
+    chdir: '{{ dist_validators_path }}'
+
+- name: Copy over secrets
+  command: |
+    rsync -ru \
+      {{ new_secrets | join(" ") }} '{{ dist_validators_data_path }}/secrets/'
+  args:
+    chdir: '{{ dist_validators_secrets_path }}'
+
+- name: Adjust folder owner and group
+  command: chown dockremap:docker -R {{ dist_validators_data_path }}
+  args: { warn: false }
+
+- name: Adjust validators dir permissions
+  shell: chmod 0700 -R {{ dist_validators_data_path }}/validators/*
+  args: { warn: false }
+
+- name: Adjust validators file permissions
+  shell: find '{{ dist_validators_data_path }}/validators/' -type f -exec chmod 0600 {} \;
+  args: { warn: false }
+
+- name: Adjust secrets permissions
+  shell: chmod 0600 -R {{ dist_validators_data_path }}/secrets/*
+  args: { warn: false }
+
+- name: Restart container
+  command: docker-compose start
+  args:
+    chdir: '/docker/{{ dist_validators_cont_name }}'
+  ignore_errors: true

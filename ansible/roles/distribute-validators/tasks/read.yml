@@ -1,0 +1,49 @@
+--- 
+- name: Clone repo with secrets/validators
+  git:
+    repo: '{{ dist_validators_repo_url }}'
+    dest: '{{ dist_validators_repo_path }}'
+    version: '{{ dist_validators_repo_rev }}'
+    update: true
+    force: true
+    accept_hostkey: true
+  become_user: '{{ dist_validators_repo_user }}'
+
+- name: Find all validators
+  find:
+    paths: '{{ dist_validators_path }}'
+    file_type: directory
+    recurse: true
+    depth: 1
+  register: found_validators_raw
+
+- name: Find all secrets
+  find:
+    paths: '{{ dist_validators_secrets_path }}'
+    file_type: file
+    recurse: true
+    depth: 1
+  register: found_secrets_raw
+
+- name: Find old validators
+  find:
+    paths: '{{ dist_validators_data_path }}/validators'
+    file_type: directory
+    recurse: true
+    depth: 1
+  register: old_validators_raw
+
+- name: Find old secrets
+  find:
+    paths: '{{ dist_validators_data_path }}/secrets'
+    file_type: file
+    recurse: true
+    depth: 1
+  register: old_secrets_raw
+
+- name: Extract file paths
+  set_fact:
+    found_validators: '{{ found_validators_raw.files | map(attribute="path") | map("basename") | list | sort }}'
+    found_secrets: '{{ found_secrets_raw.files | map(attribute="path") | map("basename") | list | sort }}'
+    old_validators: '{{ old_validators_raw.files | map(attribute="path") | map("basename") | list | sort }}'
+    old_secrets: '{{ old_secrets_raw.files | map(attribute="path") | map("basename") | list | sort }}'
