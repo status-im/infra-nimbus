@@ -11,6 +11,7 @@
   hosts: nimbus-slaves-pyrmont[0:3]
   vars:
     beacon_node_cont_tag: 'master'
+    beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/675db4626923473591cf6418e4dae175'
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
@@ -19,6 +20,7 @@
   hosts: nimbus-slaves-pyrmont[4:7]
   vars:
     beacon_node_cont_tag: 'devel'
+    beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/922cc3c4badf4789b68d895267530a4a'
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
@@ -27,6 +29,7 @@
   hosts: nimbus-slaves-pyrmont[8:9]
   vars:
     beacon_node_cont_tag: 'libp2p'
+    beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/01cde3e0c47a47ff8dcdc52259b3a71c'
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
