@@ -1,11 +1,4 @@
 ---
-# general container config
-cont_restart: false
-cont_recreate: false
-cont_state: 'present'
-# general compose config
-compose_recreate: true
-
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'status.im'
@@ -72,5 +65,6 @@ beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.60) | int }}'
 beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.4) | int }}'
 
 # Validators --------------------------
+dist_validators_cont_name: '{{ beacon_node_cont_name }}'
 dist_validators_name: '{{ beacon_node_network }}_deposits'
 dist_validators_data_path: '{{ beacon_node_cont_vol }}/data/{{ beacon_node_data_folder }}'
