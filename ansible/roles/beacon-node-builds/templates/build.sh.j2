@@ -30,12 +30,9 @@ fi
 # Lower CPU and I/O priority so it doesn't affect the running beacon node
 NICE="nice -n 19 ionice -c2 -n7"
 
-${NICE} make -j$(nproc) update
-${NICE} make \
-    -j$(nproc) \
-    LOG_LEVEL="TRACE" \
-    NIMFLAGS="-d:insecure -d:testnet_servers_image" \
-    {{ item.targets | join(" ") }}
+${NICE} make -j1 update
+${NICE} make -j1 {{ item.targets | join(" ") }} \
+    LOG_LEVEL="TRACE" NIMFLAGS="-d:insecure -d:testnet_servers_image"
 
 popd
 
