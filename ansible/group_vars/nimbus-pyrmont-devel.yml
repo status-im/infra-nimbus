@@ -1,0 +1,11 @@
+---
+beacon_node_network: 'pyrmont'
+beacon_node_cont_tag: 'devel'
+beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/922cc3c4badf4789b68d895267530a4a'
+dist_validators_layout:
+  "devel-large-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 10000, end: 12000 } # 2000 each
+  "devel-large-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 12000, end: 14000 }
+  "devel-small-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 14000, end: 15000 } # 1000 each
+  "devel-small-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 15000, end: 16000 }
+  "devel-small-03.aws-eu-central-1a.nimbus.pyrmont":  { start: 16000, end: 17000 }
+  "devel-small-04.aws-eu-central-1a.nimbus.pyrmont":  { start: 17000, end: 18000 }
