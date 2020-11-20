@@ -41,15 +41,19 @@ toledo-02.aws-eu-central-1a.nimbus.test
 [nimbus-master]
 master-01.aws-eu-central-1a.nimbus.test
 
-[nimbus-slaves-pyrmont]
+[nimbus-pyrmon-devel]
 devel-large-01.aws-eu-central-1a.nimbus.pyrmont
 devel-large-02.aws-eu-central-1a.nimbus.pyrmont
 devel-small-01.aws-eu-central-1a.nimbus.pyrmont
 devel-small-02.aws-eu-central-1a.nimbus.pyrmont
 devel-small-03.aws-eu-central-1a.nimbus.pyrmont
 devel-small-04.aws-eu-central-1a.nimbus.pyrmont
+
+[nimbus-pyrmont-libp2p]
 libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont
 libp2p-small-02.aws-eu-central-1a.nimbus.pyrmont
+
+[nimbus-pyrmont-master]
 master-large-01.aws-eu-central-1a.nimbus.pyrmont
 master-large-02.aws-eu-central-1a.nimbus.pyrmont
 master-small-01.aws-eu-central-1a.nimbus.pyrmont

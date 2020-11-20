@@ -4,7 +4,7 @@ module "nimbus_nodes_pyrmont_master_large" {
   name   = "master-large"
   env    = "nimbus"
   stage  = "pyrmont"
-  group  = "nimbus-slaves-pyrmont"
+  group  = "nimbus-pyrmont-master"
   domain = var.domain
 
   /* Scaling */
@@ -31,7 +31,7 @@ module "nimbus_nodes_pyrmont_master_small" {
   name   = "master-small"
   env    = "nimbus"
   stage  = "pyrmont"
-  group  = "nimbus-slaves-pyrmont"
+  group  = "nimbus-pyrmont-master"
   domain = var.domain
 
   /* Scaling */
@@ -58,7 +58,7 @@ module "nimbus_nodes_pyrmont_devel_large" {
   name   = "devel-large"
   env    = "nimbus"
   stage  = "pyrmont"
-  group  = "nimbus-slaves-pyrmont"
+  group  = "nimbus-pyrmont-devel"
   domain = var.domain
 
   /* Scaling */
@@ -85,7 +85,7 @@ module "nimbus_nodes_pyrmont_devel_small" {
   name   = "devel-small"
   env    = "nimbus"
   stage  = "pyrmont"
-  group  = "nimbus-slaves-pyrmont"
+  group  = "nimbus-pyrmont-devel"
   domain = var.domain
 
   /* Scaling */
@@ -112,7 +112,7 @@ module "nimbus_nodes_pyrmont_libp2p_small" {
   name   = "libp2p-small"
   env    = "nimbus"
   stage  = "pyrmont"
-  group  = "nimbus-slaves-pyrmont"
+  group  = "nimbus-pyrmont-libp2p"
   domain = var.domain
 
   /* Scaling */

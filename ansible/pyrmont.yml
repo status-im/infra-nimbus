@@ -8,7 +8,7 @@
         msg: 'Your Ansible version is lower than 2.8. Upgrade it.'
 
 - name: Configure network pyrmont using master
-  hosts: nimbus-slaves-pyrmont[0:3]
+  hosts: nimbus-pyrmont-master
   vars:
     beacon_node_cont_tag: 'master'
     beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/675db4626923473591cf6418e4dae175'
@@ -17,7 +17,7 @@
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
 
 - name: Configure network pyrmont using devel
-  hosts: nimbus-slaves-pyrmont[4:7]
+  hosts: nimbus-pyrmont-devel
   vars:
     beacon_node_cont_tag: 'devel'
     beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/922cc3c4badf4789b68d895267530a4a'
@@ -26,7 +26,7 @@
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
 
 - name: Configure network pyrmont using libp2p
-  hosts: nimbus-slaves-pyrmont[8:9]
+  hosts: nimbus-pyrmont-libp2p
   vars:
     beacon_node_cont_tag: 'libp2p'
     beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/01cde3e0c47a47ff8dcdc52259b3a71c'
