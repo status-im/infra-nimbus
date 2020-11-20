@@ -39,7 +39,7 @@ module "nimbus_nodes_pyrmont_master_small" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"
-  host_count    = 2
+  host_count    = 4
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
@@ -93,7 +93,7 @@ module "nimbus_nodes_pyrmont_devel_small" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"
-  host_count    = 2
+  host_count    = 4
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
