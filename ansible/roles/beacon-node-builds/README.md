@@ -10,7 +10,7 @@ The minimal configuration would look something like:
 beacon_node_builds_branches:
   - name: 'xyz'
     branch: 'feature/xyz'
-    targets: ['nimbus_beacon_node_spec_0_12_3', 'nimbus_signing_process']
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 02:00:00'
 
 # Required to push Docker images
