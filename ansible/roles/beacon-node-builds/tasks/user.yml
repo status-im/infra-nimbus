@@ -11,7 +11,7 @@
   become_user: '{{ beacon_node_builds_user }}'
 
 - name: Configure access to Docker Hub
-  command: |
-    docker login \
-      --username {{ beacon_node_builds_docker_hub_user | mandatory }} \
-      --password {{ beacon_node_builds_docker_hub_token | mandatory }}
+  docker_login:
+    username: '{{ beacon_node_builds_docker_hub_user | mandatory }}'
+    password: '{{ beacon_node_builds_docker_hub_token | mandatory }}'
+  become_user: '{{ beacon_node_builds_user }}'
