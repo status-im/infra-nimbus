@@ -1,6 +1,6 @@
 ---
 beacon_node_network: 'toledo'
-beacon_node_cont_tag: 'toledo'
+beacon_node_cont_tag: 'devel-{{ (hostname is search("large")) | ternary("large", "small") }}'
 beacon_node_cont_entrypoint: '/usr/local/bin/nimbus_beacon_node'
 
 # Distribution of validators and their keys

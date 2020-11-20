@@ -17,7 +17,3 @@ beacon_node_builds_branches:
     branch: 'nim-libp2p-auto-bump'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 18:00:00'
-  - name: 'toledo-small'
-    branch: 'devel'
-    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
-    frequency: '*-*-* 20:00:00'

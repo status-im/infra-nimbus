@@ -3,7 +3,7 @@ module "nimbus_nodes_toledo" {
 
   name   = "toledo"
   env    = "nimbus"
-  group  = "nimbus-slaves-toledo"
+  group  = "nimbus-toledo-devel"
   domain = var.domain
 
   /* Scaling */
