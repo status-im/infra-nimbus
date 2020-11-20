@@ -8,8 +8,7 @@ module "nimbus_nodes_pyrmont_master_large" {
   domain = var.domain
 
   /* Scaling */
-  #instance_type = "z1d.large"
-  instance_type = "t3a.medium"
+  instance_type = "z1d.large"
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"
@@ -63,8 +62,7 @@ module "nimbus_nodes_pyrmont_devel_large" {
   domain = var.domain
 
   /* Scaling */
-  #instance_type = "z1d.large"
-  instance_type = "t3a.medium"
+  instance_type = "z1d.large"
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"
@@ -118,7 +116,7 @@ module "nimbus_nodes_pyrmont_libp2p_small" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = "t3.medium"
+  instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"
