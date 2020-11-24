@@ -8,7 +8,9 @@
         msg: 'Your Ansible version is lower than 2.8. Upgrade it.'
 
 - name: Configure geth nodes
-  hosts: nimbus-geth-goerli
+  hosts:
+    - nimbus-geth-goerli
+    - nimbus-geth-mainnet
   roles:
     - { role: swap-file,                tags: swap-file }
     - { role: infra-role-geth,          tags: infra-role-geth }
