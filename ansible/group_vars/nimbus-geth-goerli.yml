@@ -10,6 +10,7 @@ geth_cont_name: 'geth-{{ geth_network_name }}'
 geth_extra_alias: '{{ geth_cont_name }}'
 geth_sync_mode: 'full'
 geth_log_level_name: info
+geth_websocket_enabled: true
 # Geth auth
 geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
 
@@ -24,4 +25,5 @@ geth_expo_consul_id: '{{ geth_expo_cont_name }}'
 # Ports
 geth_port: 30303
 geth_rpc_port: 8545
+geth_websocket_port: 8546
 geth_expo_cont_port: 9200
