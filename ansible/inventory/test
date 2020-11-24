@@ -7,6 +7,7 @@ devel-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=devel-small-01.aws-eu-c
 devel-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=devel-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.198.163.2 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=devel-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 devel-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=devel-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.198.65.195 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=devel-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 devel-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=devel-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=52.58.71.58 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=devel-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
+goerli-01.aws-eu-central-1a.nimbus.geth hostname=goerli-01.aws-eu-central-1a.nimbus.geth ansible_host=18.194.109.141 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=goerli-01.aws-eu-central-1a.nimbus.geth.statusim.net
 libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.158.168.125 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 libp2p-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=libp2p-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.16.58 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=libp2p-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 master-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=master-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.127.208.1 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
@@ -25,6 +26,7 @@ devel-small-01.aws-eu-central-1a.nimbus.pyrmont
 devel-small-02.aws-eu-central-1a.nimbus.pyrmont
 devel-small-03.aws-eu-central-1a.nimbus.pyrmont
 devel-small-04.aws-eu-central-1a.nimbus.pyrmont
+goerli-01.aws-eu-central-1a.nimbus.geth
 libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont
 libp2p-small-02.aws-eu-central-1a.nimbus.pyrmont
 master-large-01.aws-eu-central-1a.nimbus.pyrmont
@@ -35,6 +37,9 @@ master-small-03.aws-eu-central-1a.nimbus.pyrmont
 master-small-04.aws-eu-central-1a.nimbus.pyrmont
 toledo-01.aws-eu-central-1a.nimbus.test
 toledo-02.aws-eu-central-1a.nimbus.test
+
+[nimbus-geth-goerli]
+goerli-01.aws-eu-central-1a.nimbus.geth
 
 [nimbus-pyrmont-devel]
 devel-large-01.aws-eu-central-1a.nimbus.pyrmont
@@ -59,6 +64,9 @@ master-small-04.aws-eu-central-1a.nimbus.pyrmont
 [nimbus-toledo-devel]
 toledo-01.aws-eu-central-1a.nimbus.test
 toledo-02.aws-eu-central-1a.nimbus.test
+
+[nimbus.geth]
+goerli-01.aws-eu-central-1a.nimbus.geth
 
 [nimbus.pyrmont]
 devel-large-01.aws-eu-central-1a.nimbus.pyrmont
