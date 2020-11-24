@@ -42,3 +42,11 @@
 - name: swap-file
   src: git@github.com:status-im/infra-role-swap-file.git
   scm: git
+
+- name: infra-role-geth
+  src: git@github.com:status-im/infra-role-geth.git
+  scm: git
+
+- name: infra-role-geth-exporter
+  src: git+git@github.com:status-im/infra-role-geth-exporter.git
+  scm: git
