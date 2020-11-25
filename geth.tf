@@ -8,7 +8,7 @@ module "nimbus_geth_mainnet" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = "t3a.medium"
+  instance_type = "t3a.large"
   root_vol_size = 10
   data_vol_size = 700
   data_vol_type = "gp2"
@@ -34,7 +34,7 @@ module "nimbus_geth_goerli" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = "t3a.medium"
+  instance_type = "t3a.large"
   root_vol_size = 10
   data_vol_size = 50
   data_vol_type = "gp2"
