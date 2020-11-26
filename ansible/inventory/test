@@ -19,8 +19,6 @@ master-small-02.aws-eu-central-1a.nimbus.mainnet hostname=master-small-02.aws-eu
 master-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=master-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.158.57.49 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 master-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=master-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.192.39.165 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 master-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=master-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.122.169.9 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-toledo-01.aws-eu-central-1a.nimbus.test hostname=toledo-01.aws-eu-central-1a.nimbus.test ansible_host=3.124.147.227 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=toledo-01.aws-eu-central-1a.nimbus.test.statusim.net
-toledo-02.aws-eu-central-1a.nimbus.test hostname=toledo-02.aws-eu-central-1a.nimbus.test ansible_host=18.196.164.28 env=nimbus stage=test data_center=aws-eu-central-1a region=eu-central-1a dns_entry=toledo-02.aws-eu-central-1a.nimbus.test.statusim.net
 
 [aws-eu-central-1a]
 devel-large-01.aws-eu-central-1a.nimbus.pyrmont
@@ -41,8 +39,6 @@ master-small-02.aws-eu-central-1a.nimbus.mainnet
 master-small-02.aws-eu-central-1a.nimbus.pyrmont
 master-small-03.aws-eu-central-1a.nimbus.pyrmont
 master-small-04.aws-eu-central-1a.nimbus.pyrmont
-toledo-01.aws-eu-central-1a.nimbus.test
-toledo-02.aws-eu-central-1a.nimbus.test
 
 [nimbus-geth-goerli]
 goerli-01.aws-eu-central-1a.nimbus.geth
@@ -74,10 +70,6 @@ master-small-02.aws-eu-central-1a.nimbus.pyrmont
 master-small-03.aws-eu-central-1a.nimbus.pyrmont
 master-small-04.aws-eu-central-1a.nimbus.pyrmont
 
-[nimbus-toledo-devel]
-toledo-01.aws-eu-central-1a.nimbus.test
-toledo-02.aws-eu-central-1a.nimbus.test
-
 [nimbus.geth]
 goerli-01.aws-eu-central-1a.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
@@ -101,8 +93,4 @@ master-small-01.aws-eu-central-1a.nimbus.pyrmont
 master-small-02.aws-eu-central-1a.nimbus.pyrmont
 master-small-03.aws-eu-central-1a.nimbus.pyrmont
 master-small-04.aws-eu-central-1a.nimbus.pyrmont
-
-[nimbus.test]
-toledo-01.aws-eu-central-1a.nimbus.test
-toledo-02.aws-eu-central-1a.nimbus.test
 
