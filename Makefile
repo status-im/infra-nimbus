@@ -31,13 +31,22 @@ install-provisioner:
 init-terraform:
 	terraform init -upgrade=true
 
+SSH_CONFIG_DIR := ~/.ssh/config.d
+SSH_CONFIG_FILE := infra-nimbus
+SSH_USERNAME := $$(whoami)
+
+ssh-config:
+	SSH_CONFIG_DIR=$(SSH_CONFIG_DIR) \
+	SSH_CONFIG_FILE=$(SSH_CONFIG_FILE) \
+	SSH_USERNAME=$(SSH_USERNAME) \
+	bash scripts/create-ssh-config.sh
+
 secrets:
 	@echo "Saving Consul certificates: ansible/files/consul*"
 	pass services/consul/ca-crt > ansible/files/consul-ca.crt
 	pass services/consul/ca-key > ansible/files/consul-ca.key
 	pass services/consul/client-crt > ansible/files/consul-client.crt
 	pass services/consul/client-key > ansible/files/consul-client.key
-
 
 cleanup:
 	rm -r $(PLUGIN_DIR)/$(ARCHIVE)
