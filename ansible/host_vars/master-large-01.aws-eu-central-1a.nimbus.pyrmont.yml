@@ -3,6 +3,9 @@
 beacon_node_builds_docker_hub_user: '{{lookup("passwordstore", "cloud/DockerHub/user")}}'
 beacon_node_builds_docker_hub_token: '{{lookup("passwordstore", "cloud/DockerHub/token")}}'
 
+# Use Infura instead of Geth for comparison
+beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/675db4626923473591cf6418e4dae175'
+
 # The -large suffix is because of native compilation.
 beacon_node_builds_branches:
   - name: 'devel-large'
