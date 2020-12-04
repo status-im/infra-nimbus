@@ -19,6 +19,19 @@
     - nimbus-pyrmont-master
     - nimbus-pyrmont-devel
     - nimbus-pyrmont-libp2p
+  pre_tasks:
+    - name: Discover Goerli Geth WebSocket endpoint
+      tags: [ infra-role-beacon-node, beacon-node ]
+      uri:
+        url: '{{ consul_catalog_url }}/service/geth-goerli-ws'
+      register: geth_service
+
+    - name: Extract Goerli Geth WebSocket URL
+      tags: [ infra-role-beacon-node, beacon-node ]
+      set_fact:
+        beacon_node_web3_url: 'ws://{{ geth_service.json[0].ServiceAddress }}:{{ geth_service.json[0].ServicePort }}'
+    - debug: var=beacon_node_web3_url
+      tags: [ infra-role-beacon-node, beacon-node ]
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }

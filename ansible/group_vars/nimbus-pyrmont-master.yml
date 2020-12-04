@@ -1,7 +1,6 @@
 ---
 beacon_node_network: 'pyrmont'
 beacon_node_cont_tag: 'master-{{ (hostname is search("large")) | ternary("large", "small") }}'
-beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/675db4626923473591cf6418e4dae175'
 dist_validators_layout:
   "master-large-01.aws-eu-central-1a.nimbus.pyrmont": { start:     0, end:  2500 } # 2500 each
   "master-large-02.aws-eu-central-1a.nimbus.pyrmont": { start:  2500, end:  5000 }
