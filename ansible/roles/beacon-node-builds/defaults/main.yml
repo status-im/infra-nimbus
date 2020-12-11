@@ -12,6 +12,7 @@ beacon_node_build_timer_timeout: 3600
 
 beacon_node_builds_branches: []
 #  - name: 'devel'
-#    branch: 'devel'
+#    version: 'devel'
 #    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
 #    frequency: '*-*-* 10:00:00'
+#    enabled: false

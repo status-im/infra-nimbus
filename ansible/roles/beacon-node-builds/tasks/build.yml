@@ -7,10 +7,10 @@
     mode: 0755
     state: 'directory'
 
-- name: '{{ item.name }} - Clone branch'
+- name: '{{ item.name }} - Clone repo version'
   git:
     repo: 'https://github.com/status-im/nimbus-eth2'
-    version: '{{ item.branch }}'
+    version: '{{ item.version }}'
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/repo'
     update: true
     force: true
@@ -48,7 +48,8 @@
     systemd_timer_description: 'Docker image build for Nimbus beacon node'
     systemd_timer_requires_extra: 'docker.service'
     systemd_timer_start_on_creation: false
-    systemd_timer_frequency: '{{ item.frequency }}'
+    systemd_timer_enabled: '{{ item.enabled | default(true) }}'
+    systemd_timer_frequency: '{{ item.frequency | default("daily") }}'
     systemd_timer_timeout_sec: '{{ beacon_node_build_timer_timeout }}'
     systemd_timer_work_dir: '{{ beacon_node_builds_path }}/{{ item.name }}'
     systemd_timer_script_path: '{{ beacon_node_builds_path }}/{{ item.name }}/build.sh'
