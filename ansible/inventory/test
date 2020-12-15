@@ -46,6 +46,10 @@ goerli-01.aws-eu-central-1a.nimbus.geth
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
 
+[nimbus-master]
+master-small-01.aws-eu-central-1a.nimbus.pyrmont
+master-large-01.aws-eu-central-1a.nimbus.pyrmont
+
 [nimbus-mainnet-small]
 master-small-01.aws-eu-central-1a.nimbus.mainnet
 master-small-02.aws-eu-central-1a.nimbus.mainnet
