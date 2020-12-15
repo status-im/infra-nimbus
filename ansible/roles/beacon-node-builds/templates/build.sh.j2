@@ -17,7 +17,7 @@ pushd repo
 COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
 # We cannot use "git pull" in here, because history may be changed upstream
 git fetch
-git reset --hard origin/{{ item.branch }}
+git reset --hard origin/{{ item.version }}
 COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
 
 if [[ "$1" == "--force" ]]; then
@@ -32,7 +32,12 @@ NICE="nice -n 19 ionice -c2 -n7"
 
 ${NICE} make -j1 update
 ${NICE} make -j1 {{ item.targets | join(" ") }} \
-    LOG_LEVEL="TRACE" NIMFLAGS="-d:insecure -d:testnet_servers_image"
+    LOG_LEVEL="TRACE" NIMFLAGS="-d:insecure -d:testnet_servers_image -d:noSignalHandler"
+
+# Keep some copies of the resulting binaries, to be used for debugging in case of core dumps
+cp -a build/nimbus_beacon_node "build/nimbus_beacon_node_{{ item.name }}_$(date +%F_%H-%M-%S)"
+# Delete copies that are older than 7 days
+find build -name 'nimbus_beacon_node_*' -mtime +7 -exec rm '{}' \+
 
 popd
 

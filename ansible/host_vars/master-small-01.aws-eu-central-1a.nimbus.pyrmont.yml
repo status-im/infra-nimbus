@@ -6,14 +6,14 @@ beacon_node_builds_docker_hub_token: '{{lookup("passwordstore", "cloud/DockerHub
 # The -small suffix is because of native compilation
 beacon_node_builds_branches:
   - name: 'devel-small'
-    branch: 'devel'
+    version: 'devel'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 10:00:00'
   - name: 'master-small'
-    branch: 'master'
+    version: 'master'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 02:00:00'
   - name: 'libp2p-small'
-    branch: 'nim-libp2p-auto-bump'
+    version: 'nim-libp2p-auto-bump'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 18:00:00'

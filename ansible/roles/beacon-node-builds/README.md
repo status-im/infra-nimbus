@@ -9,7 +9,7 @@ The minimal configuration would look something like:
 # Branch to build and frequency
 beacon_node_builds_branches:
   - name: 'xyz'
-    branch: 'feature/xyz'
+    version: 'feature/xyz'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 02:00:00'
 
