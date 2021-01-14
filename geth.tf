@@ -34,7 +34,7 @@ module "nimbus_geth_goerli" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = "t3a.large"
+  instance_type = "t3a.medium"
   root_vol_size = 10
   data_vol_size = 50
   data_vol_type = "gp2"
