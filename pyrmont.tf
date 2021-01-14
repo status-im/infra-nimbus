@@ -92,7 +92,7 @@ module "nimbus_nodes_pyrmont_devel_small" {
   instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
-  data_vol_type = "gp2"
+  data_vol_type = "gp3"
   host_count    = 4
 
   /* Firewall */
