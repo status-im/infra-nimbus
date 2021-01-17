@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/usr/env bash
 
 set -e
 cd $(dirname "$0")
