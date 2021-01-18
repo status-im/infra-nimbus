@@ -1,8 +1,14 @@
 ---
 - name: Find new and old validators
   include_tasks: read.yml
+  when: dist_validators_layout is defined
+
 - name: Verify if validators changed
   include_tasks: check.yml
+  when: dist_validators_layout is defined
+
 - name: Copy over validators and secrets
   include_tasks: write.yml
-  when: secrets_changed or validators_changed
+  when: >
+    dist_validators_layout is defined and
+    (secrets_changed or validators_changed)
