@@ -1,7 +1,7 @@
-module "nimbus_nodes_mainnet_master_small" {
+module "nimbus_nodes_mainnet_stable_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
 
-  name   = "master-small"
+  name   = "stable-small"
   env    = "nimbus"
   stage  = "mainnet"
   group  = "nimbus-mainnet-small"
