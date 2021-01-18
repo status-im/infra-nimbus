@@ -11,8 +11,8 @@ beacon_node_builds_docker_hub_token: ~
 beacon_node_build_timer_timeout: 3600
 
 beacon_node_builds_branches: []
-#  - name: 'devel'
-#    version: 'devel'
+#  - name: 'unstable'
+#    version: 'unstable'
 #    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
 #    frequency: '*-*-* 10:00:00'
 #    enabled: false

@@ -1,3 +1,9 @@
 ---
 beacon_node_network: 'pyrmont'
 beacon_node_cont_tag: 'testing-{{ (hostname is search("large")) | ternary("large", "small") }}'
+dist_validators_layout:
+  "testing-large-01.aws-eu-central-1a.nimbus.pyrmont": { start: 4500, end: 7000 }
+  "testing-small-01.aws-eu-central-1a.nimbus.pyrmont": { start: 7000, end: 8000 }
+  "testing-small-02.aws-eu-central-1a.nimbus.pyrmont": { start: 8000, end: 9000 }
+  "testing-small-03.aws-eu-central-1a.nimbus.pyrmont": { start: 0, end: 0 }
+  "testing-small-04.aws-eu-central-1a.nimbus.pyrmont": { start: 0, end: 0 }

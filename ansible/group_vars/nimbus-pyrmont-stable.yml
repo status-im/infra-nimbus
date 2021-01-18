@@ -1,3 +1,6 @@
 ---
 beacon_node_network: 'pyrmont'
 beacon_node_cont_tag: 'stable-{{ (hostname is search("large")) | ternary("large", "small") }}'
+dist_validators_layout:
+  "stable-large-01.aws-eu-central-1a.nimbus.pyrmont": { start:     0, end:  2500 }
+  "stable-small-01.aws-eu-central-1a.nimbus.pyrmont": { start:  2500, end:  4500 }
