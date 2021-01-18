@@ -1,0 +1,3 @@
+---
+beacon_node_network: 'pyrmont'
+beacon_node_cont_tag: 'stable-{{ (hostname is search("large")) | ternary("large", "small") }}'

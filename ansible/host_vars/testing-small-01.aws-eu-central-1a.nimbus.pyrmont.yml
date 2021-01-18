@@ -1,0 +1,23 @@
+---
+# Docker image builds
+beacon_node_builds_docker_hub_user: '{{lookup("passwordstore", "cloud/DockerHub/user")}}'
+beacon_node_builds_docker_hub_token: '{{lookup("passwordstore", "cloud/DockerHub/token")}}'
+
+# The -small suffix is because of native compilation
+beacon_node_builds_branches:
+  - name: 'unstable-small'
+    version: 'unstable'
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
+    frequency: '*-*-* 10:00:00'
+  - name: 'testing-small'
+    version: 'testing'
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
+    frequency: '*-*-* 02:00:00'
+  - name: 'stable-small'
+    version: 'stable'
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
+    frequency: '*-*-* 02:00:00'
+  - name: 'libp2p-small'
+    version: 'nim-libp2p-auto-bump'
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
+    frequency: '*-*-* 18:00:00'

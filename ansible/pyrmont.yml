@@ -9,16 +9,26 @@
 
 - name: Configure build nodes
   hosts:
+    # Legacy
     - master-large-01.aws-eu-central-1a.nimbus.pyrmont
     - master-small-01.aws-eu-central-1a.nimbus.pyrmont
+    # Current
+    - unstable-large-01.aws-eu-central-1a.nimbus.pyrmont
+    - unstable-small-01.aws-eu-central-1a.nimbus.pyrmont
   roles:
     - { role: beacon-node-builds,     tags: beacon-node-builds }
 
 - name: Configure network pyrmont
   hosts:
+    # Legacy
     - nimbus-pyrmont-master
     - nimbus-pyrmont-devel
     - nimbus-pyrmont-libp2p
+    # Current
+    - nimbus-pyrmont-stable
+    - nimbus-pyrmont-testing
+    - nimbus-pyrmont-unstable
+    - nimbus-pyrmont-unstable-libp2p
   pre_tasks:
     - name: Discover Goerli Geth WebSocket endpoint
       tags: [ infra-role-beacon-node, beacon-node ]
