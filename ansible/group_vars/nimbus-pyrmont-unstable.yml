@@ -1,3 +1,10 @@
 ---
 beacon_node_network: 'pyrmont'
 beacon_node_cont_tag: 'unstable-{{ (hostname is search("large")) | ternary("large", "small") }}'
+dist_validators_layout:
+  "unstable-large-01.aws-eu-central-1a.nimbus.pyrmont":  { start:  9000, end: 11500 } # 2500 each
+  "unstable-large-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 11500, end: 14000 }
+  "unstable-small-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 14000, end: 15333 } # 1333 each
+  "unstable-small-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 15333, end: 16666 }
+  "unstable-small-03.aws-eu-central-1a.nimbus.pyrmont":  { start: 16666, end: 17999 }
+  "unstable-small-04.aws-eu-central-1a.nimbus.pyrmont":  { start: 17999, end: 18000 } # single validator
