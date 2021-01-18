@@ -12,7 +12,7 @@ module "nimbus_nodes_pyrmont_master_large" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "io1"
-  data_vol_iops = 1500
+  data_vol_iops = 2000
   host_count    = 2
 
   /* Firewall */
@@ -40,7 +40,7 @@ module "nimbus_nodes_pyrmont_master_small" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "io1"
-  data_vol_iops = 1500
+  data_vol_iops = 2000
   host_count    = 4
 
   /* Firewall */
@@ -68,7 +68,7 @@ module "nimbus_nodes_pyrmont_devel_large" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "io1"
-  data_vol_iops = 1500
+  data_vol_iops = 2000
   host_count    = 2
 
   /* Firewall */
@@ -96,7 +96,7 @@ module "nimbus_nodes_pyrmont_devel_small" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "io1"
-  data_vol_iops = 1500
+  data_vol_iops = 2000
   host_count    = 4
 
   /* Firewall */
@@ -124,7 +124,7 @@ module "nimbus_nodes_pyrmont_libp2p_small" {
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "io1"
-  data_vol_iops = 1500
+  data_vol_iops = 2000
   host_count    = 2
 
   /* Firewall */
