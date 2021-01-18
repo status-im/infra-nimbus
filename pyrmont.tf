@@ -11,7 +11,8 @@ module "nimbus_nodes_pyrmont_master_large" {
   instance_type = "z1d.large"
   root_vol_size = 20
   data_vol_size = 150
-  data_vol_type = "gp2"
+  data_vol_type = "io1"
+  data_vol_iops = 1500
   host_count    = 2
 
   /* Firewall */
@@ -38,7 +39,8 @@ module "nimbus_nodes_pyrmont_master_small" {
   instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
-  data_vol_type = "gp2"
+  data_vol_type = "io1"
+  data_vol_iops = 1500
   host_count    = 4
 
   /* Firewall */
@@ -65,7 +67,8 @@ module "nimbus_nodes_pyrmont_devel_large" {
   instance_type = "z1d.large"
   root_vol_size = 20
   data_vol_size = 150
-  data_vol_type = "gp2"
+  data_vol_type = "io1"
+  data_vol_iops = 1500
   host_count    = 2
 
   /* Firewall */
@@ -92,7 +95,8 @@ module "nimbus_nodes_pyrmont_devel_small" {
   instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
-  data_vol_type = "gp3"
+  data_vol_type = "io1"
+  data_vol_iops = 1500
   host_count    = 4
 
   /* Firewall */
@@ -119,7 +123,8 @@ module "nimbus_nodes_pyrmont_libp2p_small" {
   instance_type = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
-  data_vol_type = "gp2"
+  data_vol_type = "io1"
+  data_vol_iops = 1500
   host_count    = 2
 
   /* Firewall */
