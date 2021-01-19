@@ -10,9 +10,9 @@ module "nimbus_nodes_pyrmont_master_large" {
   /* Scaling */
   instance_type = "z1d.large"
   root_vol_size = 20
-  data_vol_size = 150
-  data_vol_type = "io1"
-  data_vol_iops = 2000
+  data_vol_size = local.pyrmont_data_vol_size
+  data_vol_type = local.pyrmont_data_vol_type
+  data_vol_iops = local.pyrmont_data_vol_iops
   host_count    = 2
 
   /* Firewall */
@@ -38,9 +38,9 @@ module "nimbus_nodes_pyrmont_master_small" {
   /* Scaling */
   instance_type = "t3a.medium"
   root_vol_size = 20
-  data_vol_size = 150
-  data_vol_type = "io1"
-  data_vol_iops = 2000
+  data_vol_size = local.pyrmont_data_vol_size
+  data_vol_type = local.pyrmont_data_vol_type
+  data_vol_iops = local.pyrmont_data_vol_iops
   host_count    = 4
 
   /* Firewall */
@@ -66,9 +66,9 @@ module "nimbus_nodes_pyrmont_devel_large" {
   /* Scaling */
   instance_type = "z1d.large"
   root_vol_size = 20
-  data_vol_size = 150
-  data_vol_type = "io1"
-  data_vol_iops = 2000
+  data_vol_size = local.pyrmont_data_vol_size
+  data_vol_type = local.pyrmont_data_vol_type
+  data_vol_iops = local.pyrmont_data_vol_iops
   host_count    = 2
 
   /* Firewall */
@@ -94,9 +94,9 @@ module "nimbus_nodes_pyrmont_devel_small" {
   /* Scaling */
   instance_type = "t3a.medium"
   root_vol_size = 20
-  data_vol_size = 150
-  data_vol_type = "io1"
-  data_vol_iops = 2000
+  data_vol_size = local.pyrmont_data_vol_size
+  data_vol_type = local.pyrmont_data_vol_type
+  data_vol_iops = local.pyrmont_data_vol_iops
   host_count    = 4
 
   /* Firewall */
@@ -122,9 +122,9 @@ module "nimbus_nodes_pyrmont_libp2p_small" {
   /* Scaling */
   instance_type = "t3a.medium"
   root_vol_size = 20
-  data_vol_size = 150
-  data_vol_type = "io1"
-  data_vol_iops = 2000
+  data_vol_size = local.pyrmont_data_vol_size
+  data_vol_type = local.pyrmont_data_vol_type
+  data_vol_iops = local.pyrmont_data_vol_iops
   host_count    = 2
 
   /* Firewall */
