@@ -1,0 +1,60 @@
+---
+# Kibana Dashboard
+kibana_domain: 'nimbus-logs.infra.status.im'
+kibana_version: '7.8.0'
+kibana_cont_name: kibana
+kibana_cont_port: 5601
+
+# Kibana LogTrail Plugin
+logtrail_kibana_version: '{{ kibana_version }}'
+logtrail_kibana_plugins_path: '{{ kibana_cont_vol }}/plugins'
+
+# oauth access
+oauth_domain: '{{ kibana_domain }}'
+oauth_cont_name: '{{ kibana_cont_name }}-oauth'
+oauth_upstream_cont: '{{ kibana_cont_name }}'
+oauth_upstream_port: '{{ kibana_cont_port }}'
+oauth_public_port: 443
+oauth_local_port: 8090
+oauth_cookie_secret: '{{ lookup("passwordstore", "services/cookie-secret") }}'
+oauth_id: '{{ lookup("passwordstore", "services/nimbus-kibana/oauth-id") }}'
+oauth_secret: '{{ lookup("passwordstore", "services/nimbus-kibana/oauth-secret") }}'
+
+# ElasticSearch Load Balancer
+es_lb_image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.0'
+es_lb_cont_name: elasticsearch-lb
+es_lb_data_center: do-ams3
+es_lb_cluster_name: 'nimbus-logs-search'
+es_lb_api_port: 9200
+
+logclean_es_host: 'localhost'
+logclean_es_port: '{{ es_lb_api_port }}'
+
+# JVM Memory settings
+es_lb_jvm_min_heap: 2g
+es_lb_jvm_max_heap: 2g
+
+# Nginx Proxy config
+nginx_sites:
+  kibana_http:
+    - listen 80
+    - server_name {{ oauth_domain }}
+    - return 302 https://$server_name$request_uri
+  kibana_ssl:
+    - listen 443 ssl
+
+    - server_name {{ oauth_domain }}
+
+    - ssl_certificate     /certs/origin.crt
+    - ssl_certificate_key /certs/origin.key
+
+    - location / {
+        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:{{ oauth_local_port }}/;
+      }
+
+# Open Nginx Ports
+open_ports_default_comment: 'HTTP & HTTPS'
+open_ports_list:
+  - { port: 80,  protocol: 'tcp' }
+  - { port: 443, protocol: 'tcp' }
