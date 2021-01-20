@@ -2,6 +2,8 @@
 - name: Configure ElasticSearch servers
   hosts: log-store
   roles:
+    - role: swap-file
+      tags: swap-file
     - role: origin-certs
       tags: origin-certs
     - role: elasticsearch
@@ -17,7 +19,6 @@
 
 - name: Configure ElasticSearch servers
   hosts: log-dash
-  roles:
   pre_tasks:
     - name: Fetch available elasticsearch nodes
       uri:
