@@ -19,6 +19,10 @@ master-small-02.aws-eu-central-1a.nimbus.mainnet hostname=master-small-02.aws-eu
 master-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=master-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.158.57.49 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 master-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=master-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.192.39.165 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 master-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=master-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.122.169.9 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=master-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
+node-01.aws-eu-central-1a.dash.nimbus hostname=node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 env=dash stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.dash.nimbus.statusim.net
+node-01.aws-eu-central-1a.log-store.nimbus hostname=node-01.aws-eu-central-1a.log-store.nimbus ansible_host=35.157.196.157 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.log-store.nimbus.statusim.net
+node-02.aws-eu-central-1a.log-store.nimbus hostname=node-02.aws-eu-central-1a.log-store.nimbus ansible_host=3.64.111.246 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-02.aws-eu-central-1a.log-store.nimbus.statusim.net
+node-03.aws-eu-central-1a.log-store.nimbus hostname=node-03.aws-eu-central-1a.log-store.nimbus ansible_host=18.156.65.18 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-03.aws-eu-central-1a.log-store.nimbus.statusim.net
 stable-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=stable-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.158.198.245 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 stable-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=stable-small-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.64.67.28 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-small-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 testing-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=testing-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.173.125 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
@@ -53,6 +57,10 @@ master-small-02.aws-eu-central-1a.nimbus.mainnet
 master-small-02.aws-eu-central-1a.nimbus.pyrmont
 master-small-03.aws-eu-central-1a.nimbus.pyrmont
 master-small-04.aws-eu-central-1a.nimbus.pyrmont
+node-01.aws-eu-central-1a.dash.nimbus
+node-01.aws-eu-central-1a.log-store.nimbus
+node-02.aws-eu-central-1a.log-store.nimbus
+node-03.aws-eu-central-1a.log-store.nimbus
 stable-large-01.aws-eu-central-1a.nimbus.pyrmont
 stable-small-01.aws-eu-central-1a.nimbus.pyrmont
 testing-large-01.aws-eu-central-1a.nimbus.pyrmont
@@ -67,6 +75,22 @@ unstable-small-01.aws-eu-central-1a.nimbus.pyrmont
 unstable-small-02.aws-eu-central-1a.nimbus.pyrmont
 unstable-small-03.aws-eu-central-1a.nimbus.pyrmont
 unstable-small-04.aws-eu-central-1a.nimbus.pyrmont
+
+[dash.nimbus]
+node-01.aws-eu-central-1a.dash.nimbus
+
+[log-dash]
+node-01.aws-eu-central-1a.dash.nimbus
+
+[log-store]
+node-01.aws-eu-central-1a.log-store.nimbus
+node-02.aws-eu-central-1a.log-store.nimbus
+node-03.aws-eu-central-1a.log-store.nimbus
+
+[log-store.nimbus]
+node-01.aws-eu-central-1a.log-store.nimbus
+node-02.aws-eu-central-1a.log-store.nimbus
+node-03.aws-eu-central-1a.log-store.nimbus
 
 [nimbus-geth-goerli]
 goerli-01.aws-eu-central-1a.nimbus.geth
