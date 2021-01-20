@@ -29,6 +29,10 @@ ansible-playbook ansible/nimbus.yml
 
 __For more details see `README.md` files in `ansible` folders.__
 
+# Dashboards
+
+There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.infra.status.im/
+
 # Details
 
 Read the [Terraform and Ansible](https://github.com/status-im/infra-docs/blob/master/articles/ansible_terraform.md) article in our `infra-docs` repo.
