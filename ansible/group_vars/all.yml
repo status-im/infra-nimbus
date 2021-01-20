@@ -13,8 +13,6 @@ consul_catalog_url: 'http://localhost:8500/v1/catalog'
 bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 # TRACE needs more disk space
 bootstrap__rsyslog_docker_logs_path: '/docker/log'
-# The volume of logs is too big and Nimbus team doesn't use their own cluster
-bootstrap__rsyslog_docker_logstash_send: false
 # Print just the message, lower size of log files and make parsing easier
 bootstrap__rsyslog_docker_format: !unsafe '%msg:2:2048%\n'
 # lower local retention to save space
