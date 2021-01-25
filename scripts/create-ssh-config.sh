@@ -1,7 +1,7 @@
-#!/bin/usr/env bash
+#!/usr/bin/env bash
 
 set -e
-cd $(dirname "$0")
+cd $(dirname "$0")/..
 
 if [[ "${SSH_CONFIG_DIR}" == "" ]]; then
   echo Please specify the SSH_CONFIG_DIR environment variable
@@ -19,9 +19,8 @@ INFRA_NIMBUS_SSH_CONFIG="${SSH_CONFIG_DIR}/${SSH_CONFIG_FILE}"
 mkdir -p "${SSH_CONFIG_DIR}" && chmod 700 "${SSH_CONFIG_DIR}"
 rm -f "${INFRA_NIMBUS_SSH_CONFIG}"
 
-for host in $(ansible all -i ../ansible/inventory/test --list-hosts | grep -v 'hosts')
-do
-	cat << EOF >> "${INFRA_NIMBUS_SSH_CONFIG}"
+for host in $(ansible all -i ansible/inventory/test --list-hosts | grep -v 'hosts'); do
+  cat << EOF >> "${INFRA_NIMBUS_SSH_CONFIG}"
 Host nimbus-$host
   Hostname $host.statusim.net
   User ${SSH_USERNAME}

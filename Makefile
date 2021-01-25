@@ -2,8 +2,8 @@ OS = $(strip $(shell uname -s))
 ARCH = linux_amd64
 PLATFORM = linux
 ifeq ($(OS),Darwin)
-	ARCH = darwin_amd64
-	PLATFORM = darwin
+  ARCH = darwin_amd64
+  PLATFORM = darwin
 endif
 
 PLUGIN_DIR = ~/.terraform.d/plugins
@@ -31,11 +31,6 @@ install-provisioner:
 init-terraform:
 	terraform init -upgrade=true
 
-ssh-config: export SSH_CONFIG_DIR := ~/.ssh/config.d
-ssh-config: export SSH_CONFIG_FILE := infra-nimbus
-ssh-config: export SSH_USERNAME := $$(whoami)
-	scripts/create-ssh-config.sh
-
 secrets:
 	@echo "Saving Consul certificates: ansible/files/consul*"
 	pass services/consul/ca-crt > ansible/files/consul-ca.crt
@@ -45,3 +40,9 @@ secrets:
 
 cleanup:
 	rm -r $(PLUGIN_DIR)/$(ARCHIVE)
+
+ssh-config: export SSH_CONFIG_DIR ?= $(HOME)/.ssh/config.d
+ssh-config: export SSH_CONFIG_FILE ?= infra-nimbus
+ssh-config: export SSH_USERNAME ?= $(USER)
+ssh-config:
+		scripts/create-ssh-config.sh
