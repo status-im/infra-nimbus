@@ -1,7 +1,4 @@
 ---
-# Mount extra volume for ElasticSearch container
-bootstrap__extra_volume_path: '/docker'
-
 # Syncing can use a lot of mamory
 swap_file_path: '/main.swap'
 swap_file_size_mb: 2048
