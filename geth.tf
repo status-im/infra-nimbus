@@ -10,7 +10,7 @@ module "nimbus_geth_mainnet" {
   /* Scaling */
   instance_type = "t3a.xlarge"
   root_vol_size = 10
-  data_vol_size = 700
+  data_vol_size = 1000
   data_vol_type = "gp2"
   host_count    = 1
 
