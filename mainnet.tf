@@ -1,3 +1,4 @@
+/* WARNING: These are bootnodes and losing their IPs and private keys would be bad. */
 module "nimbus_nodes_mainnet_stable_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
 
