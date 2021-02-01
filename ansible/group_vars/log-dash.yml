@@ -1,7 +1,7 @@
 ---
 # Kibana Dashboard
 kibana_domain: 'nimbus-logs.infra.status.im'
-kibana_version: '7.8.0'
+kibana_version: '7.10.2'
 kibana_cont_name: kibana
 kibana_cont_port: 5601
 
@@ -21,7 +21,7 @@ oauth_id: '{{ lookup("passwordstore", "services/nimbus-kibana/oauth-id") }}'
 oauth_secret: '{{ lookup("passwordstore", "services/nimbus-kibana/oauth-secret") }}'
 
 # ElasticSearch Load Balancer
-es_lb_image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.0'
+es_lb_image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2'
 es_lb_cont_name: elasticsearch-lb
 es_lb_data_center: do-ams3
 es_lb_cluster_name: 'nimbus-logs-search'
