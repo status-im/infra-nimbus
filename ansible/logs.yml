@@ -44,8 +44,6 @@
       tags: logclean-job
     - role: kibana
       tags: kibana
-    - role: kibana-logtrail
-      tags: kibana-logtrail
     - role: oauth-proxy
       tags: oauth-proxy
     - role: origin-certs

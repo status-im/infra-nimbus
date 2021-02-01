@@ -5,10 +5,6 @@ kibana_version: '7.10.2'
 kibana_cont_name: kibana
 kibana_cont_port: 5601
 
-# Kibana LogTrail Plugin
-logtrail_kibana_version: '{{ kibana_version }}'
-logtrail_kibana_plugins_path: '{{ kibana_cont_vol }}/plugins'
-
 # oauth access
 oauth_domain: '{{ kibana_domain }}'
 oauth_cont_name: '{{ kibana_cont_name }}-oauth'

@@ -39,10 +39,6 @@
   src: git@github.com:status-im/infra-role-kibana.git
   scm: git
 
-- name: kibana-logtrail
-  src: git@github.com:status-im/infra-role-kibana-logtrail.git
-  scm: git
-
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
   scm: git
