@@ -15,14 +15,24 @@ TAG="{{ item.name }}"
 pushd repo
 
 COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
-# We cannot use "git pull" in here, because history may be changed upstream
-git fetch
-git reset --hard origin/{{ item.version }}
+SYMBOLIC_NAME=$(git rev-parse --abbrev-ref --symbolic-full-name HEAD)
+
+function headIsDetached() { [[ "${SYMBOLIC_NAME}" == "HEAD" ]]; }
+
+# Detached HEAD means we're probably on a tag
+if headIsDetached; then
+    echo "Deatached HEAD, nothing to fetch."
+else
+    # We cannot use "git pull" in here, because history may be changed upstream
+    git fetch
+    git reset --hard origin/{{ item.version }}
+fi
+
 COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
 
 if [[ "$1" == "--force" ]]; then
     echo "Forcing rebuild!"
-elif [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
+elif ! headIsDetached && [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
     echo "Nothing new to build."
     exit
 fi
