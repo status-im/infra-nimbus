@@ -1,5 +1,6 @@
 ---
 beacon_node_builds_user: 'nimbus'
+beacon_node_builds_group: 'staff'
 beacon_node_builds_path: '/data/beacon-node-builds'
 beacon_node_builds_image_name: 'statusteam/nimbus_beacon_node'
 

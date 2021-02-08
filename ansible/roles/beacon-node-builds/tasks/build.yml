@@ -22,15 +22,15 @@
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/build.sh'
     owner: '{{ beacon_node_builds_user }}'
     group: 'adm'
-    mode: 0755
+    mode: 0775
 
 - name: '{{ item.name }} - Create Dockerfile'
   template:
     src: 'Dockerfile.j2'
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/Dockerfile'
     owner: '{{ beacon_node_builds_user }}'
-    group: 'adm'
-    mode: 0644
+    group: '{{ beacon_node_builds_group }}'
+    mode: 0664
 
 - name: '{{ item.name }} - Create .dockerignore'
   copy:
@@ -45,6 +45,7 @@
   vars:
     systemd_timer_name: 'beacon-node-build-{{ item.name }}'
     systemd_timer_user: '{{ beacon_node_builds_user }}'
+    systemd_timer_service_group: '{{ beacon_node_builds_group }}'
     systemd_timer_description: 'Docker image build for Nimbus beacon node'
     systemd_timer_requires_extra: 'docker.service'
     systemd_timer_start_on_creation: false

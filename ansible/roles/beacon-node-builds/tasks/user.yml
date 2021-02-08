@@ -2,7 +2,7 @@
 - name: Create user for beacon node builds
   user:
     name: '{{ beacon_node_builds_user }}'
-    group: 'adm'
+    group: '{{ beacon_node_builds_group }}'
     groups: ['docker']
     shell: '/bin/zsh'
 
@@ -18,3 +18,9 @@
     username: '{{ beacon_node_builds_docker_hub_user | mandatory }}'
     password: '{{ beacon_node_builds_docker_hub_token | mandatory }}'
   become_user: '{{ beacon_node_builds_user }}'
+
+- name: Sudoers file to let non-root users start jobs
+  template:
+    src: 'builds_sudoers.j2'
+    dest: '/etc/sudoers.d/80-beacon-node-builds'
+    mode: 0440
