@@ -12,8 +12,9 @@
     repo: 'https://github.com/status-im/nimbus-eth2'
     version: '{{ item.version }}'
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/repo'
-    update: true
     force: true
+    # Don't update or timer might miss some changes
+    update: false
   become_user: '{{ beacon_node_builds_user }}'
 
 - name: '{{ item.name }} - Create script'
