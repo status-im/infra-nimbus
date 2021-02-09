@@ -1,4 +1,5 @@
 - name: Cleanup to regain disk space
+  become: true
   hosts: all
   tasks:
     - name: Save available space

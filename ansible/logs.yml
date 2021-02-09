@@ -1,5 +1,6 @@
 ---
 - name: Configure ElasticSearch servers
+  become: true
   hosts: log-store
   roles:
     - role: swap-file
@@ -18,6 +19,7 @@
       tags: open-ports
 
 - name: Configure ElasticSearch servers
+  become: true
   hosts: log-dash
   pre_tasks:
     - name: Fetch available elasticsearch nodes

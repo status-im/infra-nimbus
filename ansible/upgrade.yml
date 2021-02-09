@@ -1,4 +1,5 @@
 - name: Update and upgrade apt packages
+  become: true
   gather_facts: false
   hosts: all
   tasks:

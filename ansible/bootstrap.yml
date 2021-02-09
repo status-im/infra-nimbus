@@ -10,12 +10,14 @@
 # This is run on every newly provisioned host.
 #
 - name: Bootstrap Python support for Ansible
+  become: true
   gather_facts: False
   hosts: all
   roles:
     - infra-role-bootstrap/raw
 
 - name: Bootstrap admin users and Consul
+  become: true
   hosts: all
   roles:
     - infra-role-bootstrap
