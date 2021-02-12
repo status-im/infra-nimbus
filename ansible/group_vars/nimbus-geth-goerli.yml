@@ -18,6 +18,7 @@ geth_websocket_origins: '*'
 
 # Memory settings
 geth_cont_mem_ratio: 0.7
+geth_cache_size: '{{ (ansible_memtotal_mb * 0.25|float) | int }}'
 
 # Geth metrics
 geth_source_cont_name: '{{ geth_cont_name }}'
