@@ -17,7 +17,7 @@ geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
 geth_websocket_origins: '*'
 
 # Memory settings
-geth_cont_mem_ratio: 0.8
+geth_cont_mem_ratio: 0.7
 
 # Geth metrics
 geth_source_cont_name: '{{ geth_cont_name }}'
