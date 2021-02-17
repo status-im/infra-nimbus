@@ -1,5 +1,4 @@
 provider "aws" {
-  version    = "~> 2.0"
   region     = "eu-central-1"
   access_key = data.pass_password.aws_access_key.password
   secret_key = data.pass_password.aws_secret_key.password
