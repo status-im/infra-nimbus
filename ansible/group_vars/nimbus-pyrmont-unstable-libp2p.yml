@@ -2,4 +2,4 @@
 beacon_node_network: 'pyrmont'
 beacon_node_cont_tag: 'libp2p-{{ (hostname is search("large")) | ternary("large", "small") }}'
 dist_validators_layout:
-  "unstable-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont": { start: 18000, end: 20000 } # 2000 each
+  "unstable-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont": { start: 19000, end: 20000 } # 1000
