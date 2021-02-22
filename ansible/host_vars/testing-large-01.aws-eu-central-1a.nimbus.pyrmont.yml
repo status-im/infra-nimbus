@@ -15,7 +15,7 @@ beacon_node_builds_branches:
   - name: 'testing-large'
     version: 'testing'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
-    frequency: '*-*-* 02:00:00'
+    frequency: '*-*-* 06:00:00'
   - name: 'stable-large'
     version: 'stable'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
