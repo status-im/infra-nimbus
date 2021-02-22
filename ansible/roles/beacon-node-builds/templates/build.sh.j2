@@ -52,7 +52,9 @@ find build -name 'nimbus_beacon_node_*' -mtime +7 -exec rm '{}' \+
 popd
 
 # Add binary into a simple Alpine image
-docker build -t "${IMAGE}:${COMMIT_AFTER}" --build-arg=COMMIT=${COMMIT_AFTER} .
+docker build -t "${IMAGE}:${COMMIT_AFTER}" \
+    --label "commit=${COMMIT_AFTER}" \
+    --build-arg=COMMIT=${COMMIT_AFTER} .
 docker tag "${IMAGE}:${COMMIT_AFTER}" "${IMAGE}:${TAG}"
 docker push "${IMAGE}:${TAG}"
 
