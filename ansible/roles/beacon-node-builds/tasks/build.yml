@@ -13,8 +13,8 @@
     version: '{{ item.version }}'
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/repo'
     force: true
-    # Don't update or timer might miss some changes
-    update: false
+    # Normally we don't update or timer might miss some changes.
+    update: '{{ item.get("update", false) }}'
   become_user: '{{ beacon_node_builds_user }}'
 
 - name: '{{ item.name }} - Create script'

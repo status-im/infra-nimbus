@@ -24,3 +24,4 @@ beacon_node_builds_branches:
     version: 'v1.0.8'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     enabled: false
+    update: true
