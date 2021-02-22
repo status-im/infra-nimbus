@@ -14,16 +14,10 @@
     that: '{{ (new_validators|intersect(new_secrets)|length) == (new_validators|length) }}'
     fail_msg: 'List of validators and their secrets does not overlap!'
 
-- debug: var=new_validators[0:10]
-- debug: var=old_validators[0:10]
-
 - name: Check compare existing validators
   set_fact:
     secrets_diff: '{{ new_secrets|difference(old_secrets) }}'
     validators_diff: '{{ new_validators|difference(old_validators) }}'
-
-- debug: var=secrets_diff[0:10]
-- debug: var=validators_diff[0:10]
 
 - name: Check if validators changed
   set_fact:

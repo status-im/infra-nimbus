@@ -3,7 +3,7 @@
   command: docker-compose stop
   args:
     chdir: '/docker/{{ dist_validators_cont_name }}'
-  ignore_errors: true
+  #ignore_errors: true
 
 - name: Remove validators/secrets folders
   file:
@@ -33,8 +33,7 @@
 
 - name: Copy over secrets
   command: |
-    rsync -ru \
-      {{ new_secrets | join(" ") }} '{{ dist_validators_data_path }}/secrets/'
+    rsync -ru --delete {{ new_secrets | join(" ") }} '{{ dist_validators_data_path }}/secrets/'
   args:
     chdir: '{{ dist_validators_secrets_path }}'
 
@@ -58,4 +57,4 @@
   command: docker-compose start
   args:
     chdir: '/docker/{{ dist_validators_cont_name }}'
-  ignore_errors: true
+  #ignore_errors: true
