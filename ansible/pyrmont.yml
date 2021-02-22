@@ -17,6 +17,8 @@
 
 - name: Configure network pyrmont
   become: true
+  # To avoid clashing/duplicate validators.
+  any_errors_fatal: true
   hosts:
     - nimbus-pyrmont-stable
     - nimbus-pyrmont-testing
