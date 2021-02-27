@@ -23,7 +23,7 @@ if [[ ${INDICES_NUM} -le ${INDICES_KEEP} ]]; then
 fi
 
 # Subtract how many to keep from number of existing indices
-INDICES_TO_DELETE=$(echo "${INDICES}" | tail -n$((INDICES_NUM-INDICES_KEEP)) )
+INDICES_TO_DELETE=$(echo "${INDICES}" | head -n$((INDICES_NUM-INDICES_KEEP)) )
 
 echo "${INDICES_TO_DELETE}"
 
