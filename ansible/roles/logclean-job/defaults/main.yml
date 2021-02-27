@@ -9,5 +9,5 @@ logclean_service_name: 'logclean-job'
 logclean_service_desc: 'Job for cleaning ElasticSearch cluster periodically.'
 logclean_service_user: 'nobody'
 logclean_service_after: 'docker.service'
-logclean_service_timeout: 60
+logclean_service_timeout: 300
 logclean_timer_frequency: 'daily'
