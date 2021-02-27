@@ -3,7 +3,7 @@ logclean_es_host: ~
 logclean_es_port: ~
 logclean_script_path: '/usr/local/bin/logclean'
 logclean_index_regex: 'logstash-*'
-logclean_keep_indices: 90
+logclean_keep_indices: 20
 logclean_service_path: '/lib/systemd/system'
 logclean_service_name: 'logclean-job'
 logclean_service_desc: 'Job for cleaning ElasticSearch cluster periodically.'

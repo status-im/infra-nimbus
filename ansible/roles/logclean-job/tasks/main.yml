@@ -1,9 +1,9 @@
 ---
-- name: 'Log Clean | Verify we keep a minimum of 60 indices'
+- name: 'Log Clean | Verify we keep a minimum of 20 indices'
   assert:
     quiet: true
     that:
-      - logclean_keep_indices > 60
+      - logclean_keep_indices >= 20
 
 - name: 'Log Clean | Create logclean script'
   template:
