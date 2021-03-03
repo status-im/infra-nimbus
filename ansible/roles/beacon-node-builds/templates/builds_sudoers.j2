@@ -2,9 +2,9 @@
 
 {% for service in beacon_node_builds_branches %}
 # {{ service.name }}
-%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *status beacon-node-build-{{ service.name }}[.service]
-%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *start beacon-node-build-{{ service.name }}[.service]
-%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *stop beacon-node-build-{{ service.name }}[.service]
-%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *restart beacon-node-build-{{ service.name }}[.service]
+%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *status beacon-node-build-{{ service.name }}*
+%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *start beacon-node-build-{{ service.name }}*
+%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *stop beacon-node-build-{{ service.name }}*
+%{{ beacon_node_builds_group }} ALL= NOPASSWD: /usr/bin/systemctl *restart beacon-node-build-{{ service.name }}*
 
 {% endfor %}
