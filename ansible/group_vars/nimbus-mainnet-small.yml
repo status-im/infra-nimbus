@@ -5,3 +5,6 @@ beacon_node_web3_url: 'wss://mainnet.infura.io/ws/v3/9e2f2cc13f70432f8b87dbe7d51
 
 # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
 beacon_node_netkey: '{{lookup("passwordstore","service/Nimbus/netkey/"+hostname)}}'
+
+# Bootnodes should subscribe to all subnets
+beacon_node_subscribe_all: true
