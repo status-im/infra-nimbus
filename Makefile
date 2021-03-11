@@ -2,10 +2,10 @@ OS = $(strip $(shell uname -s))
 
 ifeq ($(OS),Darwin)
 ARCH = darwin_amd64
-PROVISIONER_MD5SUM = 42b93081b1ca548e821020949606eed7
+PROVISIONER_SHA1 = bd688a503f526beedaf6ef5d2dba1128051573b6
 else
 ARCH = linux_amd64
-PROVISIONER_MD5SUM = 34a6ce3491a5cde370e466a31f6c1f07
+PROVISIONER_SHA1 = da9cdf019d8f860a6e417257d81b1b21aceba7b7
 endif
 
 TF_PLUGINS_DIR = $(HOME)/.terraform.d/plugins
@@ -28,7 +28,7 @@ $(PROVISIONER_PATH):
 	chmod +x $(PROVISIONER_PATH); \
 
 install-provisioner: $(PROVISIONER_PATH)
-	@echo "$(PROVISIONER_MD5SUM)  $(PROVISIONER_PATH)" | md5sum -c \
+	@echo "$(PROVISIONER_SHA1)  $(PROVISIONER_PATH)" | shasum -c \
 		|| rm -v $(PROVISIONER_PATH)
 
 secrets:
