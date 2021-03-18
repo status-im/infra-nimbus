@@ -1,0 +1,9 @@
+---
+beacon_node_cont_tag: 'unstable-large'
+dist_validators_layout:
+  # 2500 validators per node
+  "unstable-large-01.aws-eu-central-1a.nimbus.prater":  { start: 25000, end: 27500 }
+  "unstable-large-02.aws-eu-central-1a.nimbus.prater":  { start: 27500, end: 30000 }
+  "unstable-large-03.aws-eu-central-1a.nimbus.prater":  { start: 30000, end: 32500 }
+  "unstable-large-04.aws-eu-central-1a.nimbus.prater":  { start: 32500, end: 35000 }
+  "unstable-large-05.aws-eu-central-1a.nimbus.prater":  { start: 35000, end: 37500 }

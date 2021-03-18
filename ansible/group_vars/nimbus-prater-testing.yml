@@ -1,0 +1,9 @@
+---
+beacon_node_cont_tag: 'testing-large'
+dist_validators_layout:
+  # 2500 validators per node
+  "testing-large-01.aws-eu-central-1a.nimbus.prater": { start: 12500, end: 15000 }
+  "testing-large-02.aws-eu-central-1a.nimbus.prater": { start: 15000, end: 17500 }
+  "testing-large-03.aws-eu-central-1a.nimbus.prater": { start: 17500, end: 20000 }
+  "testing-large-04.aws-eu-central-1a.nimbus.prater": { start: 20000, end: 22500 }
+  "testing-large-05.aws-eu-central-1a.nimbus.prater": { start: 22500, end: 25000 }
