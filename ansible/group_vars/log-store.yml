@@ -1,4 +1,11 @@
 ---
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'status.im'
+    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
+    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
+    default: true
+
 # Syncing can use a lot of mamory
 swap_file_path: '/main.swap'
 swap_file_size_mb: 2048

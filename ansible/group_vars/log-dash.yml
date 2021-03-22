@@ -1,4 +1,11 @@
 ---
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'status.im'
+    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
+    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
+    default: true
+
 # Kibana Dashboard
 kibana_domain: 'nimbus-logs.infra.status.im'
 kibana_version: '7.10.2'

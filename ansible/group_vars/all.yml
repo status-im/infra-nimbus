@@ -1,31 +1,8 @@
 ---
-# CloudFlare Origin certificates
-origin_certs:
-  - domain: 'status.im'
-    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
-    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
-    default: true
-
-# Consul Catalog Query URL
-consul_catalog_url: 'http://localhost:8500/v1/catalog'
-
 # Root password
 bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
-# TRACE needs more disk space
-bootstrap__rsyslog_docker_logs_path: '/docker/log'
-# Print just the message, lower size of log files and make parsing easier
-bootstrap__rsyslog_docker_format: !unsafe '%msg:2:2048%\n'
-# lower local retention to save space
-bootstrap__logrotate_frequency: 'hourly'
-bootstrap__logrotate_count: 72
-bootstrap__logrotate_mbytes: 500
-
-# Consul Encryption
-consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
-
-# Beacon nodes can be quite memory hungry
-swap_file_path: '/docker/main.swap'
-swap_file_size_mb: 2048
+# Consul encryption key
+bootstrap__consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
 
 # Custom SSH accounts for Nimbus fleet, should start from UID 8000.
 bootstrap__active_extra_users:
@@ -35,6 +12,22 @@ bootstrap__active_extra_users:
   - { name: dryajov, uid: 8004, groups: ['systemd-journal'], key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBjhsSxUXSQBv6PFEwE9TYG0TeuzabRipy/IoIS33BTt dryajov@status.im' }
   - { name: kim,     uid: 8005, groups: ['systemd-journal'], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqPvYjYJjO0rCgeYsTp2kn0oyQLKHgvcjIYVeaQzjZ3VB5V+34AadjjYh8ULhuzTPl25gbVI0KAWbsui4im/04tBv9Bn8xAEvLcWwab5t7a8GZLGKXOl3bi6S7Vmal6e94mKht1wflS9hGu0o6q/fHanu/WPKhtc1zwg50Qlrs2/9DYP9Qqo0ekHnuzip1Trdmls33DZB1WehZx7/rNKwppE0aHUv7vgh7vc+FAU/RnyeHM2bJRfq/AxiAs+Fas5MrO+9Mm8jPA2Jm6TRDGmXg5DB+0+u+qZF15eJ+ujKXhgnVPJBkSuAryTPob7FA1Eovc9HBDhOQCKC0ialiJm+5 kim.demey@status.im' }
   - { name: giovanni,uid: 8006, groups: ['systemd-journal'], key: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAGn4vdHz/zGgjtdcWZjmUwerVNezDo5g0i+a0rcHvUsHCdfJ1yN2inqvib+RxPwGYAzgKoT1J5y+SIaGO740XupgQCrTqqyWeaeU+k+GjQF8JGiAyG8htKkFawR/mZBsXvosp/D9rA2zr8ms8q8vJJV73w/hMKbBoJB8CLEvBqTkY+1Gg== giova@DESKTOP-7CNNO9E' }
+
+# TRACE needs more disk space
+bootstrap__rsyslog_docker_logs_path: '/docker/log'
+# Print just the message, lower size of log files and make parsing easier
+bootstrap__rsyslog_docker_format: !unsafe '%msg:2:2048%\n'
+# lower local retention to save space
+bootstrap__logrotate_frequency: 'hourly'
+bootstrap__logrotate_count: 72
+bootstrap__logrotate_mbytes: 500
+
+# Consul Catalog Query URL
+consul_catalog_url: 'http://localhost:8500/v1/catalog'
+
+# Beacon nodes can be quite memory hungry
+swap_file_path: '/docker/main.swap'
+swap_file_size_mb: 2048
 
 # Nimbus ------------------------------
 beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_cont_tag }}'
