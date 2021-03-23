@@ -33,6 +33,11 @@ __For more details see `README.md` files in `ansible` folders.__
 
 There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.infra.status.im/
 
+There are explorers available for various testnets:
+
+* https://pyrmont.beaconcha.in/
+* https://prater.beaconcha.in/
+
 # Details
 
 Read the [Terraform and Ansible](https://github.com/status-im/infra-docs/blob/master/articles/ansible_terraform.md) article in our `infra-docs` repo.
