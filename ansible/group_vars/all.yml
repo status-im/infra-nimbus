@@ -40,6 +40,9 @@ beacon_node_metrics_port : '9300'
 beacon_node_listening_port: '9100'
 beacon_node_discovery_port: '9100'
 
+# Peers
+beacon_node_max_peers: 320
+
 # Infura URL
 beacon_node_web3_url: '{{ lookup("passwordstore", "service/Nimbus/infura-url") }}'
 
