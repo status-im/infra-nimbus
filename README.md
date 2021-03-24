@@ -1,6 +1,6 @@
 # Description
 
-This repo defines Nimbus cluster infractructure.
+This repo defines Nimbus cluster infrastructure.
 
 # Requirements
 
