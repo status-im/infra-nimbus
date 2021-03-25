@@ -30,6 +30,9 @@
     - name: Remove old backups
       shell: 'rm -f /var/tmp/backups/*/*'
 
+    - name: Remove unused Docker images
+      shell: 'docker image prune -f -a'
+
     - name: Gather space info
       setup:
         gather_subset: 'hardware'
