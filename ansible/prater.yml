@@ -27,7 +27,7 @@
     - name: Discover Goerli Geth WebSocket endpoint
       tags: [ infra-role-beacon-node, beacon-node ]
       uri:
-        url: '{{ consul_catalog_url }}/service/geth-goerli-ws'
+        url: '{{ consul_catalog_url }}/service/nimbus-goerli-node-ws'
       register: geth_service
 
     - name: Extract Goerli Geth WebSocket URL
