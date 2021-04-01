@@ -2,7 +2,6 @@
 # For emergency use when Consul fails
 [all]
 goerli-01.aws-eu-central-1a.nimbus.geth hostname=goerli-01.aws-eu-central-1a.nimbus.geth ansible_host=18.194.109.141 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=goerli-01.aws-eu-central-1a.nimbus.geth.statusim.net
-libp2p-large-01.aws-eu-central-1a.nimbus.prater hostname=libp2p-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.93 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=libp2p-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
 node-01.aws-eu-central-1a.dash.nimbus hostname=node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 env=dash stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.dash.nimbus.statusim.net
 node-01.aws-eu-central-1a.log-store.nimbus hostname=node-01.aws-eu-central-1a.log-store.nimbus ansible_host=35.157.196.157 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.log-store.nimbus.statusim.net
@@ -27,6 +26,7 @@ testing-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-01.aws-
 testing-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.124.251.140 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 testing-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=35.156.225.126 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 testing-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.215.229 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
+u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater hostname=u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.93 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.prater hostname=unstable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.130 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.198.99.61 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 unstable-large-02.aws-eu-central-1a.nimbus.prater hostname=unstable-large-02.aws-eu-central-1a.nimbus.prater ansible_host=3.65.180.246 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-02.aws-eu-central-1a.nimbus.prater.statusim.net
@@ -42,7 +42,6 @@ unstable-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-04.aw
 
 [aws-eu-central-1a]
 goerli-01.aws-eu-central-1a.nimbus.geth
-libp2p-large-01.aws-eu-central-1a.nimbus.prater
 mainnet-01.aws-eu-central-1a.nimbus.geth
 node-01.aws-eu-central-1a.dash.nimbus
 node-01.aws-eu-central-1a.log-store.nimbus
@@ -67,6 +66,7 @@ testing-small-01.aws-eu-central-1a.nimbus.pyrmont
 testing-small-02.aws-eu-central-1a.nimbus.pyrmont
 testing-small-03.aws-eu-central-1a.nimbus.pyrmont
 testing-small-04.aws-eu-central-1a.nimbus.pyrmont
+u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.pyrmont
 unstable-large-02.aws-eu-central-1a.nimbus.prater
@@ -106,9 +106,6 @@ mainnet-01.aws-eu-central-1a.nimbus.geth
 stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 
-[nimbus-prater-libp2p]
-libp2p-large-01.aws-eu-central-1a.nimbus.prater
-
 [nimbus-prater-stable]
 stable-large-01.aws-eu-central-1a.nimbus.prater
 stable-large-02.aws-eu-central-1a.nimbus.prater
@@ -129,6 +126,9 @@ unstable-large-02.aws-eu-central-1a.nimbus.prater
 unstable-large-03.aws-eu-central-1a.nimbus.prater
 unstable-large-04.aws-eu-central-1a.nimbus.prater
 unstable-large-05.aws-eu-central-1a.nimbus.prater
+
+[nimbus-prater-unstable-libp2p-stable]
+u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
 
 [nimbus-pyrmont-stable]
 stable-large-01.aws-eu-central-1a.nimbus.pyrmont
@@ -161,7 +161,6 @@ stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 
 [nimbus.prater]
-libp2p-large-01.aws-eu-central-1a.nimbus.prater
 stable-large-01.aws-eu-central-1a.nimbus.prater
 stable-large-02.aws-eu-central-1a.nimbus.prater
 stable-large-03.aws-eu-central-1a.nimbus.prater
@@ -172,6 +171,7 @@ testing-large-02.aws-eu-central-1a.nimbus.prater
 testing-large-03.aws-eu-central-1a.nimbus.prater
 testing-large-04.aws-eu-central-1a.nimbus.prater
 testing-large-05.aws-eu-central-1a.nimbus.prater
+u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-02.aws-eu-central-1a.nimbus.prater
 unstable-large-03.aws-eu-central-1a.nimbus.prater

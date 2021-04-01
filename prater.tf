@@ -92,13 +92,13 @@ module "nimbus_nodes_prater_unstable_large" {
   keypair_name = aws_key_pair.arthurk.key_name
 }
 
-module "nimbus_nodes_prater_libp2p_large" {
+module "nimbus_nodes_prater_unstable_libp2p_stable_large" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
 
-  name   = "libp2p-large"
+  name   = "u-libp2p-s-large"
   env    = "nimbus"
   stage  = "prater"
-  group  = "nimbus-prater-libp2p"
+  group  = "nimbus-prater-unstable-libp2p-stable"
   domain = var.domain
 
   /* Scaling */
