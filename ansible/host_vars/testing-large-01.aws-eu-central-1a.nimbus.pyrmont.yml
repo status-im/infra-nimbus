@@ -8,7 +8,11 @@ beacon_node_web3_url: 'wss://goerli.infura.io/ws/v3/675db4626923473591cf6418e4da
 
 # The -large suffix is because of native compilation.
 beacon_node_builds_branches:
-  - name: 'libp2p-large'
+  - name: 'unstable-libp2p-unstable-large'
+    version: 'nim-libp2p-auto-bump-unstable'
+    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
+    frequency: '*-*-* 18:00:00'
+  - name: 'unstable-libp2p-stable-large'
     version: 'nim-libp2p-auto-bump'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 14:00:00'
