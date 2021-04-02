@@ -31,6 +31,10 @@
   src: git@github.com:status-im/infra-role-beacon-node.git
   scm: git
 
+- name: infra-role-rocketpool-smart-node
+  src: git@github.com:status-im/infra-role-rocketpool-smart-node.git
+  scm: git
+
 - name: infra-role-eth2-testnet-site
   src: git@github.com:status-im/infra-role-eth2-testnet-site.git
   scm: git

@@ -1,0 +1,20 @@
+---
+- name: Configure RocketPool nodes
+  become: true
+  hosts:
+    - testing-small-03.aws-eu-central-1a.nimbus.pyrmont
+    - testing-small-04.aws-eu-central-1a.nimbus.pyrmont
+  pre_tasks:
+    - name: Discover Goerli Geth WebSocket endpoint
+      tags: [ infra-role-rocketpool-smart-node, rocketpool ]
+      uri:
+        url: '{{ consul_catalog_url }}/service/nimbus-goerli-node-ws'
+      register: geth_service
+
+    - name: Extract Goerli Geth WebSocket URL
+      tags: [ infra-role-rocketpool-smart-node, rocketpool ]
+      set_fact:
+        rocketpool_smart_node_web3_url: 'ws://{{ geth_service.json[0].ServiceAddress }}:{{ geth_service.json[0].ServicePort }}'
+  roles:
+    - { role: infra-role-rocketpool-smart-node, tags: rocketpool }
+

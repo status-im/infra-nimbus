@@ -34,6 +34,12 @@ beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_con
 beacon_node_log_level: DEBUG
 beacon_node_timer_rebuild: true
 
+# RocketPool settings
+# We use non-standard ports to avoid conflicts with out fleet nodes
+rocketpool_smart_node_eth2_libp2p_port: 10001
+rocketpool_smart_node_eth2_discovery_port: 10001
+rocketpool_smart_node_eth2_graffiti: 'Nimbus on RocketPool'
+
 # ports
 beacon_node_rpc_port: '11000'
 beacon_node_metrics_port : '9300'
