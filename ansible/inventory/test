@@ -27,6 +27,7 @@ testing-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-02.aws-
 testing-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=35.156.225.126 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 testing-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.215.229 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater hostname=u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.93 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
+u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater hostname=u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater ansible_host=18.158.170.20 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.prater hostname=unstable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.130 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.198.99.61 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 unstable-large-02.aws-eu-central-1a.nimbus.prater hostname=unstable-large-02.aws-eu-central-1a.nimbus.prater ansible_host=3.65.180.246 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-02.aws-eu-central-1a.nimbus.prater.statusim.net
@@ -67,6 +68,7 @@ testing-small-02.aws-eu-central-1a.nimbus.pyrmont
 testing-small-03.aws-eu-central-1a.nimbus.pyrmont
 testing-small-04.aws-eu-central-1a.nimbus.pyrmont
 u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
+u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.pyrmont
 unstable-large-02.aws-eu-central-1a.nimbus.prater
@@ -130,6 +132,9 @@ unstable-large-05.aws-eu-central-1a.nimbus.prater
 [nimbus-prater-unstable-libp2p-stable]
 u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
 
+[nimbus-prater-unstable-libp2p-unstable]
+u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater
+
 [nimbus-pyrmont-stable]
 stable-large-01.aws-eu-central-1a.nimbus.pyrmont
 stable-small-01.aws-eu-central-1a.nimbus.pyrmont
@@ -172,6 +177,7 @@ testing-large-03.aws-eu-central-1a.nimbus.prater
 testing-large-04.aws-eu-central-1a.nimbus.prater
 testing-large-05.aws-eu-central-1a.nimbus.prater
 u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
+u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-02.aws-eu-central-1a.nimbus.prater
 unstable-large-03.aws-eu-central-1a.nimbus.prater
