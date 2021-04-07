@@ -46,7 +46,7 @@
   vars:
     systemd_timer_name: 'beacon-node-build-{{ item.name }}'
     systemd_timer_user: '{{ beacon_node_builds_user }}'
-    systemd_timer_service_group: '{{ beacon_node_builds_group }}'
+    systemd_timer_group: '{{ beacon_node_builds_group }}'
     systemd_timer_description: 'Docker image build for Nimbus beacon node'
     systemd_timer_requires_extra: 'docker.service'
     systemd_timer_start_on_creation: false
