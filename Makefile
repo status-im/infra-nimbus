@@ -20,7 +20,10 @@ all: requirements install-provisioner secrets init-terraform
 	@echo "Success!"
 
 requirements:
-	ansible-galaxy install --ignore-errors --force -r ansible/requirements.yml
+	ansible-galaxy install --keep-scm-meta --ignore-errors --force -r ansible/requirements.yml
+
+requirements-check:
+	ansible/versioncheck.py
 
 $(PROVISIONER_PATH):
 	@mkdir -p $(TF_PLUGINS_DIR)/$(ARCH); \

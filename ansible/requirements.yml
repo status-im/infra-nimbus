@@ -1,68 +1,80 @@
 ---
 - name: nginx
   src: git@github.com:status-im/ansible-role-nginx.git
+  version: 3043c998cbc92a634a71dc48363b3e2525696d26
   scm: git
 
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
+  version: 71c3cca0f250f86754d54ec74ddaddbc34f81ebb
   scm: git
 
 - name: open-ports
   src: git@github.com:status-im/infra-role-open-ports.git
+  version: 54125c7d291289aaea51ca313fc694d057d803fa
   scm: git
 
 - name: infra-role-tinc
   src: git@github.com:status-im/infra-role-tinc.git
+  version: bca648485def8e7a34ed5403bbaf403a2537279a
   scm: git
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
+  version: e96c7f0f35e5cecbf5e3fa3e7074e0d0b6f77cfa
   scm: git
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
+  version: 64639425de011cd35b715a86d27a65e243031fa7
   scm: git
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
+  version: b1d5ad5caa7d7a036fd175292fa497175bb7c54c
   scm: git
 
 - name: infra-role-beacon-node
   src: git@github.com:status-im/infra-role-beacon-node.git
-  scm: git
-
-- name: infra-role-eth2-testnet-site
-  src: git@github.com:status-im/infra-role-eth2-testnet-site.git
+  version: 0a57ff8b2920bb63d0b54866e3c8ed1822683417
   scm: git
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
+  version: 6c170c45c8776fcd1f9cef2274488519245cd35b
   scm: git
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
+  version: afa5b00c7a7154e65e31579dcb4a8d0aba093fdd
   scm: git
 
 - name: elasticsearch-hq
   src: git@github.com:status-im/infra-role-elasticsearch-hq.git
+  version: 051a3bf232904c1845ac58d0ceff3f3cff90a832
   scm: git
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
+  version: 2378db00ffcaa5fcbd362ed8479ad275b7506f22
   scm: git
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
+  version: b4ef4557682ff5cf1e7da841cbfb195992589f60
   scm: git
 
 - name: swap-file
   src: git@github.com:status-im/infra-role-swap-file.git
+  version: 7b63fb7b5f0c525aa191e1a410fd79f7eab8d11a
   scm: git
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
+  version: 682b6ffeb3e6b1c713057d8497b32f60505c4f10
   scm: git
 
 - name: infra-role-geth-exporter
   src: git+git@github.com:status-im/infra-role-geth-exporter.git
+  version: b187f16ad9e3dcf1e3024c6189994b71f26f5fde
   scm: git
