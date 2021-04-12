@@ -42,7 +42,7 @@ NICE="nice -n 19 ionice -c2 -n7"
 
 ${NICE} make -j1 update
 ${NICE} make -j1 {{ item.targets | join(" ") }} \
-    LOG_LEVEL="TRACE" NIMFLAGS="-d:insecure -d:testnet_servers_image -d:noSignalHandler"
+    LOG_LEVEL="TRACE" NIMFLAGS="-d:testnet_servers_image -d:noSignalHandler"
 
 # Keep some copies of the resulting binaries, to be used for debugging in case of core dumps
 cp -a build/nimbus_beacon_node "build/nimbus_beacon_node_{{ item.name }}_$(date +%F_%H-%M-%S)"
