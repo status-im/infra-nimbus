@@ -1,0 +1,4 @@
+---
+beacon_node_cont_tag: 'unstable-libp2p-unstable-large'
+dist_validators_layout:
+  "u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater": { start: 38750, end: 40000 } # 1250

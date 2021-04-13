@@ -25,6 +25,7 @@
     - nimbus-prater-testing
     - nimbus-prater-unstable
     - nimbus-prater-unstable-libp2p-stable
+    - nimbus-prater-unstable-libp2p-unstable
   pre_tasks:
     - name: Discover Goerli Geth WebSocket endpoint
       tags: [ infra-role-beacon-node, beacon-node ]
