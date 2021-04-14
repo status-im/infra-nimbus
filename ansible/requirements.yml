@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: e96c7f0f35e5cecbf5e3fa3e7074e0d0b6f77cfa
+  version: 3ccd7f5512491a06f79f81ac18791b869db1134c
   scm: git
 
 - name: oauth-proxy
