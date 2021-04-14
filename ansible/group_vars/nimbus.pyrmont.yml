@@ -1,6 +1,0 @@
----
-# We are running v2 on all hosts prior to the official release in order
-# to reduce the I/O load on all servers. On the large servers where we
-# have enough capacity, we're running the `both` mode that checks that
-# the new slashing DB logic behaves precisely as the old one.
-beacon_node_slashing_db_kind: '{{ (hostname is search("large")) | ternary("both", "v2") }}'
