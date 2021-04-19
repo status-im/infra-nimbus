@@ -1,0 +1,13 @@
+---
+- name: Discover Goerli Geth WebSocket endpoint
+  uri:
+    url: '{{ consul_catalog_url }}/service/{{ web3_geth_node_consul_name }}'
+  register: geth_service
+
+- name: Extract Goerli Geth WebSocket URL
+  set_fact:
+    beacon_node_web3_urls:
+      # Our Goerli node goes first, and will be used by default.
+      - 'ws://{{ geth_service.json[0].ServiceAddress }}:{{ geth_service.json[0].ServicePort }}'
+      # We want to spread the load, but we want the choice to be deterministic.
+      - '{{ selected_infura_url }}'

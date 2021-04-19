@@ -8,4 +8,3 @@ dist_validators_layout:
   "unstable-small-02.aws-eu-central-1a.nimbus.pyrmont":  { start: 18250, end: 18850 } # 600
   "unstable-small-03.aws-eu-central-1a.nimbus.pyrmont":  { start: 18850, end: 18999 } # 149
   "unstable-small-04.aws-eu-central-1a.nimbus.pyrmont":  { start: 18999, end: 19000 } # single validator
-

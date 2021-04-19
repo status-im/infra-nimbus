@@ -20,23 +20,8 @@
   become: true
   # To avoid clashing/duplicate validators.
   any_errors_fatal: true
-  hosts:
-    - nimbus-prater-stable
-    - nimbus-prater-testing
-    - nimbus-prater-unstable
-    - nimbus-prater-unstable-libp2p-stable
-    - nimbus-prater-unstable-libp2p-unstable
-  pre_tasks:
-    - name: Discover Goerli Geth WebSocket endpoint
-      tags: [ infra-role-beacon-node, beacon-node ]
-      uri:
-        url: '{{ consul_catalog_url }}/service/nimbus-goerli-node-ws'
-      register: geth_service
-
-    - name: Extract Goerli Geth WebSocket URL
-      tags: [ infra-role-beacon-node, beacon-node ]
-      set_fact:
-        beacon_node_web3_url: 'ws://{{ geth_service.json[0].ServiceAddress }}:{{ geth_service.json[0].ServicePort }}'
+  hosts: 'nimbus.prater'
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
+    - { role: get-geth-web3-urls,     tags: [ get-geth-web3-urls ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }

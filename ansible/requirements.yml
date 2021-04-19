@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 3ccd7f5512491a06f79f81ac18791b869db1134c
+  version: 865f5bb4a4478a665b8105c39ee54bd42f9a835d
   scm: git
 
 - name: oauth-proxy
@@ -36,7 +36,7 @@
 
 - name: infra-role-beacon-node
   src: git@github.com:status-im/infra-role-beacon-node.git
-  version: 0a57ff8b2920bb63d0b54866e3c8ed1822683417
+  version: 92f740e089094a372c179d8ae2c793c8f1415464
   scm: git
 
 - name: kibana
