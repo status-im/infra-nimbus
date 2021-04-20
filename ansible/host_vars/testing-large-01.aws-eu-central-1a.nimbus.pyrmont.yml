@@ -29,7 +29,7 @@ beacon_node_builds_branches:
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 02:00:00'
   - name: 'deploy-eth2-prod'
-    version: 'v1.0.10'
+    version: 'v1.2.1'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     enabled: false
     update: true
