@@ -71,7 +71,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 682b6ffeb3e6b1c713057d8497b32f60505c4f10
+  version: 27ff1d257bb3aeba1496de97b2a604eff40c3188
   scm: git
 
 - name: infra-role-geth-exporter

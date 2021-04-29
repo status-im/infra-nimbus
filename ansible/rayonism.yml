@@ -1,0 +1,18 @@
+---
+- name: 'Verify Ansible versions'
+  hosts: all
+  run_once: true
+  connection: local
+  tags: always
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
+- name: Configure rayonism node
+  become: true
+  # To avoid clashing/duplicate validators.
+  any_errors_fatal: true
+  hosts: 'nimbus.rayonism'
+  roles:
+    - { role: infra-role-geth,        tags: infra-role-geth }

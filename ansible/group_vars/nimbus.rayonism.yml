@@ -1,0 +1,21 @@
+---
+# Geth node
+geth_service_name: 'nimbus-steklo'
+geth_cont_image: 'ethereum/client-go@sha256:ac3cbd85ba801989a263263b318f68f6342a373c26b2d949ca925846ec06980b'
+geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
+geth_sync_mode: 'fast'
+geth_init_enabled: true
+geth_init_url: 'https://raw.githubusercontent.com/protolambda/steklo/92da84796d820855c8a42870f5ad2ad7e669527c/eth1_config.json'
+geth_init_sha256: '7c826454da40b158f21124e9721ee5531e841b68d4888169f4227598d32b6e35'
+geth_extra_flags:
+  - '--catalyst'
+  - '--miner.etherbase 0x6Afe05557279c2060937aE5559Fa6108405a83CC'
+  # Hack fix for `invalid peer config: light peer count (100) >= total peer count (0)`
+  - '--light.maxpeers=-1'
+
+# WARNING: This is a hack to avoid providing network flag.
+geth_network_name: 'mainnet'
+
+# Beacon node
+beacon_node_network: 'steklo'
+beacon_node_cont_tag: 'qmerge-large'
