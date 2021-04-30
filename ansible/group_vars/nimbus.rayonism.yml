@@ -4,6 +4,7 @@ geth_service_name: 'nimbus-steklo'
 geth_cont_image: 'ethereum/client-go@sha256:8bab36b54037a6fc480e862b5d8363372fcc4974c10e717e57799d8bab3884b3'
 geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
 geth_sync_mode: 'fast'
+geth_log_level_name: 'debug'
 # Enable consensus API
 geth_rcp_api: 'eth,net,web3,personal,admin,consensus'
 geth_websocket_api: 'eth,net,web3,personal,admin,consensus'
