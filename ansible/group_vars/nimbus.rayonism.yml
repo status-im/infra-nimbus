@@ -33,5 +33,5 @@ beacon_node_web3_urls: [ 'http://{{ ansible_local.tinc.vpn_ip }}:{{ geth_rpc_por
 beacon_node_doppelganger_detection: false
 
 # TODO: Uncomment once validators are available
-#dist_validators_layout:
-#  "unstable-large-01.aws-eu-central-1a.nimbus.pyrmont":  { start: 0, end: 2048 }
+dist_validators_layout:
+  "qmerge-large-01.aws-eu-central-1a.nimbus.rayonism":  { start: 0, end: 2048 }
