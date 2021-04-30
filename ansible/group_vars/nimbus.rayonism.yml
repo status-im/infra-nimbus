@@ -27,7 +27,7 @@ geth_network_name: 'mainnet'
 # Beacon node
 beacon_node_network: 'steklo'
 beacon_node_cont_tag: 'qmerge-large'
-beacon_node_web3_urls: [ 'ws://{{ ansible_local.tinc.vpn_ip }}:{{ geth_rpc_port }}' ]
+beacon_node_web3_urls: [ 'http://{{ ansible_local.tinc.vpn_ip }}:{{ geth_rpc_port }}' ]
 # Disabled for genesis to avoid missing first two slots
 beacon_node_doppelganger_detection: false
 
