@@ -26,7 +26,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 64639425de011cd35b715a86d27a65e243031fa7
+  version: 567b4cf59d97f87be78e77e62684214f6de03096
   scm: git
 
 - name: consul-service
