@@ -43,9 +43,6 @@ beacon_node_discovery_port: '9100'
 # Peers
 beacon_node_max_peers: 320
 
-# Infura URL
-beacon_node_web3_url: '{{ lookup("passwordstore", "service/Nimbus/infura-url") }}'
-
 # resource limits
 beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.60) | int }}'
 beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.4) | int }}'
