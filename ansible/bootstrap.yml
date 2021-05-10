@@ -9,6 +9,16 @@
 #
 # This is run on every newly provisioned host.
 #
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
 - name: Bootstrap Python support for Ansible
   become: true
   gather_facts: False

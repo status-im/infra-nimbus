@@ -1,9 +1,9 @@
 ---
 - name: 'Verify Ansible versions'
   hosts: all
-  run_once: true
-  connection: local
   tags: always
+  become: false
+  run_once: true
   gather_facts: false
   tasks:
     - local_action: command ./versioncheck.py
