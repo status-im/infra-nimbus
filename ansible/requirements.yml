@@ -36,7 +36,7 @@
 
 - name: infra-role-beacon-node
   src: git@github.com:status-im/infra-role-beacon-node.git
-  version: 37f8a3ab06cd08c9053b292f60e734962cab616d
+  version: 86f7af45356ddb44b7e84122f7bbed0901213cd6
   scm: git
 
 - name: kibana
@@ -71,7 +71,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 5ad36567e810fb74073d8fc82774146450e4761a
+  version: c3b51f0799061cd3b0e6d4f1db1182c00d71e944
   scm: git
 
 - name: infra-role-geth-exporter

@@ -3,11 +3,16 @@
 geth_service_name: 'nimbus-nocturne'
 geth_service_path: '{{ beacon_node_cont_vol }}'
 geth_compose_path: '{{ geth_service_path }}/docker-compose.geth.yml'
+geth_rpc_wrapper: '{{ geth_service_path }}/rpc.geth.sh'
 geth_cont_image: 'ethereum/client-go@sha256:82920663d5c2378d9d21c640f30c885154e5eca6d1dd7ccec83711f527aeddbf'
 geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
 geth_sync_mode: 'fast'
 geth_log_level_name: 'debug'
 # Enable consensus API
+geth_rpc_addr: '127.0.0.1'
+geth_rpc_port: 8545
+geth_websocket_enabled: true
+geth_websocket_port: '{{ geth_rpc_port + 1 | int }}'
 geth_rcp_api: 'eth,net,web3,personal,admin,consensus'
 geth_websocket_api: 'eth,net,web3,personal,admin,consensus'
 # Custom testnet genesis init
