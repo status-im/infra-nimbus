@@ -1,6 +1,8 @@
 ---
 # Geth node
 geth_service_name: 'nimbus-nocturne'
+geth_service_path: '{{ beacon_node_cont_vol }}'
+geth_compose_path: '{{ geth_service_path }}/docker-compose.geth.yml'
 geth_cont_image: 'ethereum/client-go@sha256:82920663d5c2378d9d21c640f30c885154e5eca6d1dd7ccec83711f527aeddbf'
 geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
 geth_sync_mode: 'fast'
@@ -24,8 +26,10 @@ geth_network_name: 'mainnet'
 
 # Beacon node
 beacon_node_network: 'nocturne'
+beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_cont_tag }}'
+beacon_node_cont_vol: '/docker/{{ beacon_node_cont_name }}'
 beacon_node_cont_tag: 'qmerge-large'
-beacon_node_web3_urls: [ 'ws://{{ ansible_local.tinc.vpn_ip }}:{{ geth_websocket_port }}' ]
+beacon_node_web3_urls: [ 'ws://geth:{{ geth_websocket_port }}' ]
 # Disabled for genesis to avoid missing first two slots
 beacon_node_doppelganger_detection: false
 
