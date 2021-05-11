@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 15a0df4a478e9ebb23bf40a261e7bd1b6356d043
+  version: 244ed6a740d6c20250024de9ae1a0232d71b1f57
   scm: git
 
 - name: oauth-proxy
@@ -46,7 +46,7 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: afa5b00c7a7154e65e31579dcb4a8d0aba093fdd
+  version: 4c77212cd98596e85f786113e70d6358935ba5e7
   scm: git
 
 - name: elasticsearch-hq
