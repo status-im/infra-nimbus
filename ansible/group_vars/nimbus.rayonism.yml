@@ -20,8 +20,10 @@ geth_init_enabled: true
 geth_init_url: 'https://raw.githubusercontent.com/protolambda/nocturne/1f9003379a8207d538d88dc39ca99b5d630e6b39/eth1_config.json'
 geth_init_sha256: 'a4e4b611327f3085479c4daaeb4ecffbb41541f720c6d9d9df0f90b75ce08473'
 # Necessary for nocturne testnet to work
+geth_discovery_enabled: false
 geth_extra_flags:
   - '--catalyst'
+  - '--networkid=5'
   - '--miner.etherbase 0x6Afe05557279c2060937aE5559Fa6108405a83CC'
   # Hack fix for `invalid peer config: light peer count (100) >= total peer count (0)`
   - '--light.maxpeers=-1'
