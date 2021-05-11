@@ -11,7 +11,7 @@ geth_sync_mode: 'full'
 geth_log_level_name: info
 geth_websocket_enabled: true
 # Geth auth
-geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
+geth_account_pass: '{{lookup("passwordstore", "services/Nimbus-Geth/password")}}'
 # Allow connections from our Tinc VPN
 geth_websocket_origins: '*'
 # Memory settings
