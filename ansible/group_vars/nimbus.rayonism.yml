@@ -1,7 +1,7 @@
 ---
 # Geth node
-geth_service_name: 'nimbus-steklo'
-geth_cont_image: 'ethereum/client-go@sha256:8bab36b54037a6fc480e862b5d8363372fcc4974c10e717e57799d8bab3884b3'
+geth_service_name: 'nimbus-nocturne'
+geth_cont_image: 'ethereum/client-go@sha256:82920663d5c2378d9d21c640f30c885154e5eca6d1dd7ccec83711f527aeddbf'
 geth_account_pass: '{{lookup("passwordstore", "service/Nimbus-Geth/password")}}'
 geth_sync_mode: 'fast'
 geth_log_level_name: 'debug'
@@ -13,9 +13,9 @@ geth_rpc_addr: '{{ ansible_local.tinc.vpn_ip }}'
 geth_rpc_port: 8545
 # Custom testnet genesis init
 geth_init_enabled: true
-geth_init_url: 'https://raw.githubusercontent.com/protolambda/steklo/92da84796d820855c8a42870f5ad2ad7e669527c/eth1_config.json'
-geth_init_sha256: '7c826454da40b158f21124e9721ee5531e841b68d4888169f4227598d32b6e35'
-# Necessary for steklo testnet to work
+geth_init_url: 'https://raw.githubusercontent.com/protolambda/nocturne/1f9003379a8207d538d88dc39ca99b5d630e6b39/eth1_config.json'
+geth_init_sha256: 'a4e4b611327f3085479c4daaeb4ecffbb41541f720c6d9d9df0f90b75ce08473'
+# Necessary for nocturne testnet to work
 geth_extra_flags:
   - '--catalyst'
   - '--miner.etherbase 0x6Afe05557279c2060937aE5559Fa6108405a83CC'
@@ -26,7 +26,7 @@ geth_extra_flags:
 geth_network_name: 'mainnet'
 
 # Beacon node
-beacon_node_network: 'steklo'
+beacon_node_network: 'nocturne'
 beacon_node_cont_tag: 'qmerge-large'
 beacon_node_web3_urls: [ 'http://{{ ansible_local.tinc.vpn_ip }}:{{ geth_rpc_port }}' ]
 # Disabled for genesis to avoid missing first two slots
@@ -34,4 +34,4 @@ beacon_node_doppelganger_detection: false
 
 # TODO: Uncomment once validators are available
 dist_validators_layout:
-  "qmerge-large-01.aws-eu-central-1a.nimbus.rayonism":  { start: 0, end: 2048 }
+  "qmerge-large-01.aws-eu-central-1a.nimbus.rayonism":  { start: 0, end: 2400 }
