@@ -1,9 +1,17 @@
 ---
+- name: Create container folder if absent
+  file:
+    path: '/docker/{{ dist_validators_cont_name }}'
+    state: 'directory'
+    owner: dockremap
+    group: docker
+    mode: 0750
+
 - name: Stop container if running
   command: docker-compose stop
   args:
     chdir: '/docker/{{ dist_validators_cont_name }}'
-  #ignore_errors: true
+  ignore_errors: true
 
 - name: Remove validators/secrets folders
   file:
@@ -57,4 +65,4 @@
   command: docker-compose start
   args:
     chdir: '/docker/{{ dist_validators_cont_name }}'
-  #ignore_errors: true
+  ignore_errors: true
