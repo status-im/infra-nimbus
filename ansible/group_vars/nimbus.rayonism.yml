@@ -8,9 +8,6 @@ geth_log_level_name: 'debug'
 # Enable consensus API
 geth_rcp_api: 'eth,net,web3,personal,admin,consensus'
 geth_websocket_api: 'eth,net,web3,personal,admin,consensus'
-# Beacon node needs access from within container
-geth_rpc_addr: '{{ ansible_local.tinc.vpn_ip }}'
-geth_rpc_port: 8545
 # Custom testnet genesis init
 geth_init_enabled: true
 geth_init_url: 'https://raw.githubusercontent.com/protolambda/nocturne/1f9003379a8207d538d88dc39ca99b5d630e6b39/eth1_config.json'
@@ -28,7 +25,7 @@ geth_network_name: 'mainnet'
 # Beacon node
 beacon_node_network: 'nocturne'
 beacon_node_cont_tag: 'qmerge-large'
-beacon_node_web3_urls: [ 'http://{{ ansible_local.tinc.vpn_ip }}:{{ geth_rpc_port }}' ]
+beacon_node_web3_urls: [ 'ws://{{ ansible_local.tinc.vpn_ip }}:{{ geth_websocket_port }}' ]
 # Disabled for genesis to avoid missing first two slots
 beacon_node_doppelganger_detection: false
 
