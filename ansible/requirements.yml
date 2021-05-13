@@ -6,7 +6,7 @@
 
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
-  version: 71c3cca0f250f86754d54ec74ddaddbc34f81ebb
+  version: f7dcb7e1944d2ec0655bf8e7ce6f45a1317b65b9
   scm: git
 
 - name: open-ports
