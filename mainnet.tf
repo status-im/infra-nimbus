@@ -25,3 +25,17 @@ module "nimbus_nodes_mainnet_stable_small" {
   secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
+
+module "nimbus_nodes_mainnet_stable_hetzner" {
+  source = "./modules/hetzner"
+
+  name   = "stable-metal"
+  env    = "nimbus"
+  stage  = "mainnet"
+  group  = "nimbus-mainnet-metal"
+  domain = var.domain
+
+  ips = [
+    "65.21.73.183"
+  ]
+}

@@ -27,7 +27,6 @@ resource "ansible_host" "host" {
   groups             = [var.group, local.dc]
   vars = {
     ansible_host     = each.key
-    ansible_ssh_user = var.ssh_user
     hostname         = each.value
     region           = var.region
     dns_domain       = var.domain
