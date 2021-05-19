@@ -14,14 +14,9 @@
   version: 54125c7d291289aaea51ca313fc694d057d803fa
   scm: git
 
-- name: infra-role-tinc
-  src: git@github.com:status-im/infra-role-tinc.git
-  version: bca648485def8e7a34ed5403bbaf403a2537279a
-  scm: git
-
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 244ed6a740d6c20250024de9ae1a0232d71b1f57
+  version: 4dfd3e0b32a93e1f07a73c6794684bae21f2e556
   scm: git
 
 - name: oauth-proxy

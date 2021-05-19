@@ -18,7 +18,7 @@ es_master_nodes: |
    | json_query(
    '[].{
      name: hostname,
-     addr: ansible_local.tinc.vpn_ip,
+     addr: ansible_local.wireguard.vpn_ip,
      port: to_string(es_node_port)
    }') }}
 es_cluster_name: 'nimbus-logs-search'

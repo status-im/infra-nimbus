@@ -12,7 +12,7 @@ geth_log_level_name: info
 geth_websocket_enabled: true
 # Geth auth
 geth_account_pass: '{{lookup("passwordstore", "services/Nimbus-Geth/password")}}'
-# Allow connections from our Tinc VPN
+# Allow connections from our VPN
 geth_websocket_origins: '*'
 # Memory settings
 geth_cont_mem_ratio: 0.8
