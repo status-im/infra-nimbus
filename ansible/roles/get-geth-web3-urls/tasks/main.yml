@@ -1,13 +1,25 @@
 ---
-- name: Discover Goerli Geth WebSocket endpoint
+- name: Find available data centers
   uri:
-    url: '{{ consul_catalog_url }}/service/{{ web3_geth_node_consul_name }}'
-  register: geth_service
+    url: '{{ consul_catalog_url }}/datacenters'
+  register: data_centers
+
+- name: Find available geth websocket services
+  uri:
+    url: '{{ consul_catalog_url }}/service/{{ web3_geth_node_consul_name }}?dc={{ item }}'
+  with_items: '{{ data_centers.json }}'
+  register: geth_ws_services
+
+- name: Extract Geth websocket IP and port
+  set_fact:
+    geth_ws_addresses: |
+      {{ geth_ws_services.results
+      | sum(attribute="json", start=[])
+      | json_query("[].[ServiceAddress, ServicePort]")
+      | map('join', ':')
+      | list }}
 
 - name: Extract Goerli Geth WebSocket URL
   set_fact:
-    beacon_node_web3_urls:
-      # Our Goerli node goes first, and will be used by default.
-      - 'ws://{{ geth_service.json[0].ServiceAddress }}:{{ geth_service.json[0].ServicePort }}'
-      # We want to spread the load, but we want the choice to be deterministic.
-      - '{{ selected_infura_url }}'
+    # our nodes first (will be used by default) then an infura node
+    beacon_node_web3_urls: "{{ geth_ws_addresses + [ selected_infura_url ] }}"
