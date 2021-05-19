@@ -24,7 +24,7 @@ locals {
 resource "ansible_host" "host" {
   for_each           = local.hostnames
   inventory_hostname = each.value
-  groups             = [var.group, local.dc]
+  groups             = [var.group, local.dc, "${var.env}.${local.stage}"]
   vars = {
     ansible_host     = each.key
     hostname         = each.value
