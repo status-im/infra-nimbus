@@ -9,6 +9,13 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
+- name: Configure build nodes
+  become: true
+  hosts:
+    - stable-metal-01.he-eu-hel1.nimbus.mainnet
+  roles:
+    - { role: beacon-node-builds,     tags: beacon-node-builds }
+
 - name: Configure network mainnet bootnodes
   become: true
   hosts: 'nimbus.mainnet'
