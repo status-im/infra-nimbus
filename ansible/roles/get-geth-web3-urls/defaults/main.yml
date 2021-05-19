@@ -13,6 +13,7 @@ infura_api_tokens:
   - '922cc3c4badf4789b68d895267530a4a'
   - '01cde3e0c47a47ff8dcdc52259b3a71c'
   - '675db4626923473591cf6418e4dae175'
+  - '5cae339ba3144f438e8da1db2c25cad4'
 
 selected_infura_token: '{{ infura_api_tokens[play_hosts.index(inventory_hostname) % (infura_api_tokens|length)] }}'
 selected_infura_url: 'wss://{{ eth1_network_name }}.infura.io/ws/v3/{{ selected_infura_token }}'

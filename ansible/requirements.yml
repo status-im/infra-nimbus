@@ -31,7 +31,7 @@
 
 - name: infra-role-beacon-node
   src: git@github.com:status-im/infra-role-beacon-node.git
-  version: 86f7af45356ddb44b7e84122f7bbed0901213cd6
+  version: a14c9afe0293196f8b3cb45e86abcbaee3078d77
   scm: git
 
 - name: kibana
@@ -41,17 +41,17 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 4c77212cd98596e85f786113e70d6358935ba5e7
+  version: ef771c6dd23c0ae7674385fa653fd05c7d7555ee
   scm: git
 
 - name: elasticsearch-hq
   src: git@github.com:status-im/infra-role-elasticsearch-hq.git
-  version: 051a3bf232904c1845ac58d0ceff3f3cff90a832
+  version: a92df1ac36c9a8e86fabefb54e24fe33d572ce10
   scm: git
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 2378db00ffcaa5fcbd362ed8479ad275b7506f22
+  version: a4daa4c4eb5dd95d718afd19ca8ec2b8007edc55
   scm: git
 
 - name: systemd-timer
@@ -66,10 +66,10 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: c3b51f0799061cd3b0e6d4f1db1182c00d71e944
+  version: e85230e6d79b8ed757e5cb8fa5aed808f31eb8c1
   scm: git
 
 - name: infra-role-geth-exporter
   src: git+git@github.com:status-im/infra-role-geth-exporter.git
-  version: b187f16ad9e3dcf1e3024c6189994b71f26f5fde
+  version: 30e6a08e9b2badffbd32472fff640aefef26fd37
   scm: git
