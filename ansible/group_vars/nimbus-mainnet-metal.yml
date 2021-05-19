@@ -1,7 +1,6 @@
 ---
 beacon_node_network: 'mainnet'
 beacon_node_cont_tag: 'stable-metal-01'
-beacon_node_web3_urls: ['ws://mainnet-01.aws-eu-central-1a.nimbus.geth.tinc:8546']
 
 # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
 #beacon_node_netkey: '{{lookup("passwordstore","services/Nimbus/netkey/"+hostname)}}'
