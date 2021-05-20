@@ -1,6 +1,58 @@
 #!/usr/bin/env bash
-
 set -e
+
+function headIsDetached() {
+    [[ $(git rev-parse --abbrev-ref --symbolic-full-name HEAD) == "HEAD" ]];
+}
+
+function dockerImageExists() {
+    docker image inspect "${IMAGE}:${COMMIT}" 2>&1 1>/dev/null;
+}
+
+function binaryExists() {
+    ls -l build/{{ item.targets | first }}_${COMMIT} 2>&1 1>/dev/null
+}
+
+function fetchChanges() {
+    # We cannot use "git pull" in here, because history may be changed upstream
+    git fetch
+    git reset --hard "origin/${BRANCH}"
+}
+
+function buildBinaries() {
+    # Lower CPU and I/O priority so it doesn't affect the running beacon node
+    NICE="nice -n 19 ionice -c2 -n7"
+
+    ${NICE} make -j1 update
+    ${NICE} make -j1 {{ item.targets | join(" ") }} \
+        LOG_LEVEL="TRACE" NIMFLAGS="-d:testnet_servers_image -d:noSignalHandler"
+
+    # Rename binaries to match commit the were built from.
+{% for target in item.targets %}
+    mv "build/{{ target }}" "build/{{ target }}_${COMMIT}"
+{% endfor %}
+
+    # Delete copies that are older than 7 days
+    find build -mtime +7 -exec rm '{}' \+
+}
+
+# Adds binary into a simple Alpine image
+function buildDockerImage() {
+    docker build -t "${IMAGE}:${COMMIT}" \
+        --build-arg=COMMIT=${COMMIT} \
+        --label "commit=${COMMIT}" .
+}
+
+function pushImageTag() {
+    docker tag "${IMAGE}:${COMMIT}" "${IMAGE}:${TAG}"
+    docker push "${IMAGE}:${TAG}"
+}
+
+#-------------------------------------------------------------------------------
+
+BRANCH="{{ item.version }}"
+IMAGE="{{ beacon_node_builds_image_name }}"
+TAG="{{ item.name }}"
 
 if [[ "${USER}" != "{{ beacon_node_builds_user }}" ]]; then
     echo "Incorrect user: ${USER}" >&2
@@ -8,54 +60,36 @@ if [[ "${USER}" != "{{ beacon_node_builds_user }}" ]]; then
     exit 1
 fi
 
-IMAGE="{{ beacon_node_builds_image_name }}"
-TAG="{{ item.name }}"
-
 # Build the Beacon node binaries
-pushd repo
-
-COMMIT_BEFORE=$(git rev-parse --short=8 HEAD)
-SYMBOLIC_NAME=$(git rev-parse --abbrev-ref --symbolic-full-name HEAD)
-
-function headIsDetached() { [[ "${SYMBOLIC_NAME}" == "HEAD" ]]; }
+pushd repo >/dev/null
 
 # Detached HEAD means we're probably on a tag
 if headIsDetached; then
-    echo "Deatached HEAD, nothing to fetch."
+    echo " >>> Deatached HEAD, nothing to fetch."
 else
-    # We cannot use "git pull" in here, because history may be changed upstream
-    git fetch
-    git reset --hard origin/{{ item.version }}
+    echo " >>> Fetching changes..."
+    fetchChanges
 fi
 
-COMMIT_AFTER=$(git rev-parse --short=8 HEAD)
+COMMIT=$(git rev-parse --short=8 HEAD)
 
-if [[ "$1" == "--force" ]]; then
-    echo "Forcing rebuild!"
-elif ! headIsDetached && [[ "${COMMIT_BEFORE}" == "${COMMIT_AFTER}" ]]; then
-    echo "Nothing new to build."
-    exit
+if binaryExists && [[ "$1" != "--force" ]]; then
+    echo " >>> Binary already built"
+else
+    echo " >>> Building binaries..."
+    buildBinaries
 fi
 
-# Lower CPU and I/O priority so it doesn't affect the running beacon node
-NICE="nice -n 19 ionice -c2 -n7"
+popd >/dev/null
 
-${NICE} make -j1 update
-${NICE} make -j1 {{ item.targets | join(" ") }} \
-    LOG_LEVEL="TRACE" NIMFLAGS="-d:testnet_servers_image -d:noSignalHandler"
+if dockerImageExists && [[ "$1" != "--force" ]]; then
+    echo " >>> Image already built: ${IMAGE}:${COMMIT}"
+else
+    echo " >>> Building Docker image..."
+    buildDockerImage
+fi
 
-# Keep some copies of the resulting binaries, to be used for debugging in case of core dumps
-cp -a build/nimbus_beacon_node "build/nimbus_beacon_node_{{ item.name }}_$(date +%F_%H-%M-%S)"
-# Delete copies that are older than 7 days
-find build -name 'nimbus_beacon_node_*' -mtime +7 -exec rm '{}' \+
+echo " >>> Pushing Docker image..."
+pushImageTag
 
-popd
-
-# Add binary into a simple Alpine image
-docker build -t "${IMAGE}:${COMMIT_AFTER}" \
-    --label "commit=${COMMIT_AFTER}" \
-    --build-arg=COMMIT=${COMMIT_AFTER} .
-docker tag "${IMAGE}:${COMMIT_AFTER}" "${IMAGE}:${TAG}"
-docker push "${IMAGE}:${TAG}"
-
-echo "SUCCESS - pushed: ${IMAGE}:${TAG}"
+echo " >>> SUCCESS - Pushed: ${IMAGE}:${TAG}"

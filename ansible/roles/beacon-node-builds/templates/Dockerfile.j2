@@ -8,7 +8,7 @@ RUN apt-get -qq update \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 {% for target in item.targets %}
-COPY repo/build/{{ target }} /usr/local/bin/
+COPY repo/build/{{ target }}_${COMMIT} /usr/local/bin/{{ target }}
 {% endfor %}
 
 STOPSIGNAL SIGINT
