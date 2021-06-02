@@ -9,3 +9,8 @@ beacon_node_builds_branches:
     version: 'stable'
     targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 12:00:00'
+
+# Beacon node
+beacon_node_network: 'mainnet'
+beacon_node_cont_tag: 'stable-metal-01'
+beacon_node_subscribe_all: true
