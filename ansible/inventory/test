@@ -42,6 +42,7 @@ unstable-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-01.aw
 unstable-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.206.240 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 unstable-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=52.28.209.174 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 unstable-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.125.21.130 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
+windows-01.gc-us-central1-a.nimbus.prater hostname=windows-01.gc-us-central1-a.nimbus.prater ansible_host=35.232.80.244 env=nimbus stage=prater data_center=gc-us-central1-a region=us-central1-a dns_entry=windows-01.gc-us-central1-a.nimbus.prater.statusim.net
 
 [aws-eu-central-1a]
 goerli-01.aws-eu-central-1a.nimbus.geth
@@ -87,6 +88,9 @@ unstable-small-04.aws-eu-central-1a.nimbus.pyrmont
 
 [dash.nimbus]
 node-01.aws-eu-central-1a.dash.nimbus
+
+[gc-us-central1-a]
+windows-01.gc-us-central1-a.nimbus.prater
 
 [he-eu-hel1]
 stable-metal-01.he-eu-hel1.nimbus.mainnet
@@ -143,6 +147,9 @@ u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
 
 [nimbus-prater-unstable-libp2p-unstable]
 u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater
+
+[nimbus-prater-windows]
+windows-01.gc-us-central1-a.nimbus.prater
 
 [nimbus-pyrmont-stable]
 stable-large-01.aws-eu-central-1a.nimbus.pyrmont

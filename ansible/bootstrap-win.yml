@@ -1,0 +1,5 @@
+---
+- name: Bootstrap windows host
+  hosts: all
+  roles:
+    - infra-role-bootstrap-windows
