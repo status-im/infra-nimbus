@@ -203,6 +203,7 @@ unstable-large-02.aws-eu-central-1a.nimbus.prater
 unstable-large-03.aws-eu-central-1a.nimbus.prater
 unstable-large-04.aws-eu-central-1a.nimbus.prater
 unstable-large-05.aws-eu-central-1a.nimbus.prater
+windows-01.gc-us-central1-a.nimbus.prater
 
 [nimbus.pyrmont]
 stable-large-01.aws-eu-central-1a.nimbus.pyrmont
