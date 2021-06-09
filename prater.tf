@@ -162,6 +162,10 @@ module "nimbus_nodes_prater_unstable_windows" {
   win_password     = data.pass_password.windows_user_pass.password
   ansible_playbook = "${path.cwd}/ansible/bootstrap-win.yml"
 
+  /* Firewall */
+  open_udp_ports = local.nimbus_ports
+  open_tcp_ports = local.nimbus_ports
+
   /* Scaling */
   type          = "n2-standard-2" /* 2 vCPUs, 8GB RAM */
   host_count    = 1
