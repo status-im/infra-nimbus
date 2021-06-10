@@ -20,8 +20,17 @@
   become: true
   # To avoid clashing/duplicate validators.
   any_errors_fatal: true
-  hosts: 'nimbus.prater'
+  hosts:
+    - nimbus-prater-stable
+    - nimbus-prater-testing
+    - nimbus-prater-unstable
   roles:
     - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: get-geth-web3-urls,     tags: [ get-geth-web3-urls ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+
+- name: Configure network prater Windows host
+  become: true
+  hosts: 'nimbus-prater-windows'
+  roles:
+    - { role: infra-role-beacon-node-windows, tags: [ infra-role-beacon-node-windows, beacon-node ] }

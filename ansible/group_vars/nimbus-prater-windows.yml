@@ -1,0 +1,3 @@
+---
+beacon_node_cont_tag: 'stable-windows'
+beacon_node_service_user_pass: '123qweASD.' # TODO
