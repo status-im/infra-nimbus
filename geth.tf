@@ -36,7 +36,7 @@ module "nimbus_geth_goerli" {
   /* Scaling */
   instance_type = "t3a.large"
   root_vol_size = 10
-  data_vol_size = 50
+  data_vol_size = 100
   data_vol_type = "gp2"
   host_count    = 1
 
