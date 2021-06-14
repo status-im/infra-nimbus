@@ -3,7 +3,7 @@ FROM debian:bullseye-slim
 ARG COMMIT
 
 RUN apt-get -qq update \
- && apt-get -qq -y install libpcre3-dev &>/dev/null \
+ && apt-get -qq -y install libpcre3-dev 1>/dev/null \
  && apt-get -qq clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
