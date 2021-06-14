@@ -15,7 +15,9 @@
     - testing-large-01.aws-eu-central-1a.nimbus.pyrmont
     - testing-small-01.aws-eu-central-1a.nimbus.pyrmont
   roles:
+    - { role: swap,                   tags: swap }
     - { role: beacon-node-builds,     tags: beacon-node-builds }
+
 
 - name: Configure network pyrmont
   become: true

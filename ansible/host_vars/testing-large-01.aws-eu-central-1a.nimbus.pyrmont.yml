@@ -1,4 +1,7 @@
 ---
+# Builds use quite a bit of RAM
+swap_file_size_mb: 4096
+
 # Docker image builds
 beacon_node_builds_docker_hub_user: '{{lookup("passwordstore", "cloud/DockerHub/user")}}'
 beacon_node_builds_docker_hub_token: '{{lookup("passwordstore", "cloud/DockerHub/token")}}'
