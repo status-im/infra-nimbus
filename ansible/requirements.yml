@@ -71,7 +71,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: b4ef4557682ff5cf1e7da841cbfb195992589f60
+  version: 945920327a6c9cd0bfd752dd48ad28f167025660
   scm: git
 
 - name: swap-file
