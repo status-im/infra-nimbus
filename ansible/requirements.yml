@@ -16,12 +16,12 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 0aca5b6927373c04b9713408e9d6b9284a906d75
+  version: 58149fee4be9fed7b22cc610430aedc5906531ac
   scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 9f82c62a4164041b9c87b9cb0807eb1657bf9277
+  version: 55c1d494f7722b67b2c2f07abfcfbecd74779d17
   scm: git
 
 - name: oauth-proxy
@@ -71,7 +71,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 945920327a6c9cd0bfd752dd48ad28f167025660
+  version: 5eafd38e4374f56a3439232b72ec077d569e0f5c
   scm: git
 
 - name: swap-file

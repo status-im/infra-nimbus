@@ -9,15 +9,17 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
-- name: Configure build nodes
+- name: Deploy beacon node build nodes
   become: true
   hosts:
     - testing-large-01.aws-eu-central-1a.nimbus.pyrmont
   roles:
-    - { role: swap,                   tags: swap }
-    - { role: beacon-node-builds,     tags: beacon-node-builds }
+    - role: swap-file
+      tags: swap-file
+    - role: beacon-node-builds
+      tags: beacon-node-builds
 
-- name: Configure network prater
+- name: Deploy prater Linux beacon nodes
   become: true
   # To avoid clashing/duplicate validators.
   any_errors_fatal: true
@@ -26,12 +28,30 @@
     - nimbus-prater-testing
     - nimbus-prater-unstable
   roles:
-    - { role: distribute-validators,  tags: [ distribute-validators ] }
-    - { role: get-geth-web3-urls,     tags: [ get-geth-web3-urls ] }
-    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+    - role: distribute-validators
+      tags: distribute-validators
+    - role: get-geth-web3-urls
+      tags: get-geth-web3-urls
+    - role: infra-role-beacon-node
+      tags: [ infra-role-beacon-node, beacon-node ]
 
-- name: Configure network prater Windows host
+- name: Deploy prater Windows beacon nodes
   become: true
-  hosts: 'nimbus-prater-windows'
-  roles:
-    - { role: infra-role-beacon-node-windows, tags: [ infra-role-beacon-node-windows, beacon-node ] }
+  hosts:
+    - nimbus-prater-windows
+  tasks:
+    - include_role: name=infra-role-beacon-node-windows
+      tags: [ infra-role-beacon-node-windows, beacon-node ]
+      vars:
+        beacon_node_repo_branch: '{{ node.branch }}'
+        beacon_node_discovery_port: '{{ 9000 + port_offset }}'
+        beacon_node_listening_port: '{{ 9000 + port_offset }}'
+        beacon_node_metrics_port:   '{{ 9200 + port_offset }}'
+        beacon_node_rpc_port:       '{{ 9900 + port_offset }}'
+      with_items:
+        - { branch: 'stable' }
+        - { branch: 'unstable' }
+        - { branch: 'testing' }
+      loop_control:
+        loop_var: node
+        index_var: port_offset
