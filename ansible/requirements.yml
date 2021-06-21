@@ -16,12 +16,12 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 58149fee4be9fed7b22cc610430aedc5906531ac
+  version: c1f535e4b2851f08b1013bd57ab42d0c1e31e3b2
   scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 55c1d494f7722b67b2c2f07abfcfbecd74779d17
+  version: c1f535e4b2851f08b1013bd57ab42d0c1e31e3b2
   scm: git
 
 - name: oauth-proxy
@@ -31,7 +31,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: b1d5ad5caa7d7a036fd175292fa497175bb7c54c
+  version: 87f4498f90f0cbb66a1ddb425e8953b04ced1891
   scm: git
 
 - name: infra-role-beacon-node
@@ -41,12 +41,12 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  #version: a14c9afe0293196f8b3cb45e86abcbaee3078d77
+  version: 1809e84d48d31cac0b783ed3a2182fdd23e34779
   scm: git
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  #version: a14c9afe0293196f8b3cb45e86abcbaee3078d77
+  version: 9c1584c1b23d9fcb99672fdbff472271acb324a7
   scm: git
 
 - name: kibana
@@ -85,6 +85,6 @@
   scm: git
 
 - name: infra-role-geth-exporter
-  src: git+git@github.com:status-im/infra-role-geth-exporter.git
+  src: git@github.com:status-im/infra-role-geth-exporter.git
   version: 30e6a08e9b2badffbd32472fff640aefef26fd37
   scm: git

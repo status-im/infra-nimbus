@@ -158,7 +158,7 @@ module "nimbus_nodes_prater_unstable_windows" {
   zone   = "us-central1-a"
 
   /* System */
-  image            = "windows-cloud/windows-server-2019-dc-core-v20210511"
+  image            = "windows-cloud/windows-server-2019-dc-v20210608"
   win_password     = data.pass_password.windows_user_pass.password
   ansible_playbook = "${path.cwd}/ansible/bootstrap-win.yml"
 
