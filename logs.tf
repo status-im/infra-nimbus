@@ -18,7 +18,7 @@ module "nimbus_log_store" {
     "80",  /* HTTP */
     "443", /* HTTPS */
   ]
-  
+
   /* Plumbing */
   vpc_id       = module.nimbus_network.vpc.id
   subnet_id    = module.nimbus_network.subnets[0].id

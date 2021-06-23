@@ -10,9 +10,9 @@ module "nimbus_network" {
 
   name  = "nimbus"
   stage = "test"
-  zones = [ "eu-central-1a" ]
+  zones = ["eu-central-1a"]
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
-  open_tcp_ports = concat(local.nimbus_ports, [ "22", "80", "443" ])
+  open_tcp_ports = concat(local.nimbus_ports, ["22", "80", "443"])
 }

@@ -10,8 +10,8 @@ resource "aws_iam_group" "nimbus_team" {
 }
 
 resource "aws_iam_access_key" "nimbus_team" {
-  user    = aws_iam_user.nimbus_team[count.index].name
-  count   = length(aws_iam_user.nimbus_team)
+  user  = aws_iam_user.nimbus_team[count.index].name
+  count = length(aws_iam_user.nimbus_team)
 
   /* GPG key for encrypting the secret key */
   pgp_key = file("files/${aws_iam_user.nimbus_team[count.index].name}.gpg")

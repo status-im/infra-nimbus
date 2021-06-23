@@ -15,7 +15,7 @@ module "nimbus_geth_mainnet" {
   host_count    = 1
 
   /* Firewall */
-  open_tcp_ports = [ 30303 ]
+  open_tcp_ports = [30303]
 
   /* Plumbing */
   vpc_id       = module.nimbus_network.vpc.id
@@ -41,7 +41,7 @@ module "nimbus_geth_goerli" {
   host_count    = 1
 
   /* Firewall */
-  open_tcp_ports = [ 30303 ]
+  open_tcp_ports = [30303]
 
   /* Plumbing */
   vpc_id       = module.nimbus_network.vpc.id

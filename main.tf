@@ -25,8 +25,8 @@ data "cloudflare_zones" "active" {
 /* For easier access to zone ID by domain name */
 locals {
   zones = {
-    for zone in data.cloudflare_zones.active.zones:
-      zone.name => zone.id
+    for zone in data.cloudflare_zones.active.zones :
+    zone.name => zone.id
   }
 }
 
