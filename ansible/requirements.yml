@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: f0188a8ddfdf1d8107b9eced4fecd47cc9473867
+  version: 1e2d9596667d3e769233b8e9596b89b6c67d5925
   scm: git
 
 - name: oauth-proxy
