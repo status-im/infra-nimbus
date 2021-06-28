@@ -40,5 +40,7 @@ beacon_node_web3_urls: [ 'ws://geth:{{ geth_websocket_port }}' ]
 # Disabled for genesis to avoid missing first two slots
 beacon_node_doppelganger_detection: false
 
-dist_validators_layout:
-  "qmerge-large-01.aws-eu-central-1a.nimbus.rayonism":  { start: 0, end: 2400 }
+# Copy correct validators from nimbus-private repo
+beacon_node_dist_validators_enabled: true
+beacon_node_dist_validators_start: 0
+beacon_node_dist_validators_end: 2400

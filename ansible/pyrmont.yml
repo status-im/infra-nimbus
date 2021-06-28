@@ -26,6 +26,5 @@
   any_errors_fatal: true
   hosts: 'nimbus.pyrmont'
   roles:
-    - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: get-geth-web3-urls,     tags: [ get-geth-web3-urls ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }

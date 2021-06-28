@@ -16,5 +16,4 @@
   hosts: 'nimbus.rayonism'
   roles:
     - { role: infra-role-geth,        tags: [ infra-role-geth ] }
-    - { role: distribute-validators,  tags: [ distribute-validators ] }
     - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }

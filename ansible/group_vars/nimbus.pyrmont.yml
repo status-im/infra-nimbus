@@ -1,0 +1,25 @@
+---
+beacon_node_network: 'pyrmont'
+
+# Split by hostname for more central location
+validators_layout:
+  # bootstrap nodes
+  "testing-small-03.aws-eu-central-1a.nimbus.pyrmont":         { start:     0, end:     0 } # none
+  "testing-small-04.aws-eu-central-1a.nimbus.pyrmont":         { start:     0, end:     0 } # none
+  "stable-large-01.aws-eu-central-1a.nimbus.pyrmont":          { start:     0, end:  2500 } # 2500
+  "stable-small-01.aws-eu-central-1a.nimbus.pyrmont":          { start:  2500, end:  4500 } # 2500
+  "testing-large-01.aws-eu-central-1a.nimbus.pyrmont":         { start:  4500, end:  7750 } # 3250
+  "testing-small-01.aws-eu-central-1a.nimbus.pyrmont":         { start:  7750, end:  9750 } # 2000
+  "testing-small-02.aws-eu-central-1a.nimbus.pyrmont":         { start:  9750, end: 10750 } # 1000
+  "unstable-large-01.aws-eu-central-1a.nimbus.pyrmont":        { start: 10750, end: 14750 } # 4000
+  "unstable-large-02.aws-eu-central-1a.nimbus.pyrmont":        { start: 14750, end: 16750 } # 2000
+  "unstable-small-01.aws-eu-central-1a.nimbus.pyrmont":        { start: 16750, end: 18250 } # 1500
+  "unstable-small-02.aws-eu-central-1a.nimbus.pyrmont":        { start: 18250, end: 18850 } # 600
+  "unstable-small-03.aws-eu-central-1a.nimbus.pyrmont":        { start: 18850, end: 18999 } # 149
+  "unstable-small-04.aws-eu-central-1a.nimbus.pyrmont":        { start: 18999, end: 19000 } # single validator
+  "unstable-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont": { start: 19000, end: 20000 } # 1000
+
+# Copy correct validators from nimbus-private repo
+beacon_node_dist_validators_enabled: true
+eacon_node_dist_validators_start: '{{ validators_layout[hostname]["start"] | mandatory }}'
+beacon_node_dist_validators_end: '{{ validators_layout[hostname]["end"] | mandatory }}'

@@ -28,8 +28,6 @@
     - nimbus-prater-testing
     - nimbus-prater-unstable
   roles:
-    - role: distribute-validators
-      tags: distribute-validators
     - role: get-geth-web3-urls
       tags: get-geth-web3-urls
     - role: infra-role-beacon-node
