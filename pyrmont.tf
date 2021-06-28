@@ -174,13 +174,13 @@ module "nimbus_nodes_pyrmont_unstable_small" {
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 
-module "nimbus_nodes_pyrmont_unstable_libp2p_small" {
+module "nimbus_nodes_pyrmont_libp2p_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
 
-  name   = "unstable-libp2p-small"
+  name   = "libp2p-small"
   env    = "nimbus"
   stage  = "pyrmont"
-  group  = "nimbus-pyrmont-unstable-libp2p"
+  group  = "nimbus-pyrmont-libp2p"
   domain = var.domain
 
   /* Scaling */

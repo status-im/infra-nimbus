@@ -1,4 +1,15 @@
 ---
+# Not pretty but avoids useless files
+node_size: |-
+  {{ (hostname is search("large")) | ternary("large", "small") }}
+node_branch: |-
+  {{ (hostname is search("unstable")) | ternary("unstable", (
+     (hostname is search("testing")) | ternary("testing", (
+     (hostname is search("stable")) | ternary("stable", (
+     (hostname is search("libp2p")) | ternary("libp2p", "UNKNOWN")
+  )))))) }}
+
+beacon_node_cont_tag: '{{ node_branch }}-{{ node_size }}'
 beacon_node_network: 'prater'
 
 # Split by hostname for more central location
