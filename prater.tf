@@ -172,3 +172,15 @@ module "nimbus_nodes_prater_unstable_windows" {
   root_vol_size = 80
   root_vol_type = "pd-ssd"
 }
+
+module "nimbus_nodes_prater_hetzner" {
+  source = "./modules/hetzner"
+
+  name   = "metal"
+  env    = "nimbus"
+  stage  = "prater"
+  group  = "nimbus-prater-metal"
+  domain = var.domain
+
+  ips = ["65.21.73.183"]
+}
