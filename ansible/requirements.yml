@@ -20,8 +20,8 @@
   scm: git
 
 - name: infra-role-bootstrap-windows
-  src: git@github.com:status-im/infra-role-bootstrap.git
-  version: eb6400281bd3183733691344191bd53b2eceaa49
+  src: git@github.com:status-im/infra-role-bootstrap-windows.git
+  version: f0188a8ddfdf1d8107b9eced4fecd47cc9473867
   scm: git
 
 - name: oauth-proxy
@@ -51,7 +51,7 @@
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  version: 9c1584c1b23d9fcb99672fdbff472271acb324a7
+  version: 97275ab7be23bd4041f110ffbd60c509d5e819f3
   scm: git
 
 - name: kibana
