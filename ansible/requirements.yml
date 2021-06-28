@@ -41,7 +41,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 1e640b4742222406e080a3574150fbc28767ba80
+  version: 28cd9ccdd7c74f46be76249b8256ea2481ccf29d
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -81,7 +81,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 5eafd38e4374f56a3439232b72ec077d569e0f5c
+  version: 96176f6c871effb19ecb7f6a8eb81079d3b9efa1
   scm: git
 
 - name: swap-file
