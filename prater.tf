@@ -23,7 +23,7 @@ module "nimbus_nodes_prater_stable_large" {
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
   data_vol_iops = local.prater_data_vol_iops
-  host_count    = 5
+  host_count    = 4
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
@@ -51,7 +51,7 @@ module "nimbus_nodes_prater_testing_large" {
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
   data_vol_iops = local.prater_data_vol_iops
-  host_count    = 5
+  host_count    = 4
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
@@ -79,7 +79,7 @@ module "nimbus_nodes_prater_unstable_large" {
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
   data_vol_iops = local.prater_data_vol_iops
-  host_count    = 5
+  host_count    = 4
 
   /* Firewall */
   open_udp_ports = local.nimbus_ports
