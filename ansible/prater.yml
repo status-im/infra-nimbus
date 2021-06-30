@@ -48,12 +48,12 @@
         beacon_node_listening_port: '{{ 9000 + port_offset }}'
         beacon_node_metrics_port:   '{{ 9200 + port_offset }}'
         beacon_node_rpc_port:       '{{ 9900 + port_offset }}'
-        beacon_node_dist_validators_start: '{{ item.start }}'
-        beacon_node_dist_validators_end: '{{ item.end }}'
+        beacon_node_dist_validators_start: '{{ node.start }}'
+        beacon_node_dist_validators_end: '{{ node.end }}'
       with_items:
-        - { branch: 'stable',   build_frequency: '*-*-* 12:00:00' }
-        - { branch: 'unstable', build_frequency: '*-*-* 14:00:00' }
-        - { branch: 'testing',  build_frequency: '*-*-* 16:00:00' }
+        - { branch: 'stable',   start: 10000, end: 12500, build_frequency: '*-*-* 12:00:00' }
+        - { branch: 'testing',  start: 22500, end: 25000, build_frequency: '*-*-* 16:00:00' }
+        - { branch: 'unstable', start: 35000, end: 37500, build_frequency: '*-*-* 14:00:00' }
       loop_control:
         loop_var: node
         index_var: port_offset
