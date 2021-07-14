@@ -13,8 +13,10 @@
     version: '{{ item.version }}'
     dest: '{{ beacon_node_builds_path }}/{{ item.name }}/repo'
     force: true
-    # Normally we don't update or timer might miss some changes.
-    update: '{{ item.get("update", false) }}'
+    update: true
+    # Fix for issues with clobbering of nightly tag 
+    # WARNING: Requires Ansible 2.11 or newer.
+    single_branch: true
   become_user: '{{ beacon_node_builds_user }}'
 
 - name: '{{ item.name }} - Create script'
