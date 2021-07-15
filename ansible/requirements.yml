@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: c1f535e4b2851f08b1013bd57ab42d0c1e31e3b2
+  version: a72d839866700f543c3634a6a82bf0ac0fc44c0c
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -41,22 +41,22 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 083a675b0f58fc8cd99dd4a7eca8d346349d4c78
+  version: 09d0176c12a509f24a8537c7902b750c05efb755
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: a58849012bbaa91dace50533ba234fa1bb6a87a9
+  version: cc3ad53c33bdfc26412c012c8926da38f68a4676
   scm: git
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 871b8e99737174aaea0bb0073e174b8c68482e2e
+  version: 18b11237665db03b9f7ff9e0a6ec59afb95bc51f
   scm: git
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  version: 97275ab7be23bd4041f110ffbd60c509d5e819f3
+  version: e41415ba8bd63438e1f988421ef52e1078a310dd
   scm: git
 
 - name: kibana
