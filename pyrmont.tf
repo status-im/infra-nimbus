@@ -200,3 +200,20 @@ module "nimbus_nodes_pyrmont_libp2p_small" {
   secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
+
+module "nimbus_nodes_pyrmont_hetzner" {
+  source = "./modules/hetzner"
+
+  name   = "metal"
+  env    = "nimbus"
+  stage  = "pyrmont"
+  group  = "nimbus-pyrmont-metal"
+  domain = var.domain
+
+  ips = [
+    "65.21.196.45",
+    "65.21.196.46",
+    "65.21.196.47",
+    "65.21.196.48",
+  ]
+}
