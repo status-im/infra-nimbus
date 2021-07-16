@@ -167,7 +167,7 @@ module "nimbus_nodes_prater_unstable_windows" {
   open_tcp_ports = local.nimbus_ports
 
   /* Scaling */
-  type          = "c2-standard-4" /* 4 vCPUs, 16GB RAM */
+  type          = "c2-standard-8" /* 4 vCPUs, 16GB RAM */
   host_count    = 1
   root_vol_size = 200
   root_vol_type = "pd-ssd"
