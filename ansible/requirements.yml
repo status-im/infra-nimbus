@@ -51,12 +51,12 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 9415e17c7e3d3473ba8c5ab47624bfa996c749de
+  version: c1b8149b3a85b058c3838d54a4d0c2bb2a64cb71
   scm: git
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  version: d85f966f2a9f8f02d4d1589459cf96c82988557f
+  version: 44f335715fda2e0ba1b2cb2b815389e05c5ae0b1
   scm: git
 
 - name: kibana

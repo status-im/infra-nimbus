@@ -21,17 +21,14 @@ validators_layout:
   'stable-large-01.aws-eu-central-1a.nimbus.prater':     { start:     0, end:  2500 }
   'stable-large-02.aws-eu-central-1a.nimbus.prater':     { start:  2500, end:  5000 }
   'stable-large-03.aws-eu-central-1a.nimbus.prater':     { start:  5000, end:  7500 }
-  'stable-large-04.aws-eu-central-1a.nimbus.prater':     { start:  7500, end: 10000 }
   # 2500 validators per node
   'testing-large-01.aws-eu-central-1a.nimbus.prater':    { start: 12500, end: 15000 }
   'testing-large-02.aws-eu-central-1a.nimbus.prater':    { start: 15000, end: 17500 }
   'testing-large-03.aws-eu-central-1a.nimbus.prater':    { start: 17500, end: 20000 }
-  'testing-large-04.aws-eu-central-1a.nimbus.prater':    { start: 20000, end: 22500 }
   # 2500 validators per node
   "unstable-large-01.aws-eu-central-1a.nimbus.prater":   { start: 25000, end: 27500 }
   "unstable-large-02.aws-eu-central-1a.nimbus.prater":   { start: 27500, end: 30000 }
   "unstable-large-03.aws-eu-central-1a.nimbus.prater":   { start: 30000, end: 32500 }
-  "unstable-large-04.aws-eu-central-1a.nimbus.prater":   { start: 32500, end: 35000 }
   # 1250 validators per node
   'u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater': { start: 37500, end: 38750 }
   # 1250 validators per node
