@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: 5c971b6a1460cf8124cba112ec7bdca2191bdba2
+  version: f9153669a39ccc0dff9582ec11cc07f6ff399840
   scm: git
 
 - name: oauth-proxy
@@ -34,29 +34,29 @@
   version: 87f4498f90f0cbb66a1ddb425e8953b04ced1891
   scm: git
 
-- name: infra-role-beacon-node
-  src: git@github.com:status-im/infra-role-beacon-node.git
-  version: 992c8a43a45e06bb1f43f6c440fa03c157422f99
+- name: infra-role-beacon-node-docker
+  src: git@github.com:status-im/infra-role-beacon-node-docker.git
+  version: 1edf2629a726b4fdce7bf536ac6f015f995ea725
   scm: git
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 09d0176c12a509f24a8537c7902b750c05efb755
+  version: d96c2548802977a66e3c7c5bfd842df28699743d
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: cc3ad53c33bdfc26412c012c8926da38f68a4676
+  version: a7a3f0f733fb11f5b58fa184a994d5b323dc5183
   scm: git
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 18b11237665db03b9f7ff9e0a6ec59afb95bc51f
+  version: 9415e17c7e3d3473ba8c5ab47624bfa996c749de
   scm: git
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  version: e41415ba8bd63438e1f988421ef52e1078a310dd
+  version: d85f966f2a9f8f02d4d1589459cf96c82988557f
   scm: git
 
 - name: kibana
