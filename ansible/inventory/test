@@ -2,7 +2,6 @@
 # For emergency use when Consul fails
 [all]
 goerli-01.aws-eu-central-1a.nimbus.geth hostname=goerli-01.aws-eu-central-1a.nimbus.geth ansible_host=18.194.109.141 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=goerli-01.aws-eu-central-1a.nimbus.geth.statusim.net
-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.195.225.101 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
 metal-01.he-eu-hel1.nimbus.prater hostname=metal-01.he-eu-hel1.nimbus.prater ansible_host=65.21.73.183 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.prater.statusim.net
 metal-01.he-eu-hel1.nimbus.pyrmont hostname=metal-01.he-eu-hel1.nimbus.pyrmont ansible_host=65.21.196.45 env=nimbus stage=pyrmont data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.pyrmont.statusim.net
@@ -15,39 +14,25 @@ node-02.aws-eu-central-1a.log-store.nimbus hostname=node-02.aws-eu-central-1a.lo
 node-03.aws-eu-central-1a.log-store.nimbus hostname=node-03.aws-eu-central-1a.log-store.nimbus ansible_host=18.156.65.18 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-03.aws-eu-central-1a.log-store.nimbus.statusim.net
 qmerge-large-01.aws-eu-central-1a.nimbus.rayonism hostname=qmerge-large-01.aws-eu-central-1a.nimbus.rayonism ansible_host=54.93.141.16 env=nimbus stage=rayonism data_center=aws-eu-central-1a region=eu-central-1a dns_entry=qmerge-large-01.aws-eu-central-1a.nimbus.rayonism.statusim.net
 stable-large-01.aws-eu-central-1a.nimbus.prater hostname=stable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.120.202.252 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
-stable-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=stable-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.158.198.245 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 stable-large-02.aws-eu-central-1a.nimbus.prater hostname=stable-large-02.aws-eu-central-1a.nimbus.prater ansible_host=3.65.99.236 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-02.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-large-03.aws-eu-central-1a.nimbus.prater hostname=stable-large-03.aws-eu-central-1a.nimbus.prater ansible_host=3.64.72.159 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-03.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-large-04.aws-eu-central-1a.nimbus.prater hostname=stable-large-04.aws-eu-central-1a.nimbus.prater ansible_host=3.65.240.81 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-04.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-small-01.aws-eu-central-1a.nimbus.mainnet hostname=stable-small-01.aws-eu-central-1a.nimbus.mainnet ansible_host=3.120.104.18 env=nimbus stage=mainnet data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-small-01.aws-eu-central-1a.nimbus.mainnet.statusim.net
-stable-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=stable-small-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.64.67.28 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-small-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 stable-small-02.aws-eu-central-1a.nimbus.mainnet hostname=stable-small-02.aws-eu-central-1a.nimbus.mainnet ansible_host=3.64.117.223 env=nimbus stage=mainnet data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-small-02.aws-eu-central-1a.nimbus.mainnet.statusim.net
 testing-large-01.aws-eu-central-1a.nimbus.prater hostname=testing-large-01.aws-eu-central-1a.nimbus.prater ansible_host=18.195.151.76 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
-testing-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=testing-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.173.125 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 testing-large-02.aws-eu-central-1a.nimbus.prater hostname=testing-large-02.aws-eu-central-1a.nimbus.prater ansible_host=18.158.6.76 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-02.aws-eu-central-1a.nimbus.prater.statusim.net
 testing-large-03.aws-eu-central-1a.nimbus.prater hostname=testing-large-03.aws-eu-central-1a.nimbus.prater ansible_host=18.157.146.243 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-03.aws-eu-central-1a.nimbus.prater.statusim.net
 testing-large-04.aws-eu-central-1a.nimbus.prater hostname=testing-large-04.aws-eu-central-1a.nimbus.prater ansible_host=18.197.120.187 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-04.aws-eu-central-1a.nimbus.prater.statusim.net
-testing-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.198.155.216 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-testing-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.124.251.140 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-testing-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=35.156.225.126 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-testing-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=testing-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.215.229 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater hostname=u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.93 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater hostname=u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater ansible_host=18.158.170.20 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.prater hostname=unstable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.130 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
-unstable-large-01.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-large-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.198.99.61 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 unstable-large-02.aws-eu-central-1a.nimbus.prater hostname=unstable-large-02.aws-eu-central-1a.nimbus.prater ansible_host=3.65.180.246 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-02.aws-eu-central-1a.nimbus.prater.statusim.net
-unstable-large-02.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-large-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.2.74 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 unstable-large-03.aws-eu-central-1a.nimbus.prater hostname=unstable-large-03.aws-eu-central-1a.nimbus.prater ansible_host=18.198.64.62 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-03.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-04.aws-eu-central-1a.nimbus.prater hostname=unstable-large-04.aws-eu-central-1a.nimbus.prater ansible_host=3.65.231.145 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-04.aws-eu-central-1a.nimbus.prater.statusim.net
-unstable-small-01.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-01.aws-eu-central-1a.nimbus.pyrmont ansible_host=52.57.100.135 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-01.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-unstable-small-02.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-02.aws-eu-central-1a.nimbus.pyrmont ansible_host=18.193.206.240 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-02.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-unstable-small-03.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-03.aws-eu-central-1a.nimbus.pyrmont ansible_host=52.28.209.174 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-03.aws-eu-central-1a.nimbus.pyrmont.statusim.net
-unstable-small-04.aws-eu-central-1a.nimbus.pyrmont hostname=unstable-small-04.aws-eu-central-1a.nimbus.pyrmont ansible_host=3.125.21.130 env=nimbus stage=pyrmont data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-small-04.aws-eu-central-1a.nimbus.pyrmont.statusim.net
 windows-01.gc-us-central1-a.nimbus.prater hostname=windows-01.gc-us-central1-a.nimbus.prater ansible_host=35.232.80.244 env=nimbus stage=prater data_center=gc-us-central1-a region=us-central1-a dns_entry=windows-01.gc-us-central1-a.nimbus.prater.statusim.net
 
 [aws-eu-central-1a]
 goerli-01.aws-eu-central-1a.nimbus.geth
-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont
 mainnet-01.aws-eu-central-1a.nimbus.geth
 node-01.aws-eu-central-1a.dash.nimbus
 node-01.aws-eu-central-1a.log-store.nimbus
@@ -55,34 +40,21 @@ node-02.aws-eu-central-1a.log-store.nimbus
 node-03.aws-eu-central-1a.log-store.nimbus
 qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
 stable-large-01.aws-eu-central-1a.nimbus.prater
-stable-large-01.aws-eu-central-1a.nimbus.pyrmont
 stable-large-02.aws-eu-central-1a.nimbus.prater
 stable-large-03.aws-eu-central-1a.nimbus.prater
 stable-large-04.aws-eu-central-1a.nimbus.prater
 stable-small-01.aws-eu-central-1a.nimbus.mainnet
-stable-small-01.aws-eu-central-1a.nimbus.pyrmont
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 testing-large-01.aws-eu-central-1a.nimbus.prater
-testing-large-01.aws-eu-central-1a.nimbus.pyrmont
 testing-large-02.aws-eu-central-1a.nimbus.prater
 testing-large-03.aws-eu-central-1a.nimbus.prater
 testing-large-04.aws-eu-central-1a.nimbus.prater
-testing-small-01.aws-eu-central-1a.nimbus.pyrmont
-testing-small-02.aws-eu-central-1a.nimbus.pyrmont
-testing-small-03.aws-eu-central-1a.nimbus.pyrmont
-testing-small-04.aws-eu-central-1a.nimbus.pyrmont
 u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater
 u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
-unstable-large-01.aws-eu-central-1a.nimbus.pyrmont
 unstable-large-02.aws-eu-central-1a.nimbus.prater
-unstable-large-02.aws-eu-central-1a.nimbus.pyrmont
 unstable-large-03.aws-eu-central-1a.nimbus.prater
 unstable-large-04.aws-eu-central-1a.nimbus.prater
-unstable-small-01.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-02.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-03.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-04.aws-eu-central-1a.nimbus.pyrmont
 
 [dash.nimbus]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -150,33 +122,11 @@ u-libp2p-u-large-01.aws-eu-central-1a.nimbus.prater
 [nimbus-prater-windows]
 windows-01.gc-us-central1-a.nimbus.prater
 
-[nimbus-pyrmont-libp2p]
-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont
-
 [nimbus-pyrmont-metal]
 metal-01.he-eu-hel1.nimbus.pyrmont
 metal-02.he-eu-hel1.nimbus.pyrmont
 metal-03.he-eu-hel1.nimbus.pyrmont
 metal-04.he-eu-hel1.nimbus.pyrmont
-
-[nimbus-pyrmont-stable]
-stable-large-01.aws-eu-central-1a.nimbus.pyrmont
-stable-small-01.aws-eu-central-1a.nimbus.pyrmont
-
-[nimbus-pyrmont-testing]
-testing-large-01.aws-eu-central-1a.nimbus.pyrmont
-testing-small-01.aws-eu-central-1a.nimbus.pyrmont
-testing-small-02.aws-eu-central-1a.nimbus.pyrmont
-testing-small-03.aws-eu-central-1a.nimbus.pyrmont
-testing-small-04.aws-eu-central-1a.nimbus.pyrmont
-
-[nimbus-pyrmont-unstable]
-unstable-large-01.aws-eu-central-1a.nimbus.pyrmont
-unstable-large-02.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-01.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-02.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-03.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-04.aws-eu-central-1a.nimbus.pyrmont
 
 [nimbus-rayonism-qmerge]
 qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
@@ -208,24 +158,10 @@ unstable-large-04.aws-eu-central-1a.nimbus.prater
 windows-01.gc-us-central1-a.nimbus.prater
 
 [nimbus.pyrmont]
-libp2p-small-01.aws-eu-central-1a.nimbus.pyrmont
 metal-01.he-eu-hel1.nimbus.pyrmont
 metal-02.he-eu-hel1.nimbus.pyrmont
 metal-03.he-eu-hel1.nimbus.pyrmont
 metal-04.he-eu-hel1.nimbus.pyrmont
-stable-large-01.aws-eu-central-1a.nimbus.pyrmont
-stable-small-01.aws-eu-central-1a.nimbus.pyrmont
-testing-large-01.aws-eu-central-1a.nimbus.pyrmont
-testing-small-01.aws-eu-central-1a.nimbus.pyrmont
-testing-small-02.aws-eu-central-1a.nimbus.pyrmont
-testing-small-03.aws-eu-central-1a.nimbus.pyrmont
-testing-small-04.aws-eu-central-1a.nimbus.pyrmont
-unstable-large-01.aws-eu-central-1a.nimbus.pyrmont
-unstable-large-02.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-01.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-02.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-03.aws-eu-central-1a.nimbus.pyrmont
-unstable-small-04.aws-eu-central-1a.nimbus.pyrmont
 
 [nimbus.rayonism]
 qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
