@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: a7a3f0f733fb11f5b58fa184a994d5b323dc5183
+  version: e00e1041d421d16ee078a99c843ae9eabd5bafe7
   scm: git
 
 - name: infra-role-dist-validators
@@ -91,7 +91,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 7b27e0f75aac29800c6d1a51a5f38ae7d2390aab
+  version: 06966616e6cbad7dd7e41efcf70120a15ab21da5
   scm: git
 
 - name: infra-role-geth-exporter
