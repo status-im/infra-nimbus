@@ -1,8 +1,8 @@
 ---
 # Root password
-bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass-sha512")}}'
+bootstrap__root_pass: '{{lookup("bitwarden", "root")}}'
 # Consul encryption key
-bootstrap__consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
+bootstrap__consul_encryption_key: '{{lookup("bitwarden", "consul", field="encryption-key")}}'
 
 # Custom SSH accounts for Nimbus fleet, should start from UID 8000.
 bootstrap__active_extra_users:

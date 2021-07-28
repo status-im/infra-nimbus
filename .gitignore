@@ -6,3 +6,4 @@
 *.retry
 
 ansible/files/*
+__pycache__
