@@ -24,6 +24,11 @@
   version: 3a9053bc7a35258c20dffce123c8657d53c81858
   scm: git
 
+- name: infra-role-wireguard
+  src: git@github.com:status-im/infra-role-wireguard.git
+  version: dcd0ff242ef79b733af5d050d8a3766821698797
+  scm: git
+
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
   version: 567b4cf59d97f87be78e77e62684214f6de03096
