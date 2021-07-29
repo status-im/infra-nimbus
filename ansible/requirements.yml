@@ -1,6 +1,6 @@
 ---
 - name: nginx
-  src: git@github.com:status-im/ansible-role-nginx.git
+  src: git@github.com:status-im/infra-role-nginx.git
   version: 3043c998cbc92a634a71dc48363b3e2525696d26
   scm: git
 
@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: e00e1041d421d16ee078a99c843ae9eabd5bafe7
+  version: d46fa367d4e34af0f82fa3aa289a416f0a72dc16
   scm: git
 
 - name: infra-role-dist-validators
