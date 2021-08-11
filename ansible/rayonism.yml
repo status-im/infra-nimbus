@@ -15,5 +15,7 @@
   any_errors_fatal: true
   hosts: 'nimbus.rayonism'
   roles:
-    - { role: infra-role-geth,        tags: [ infra-role-geth ] }
-    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+    - role: infra-role-geth
+      tags: infra-role-geth
+    - role: infra-role-beacon-node-linux
+      tags: beacon-node

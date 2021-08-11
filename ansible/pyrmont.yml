@@ -15,10 +15,10 @@
     - nimbus-pyrmont-metal
   roles:
     - role: get-geth-web3-urls
-      tags: [ get-geth-web3-urls ]
+      tags: get-geth-web3-urls
   tasks:
     - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
+      tags: beacon-node
       vars:
         # Using whole libp2p branch name would be far too long.
         beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.name }}'

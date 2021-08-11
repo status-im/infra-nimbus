@@ -1,7 +1,5 @@
 ---
-# This node is used as replacement for Infura for end-to-end tests.
-
-# Syncing can use a lot of mamory
+# This node is used as replacement for Infura for end-to-end tests.  Syncing can use a lot of mamory
 swap_file_size_mb: 4096
 
 # Geth node
@@ -28,3 +26,9 @@ geth_port: 30303
 geth_rpc_port: 8545
 geth_websocket_port: 8546
 geth_expo_cont_port: 9200
+
+# Open Ports
+open_ports_default_comment: 'Geth Metrics'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq' }

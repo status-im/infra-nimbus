@@ -53,6 +53,17 @@ oauth_cookie_secret: '{{ lookup("passwordstore", "services/cookie-secret") }}'
 oauth_id: '{{ lookup("passwordstore", "services/elastic-hq-nimbus/oauth-id") }}'
 oauth_secret: '{{ lookup("passwordstore", "services/elastic-hq-nimbus/oauth-secret") }}'
 
+
+# Open Ports
+open_ports_default_comment: 'ElasticSearch'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: 80,  protocol: 'tcp', chain: 'SERVICES' }
+  - { port: 443, protocol: 'tcp', chain: 'SERVICES' }
+  - { port: '{{ es_api_port }}',          ipset: 'log-store.nimbus' }
+  - { port: '{{ es_node_port }}',         ipset: 'log-store.nimbus' }
+  - { port: '{{ es_metrics_cont_port }}', ipset: 'metrics.hq' }
+
 # Proxy for ES HQ
 nginx_sites:
   elasticsearch_hq_http:
@@ -72,9 +83,3 @@ nginx_sites:
         proxy_set_header Host $host;
         proxy_pass http://127.0.0.1:{{ oauth_local_port }}/;
       }
-
-# Open Nginx Ports
-open_ports_default_comment: 'HTTP & HTTPS'
-open_ports_list:
-  - { port: 80,  protocol: 'tcp' }
-  - { port: 443, protocol: 'tcp' }

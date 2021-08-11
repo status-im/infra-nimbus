@@ -13,5 +13,6 @@
   become: true
   hosts: 'nimbus-mainnet-small'
   roles:
-    - { role: get-geth-web3-urls,     tags: [ get-geth-web3-urls ] }
-    - { role: infra-role-beacon-node, tags: [ infra-role-beacon-node, beacon-node ] }
+    - { role: open-ports,                   tags: [ open-ports ] }
+    - { role: get-geth-web3-urls,           tags: [ get-geth-web3-urls ] }
+    - { role: infra-role-beacon-node-linux, tags: [ beacon-node ] }

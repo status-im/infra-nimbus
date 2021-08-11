@@ -27,20 +27,22 @@
     - nimbus-prater-stable
     - nimbus-prater-testing
     - nimbus-prater-unstable
+    - nimbus-prater-unstable-libp2p-stable
+    - nimbus-prater-unstable-libp2p-unstable
   roles:
     - role: get-geth-web3-urls
       tags: get-geth-web3-urls
     - role: infra-role-beacon-node-docker
-      tags: [ infra-role-beacon-node-docker, beacon-node ]
+      tags: beacon-node
 
 - name: Deploy mainnet linux beacon nodes
   become: true
   hosts: nimbus-prater-metal
   roles:
-    - { role: get-geth-web3-urls,     tags: [ get-geth-web3-urls ] }
+    - { role: get-geth-web3-urls, tags: [ get-geth-web3-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
+      tags: beacon-node
       vars:
         beacon_node_repo_branch: '{{ node.branch }}'
         beacon_node_build_frequency: '{{ node.build_frequency }}'
@@ -64,7 +66,7 @@
   fact_path: 'C:/ansible/facts.d'
   tasks:
     - include_role: name=infra-role-beacon-node-windows
-      tags: [ beacon-node, infra-role-beacon-node-windows ]
+      tags: beacon-node
       vars:
         beacon_node_repo_branch: '{{ node.branch }}'
         beacon_node_build_start_time: '{{ node.build_start }}'

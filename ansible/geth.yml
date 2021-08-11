@@ -16,5 +16,6 @@
     - nimbus-geth-mainnet
   roles:
     - { role: swap-file,                tags: swap-file }
+    - { role: open-ports,               tags: open-ports }
     - { role: infra-role-geth,          tags: infra-role-geth }
     - { role: infra-role-geth-exporter, tags: infra-role-geth-exporter }

@@ -27,3 +27,9 @@ geth_port: 30303
 geth_rpc_port: 8545
 geth_websocket_port: 8546
 geth_expo_cont_port: 9200
+
+# Open Ports
+open_ports_default_comment: 'Geth Metrics'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq' }

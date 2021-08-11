@@ -11,12 +11,12 @@
 
 - name: open-ports
   src: git@github.com:status-im/infra-role-open-ports.git
-  version: 54125c7d291289aaea51ca313fc694d057d803fa
+  version: 24dc30dbdf85e6758cb6924074b2f7a0f4541524
   scm: git
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 73d16a19970db4d1e27aa284bc3e4786b8a3c659
+  version: 53e96605481a84542702bd72e94a58eb63da9c9e
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -26,7 +26,7 @@
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: dcd0ff242ef79b733af5d050d8a3766821698797
+  version: 1beaa34f9b9b00e286faeeb177e2233e431a1634
   scm: git
 
 - name: oauth-proxy
@@ -96,7 +96,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 06966616e6cbad7dd7e41efcf70120a15ab21da5
+  version: 5b91c936dcef80780fbf7c3a879b4277b6ccf92c
   scm: git
 
 - name: infra-role-geth-exporter
