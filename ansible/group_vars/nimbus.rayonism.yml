@@ -5,7 +5,7 @@ geth_service_path: '{{ beacon_node_cont_vol }}'
 geth_compose_path: '{{ geth_service_path }}/docker-compose.geth.yml'
 geth_rpc_wrapper: '{{ geth_service_path }}/rpc.geth.sh'
 geth_cont_image: 'ethereum/client-go@sha256:82920663d5c2378d9d21c640f30c885154e5eca6d1dd7ccec83711f527aeddbf'
-geth_account_pass: '{{lookup("passwordstore", "services/Nimbus-Geth/password")}}'
+geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 geth_sync_mode: 'fast'
 geth_log_level_name: 'detail'
 # Enable consensus API

@@ -13,7 +13,7 @@ beacon_node_cont_tag: '{{ node_branch }}-{{ node_size }}'
 beacon_node_network: 'prater'
 
 # Windows service user
-beacon_node_service_user_pass: '{{lookup("passwordstore", "services/Nimbus/windows-pass")}}'
+beacon_node_service_user_pass: '{{lookup("bitwarden", "nimbus/windows", field="password")}}'
 
 # Split by hostname for more central location
 validators_layout:

@@ -41,12 +41,12 @@
 
 - name: infra-role-beacon-node-docker
   src: git@github.com:status-im/infra-role-beacon-node-docker.git
-  version: 1edf2629a726b4fdce7bf536ac6f015f995ea725
+  version: cb69ed19f0e1d1e23c7cf66f389854082c157778
   scm: git
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: d96c2548802977a66e3c7c5bfd842df28699743d
+  version: d19a71843f15386c424dc8bd9f3aa2bdff39541c
   scm: git
 
 - name: infra-role-beacon-node-windows

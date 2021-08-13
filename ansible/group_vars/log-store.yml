@@ -2,8 +2,8 @@
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'status.im'
-    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
-    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
+    crt: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.crt")}}'
+    key: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.key")}}'
     default: true
 
 # Syncing can use a lot of mamory
@@ -49,10 +49,9 @@ oauth_upstream_cont: '{{ es_hq_cont_name }}'
 oauth_upstream_port: '{{ es_hq_cont_port }}'
 oauth_public_port: 443
 oauth_local_port: 8090
-oauth_cookie_secret: '{{ lookup("passwordstore", "services/cookie-secret") }}'
-oauth_id: '{{ lookup("passwordstore", "services/elastic-hq-nimbus/oauth-id") }}'
-oauth_secret: '{{ lookup("passwordstore", "services/elastic-hq-nimbus/oauth-secret") }}'
-
+oauth_cookie_secret: '{{ lookup("bitwarden", "cookie-secret", field="secret") }}'
+oauth_id: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="client-id") }}'
+oauth_secret: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="secret") }}'
 
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
