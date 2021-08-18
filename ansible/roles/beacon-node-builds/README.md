@@ -10,8 +10,9 @@ The minimal configuration would look something like:
 beacon_node_builds_branches:
   - name: 'xyz'
     version: 'feature/xyz'
-    targets: ['nimbus_beacon_node', 'nimbus_signing_process']
     frequency: '*-*-* 02:00:00'
+    enabled: true
+    update: true
 
 # Required to push Docker images
 beacon_node_builds_docker_hub_user: 'docker-hub-user'

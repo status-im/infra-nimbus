@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 53e96605481a84542702bd72e94a58eb63da9c9e
+  version: a51317d65e30ca9609778619195df96c8d05ba42
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -31,7 +31,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 567b4cf59d97f87be78e77e62684214f6de03096
+  version: 05ef1410abe09db6df6e58ca14c556b7e2c383d7
   scm: git
 
 - name: consul-service

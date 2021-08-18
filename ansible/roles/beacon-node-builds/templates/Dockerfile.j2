@@ -7,12 +7,11 @@ RUN apt-get -qq update \
  && apt-get -qq clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-{% for target in item.targets %}
-COPY repo/build/{{ target }}_${COMMIT} /usr/local/bin/{{ target }}
-{% endfor %}
+COPY repo/build/nimbus_beacon_node_${COMMIT} /usr/local/bin/nimbus_beacon_node
+COPY repo/build/nimbus_signing_process_${COMMIT} /usr/local/bin/nimbus_signing_process
 
 STOPSIGNAL SIGINT
 
-ENTRYPOINT ["/usr/local/bin/{{ item.targets | first }}"]
+ENTRYPOINT ["/usr/local/bin/nimbus_beacon_node"]
 
 CMD ["--help"]

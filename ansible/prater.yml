@@ -12,7 +12,7 @@
 - name: Deploy beacon node build nodes
   become: true
   hosts:
-    - testing-large-01.aws-eu-central-1a.nimbus.pyrmont
+    - testing-large-01.aws-eu-central-1a.nimbus.prater
   roles:
     - role: swap-file
       tags: swap-file

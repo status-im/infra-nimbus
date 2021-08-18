@@ -11,7 +11,7 @@ function dockerImageExists() {
 }
 
 function binaryExists() {
-    ls -l build/{{ item.targets | first }}_${COMMIT} 2>&1 1>/dev/null
+    ls -l build/nimbus_beacon_node_${COMMIT} 2>&1 1>/dev/null
 }
 
 function fetchChanges() {
@@ -25,13 +25,12 @@ function buildBinaries() {
     NICE="nice -n 19 ionice -c2 -n7"
 
     ${NICE} make -j1 update
-    ${NICE} make -j1 {{ item.targets | join(" ") }} \
+    ${NICE} make -j1 nimbus_beacon_node nimbus_signing_process \
         LOG_LEVEL="TRACE" NIMFLAGS="-d:testnet_servers_image -d:noSignalHandler"
 
     # Rename binaries to match commit the were built from.
-{% for target in item.targets %}
-    mv "build/{{ target }}" "build/{{ target }}_${COMMIT}"
-{% endfor %}
+    mv "build/nimbus_beacon_node" "build/nimbus_beacon_node_${COMMIT}"
+    mv "build/nimbus_signing_process" "build/nimbus_signing_process_${COMMIT}"
 
     # Delete copies that are older than 7 days
     find build -mtime +7 -exec rm '{}' \+
