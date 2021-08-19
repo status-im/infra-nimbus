@@ -26,7 +26,7 @@
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: 1beaa34f9b9b00e286faeeb177e2233e431a1634
+  version: 49757eacbb3840d3c03ae159baec96b2c3492682
   scm: git
 
 - name: oauth-proxy
@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: d19a71843f15386c424dc8bd9f3aa2bdff39541c
+  version: bbba401d463840897bc3c16c48cf1b20c1115520
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -56,7 +56,7 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: c1b8149b3a85b058c3838d54a4d0c2bb2a64cb71
+  version: 1ec52b38e36cd1af939317ea51bbd74984986725
   scm: git
 
 - name: infra-role-winsw
