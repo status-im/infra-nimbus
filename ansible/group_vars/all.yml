@@ -49,11 +49,3 @@ beacon_node_max_peers: 320
 # resource limits
 beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.60) | int }}'
 beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.4) | int }}'
-
-# Open Ports
-open_ports_default_comment: 'Beacon Node'
-open_ports_default_chain: 'SERVICES'
-open_ports_list:
-  - { port: '{{ beacon_node_listening_port }}', protocol: 'tcp' }
-  - { port: '{{ beacon_node_discovery_port }}', protocol: 'udp' }
-  - { port: '{{ beacon_node_metrics_port }}',   chain: 'VPN', ipset: 'metrics.hq' }
