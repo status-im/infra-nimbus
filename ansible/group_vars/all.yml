@@ -37,10 +37,11 @@ beacon_node_log_level: DEBUG
 beacon_node_timer_rebuild: true
 
 # ports
-beacon_node_rpc_port: '11000'
-beacon_node_metrics_port : '9300'
-beacon_node_listening_port: '9100'
-beacon_node_discovery_port: '9100'
+beacon_node_rpc_port: 11000
+beacon_node_rest_port: 5052
+beacon_node_metrics_port : 9300
+beacon_node_listening_port: 9100
+beacon_node_discovery_port: 9100
 
 # Peers
 beacon_node_max_peers: 320
