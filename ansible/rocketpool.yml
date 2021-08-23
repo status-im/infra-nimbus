@@ -1,0 +1,17 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
+- name: Configure RocketPool node
+  become: true
+  hosts:
+    - nimbus-rayonism-qmerge
+  roles:
+    - { role: infra-role-rocketpool-smart-node, tags: rocketpool }
