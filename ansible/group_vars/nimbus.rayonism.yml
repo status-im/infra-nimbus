@@ -44,3 +44,7 @@ beacon_node_doppelganger_detection: false
 beacon_node_dist_validators_enabled: true
 beacon_node_dist_validators_start: 0
 beacon_node_dist_validators_end: 2400
+
+rocketpool_web3_url: 'http://goerli-01.aws-eu-central-1a.nimbus.geth.wg:8545'
+rocketpool_web3_ws_url: 'ws://goerli-01.aws-eu-central-1a.nimbus.geth.wg:8546'
+
