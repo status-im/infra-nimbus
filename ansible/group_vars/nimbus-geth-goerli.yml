@@ -28,10 +28,10 @@ geth_websocket_port: 8546
 geth_expo_cont_port: 9200
 
 # Open Ports
-open_ports_default_comment: 'Geth Metrics'
+open_ports_default_comment: 'Geth API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq' }
+  - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq', comment: 'Geth Metrics' }
   - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.pyrmont' }
   - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.prater' }
   - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.rayonism' }
