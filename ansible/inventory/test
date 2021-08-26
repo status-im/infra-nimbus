@@ -13,7 +13,6 @@ node-01.aws-eu-central-1a.dash.nimbus hostname=node-01.aws-eu-central-1a.dash.ni
 node-01.aws-eu-central-1a.log-store.nimbus hostname=node-01.aws-eu-central-1a.log-store.nimbus ansible_host=35.157.196.157 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.log-store.nimbus.statusim.net
 node-02.aws-eu-central-1a.log-store.nimbus hostname=node-02.aws-eu-central-1a.log-store.nimbus ansible_host=3.64.111.246 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-02.aws-eu-central-1a.log-store.nimbus.statusim.net
 node-03.aws-eu-central-1a.log-store.nimbus hostname=node-03.aws-eu-central-1a.log-store.nimbus ansible_host=18.156.65.18 env=log-store stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-03.aws-eu-central-1a.log-store.nimbus.statusim.net
-qmerge-large-01.aws-eu-central-1a.nimbus.rayonism hostname=qmerge-large-01.aws-eu-central-1a.nimbus.rayonism ansible_host=54.93.141.16 env=nimbus stage=rayonism data_center=aws-eu-central-1a region=eu-central-1a dns_entry=qmerge-large-01.aws-eu-central-1a.nimbus.rayonism.statusim.net
 stable-large-01.aws-eu-central-1a.nimbus.prater hostname=stable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.120.202.252 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-large-02.aws-eu-central-1a.nimbus.prater hostname=stable-large-02.aws-eu-central-1a.nimbus.prater ansible_host=3.65.99.236 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-02.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-large-03.aws-eu-central-1a.nimbus.prater hostname=stable-large-03.aws-eu-central-1a.nimbus.prater ansible_host=3.64.72.159 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-03.aws-eu-central-1a.nimbus.prater.statusim.net
@@ -36,7 +35,6 @@ node-01.aws-eu-central-1a.dash.nimbus
 node-01.aws-eu-central-1a.log-store.nimbus
 node-02.aws-eu-central-1a.log-store.nimbus
 node-03.aws-eu-central-1a.log-store.nimbus
-qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
 stable-large-01.aws-eu-central-1a.nimbus.prater
 stable-large-02.aws-eu-central-1a.nimbus.prater
 stable-large-03.aws-eu-central-1a.nimbus.prater
@@ -124,9 +122,6 @@ metal-02.he-eu-hel1.nimbus.pyrmont
 metal-03.he-eu-hel1.nimbus.pyrmont
 metal-04.he-eu-hel1.nimbus.pyrmont
 
-[nimbus-rayonism-qmerge]
-qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
-
 [nimbus.eth1]
 metal-01.he-eu-hel1.nimbus.eth1
 
@@ -158,7 +153,4 @@ metal-01.he-eu-hel1.nimbus.pyrmont
 metal-02.he-eu-hel1.nimbus.pyrmont
 metal-03.he-eu-hel1.nimbus.pyrmont
 metal-04.he-eu-hel1.nimbus.pyrmont
-
-[nimbus.rayonism]
-qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
 
