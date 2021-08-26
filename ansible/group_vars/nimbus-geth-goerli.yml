@@ -36,5 +36,5 @@ open_ports_list:
   - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq', comment: 'Geth Metrics' }
   - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.pyrmont' }
   - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.prater' }
-  - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.rayonism' }
-  - { port: '{{ geth_rpc_port }}'      , ipset: 'nimbus.rayonism' }
+  - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.eth1' }
+  - { port: '{{ geth_rpc_port }}'      , ipset: 'nimbus.eth1' }

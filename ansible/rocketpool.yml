@@ -12,6 +12,6 @@
 - name: Configure RocketPool node
   become: true
   hosts:
-    - nimbus-rayonism-qmerge
+    - nimbus-eth1-metal
   roles:
     - { role: infra-role-rocketpool-smart-node, tags: rocketpool }
