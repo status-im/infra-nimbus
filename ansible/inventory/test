@@ -3,6 +3,7 @@
 [all]
 goerli-01.aws-eu-central-1a.nimbus.geth hostname=goerli-01.aws-eu-central-1a.nimbus.geth ansible_host=18.194.109.141 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=goerli-01.aws-eu-central-1a.nimbus.geth.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
+metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.prater hostname=metal-01.he-eu-hel1.nimbus.prater ansible_host=65.21.73.183 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.prater.statusim.net
 metal-01.he-eu-hel1.nimbus.pyrmont hostname=metal-01.he-eu-hel1.nimbus.pyrmont ansible_host=65.21.196.45 env=nimbus stage=pyrmont data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.pyrmont.statusim.net
 metal-02.he-eu-hel1.nimbus.pyrmont hostname=metal-02.he-eu-hel1.nimbus.pyrmont ansible_host=65.21.196.46 env=nimbus stage=pyrmont data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.pyrmont.statusim.net
@@ -57,6 +58,7 @@ node-01.aws-eu-central-1a.dash.nimbus
 windows-01.gc-us-central1-a.nimbus.prater
 
 [he-eu-hel1]
+metal-01.he-eu-hel1.nimbus.eth1
 metal-01.he-eu-hel1.nimbus.prater
 metal-01.he-eu-hel1.nimbus.pyrmont
 metal-02.he-eu-hel1.nimbus.pyrmont
@@ -75,6 +77,9 @@ node-03.aws-eu-central-1a.log-store.nimbus
 node-01.aws-eu-central-1a.log-store.nimbus
 node-02.aws-eu-central-1a.log-store.nimbus
 node-03.aws-eu-central-1a.log-store.nimbus
+
+[nimbus-eth1-metal]
+metal-01.he-eu-hel1.nimbus.eth1
 
 [nimbus-geth-goerli]
 goerli-01.aws-eu-central-1a.nimbus.geth
@@ -121,6 +126,9 @@ metal-04.he-eu-hel1.nimbus.pyrmont
 
 [nimbus-rayonism-qmerge]
 qmerge-large-01.aws-eu-central-1a.nimbus.rayonism
+
+[nimbus.eth1]
+metal-01.he-eu-hel1.nimbus.eth1
 
 [nimbus.geth]
 goerli-01.aws-eu-central-1a.nimbus.geth
