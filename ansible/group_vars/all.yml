@@ -1,6 +1,6 @@
 ---
 # Root password
-bootstrap__root_pass: '{{lookup("bitwarden", "root")}}'
+bootstrap__root_pass: '{{lookup("bitwarden", "root-pass")}}'
 # Consul encryption key
 bootstrap__consul_encryption_key: '{{lookup("bitwarden", "consul", field="encryption-key")}}'
 
