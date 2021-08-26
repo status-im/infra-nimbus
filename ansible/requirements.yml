@@ -61,7 +61,7 @@
 
 - name: infra-role-rocketpool-smart-node
   src: git@github.com:status-im/infra-role-rocketpool-smart-node.git
-  version: 4ff40088a29e1c3a332d82cd915812f7c07e5c96
+  version: b1f9b4a02c39bd131958234ae79c73ea379235c4
   scm: git
 
 - name: infra-role-winsw
