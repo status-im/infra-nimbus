@@ -9,6 +9,8 @@ node_branch: |-
      (hostname is search("libp2p")) | ternary("libp2p", "UNKNOWN")
   )))))) }}
 
+# TEMPORARY switch for Prater Altair transition
+beacon_node_cont_image: 'statusteam/nimbus_beacon_node:unstable-{{ node_size }}'
 beacon_node_cont_tag: '{{ node_branch }}-{{ node_size }}'
 beacon_node_network: 'pyrmont'
 beacon_node_log_level: 'INFO'
