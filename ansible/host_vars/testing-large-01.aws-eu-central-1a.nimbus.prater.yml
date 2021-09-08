@@ -12,6 +12,10 @@ beacon_node_builds_branches:
     version: 'nim-libp2p-auto-bump-unstable'
     frequency: '*-*-* 18:00:00'
 
+  - name: 'unstable-libp2p-stable-large'
+    version: 'nim-libp2p-auto-bump'
+    frequency: '*-*-* 14:00:00'
+
   - name: 'unstable-large'
     version: 'unstable'
     frequency: '*-*-* 10:00:00'
