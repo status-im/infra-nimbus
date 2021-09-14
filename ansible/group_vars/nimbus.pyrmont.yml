@@ -16,6 +16,9 @@ beacon_node_network: 'pyrmont'
 beacon_node_log_level: 'INFO'
 beacon_node_dist_validators_enabled: true
 
+# Peers
+beacon_node_max_peers: 40
+
 # Split by hostname and branch for more central location.
 validators_layout:
   "metal-01.he-eu-hel1.nimbus.pyrmont": # 4000 validators each
