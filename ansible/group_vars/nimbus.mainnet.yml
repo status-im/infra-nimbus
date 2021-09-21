@@ -1,6 +1,6 @@
 ---
 beacon_node_network: 'mainnet'
-beacon_node_cont_tag: 'stable-small'
+beacon_node_repo_branch: 'stable'
 
 # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
 beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
