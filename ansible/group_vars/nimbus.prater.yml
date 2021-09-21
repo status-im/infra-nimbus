@@ -16,7 +16,7 @@ beacon_node_cont_tag: '{{ node_branch }}-{{ node_size }}'
 beacon_node_network: 'prater'
 
 # Peers
-beacon_node_max_peers: 50
+beacon_node_max_peers: 300
 
 # Windows service user
 beacon_node_service_user_pass: '{{lookup("bitwarden", "nimbus/windows", field="password")}}'
