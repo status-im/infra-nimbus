@@ -46,8 +46,7 @@
       vars:
         # TEMPORARY switch for Prater Altair transition
         beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
-        beacon_node_repo_branch:  |-
-          {{ (node.branch == 'stable') | ternary("unstable-revert-taskpool", "unstable") }}
+        beacon_node_repo_branch: "unstable"
         beacon_node_threads:  |-
           {{ (node.branch == 'testing') | ternary(4, 1) }}
         beacon_node_build_frequency: '{{ node.build_frequency }}'
