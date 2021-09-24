@@ -1,5 +1,5 @@
 module "nimbus_eth1_node_hetzner" {
-  source = "./modules/hetzner"
+  source = "./modules/dummy-module"
 
   name   = "metal"
   env    = "nimbus"

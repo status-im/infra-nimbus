@@ -1,5 +1,5 @@
 module "nimbus_nodes_pyrmont_hetzner" {
-  source = "./modules/hetzner"
+  source = "./modules/dummy-module"
 
   name   = "metal"
   env    = "nimbus"
