@@ -174,7 +174,7 @@ module "nimbus_nodes_prater_unstable_windows" {
 }
 
 module "nimbus_nodes_prater_hetzner" {
-  source = "./modules/hetzner"
+  source = "./modules/dummy-module"
 
   name   = "metal"
   env    = "nimbus"
@@ -183,4 +183,18 @@ module "nimbus_nodes_prater_hetzner" {
   domain = var.domain
 
   ips = ["65.21.73.183"]
+}
+
+module "nimbus_nodes_prater_macos" {
+  source = "./modules/dummy-module"
+
+  name          = "macos"
+  env           = "nimbus"
+  stage         = "prater"
+  group         = "nimbus-prater-macos"
+  region        = "eu-dublin"
+  provider_name = "ms"
+  domain        = var.domain
+
+  ips = ["207.254.102.130"]
 }

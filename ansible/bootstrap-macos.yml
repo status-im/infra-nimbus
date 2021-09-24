@@ -1,0 +1,17 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
+- name: Bootstrap macOS hosts
+  become: true
+  remote_user: administrator
+  hosts: all
+  roles:
+    - infra-role-bootstrap-macos

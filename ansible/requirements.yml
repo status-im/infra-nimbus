@@ -54,6 +54,11 @@
   version: 02074ceeda0694ad9c36d1eca034b3a3cf9a9f19
   scm: git
 
+- name: infra-role-beacon-node-macos
+  src: git@github.com:status-im/infra-role-beacon-node-macos.git
+  version: bf9a8130d9173bad7dd9026261434d2f182cea0e
+  scm: git
+
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
   version: 1ec52b38e36cd1af939317ea51bbd74984986725
