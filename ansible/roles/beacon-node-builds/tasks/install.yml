@@ -1,6 +1,0 @@
----
-- name: Install build dependencies
-  apt:
-    name:
-      - build-essential
-      - libpcre3-dev

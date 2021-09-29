@@ -107,14 +107,3 @@
       loop_control:
         loop_var: node
         index_var: port_offset
-
-- name: Deploy beacon node build nodes
-  become: true
-  hosts:
-    - testing-large-01.aws-eu-central-1a.nimbus.prater
-    - testing-large-02.aws-eu-central-1a.nimbus.prater
-  roles:
-    - role: swap-file
-      tags: swap-file
-    - role: beacon-node-builds
-      tags: beacon-node-builds
