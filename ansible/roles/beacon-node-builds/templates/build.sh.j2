@@ -33,7 +33,7 @@ function buildBinaries() {
     mv "build/nimbus_signing_process" "build/nimbus_signing_process_${COMMIT}"
 
     # Delete copies that are older than 7 days
-    find build -mtime +7 -exec rm '{}' \+
+    find build -mtime +{{ beacon_node_builds_days_kept }} -exec rm '{}' \+
 }
 
 # Adds binary into a simple Alpine image

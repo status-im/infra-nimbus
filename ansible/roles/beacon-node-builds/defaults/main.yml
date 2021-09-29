@@ -3,13 +3,14 @@ beacon_node_builds_user: 'nimbus'
 beacon_node_builds_group: 'staff'
 beacon_node_builds_path: '/data/beacon-node-builds'
 beacon_node_builds_image_name: 'statusteam/nimbus_beacon_node'
+beacon_node_builds_days_kept: 3
 
 # Required for pushing the images
 beacon_node_builds_docker_hub_user: ~
 beacon_node_builds_docker_hub_token: ~
 
 # Timers
-beacon_node_build_timer_timeout: 3600
+beacon_node_builds_timer_timeout: 3600
 
 beacon_node_builds_branches: []
 #  - name: 'unstable'

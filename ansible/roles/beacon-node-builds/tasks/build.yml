@@ -55,6 +55,6 @@
     systemd_timer_consul_warning: true
     systemd_timer_enabled: '{{ item.enabled | default(true) }}'
     systemd_timer_frequency: '{{ item.frequency | default("daily") }}'
-    systemd_timer_timeout_sec: '{{ beacon_node_build_timer_timeout }}'
+    systemd_timer_timeout_sec: '{{ beacon_node_builds_timer_timeout }}'
     systemd_timer_work_dir: '{{ beacon_node_builds_path }}/{{ item.name }}'
     systemd_timer_script_path: '{{ beacon_node_builds_path }}/{{ item.name }}/build.sh'
