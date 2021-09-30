@@ -85,7 +85,6 @@
 
 - name: Deploy prater macOS beacon nodes
   become: true
-  remote_user: administrator
   hosts: nimbus-prater-macos
   tasks:
     - include_role: name=infra-role-beacon-node-macos

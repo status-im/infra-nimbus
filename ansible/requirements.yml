@@ -24,6 +24,11 @@
   version: bc80d3a8d39d5133ca8ae5c9fc22b8d2d52d7a68
   scm: git
 
+- name: infra-role-bootstrap-macos
+  src: git@github.com:status-im/infra-role-bootstrap-macos.git
+  version: a9eb569115a42e4a2d408e7424aa10dcb9eb30a4
+  scm: git
+
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
   version: db787311e9ee59c60ab6f4eaf3dea064b7017ba0
