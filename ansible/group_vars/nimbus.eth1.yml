@@ -1,3 +1,10 @@
+---
 rocketpool_web3_url: 'http://goerli-01.aws-eu-central-1a.nimbus.geth.wg:8545'
 rocketpool_web3_ws_url: 'ws://goerli-01.aws-eu-central-1a.nimbus.geth.wg:8546'
 
+# Nimbus Eth1 node
+nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_network: 'mainnet'
+nimbus_eth1_max_peers: 160
+nimbus_eth1_log_level: 'DEBUG'
+nimbus_eth1_metrics_address: '0.0.0.0'
