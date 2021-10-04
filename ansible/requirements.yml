@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: c8125f1a289acc78067642d4732f119995eccde6
+  version: 8e08632b1d854e0318fffcc4a47e95ef3cd656b6
   scm: git
 
 - name: infra-role-beacon-node-windows

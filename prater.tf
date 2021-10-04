@@ -185,6 +185,15 @@ module "nimbus_nodes_prater_hetzner" {
   ips = ["65.21.73.183"]
 }
 
+/* Community test REST API endpoint. */
+resource "cloudflare_record" "unstable_prater_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "unstable.prater.beacon-api"
+  value   = module.nimbus_nodes_prater_hetzner.public_ips[0]
+  type    = "A"
+  proxied = false
+}
+
 module "nimbus_nodes_prater_macos" {
   source = "./modules/dummy-module"
 
