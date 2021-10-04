@@ -182,7 +182,10 @@ module "nimbus_nodes_prater_hetzner" {
   group  = "nimbus-prater-metal"
   domain = var.domain
 
-  ips = ["65.21.73.183"]
+  ips = [
+    "65.21.73.183", # metal-01.he-eu-hel1.nimbus.prater
+    "65.108.5.45",  # metal-02.he-eu-hel1.nimbus.prater
+  ]
 }
 
 /* Community test REST API endpoint. */
