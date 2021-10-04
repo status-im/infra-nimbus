@@ -31,7 +31,6 @@
         beacon_node_listening_port: '{{ 9000 + port_offset }}'
         beacon_node_metrics_port:   '{{ 9200 + port_offset }}'
         beacon_node_rest_port:      '{{ 9300 + port_offset }}'
-        beacon_node_rpc_enabled:    true
         beacon_node_rpc_port:       '{{ 9900 + port_offset }}'
         beacon_node_dist_validators_start: '{{ validators_layout[hostname][node.name]["start"] | mandatory }}'
         beacon_node_dist_validators_end: '{{ validators_layout[hostname][node.name]["end"] | mandatory }}'

@@ -19,7 +19,6 @@ beacon_node_listening_port: 9000
 beacon_node_metrics_port:   9200
 beacon_node_rest_port:      9300
 beacon_node_rpc_port:       9900
-beacon_node_rpc_enabled:    true
 
 # Tuning
 beacon_node_max_peers: 300
