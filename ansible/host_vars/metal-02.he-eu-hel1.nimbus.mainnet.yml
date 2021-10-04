@@ -1,0 +1,7 @@
+---
+# Communityu test REST API endpoint.
+beacon_node_rest_address: '0.0.0.0'
+
+# WARNING: This will change if number of nodes changes.
+redirect_ports:
+  - { src: 80, dst: 9302, comment: 'Test Beacon API (80->9302/tcp)' }

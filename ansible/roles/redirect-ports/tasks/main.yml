@@ -1,0 +1,28 @@
+---
+- name: 'Enable redirected {{ item.dst }} port'
+  iptables:
+    comment: '{{ item.comment | default("Open {{ item.dst }}") }}'
+    chain: 'SERVICES'
+    jump: 'ACCEPT'
+    source: '0.0.0.0/0'
+    protocol: '{{ item.protocol | default("tcp") }}'
+    destination_port: '{{ item.dst | string | mandatory }}'
+  with_items: '{{ redirect_ports }}'
+  notify:
+    - Save iptables rules
+    
+- name: 'Redirect {{ item.src }} to {{ item.dst }}'
+  iptables:
+    comment: '{{ item.comment | default("Redirect {{ item.src }} to {{ item.dst }}") }}'
+    table: 'nat'
+    chain: 'PREROUTING'
+    jump: 'REDIRECT'
+    action: insert
+    protocol: '{{ item.protocol | default("tcp") }}'
+    match: '{{ item.protocol | default("tcp") }}'
+    destination_port: '{{ item.src | string | mandatory }}'
+    to_ports: '{{ item.dst | string | mandatory }}'
+    in_interface: '{{ ansible_default_ipv4.interface }}'
+  with_items: '{{ redirect_ports }}'
+  notify:
+    - Save iptables rules

@@ -21,6 +21,23 @@ module "nimbus_nodes_mainnet_hetzner" {
   ]
 }
 
+/* Community test REST API endpoints. */
+resource "cloudflare_record" "unstable_mainnet_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "unstable.mainnet.beacon-api"
+  value   = module.nimbus_nodes_mainnet_hetzner.public_ips[0]
+  type    = "A"
+  proxied = false
+}
+
+resource "cloudflare_record" "testing_mainnet_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "testing.mainnet.beacon-api"
+  value   = module.nimbus_nodes_mainnet_hetzner.public_ips[1]
+  type    = "A"
+  proxied = false
+}
+
 /* WARNING: These are bootnodes and losing their IPs and private keys would be bad. */
 module "nimbus_nodes_mainnet_stable_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
@@ -48,4 +65,3 @@ module "nimbus_nodes_mainnet_stable_small" {
   secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
-
