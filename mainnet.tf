@@ -1,3 +1,26 @@
+/* Hetzner AX41-NVMe
+ * AMD Ryzen 5 3600 Hexa-Core
+ * 64 GB DDR4 RAM
+ * 2 x 512 GB NVMe SSD */
+module "nimbus_nodes_mainnet_hetzner" {
+  source = "./modules/dummy-module"
+
+  name   = "metal"
+  env    = "nimbus"
+  stage  = "mainnet"
+  group  = "nimbus-mainnet-metal"
+  domain = var.domain
+
+  ips = [
+    "95.217.87.121",
+    "135.181.0.33",
+    "135.181.60.170",
+    "65.21.193.229",
+    "135.181.60.177",
+    "135.181.56.50",
+  ]
+}
+
 /* WARNING: These are bootnodes and losing their IPs and private keys would be bad. */
 module "nimbus_nodes_mainnet_stable_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
@@ -25,3 +48,4 @@ module "nimbus_nodes_mainnet_stable_small" {
   secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
+
