@@ -30,9 +30,8 @@
     - include_role: name=infra-role-beacon-node-linux
       tags: beacon-node
       vars:
-        # TEMPORARY switch for Mainnet Altair transition
         beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}-{{ "%02d"|format(node.idx) }}'
-        beacon_node_repo_branch: 'unstable'
+        beacon_node_repo_branch: '{{ node.branch }}'
         beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
         beacon_node_build_frequency: '{{ node.build_frequency }}'
         beacon_node_open_firewall: '{{ node.open_firewall | default(true) }}'

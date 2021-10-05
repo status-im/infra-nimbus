@@ -1,9 +1,7 @@
 ---
-# TEMPORARY switch for Prater Altair transition
-beacon_node_repo_branch: 'unstable'
-# TODO Simplify this, maybe change branch name.
-#beacon_node_repo_branch: '{{ node.branch is search("libp2p") | ternary("nim-libp2p-auto-bump-unstable", node.branch) }}'
 beacon_node_network: 'pyrmont'
+beacon_node_repo_branch: '{{ node.branch is search("libp2p") | ternary("nim-libp2p-auto-bump-unstable", node.branch) }}'
+# TODO Simplify this, maybe change branch name.
 beacon_node_log_level: 'INFO'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 # Ports

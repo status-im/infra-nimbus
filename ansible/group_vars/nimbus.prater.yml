@@ -1,7 +1,6 @@
 ---
-# TEMPORARY switch for Prater Altair transition
-beacon_node_repo_branch: 'unstable' # '{{ node.branch }}'
 beacon_node_network: 'prater'
+beacon_node_repo_branch: '{{ node.branch }}'
 # TODO Drop this once all nodes have an number.
 service_number: '{{ node.get("num", False) | ternary(("-%02d"|format(node.get("num", 0))), "") }}'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}{{ service_number }}'
