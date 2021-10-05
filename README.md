@@ -2,6 +2,19 @@
 
 This repo defines Nimbus cluster infrastructure.
 
+# Endpoints
+
+These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intended for community testing.
+
+| Endpoint                                        | Host                                 |
+|-------------------------------------------------|--------------------------------------|
+| http://unstable.mainnet.beacon-api.nimbus.team/ | `metal-01.he-eu-hel1.nimbus.mainnet` |
+| http://testing.mainnet.beacon-api.nimbus.team/  | `metal-02.he-eu-hel1.nimbus.mainnet` |
+| http://unstable.prater.beacon-api.nimbus.team/  | `metal-01.he-eu-hel1.nimbus.prater`  |
+| http://testing.prater.beacon-api.nimbus.team/   | `metal-02.he-eu-hel1.nimbus.prater`  |
+
+These nodes have no validators attached.
+
 # Requirements
 
 In order to use this you will need secrets(passwords, certs, keys) contained within the [infra-pass](https://github.com/status-im/infra-pass) repository. If you can't see it ask jakub@status.im to get you access for it.

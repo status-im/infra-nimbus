@@ -188,11 +188,19 @@ module "nimbus_nodes_prater_hetzner" {
   ]
 }
 
-/* Community test REST API endpoint. */
+/* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_prater_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "unstable.prater.beacon-api"
   value   = module.nimbus_nodes_prater_hetzner.public_ips[0]
+  type    = "A"
+  proxied = false
+}
+
+resource "cloudflare_record" "testing_prater_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "testing.prater.beacon-api"
+  value   = module.nimbus_nodes_prater_hetzner.public_ips[1]
   type    = "A"
   proxied = false
 }
