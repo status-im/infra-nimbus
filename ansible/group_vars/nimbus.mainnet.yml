@@ -2,10 +2,79 @@
 swap_file_size_mb: 2048
 
 beacon_node_network: 'mainnet'
-beacon_node_repo_branch: 'stable'
-
+beacon_node_repo_branch: '{{ node.branch }}'
+# TODO Drop this once all nodes have an number.
+service_number: '{{ node.get("num", False) | ternary(("-%02d"|format(node.get("num", 0))), "") }}'
+beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}{{ service_number }}'
+# Ports
+beacon_node_discovery_port: '{{ 9000 + port_offset }}'
+beacon_node_listening_port: '{{ 9000 + port_offset }}'
+beacon_node_metrics_port:   '{{ 9200 + port_offset }}'
+beacon_node_rest_port:      '{{ 9300 + port_offset }}'
+beacon_node_rpc_port:       '{{ 9900 + port_offset }}'
+# Firewall
+beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
+# Builds
+beacon_node_build_frequency: '*-*-* {{ 12 + port_offset }}:00:00'
+# Tuning
+beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
-
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
+
+# Split by hostname for more central location
+nodes_layout:
+  'stable-small-01.aws-eu-central-1a.nimbus.mainnet':
+    - { branch: 'stable' }
+
+  'stable-small-02.aws-eu-central-1a.nimbus.mainnet':
+    - { branch: 'stable' }
+
+  'metal-01.he-eu-hel1.nimbus.mainnet':
+    - { branch: 'stable',   num: 1 }
+    - { branch: 'stable',   num: 2 }
+    - { branch: 'testing',  num: 1, open_libp2p_ports: false }
+    - { branch: 'testing',  num: 2 }
+    - { branch: 'unstable', num: 1 } # Public Beacon API
+    - { branch: 'unstable', num: 2 }
+
+  'metal-02.he-eu-hel1.nimbus.mainnet':
+    - { branch: 'stable',   nun: 1 }
+    - { branch: 'stable',   num: 2 }
+    - { branch: 'testing',  num: 1 } # Public Beacon API
+    - { branch: 'testing',  num: 2 }
+    - { branch: 'unstable', num: 1, open_libp2p_ports: false }
+    - { branch: 'unstable', num: 2 }
+
+  'metal-03.he-eu-hel1.nimbus.mainnet':
+    - { branch: 'stable',   num: 1 }
+    - { branch: 'stable',   num: 2 }
+    - { branch: 'testing',  num: 1 }
+    - { branch: 'testing',  num: 2 }
+    - { branch: 'unstable', num: 1 }
+    - { branch: 'unstable', num: 2 }
+
+  'metal-04.he-eu-hel1.nimbus.mainnet':
+    - { branch: 'stable',   num: 1 }
+    - { branch: 'stable',   num: 2 }
+    - { branch: 'testing',  num: 1 }
+    - { branch: 'testing',  num: 2 }
+    - { branch: 'unstable', num: 1 }
+    - { branch: 'unstable', num: 2 }
+
+  'metal-05.he-eu-hel1.nimbus.mainnet':
+    - { branch: 'stable',   num: 1 }
+    - { branch: 'stable',   num: 2 }
+    - { branch: 'testing',  num: 1 }
+    - { branch: 'testing',  num: 2 }
+    - { branch: 'unstable', num: 1 }
+    - { branch: 'unstable', num: 2 }
+
+  'metal-06.he-eu-hel1.nimbus.mainnet':
+    - { branch: 'stable',   num: 1 }
+    - { branch: 'stable',   num: 2 }
+    - { branch: 'testing',  num: 1 }
+    - { branch: 'testing',  num: 2 }
+    - { branch: 'unstable', num: 1 }
+    - { branch: 'unstable', num: 2 }

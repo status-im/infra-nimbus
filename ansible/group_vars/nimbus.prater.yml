@@ -13,7 +13,7 @@ beacon_node_metrics_port:   '{{ 9200 + port_offset }}'
 beacon_node_rest_port:      '{{ 9300 + port_offset }}'
 beacon_node_rpc_port:       '{{ 9900 + port_offset }}'
 # Firewall
-beacon_node_firewall_libp2p_open: '{{ node.get("block_libp2p_ports") is defined | ternary(false, true) }}'
+beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Tuning
 beacon_node_max_peers: 300
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
@@ -51,17 +51,17 @@ nodes_layout:
   'metal-01.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',   num: 1, start: 10000, end: 12500, build_freq: '*-*-* 12:00:00' }
     - { branch: 'stable',   num: 2,                           build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',  num: 1, start: 22500, end: 25000, build_freq: '*-*-* 14:00:00' }
+    - { branch: 'testing',  num: 1, start: 22500, end: 25000, build_freq: '*-*-* 14:00:00', open_libp2p_ports: false }
     - { branch: 'testing',  num: 2,                           build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable', num: 1, start: 35000, end: 37500, build_freq: '*-*-* 16:00:00' }
-    - { branch: 'unstable', num: 2,                           build_freq: '*-*-* 17:00:00' }
+    - { branch: 'unstable', num: 1, start: 35000, end: 37500, build_freq: '*-*-* 16:00:00', open_libp2p_ports: false }
+    - { branch: 'unstable', num: 2,                           build_freq: '*-*-* 17:00:00' } # Public Beacon API
 
   # 2500 validators per first node
   'metal-02.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',   num: 1, start:  5000, end:  7500, build_freq: '*-*-* 12:00:00' }
     - { branch: 'stable',   num: 2,                           build_freq: '*-*-* 13:00:00' }
     - { branch: 'testing',  num: 1, start: 17500, end: 20000, build_freq: '*-*-* 14:00:00' }
-    - { branch: 'testing',  num: 2,                           build_freq: '*-*-* 15:00:00' }
+    - { branch: 'testing',  num: 2,                           build_freq: '*-*-* 15:00:00' } # Public Beacon API
     - { branch: 'unstable', num: 1, start: 30000, end: 32500, build_freq: '*-*-* 16:00:00' }
     - { branch: 'unstable', num: 2,                           build_freq: '*-*-* 17:00:00' }
 
