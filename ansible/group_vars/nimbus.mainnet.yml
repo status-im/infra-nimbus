@@ -1,4 +1,6 @@
 ---
+swap_file_size_mb: 2048
+
 beacon_node_network: 'mainnet'
 beacon_node_repo_branch: 'stable'
 

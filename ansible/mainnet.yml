@@ -16,6 +16,7 @@
     # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
     beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
   roles:
+    - { role: swap-file,                    tags: [ swap-file ] }
     - { role: get-geth-web3-urls,           tags: [ get-geth-web3-urls ] }
     - { role: infra-role-beacon-node-linux, tags: [ beacon-node ] }
 
