@@ -1,0 +1,3 @@
+---
+# MacStadium has no dedicated Consul Cluster
+bootstrap__consul_data_center: 'he-eu-hel1'
