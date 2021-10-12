@@ -47,6 +47,8 @@
   become: true
   hosts: nimbus-prater-windows
   fact_path: 'C:/ansible/facts.d'
+  roles:
+    - { role: get-geth-web3-urls, tags: [ get-geth-web3-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-windows
       tags: [ beacon-node, infra-role-beacon-node-windows ]
