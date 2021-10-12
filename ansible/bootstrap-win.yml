@@ -1,6 +1,0 @@
----
-- name: Bootstrap windows host
-  hosts: all
-  fact_path: 'C:/ansible/facts.d'
-  roles:
-    - infra-role-bootstrap-windows

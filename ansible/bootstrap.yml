@@ -21,13 +21,21 @@
 
 - name: Bootstrap Python support for Ansible
   become: true
-  gather_facts: False
   hosts: all
   roles:
-    - infra-role-bootstrap-linux/raw
+    - role: infra-role-bootstrap-linux/raw
+      when: ansible_system == 'Linux'
 
 - name: Bootstrap admin users and Consul
   become: true
   hosts: all
   roles:
-    - infra-role-bootstrap-linux
+    - role: infra-role-bootstrap-linux
+      when: ansible_system == 'Linux'
+
+    - role: infra-role-bootstrap-macos
+      when: ansible_system == 'Darwin'
+
+    - role: infra-role-bootstrap-windows
+      when: ansible_system == 'Win32nt'
+      vars: { fact_path: 'C:/ansible/facts.d' }
