@@ -18,7 +18,7 @@ module "nimbus_nodes_prater_stable_large" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = local.prater_large_instance_type
+  type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
@@ -46,7 +46,7 @@ module "nimbus_nodes_prater_testing_large" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = local.prater_large_instance_type
+  type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
@@ -74,7 +74,7 @@ module "nimbus_nodes_prater_unstable_large" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = local.prater_large_instance_type
+  type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
@@ -102,7 +102,7 @@ module "nimbus_nodes_prater_unstable_libp2p_stable_large" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = local.prater_large_instance_type
+  type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type
@@ -129,7 +129,7 @@ module "nimbus_nodes_prater_unstable_libp2p_unstable_large" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = local.prater_large_instance_type
+  type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
   data_vol_size = local.prater_data_vol_size
   data_vol_type = local.prater_data_vol_type

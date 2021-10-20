@@ -8,8 +8,8 @@ module "nimbus_dashboard" {
   domain = var.domain
 
   /* Scaling */
-  host_count    = 1
-  instance_type = "t3a.medium" /* 4GB RAM at least */
+  host_count = 1
+  type       = "t3a.medium" /* 4GB RAM at least */
 
   /* Firewall */
   open_tcp_ports = [

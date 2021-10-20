@@ -49,7 +49,7 @@ module "nimbus_nodes_mainnet_stable_small" {
   domain = var.domain
 
   /* Scaling */
-  instance_type = "t3a.medium"
+  type          = "t3a.medium"
   root_vol_size = 20
   data_vol_size = 150
   data_vol_type = "gp2"

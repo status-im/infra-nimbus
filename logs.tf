@@ -9,7 +9,7 @@ module "nimbus_log_store" {
 
   /* Scaling */
   host_count    = var.log_stores_count
-  instance_type = "t3a.medium" /* 4GB RAM at least */
+  type          = "t3a.medium" /* 4GB RAM at least */
   data_vol_size = 200          /* We'll be storing TRACE logs */
   data_vol_type = "st1"        /* Change to gp2 for SSD */
 
