@@ -56,7 +56,7 @@
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: d4d08f06e6d1ddf6385654fa20c11edcc49eba53
+  version: 1c8d24c934930b67331db0b23531d306025fd31f
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -66,7 +66,7 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 1ec52b38e36cd1af939317ea51bbd74984986725
+  version: f5e6c3063ecbb475af0dba7a62e5e587af52b631
   scm: git
 
 - name: infra-role-rocketpool-smart-node

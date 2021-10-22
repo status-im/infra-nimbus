@@ -33,19 +33,19 @@ nodes_layout:
   'stable-large-01.aws-eu-central-1a.nimbus.prater':
     - { branch: 'stable',           start:     0, end:  2500 }
   'stable-large-02.aws-eu-central-1a.nimbus.prater':
-    - { branch: 'stable',           start:  2500, end:  5000 }
+    - { branch: 'stable' }
 
   # 2500 validators per node
   'testing-large-01.aws-eu-central-1a.nimbus.prater':
     - { branch: 'testing',          start: 12500, end: 15000 }
   'testing-large-02.aws-eu-central-1a.nimbus.prater':
-    - { branch: 'testing',          start: 15000, end: 17500 }
+    - { branch: 'testing' }
 
   # 2500 validators per node
   'unstable-large-01.aws-eu-central-1a.nimbus.prater':
     - { branch: 'unstable',         start: 25000, end: 27500 }
   'unstable-large-02.aws-eu-central-1a.nimbus.prater':
-    - { branch: 'unstable',         start: 27500, end: 30000 }
+    - { branch: 'unstable' }
 
   # 2500 validators per first node
   'metal-01.he-eu-hel1.nimbus.prater':
@@ -67,14 +67,14 @@ nodes_layout:
 
   # 2500 validators per node
   'windows-01.gc-us-central1-a.nimbus.prater':
-    - { branch: 'stable',           start: 7500,  end: 10000, build_start: '13:00:00' }
+    - { branch: 'stable',           start:  7500, end: 10000, build_start: '13:00:00' }
     - { branch: 'testing',          start: 32500, end: 35000, build_start: '15:00:00' }
     - { branch: 'unstable',         start: 20000, end: 22500, build_start: '16:00:00' }
 
   'macos-01.ms-eu-dublin.nimbus.prater':
-    - { branch: 'stable',                                     build_start: '13:00:00' }
-    - { branch: 'testing',                                    build_start: '15:00:00' }
-    - { branch: 'unstable',                                   build_start: '16:00:00' }
+    - { branch: 'stable',           start:  2500, end:  5000, build_start: '13:00:00' }
+    - { branch: 'testing',          start: 15000, end: 17500, build_start: '15:00:00' }
+    - { branch: 'unstable',         start: 27500, end: 30000, build_start: '16:00:00' }
 
   # 1250 validators per node
   'u-libp2p-s-large-01.aws-eu-central-1a.nimbus.prater':
