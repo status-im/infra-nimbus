@@ -32,20 +32,14 @@ nodes_layout:
   # 2500 validators per node
   'stable-large-01.aws-eu-central-1a.nimbus.prater':
     - { branch: 'stable',           start:     0, end:  2500 }
-  'stable-large-02.aws-eu-central-1a.nimbus.prater':
-    - { branch: 'stable' }
 
   # 2500 validators per node
   'testing-large-01.aws-eu-central-1a.nimbus.prater':
     - { branch: 'testing',          start: 12500, end: 15000 }
-  'testing-large-02.aws-eu-central-1a.nimbus.prater':
-    - { branch: 'testing' }
 
   # 2500 validators per node
   'unstable-large-01.aws-eu-central-1a.nimbus.prater':
     - { branch: 'unstable',         start: 25000, end: 27500 }
-  'unstable-large-02.aws-eu-central-1a.nimbus.prater':
-    - { branch: 'unstable' }
 
   # 2500 validators per first node
   'metal-01.he-eu-hel1.nimbus.prater':
