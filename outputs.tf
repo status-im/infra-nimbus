@@ -10,8 +10,6 @@ output "hosts" {
     module.nimbus_nodes_prater_stable_large.hosts,
     module.nimbus_nodes_prater_testing_large.hosts,
     module.nimbus_nodes_prater_unstable_large.hosts,
-    module.nimbus_nodes_prater_unstable_libp2p_stable_large.hosts,
-    module.nimbus_nodes_prater_unstable_libp2p_unstable_large.hosts,
     module.nimbus_nodes_prater_unstable_windows.hosts,
     module.nimbus_nodes_prater_hetzner.hosts,
     module.nimbus_nodes_prater_macos.hosts,

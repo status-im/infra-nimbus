@@ -17,8 +17,6 @@
     - nimbus-prater-stable
     - nimbus-prater-testing
     - nimbus-prater-unstable
-    - nimbus-prater-unstable-libp2p-stable
-    - nimbus-prater-unstable-libp2p-unstable
   roles:
     - { role: get-geth-web3-urls, tags: get-geth-web3-urls }
   tasks:
