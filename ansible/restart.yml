@@ -1,0 +1,26 @@
+---
+- name: Restart all nodes on all hosts
+  hosts:
+    - nimbus.mainnet
+    - nimbus.pyrmont
+    - nimbus.prater
+  become: false
+  tasks:
+    - name: Restart nodes on Linux
+      when: ansible_system == "Linux"
+      command: |
+        sudo systemctl --no-block restart 'beacon-node-*'
+
+    - name: Restart nodes on MacOS
+      when: ansible_system == "Darwin"
+      shell: |
+        sudo launchctl list | \
+          awk '/status.beacon-node/{print "system/$3"}' | \
+          xargs -n1 sudo launchctl kickstart -k
+
+    - name: Restart nodes on Windows
+      when: ansible_system == "Win32NT"
+      win_shell: |
+        Get-Service | \
+          where Name -Match '^beacon-node' | \
+          Restart-Service
