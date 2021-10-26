@@ -1,0 +1,26 @@
+---
+- name: Start rebuilds of all nodes
+  hosts:
+    - nimbus.mainnet
+    - nimbus.pyrmont
+    - nimbus.prater
+  become: false
+  tasks:
+    - name: Start node rebuilds on Linux
+      when: ansible_system == "Linux"
+      command: |
+        sudo systemctl --no-block restart 'build-beacon-node-*'
+
+    - name: Start node rebuilds on MacOS
+      when: ansible_system == "Darwin"
+      shell: |
+        sudo launchctl list | \
+          awk '/status.build-beacon-node/{print $3}' | \
+          xargs -n1 sudo launchctl start
+
+    - name: Start node rebuilds on Windows
+      when: ansible_system == "Win32NT"
+      win_shell: |
+        Get-ScheduledTask | \
+          where TaskName -Match '^build-beacon-node' | \
+          Start-ScheduledTask
