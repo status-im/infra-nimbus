@@ -46,17 +46,17 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: a8787c4760a5bb11afe8096cea4a997da3a5ef22
+  version: 8d574fc444ecc728f16509eaa35afc21b452205f
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: bd60f4f07f924ec057045127eb9184c5555f399d
+  version: d0051bb4cd2526cb1206ebc5920bcb52546ea8da
   scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 1c8d24c934930b67331db0b23531d306025fd31f
+  version: 1809e17c3b8f9986aa2ea463e965d8f54071c128
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -69,14 +69,14 @@
   version: f5e6c3063ecbb475af0dba7a62e5e587af52b631
   scm: git
 
-- name: infra-role-rocketpool-smart-node
-  src: git@github.com:status-im/infra-role-rocketpool-smart-node.git
-  version: b1f9b4a02c39bd131958234ae79c73ea379235c4
+- name: infra-role-rocketpool
+  src: git@github.com:status-im/infra-role-rocketpool.git
+  version: a4a4ce3f12d01b1d0d4a5803bcfb04886393f46d
   scm: git
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  version: 364cc4a46b233eb0905efdd71de14ad9de843f61
+  version: 2f89ee1ffac7d678ed25b63a718b1018e1ec860f
   scm: git
 
 - name: kibana
