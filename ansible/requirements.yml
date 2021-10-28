@@ -71,7 +71,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: f1d95d50c31583d0fd97db31cd70a82538dca050
+  version: 454a8470ea4e3e5ae2b1eded66ecad643ecf28ff
   scm: git
 
 - name: infra-role-winsw
@@ -81,12 +81,12 @@
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: 6c170c45c8776fcd1f9cef2274488519245cd35b
+  version: cb2cbb374199f5b2b627cc3d2bc9fb325bca82c1
   scm: git
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 21a90e184941a708fd6c7386ac7ec2f365286f24
+  version: 0d60d773b68a70352501997cdb54f6c91597e763
   scm: git
 
 - name: elasticsearch-hq
@@ -96,7 +96,7 @@
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 7a6018c791690f2ed3e07a9d44319846b6e76b6d
+  version: e7912ebd3eb12e6bf30307ea9df860e1b3931041
   scm: git
 
 - name: systemd-timer
