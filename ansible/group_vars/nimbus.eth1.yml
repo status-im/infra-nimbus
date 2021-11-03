@@ -1,6 +1,6 @@
 ---
 # Rocketpool
-rocketpool_version: 'v1.0.0-pre3'
+rocketpool_version: 'v1.0.0-pre4'
 rocketpool_eth1_network: 'goerli'
 # Ports
 rocketpool_metrics_port: 9102
