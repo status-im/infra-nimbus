@@ -24,7 +24,7 @@ beacon_node_dist_validators_end: '{{ node.end | mandatory }}'
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.pyrmont': # 4000 validators each
     - { branch: 'stable',   start: 0,     end:  4000, build_frequency: '*-*-* 11:00:00' }
-    - { branch: 'unstable', start: 4000,  end:  8000, build_frequency: '*-*-* 13:00:00' }
+    - { branch: 'unstable', start: 4000,  end:  8000, build_frequency: '*-*-* 13:00:00' } # Public Beacon API
     - { branch: 'testing',  start: 8000,  end: 12000, build_frequency: '*-*-* 15:00:00' }
     - { branch: 'libp2p',   start: 12000, end: 16000, build_frequency: '*-*-* 17:00:00' }
   'metal-02.he-eu-hel1.nimbus.pyrmont': # 989  validators each

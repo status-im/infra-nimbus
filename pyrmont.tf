@@ -18,3 +18,12 @@ module "nimbus_nodes_pyrmont_hetzner" {
     "65.21.196.48",
   ]
 }
+
+/* Community test REST API endpoints. */
+resource "cloudflare_record" "unstable_pyrmont_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "insecura"
+  value   = module.nimbus_nodes_pyrmont_hetzner.public_ips[0]
+  type    = "A"
+  proxied = false
+}
