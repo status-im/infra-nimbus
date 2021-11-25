@@ -37,5 +37,5 @@
       when: ansible_system == 'Darwin'
 
     - role: infra-role-bootstrap-windows
-      when: ansible_system == 'Win32nt'
+      when: ansible_system == 'Win32NT'
       vars: { fact_path: 'C:/ansible/facts.d' }

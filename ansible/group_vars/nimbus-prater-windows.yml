@@ -1,0 +1,3 @@
+---
+# Scans affect disk I/O performance.
+bootstrap__defender_enabled: false
