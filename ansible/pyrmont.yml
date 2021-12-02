@@ -15,8 +15,8 @@
   hosts:
     - nimbus-pyrmont-metal
   roles:
-    - { role: redirect-ports,     tags: redirect-ports     }
-    - { role: get-geth-web3-urls, tags: get-geth-web3-urls }
+    - { role: redirect-ports,     tags: redirect-ports    }
+    - { role: get-geth-api-urls,  tags: get-geth-api-urls }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]

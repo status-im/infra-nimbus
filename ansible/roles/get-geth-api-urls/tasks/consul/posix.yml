@@ -6,6 +6,6 @@
 
 - name: Find available geth websocket services
   uri:
-    url: '{{ consul_catalog_url }}/service/{{ web3_geth_node_consul_name }}?dc={{ item }}'
+    url: '{{ consul_catalog_url }}/service/{{ geth_node_api_consul_name }}?dc={{ item }}'
   with_items: '{{ data_centers.json }}'
   register: geth_ws_services

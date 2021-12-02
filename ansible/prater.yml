@@ -18,7 +18,7 @@
     - nimbus-prater-testing
     - nimbus-prater-unstable
   roles:
-    - { role: get-geth-web3-urls, tags: get-geth-web3-urls }
+    - { role: get-geth-api-urls, tags: get-geth-api-urls }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
@@ -31,8 +31,8 @@
   become: true
   hosts: nimbus-prater-metal
   roles:
-    - { role: redirect-ports,     tags: [ redirect-ports ] }
-    - { role: get-geth-web3-urls, tags: [ get-geth-web3-urls ] }
+    - { role: redirect-ports,    tags: [ redirect-ports ] }
+    - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
@@ -46,7 +46,7 @@
   hosts: nimbus-prater-windows
   fact_path: 'C:/ansible/facts.d'
   roles:
-    - { role: get-geth-web3-urls, tags: [ get-geth-web3-urls ] }
+    - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-windows
       tags: [ beacon-node, infra-role-beacon-node-windows ]

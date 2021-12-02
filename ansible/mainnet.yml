@@ -18,7 +18,7 @@
   roles:
     - { role: swap-file,                    tags: [ swap-file ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
-    - { role: get-geth-web3-urls,           tags: [ get-geth-web3-urls ] }
+    - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
@@ -32,7 +32,7 @@
   hosts: nimbus-mainnet-metal
   roles:
     - { role: redirect-ports,               tags: [ redirect-ports ] }
-    - { role: get-geth-web3-urls,           tags: [ get-geth-web3-urls ] }
+    - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
