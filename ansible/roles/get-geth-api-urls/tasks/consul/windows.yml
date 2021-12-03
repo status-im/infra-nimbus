@@ -6,9 +6,17 @@
     return_content: true
   register: data_centers
 
-- name: Find available geth websocket services
+- name: Find available Geth API RPC services
   win_uri:
-    url: '{{ consul_catalog_url }}/service/{{ geth_node_api_consul_name }}?dc={{ item }}'
+    url: '{{ consul_catalog_url }}/service/{{ geth_node_api_consul_name }}-rpc?dc={{ item }}'
+    content_type: 'application/json'
+    return_content: true
+  with_items: '{{ data_centers.json }}'
+  register: geth_rpc_services
+
+- name: Find available Geth WebSocket services
+  win_uri:
+    url: '{{ consul_catalog_url }}/service/{{ geth_node_api_consul_name }}-ws?dc={{ item }}'
     content_type: 'application/json'
     return_content: true
   with_items: '{{ data_centers.json }}'

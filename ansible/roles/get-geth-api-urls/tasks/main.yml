@@ -9,7 +9,8 @@
 - name: Extract Geth websocket IP and port
   set_fact:
     geth_api_addresses: |
-      {{ geth_ws_services.results
+      {{ (geth_rpc_services.results
+      + geth_ws_services.results)
       | selectattr("json", "defined")
       | sum(attribute="json", start=[])
       | map(attribute='ServiceMeta.url')
@@ -18,4 +19,4 @@
 - name: Extract Goerli Geth WebSocket URL
   set_fact:
     # our nodes first (will be used by default) then an infura node
-    beacon_node_web3_urls: "{{ geth_api_addresses + [ selected_infura_url ] }}"
+    beacon_node_web3_urls_all: "{{ geth_api_addresses + [ selected_infura_url ] }}"

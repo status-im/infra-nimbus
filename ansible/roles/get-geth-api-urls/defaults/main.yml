@@ -6,7 +6,7 @@ eth2_to_eth1_map:
 
 eth2_network_name: '{{ beacon_node_network | mandatory }}'
 eth1_network_name: '{{ eth2_to_eth1_map[eth2_network_name] | mandatory }}'
-geth_node_api_consul_name: 'nimbus-{{ eth1_network_name | mandatory }}-node-rpc'
+geth_node_api_consul_name: 'nimbus-{{ eth1_network_name | mandatory }}-node'
 # The more the merrier, since we don't want to hit Infura throttling.
 infura_api_tokens:
   - '9e2f2cc13f70432f8b87dbe7d51b81db'

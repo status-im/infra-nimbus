@@ -23,6 +23,13 @@ beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
+# HTTP RPC support is unstable
+beacon_node_web3_urls: |
+  {{ beacon_node_web3_urls_all
+  | reject("match",
+      ((node.branch == "unstable")
+      | ternary("^ws://", "^http://"))
+  ) }}
 
 # Split by hostname for more central location
 nodes_layout:

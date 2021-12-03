@@ -19,6 +19,13 @@ beacon_node_build_frequency: '{{ node.build_frequency }}'
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
 beacon_node_dist_validators_end: '{{ node.end | mandatory }}'
+# HTTP RPC support is unstable
+beacon_node_web3_urls: |
+  {{ beacon_node_web3_urls_all
+  | reject("match",
+      ((node.branch == "unstable")
+      | ternary("^ws://", "^http://"))
+  ) }}
 
 # Split by hostname and branch for more central location.
 nodes_layout:
