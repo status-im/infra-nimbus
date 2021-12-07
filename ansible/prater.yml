@@ -58,6 +58,8 @@
 - name: Deploy prater macOS beacon nodes
   become: true
   hosts: nimbus-prater-macos
+  roles:
+    - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-macos
       tags: [ beacon-node, infra-role-beacon-node-macos ]
