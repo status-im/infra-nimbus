@@ -7,7 +7,7 @@ swap_file_size_mb: 4096
 # Geth node
 geth_service_name: 'nimbus-mainnet'
 geth_network_name: 'mainnet'
-geth_sync_mode: 'fast'
+geth_sync_mode: 'snap'
 geth_log_level_name: info
 geth_websocket_enabled: true
 # Geth auth
