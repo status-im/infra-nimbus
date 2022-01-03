@@ -16,17 +16,17 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 9609d1416362214c062ff4aeb08d1362e027e4ec
+  version: a404e479eee9bc00ef0bc911fc5b0c5e1ca8dfea
   scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: ad42d03432fe693dc360ef1fc029a88394e22177
+  version: 4a12713f02bf3f204b3e30f8381de674cce61347
   scm: git
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: d7862c36f321edb70d733390f93500d09aa78e16
+  version: 2360d1b895fa9ab56da9aca2a42c9abaa62a1add
   scm: git
 
 - name: infra-role-wireguard
@@ -101,7 +101,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 1a268e934acaabfaf59ee9e3a55a5a6fae65408e
+  version: fbcc0ce58776c59cf6e0ff9b7d605663ac3e7b95
   scm: git
 
 - name: swap-file
@@ -111,7 +111,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 1926a316ba60b0e76982e44d7f8dad30db63ff0c
+  version: d199eb72d19995ac43fb50d65c20fc1ff6ea2bdb
   scm: git
 
 - name: infra-role-geth-exporter
