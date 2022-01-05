@@ -34,9 +34,13 @@ swap_file_path: '/docker/main.swap'
 swap_file_size_mb: 2048
 
 # Nimbus ------------------------------
-beacon_node_cont_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_cont_tag }}'
 beacon_node_log_level: DEBUG
-beacon_node_timer_rebuild: true
+# Builds
+beacon_node_build_nim_flags: >-
+  -d:testnet_servers_image
+  -d:noSignalHandler
+  -d:libp2p_protobuf_metrics
+  -d:libp2p_network_protocols_metrics
 
 # ports
 beacon_node_rpc_port: 11000
