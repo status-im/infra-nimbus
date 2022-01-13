@@ -79,7 +79,6 @@ nodes_layout:
     - { branch: 'unstable', num: 1 }
     - { branch: 'unstable', num: 2 }
     - { branch: 'libp2p',   num: 1 }
-    - { branch: 'libp2p',   num: 2 }
 
   'metal-06.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
@@ -89,4 +88,3 @@ nodes_layout:
     - { branch: 'unstable', num: 1 }
     - { branch: 'unstable', num: 2 }
     - { branch: 'libp2p',   num: 1 }
-    - { branch: 'libp2p',   num: 2 }
