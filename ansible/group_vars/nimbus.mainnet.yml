@@ -19,6 +19,9 @@ beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 beacon_node_build_frequency: '*-*-* {{ 12 + port_offset }}:00:00'
 # Tuning
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+# Monitoring
+beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
+beacon_node_validator_monitor_totals: false
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets

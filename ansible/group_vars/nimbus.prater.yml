@@ -16,6 +16,12 @@ beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Tuning
 beacon_node_max_peers: 300
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+# Monitoring
+beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
+beacon_node_validator_monitor_totals: >-
+  {{ node.branch == "unstable" and
+     node.end is defined and
+    (node.end - node.start) > 64 }}
 # Builds
 beacon_node_build_frequency: '{{ node.get("build_freq", "daily") }}'
 beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
