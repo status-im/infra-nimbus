@@ -16,6 +16,13 @@ beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Tuning
 beacon_node_max_peers: 300
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+# Monitoring
+beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
+beacon_node_validator_monitor_totals: >-
+  {{ node.branch == "unstable" and
+   ((node.public_api is defined and node.public_api)
+     or
+    (node.end is defined and (node.end - node.start) > 64)) }}
 # Builds
 beacon_node_build_frequency: '{{ node.get("build_freq", "daily") }}'
 beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
@@ -50,7 +57,7 @@ nodes_layout:
     - { branch: 'testing',  num: 1, start: 22500, end: 25000, build_freq: '*-*-* 14:00:00', open_libp2p_ports: false }
     - { branch: 'testing',  num: 2,                           build_freq: '*-*-* 15:00:00' }
     - { branch: 'unstable', num: 1, start: 35000, end: 37500, build_freq: '*-*-* 16:00:00', open_libp2p_ports: false }
-    - { branch: 'unstable', num: 2,                           build_freq: '*-*-* 17:00:00' } # Public Beacon API
+    - { branch: 'unstable', num: 2,                           build_freq: '*-*-* 17:00:00', public_api: true }
     - { branch: 'libp2p',   num: 1, start: 38750, end: 40000, build_freq: '*-*-* 18:00:00' } # 1250 validators
     - { branch: 'libp2p',   num: 2,                           build_freq: '*-*-* 19:00:00' }
 
@@ -58,7 +65,7 @@ nodes_layout:
     - { branch: 'stable',   num: 1, start:  5000, end:  7500, build_freq: '*-*-* 12:00:00' }
     - { branch: 'stable',   num: 2,                           build_freq: '*-*-* 13:00:00' }
     - { branch: 'testing',  num: 1, start: 17500, end: 20000, build_freq: '*-*-* 14:00:00' }
-    - { branch: 'testing',  num: 2,                           build_freq: '*-*-* 15:00:00' } # Public Beacon API
+    - { branch: 'testing',  num: 2,                           build_freq: '*-*-* 15:00:00', public_api: true }
     - { branch: 'unstable', num: 1, start: 30000, end: 32500, build_freq: '*-*-* 16:00:00' }
     - { branch: 'unstable', num: 2,                           build_freq: '*-*-* 17:00:00' }
     - { branch: 'libp2p',   num: 1, start: 37500, end: 38750, build_freq: '*-*-* 18:00:00' } # 1250 validators

@@ -13,6 +13,13 @@ beacon_node_rpc_port:       '{{ 9900 + port_offset }}'
 # Tuning
 beacon_node_max_peers: 250
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+# Monitoring
+beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
+beacon_node_validator_monitor_totals: >-
+  {{ node.branch == "unstable" and
+   ((node.public_api is defined and node.public_api)
+     or
+    (node.end is defined and (node.end - node.start) > 64)) }}
 # Builds
 beacon_node_build_frequency: '{{ node.build_frequency }}'
 # Validators from nimbus-private repo
@@ -31,7 +38,7 @@ beacon_node_web3_urls: |
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.pyrmont': # 4000 validators each
     - { branch: 'stable',   start: 0,     end:  4000, build_frequency: '*-*-* 11:00:00' }
-    - { branch: 'unstable', start: 4000,  end:  8000, build_frequency: '*-*-* 13:00:00' } # Public Beacon API
+    - { branch: 'unstable', start: 4000,  end:  8000, build_frequency: '*-*-* 13:00:00', public_api: true }
     - { branch: 'testing',  start: 8000,  end: 12000, build_frequency: '*-*-* 15:00:00' }
     - { branch: 'libp2p',   start: 12000, end: 16000, build_frequency: '*-*-* 17:00:00' }
   'metal-02.he-eu-hel1.nimbus.pyrmont': # 989  validators each

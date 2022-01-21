@@ -19,6 +19,11 @@ beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 beacon_node_build_frequency: '*-*-* {{ 12 + port_offset }}:00:00'
 # Tuning
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+# Monitoring
+beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
+beacon_node_validator_monitor_totals: >-
+  {{ node.branch == "unstable" and
+    (node.public_api is defined and node.public_api) }}
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets
@@ -44,13 +49,13 @@ nodes_layout:
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, open_libp2p_ports: false }
     - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 } # Public Beacon API
+    - { branch: 'unstable', num: 1, public_api: true }
     - { branch: 'unstable', num: 2 }
 
   'metal-02.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   nun: 1 }
     - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1 } # Public Beacon API
+    - { branch: 'testing',  num: 1, public_api: true }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1, open_libp2p_ports: false }
     - { branch: 'unstable', num: 2 }
