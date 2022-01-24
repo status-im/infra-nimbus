@@ -150,5 +150,5 @@ module "nimbus_nodes_prater_macos" {
   provider_name = "ms"
   domain        = var.domain
 
-  ips = ["207.254.102.130"]
+  ips = ["207.254.102.98"]
 }
