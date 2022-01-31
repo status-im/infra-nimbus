@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: c1cef99575a2d56718bba482761f005450129aaa
+  version: f0c4b8a2733e504159bff32698fdfb9e51844e7e
   scm: git
 
 - name: infra-role-bootstrap-windows

@@ -23,7 +23,7 @@ bootstrap__rsyslog_docker_logs_path: '/docker/log'
 bootstrap__rsyslog_docker_format: !unsafe '%msg:2:2048%\n'
 # lower local retention to save space
 bootstrap__logrotate_frequency: 'hourly'
-bootstrap__logrotate_count: 72
+bootstrap__logrotate_count: 48
 bootstrap__logrotate_mbytes: 500
 
 # Consul Catalog Query URL
