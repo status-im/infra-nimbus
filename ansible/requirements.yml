@@ -6,7 +6,7 @@
 
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
-  version: f7dcb7e1944d2ec0655bf8e7ce6f45a1317b65b9
+  version: 60587f86e085255b537cc37647003af105214d20
   scm: git
 
 - name: open-ports
@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: f0c4b8a2733e504159bff32698fdfb9e51844e7e
+  version: 2da262000e63522d1cb4205b6e4b24013c2eb3c9
   scm: git
 
 - name: infra-role-bootstrap-windows
