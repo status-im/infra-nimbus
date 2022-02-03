@@ -1,4 +1,4 @@
-module "nimbus_log_store" {
+module "nimbus_log_store_aws" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
 
   name   = "node"
@@ -26,10 +26,10 @@ module "nimbus_log_store" {
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 
-resource "cloudflare_record" "nimbus_log_store" {
+resource "cloudflare_record" "nimbus_log_store_aws" {
   zone_id = local.zones["status.im"]
   name    = "nimbus-es.infra"
-  value   = module.nimbus_log_store.public_ips[count.index]
+  value   = module.nimbus_log_store_aws.public_ips[count.index]
   count   = var.log_stores_count
   type    = "A"
   proxied = true
