@@ -16,22 +16,22 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 2da262000e63522d1cb4205b6e4b24013c2eb3c9
+  version: 95619730261b9fae8faf34da7e26c2f15d6e7be8
   scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: a3b0e99dadf51e3113d0359fc314821b82f396e3
+  version: fff7b208602b0ca1b3409dd626c53fbec3c08fbf
   scm: git
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: 3bb4c9e51edd1fb6d90e75a96c1b3993fe9f2b4f
+  version: 66749c3ed6394a71e2b4e781376cd29b3e09d99b
   scm: git
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: f223ab23c98163805e84e470039eb3caf6f219c4
+  version: 345c9dd85ff8e57bce7e492dc05d685aee1f076c
   scm: git
 
 - name: oauth-proxy
