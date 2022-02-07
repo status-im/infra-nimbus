@@ -34,7 +34,7 @@ es_number_of_replicas: 1
 es_number_of_shards: 3
 
 # JVM memory settings
-es_jvm_mem_ratio: 0.6
+es_jvm_mem_ratio: 0.8
 es_jvm_mem: '{{ (ansible_memtotal_mb * es_jvm_mem_ratio) | round(0, "floor") }}'
 es_jvm_min_heap: '{{ es_jvm_mem | int }}m'
 es_jvm_max_heap: '{{ es_jvm_mem | int }}m'
