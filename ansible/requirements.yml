@@ -41,7 +41,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 43cc09a3563a1ced220d066334c03fabe26d55d6
+  version: 61a248a697d37c98b575be942bb6e86deb512380
   scm: git
 
 - name: infra-role-beacon-node-linux
