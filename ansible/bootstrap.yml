@@ -22,6 +22,7 @@
 - name: Bootstrap Python support for Ansible
   become: true
   hosts: all
+  serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux/raw
       when: ansible_system == 'Linux'
@@ -29,6 +30,7 @@
 - name: Bootstrap admin users and Consul
   become: true
   hosts: all
+  serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux
       when: ansible_system == 'Linux'

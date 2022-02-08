@@ -2,9 +2,11 @@
 # Root password
 bootstrap__root_pass: '{{lookup("bitwarden", "root-pass")}}'
 bootstrap__admin_pass: '{{lookup("bitwarden", "macos/admin", field="password")}}'
-# Consul encryption key and ACL token
+# Consul
 bootstrap__consul_encryption_key: '{{lookup("bitwarden", "consul", field="encryption-key")}}'
 bootstarp__consul_agent_acl_token: '{{lookup("bitwarden", "consul", field="agent-acl-token")}}'
+# Wireguard
+wireguard_consul_acl_token: '{{lookup("bitwarden", "consul", field="wireguard-acl-token")}}'
 
 # Custom SSH accounts for Nimbus fleet, should start from UID 8000.
 bootstrap__active_extra_users:
