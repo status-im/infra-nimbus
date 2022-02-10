@@ -36,18 +36,9 @@ nodes_layout:
     - { branch: 'unstable', start: 4000,  end:  8000, build_frequency: '*-*-* 13:00:00', public_api: true }
     - { branch: 'testing',  start: 8000,  end: 12000, build_frequency: '*-*-* 15:00:00' }
     - { branch: 'libp2p',   start: 12000, end: 16000, build_frequency: '*-*-* 17:00:00' }
-  'metal-02.he-eu-hel1.nimbus.pyrmont': # 989  validators each
-    - { branch: 'stable',   start: 16000, end: 16989, build_frequency: '*-*-* 11:00:00' }
-    - { branch: 'unstable', start: 16989, end: 17978, build_frequency: '*-*-* 13:00:00' }
-    - { branch: 'testing',  start: 17978, end: 18967, build_frequency: '*-*-* 15:00:00' }
-    - { branch: 'libp2p',   start: 18967, end: 19956, build_frequency: '*-*-* 17:00:00' }
-  'metal-03.he-eu-hel1.nimbus.pyrmont': # 10 validators each
-    - { branch: 'stable',   start: 19956, end: 19966, build_frequency: '*-*-* 11:00:00' }
-    - { branch: 'unstable', start: 19966, end: 19976, build_frequency: '*-*-* 13:00:00' }
-    - { branch: 'testing',  start: 19976, end: 19986, build_frequency: '*-*-* 15:00:00' }
-    - { branch: 'libp2p',   start: 19986, end: 19996, build_frequency: '*-*-* 17:00:00' }
-  'metal-04.he-eu-hel1.nimbus.pyrmont': # 2 validators each
-    - { branch: 'stable',   start: 19996, end: 19997, build_frequency: '*-*-* 11:00:00' }
-    - { branch: 'unstable', start: 19997, end: 19998, build_frequency: '*-*-* 13:00:00' }
-    - { branch: 'testing',  start: 19998, end: 19999, build_frequency: '*-*-* 15:00:00' }
-    - { branch: 'libp2p',   start: 19999, end: 20000, build_frequency: '*-*-* 17:00:00' }
+
+  'metal-02.he-eu-hel1.nimbus.pyrmont': # 1000  validators each
+    - { branch: 'stable',   start: 16000, end: 17000, build_frequency: '*-*-* 11:00:00' }
+    - { branch: 'unstable', start: 17000, end: 18000, build_frequency: '*-*-* 13:00:00' }
+    - { branch: 'testing',  start: 18000, end: 19000, build_frequency: '*-*-* 15:00:00' }
+    - { branch: 'libp2p',   start: 19000, end: 20000, build_frequency: '*-*-* 17:00:00' }

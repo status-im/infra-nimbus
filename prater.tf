@@ -119,6 +119,8 @@ module "nimbus_nodes_prater_hetzner" {
   ips = [
     "65.21.73.183", # metal-01.he-eu-hel1.nimbus.prater
     "65.108.5.45",  # metal-02.he-eu-hel1.nimbus.prater
+    "65.21.196.47", # metal-03.he-eu-hel1.nimbus.prater
+    "65.21.196.48", # metal-04.he-eu-hel1.nimbus.prater
   ]
 }
 

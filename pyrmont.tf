@@ -12,10 +12,8 @@ module "nimbus_nodes_pyrmont_hetzner" {
   domain = var.domain
 
   ips = [
-    "65.21.196.45",
-    "65.21.196.46",
-    "65.21.196.47",
-    "65.21.196.48",
+    "65.21.196.45", # metal-01.he-eu-hel1.nimbus.pyrmont
+    "65.21.196.46", # metal-02.he-eu-hel1.nimbus.pyrmont
   ]
 }
 
