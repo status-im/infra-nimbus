@@ -7,11 +7,9 @@
 # This plugin can be run directly by specifying the field followed by a list of
 # entries, e.g.  bitwarden.py password google.com wufoo.com
 #
-# CHANGES:
-# - Dropped custom_field argument
-# - Started checking sources in order
-# - Refactored Bitwarden class, added get_item()
-# - Split LookupModule.run into two functions
+# This version includes fixes that can be found in this fork:
+# https://github.com/status-im/ansible-modules-bitwarden
+#
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
@@ -19,6 +17,7 @@ import json
 import os
 import sys
 
+from shutil import which
 from subprocess import Popen, PIPE, STDOUT, check_output
 
 from ansible.errors import AnsibleError
@@ -70,9 +69,7 @@ class Bitwarden(object):
     def __init__(self, path):
         self._cli_path = path
         self._bw_session = ""
-        try:
-            check_output([self._cli_path, "--version"])
-        except OSError:
+        if which("bw") is None:
             raise AnsibleError("Command not found: {0}".format(self._cli_path))
 
     @property
@@ -86,14 +83,6 @@ class Bitwarden(object):
     @property
     def cli_path(self):
         return self._cli_path
-
-    @property
-    def logged_in(self):
-        # Parse Bitwarden status to check if logged in
-        if self.status() == 'unlocked':
-            return True
-        else:
-            return False
 
     def _run(self, args):
         my_env = os.environ.copy()
@@ -129,13 +118,6 @@ class Bitwarden(object):
     def sync(self):
         self._run(['sync'])
 
-    def status(self):
-        try:
-            data = json.loads(self._run(['status']))
-        except json.decoder.JSONDecodeError as e:
-            raise AnsibleError("Error decoding Bitwarden status: %s" % e)
-        return data['status']
-
     def get_entry(self, key, field):
         return self._run(["get", field, key])
 
@@ -167,18 +149,12 @@ class LookupModule(LookupBase):
     def run(self, terms, variables=None, **kwargs):
         self.bw = Bitwarden(path=kwargs.get('path', 'bw'))
 
-        if not self.bw.logged_in:
-            raise AnsibleError("Not logged into Bitwarden: please run "
-                               "'bw login', or 'bw unlock' and set the "
-                               "BW_SESSION environment variable first")
-
-        values = []
-
         if kwargs.get('sync'):
             self.bw.sync()
         if kwargs.get('session'):
             self.bw.session = kwargs.get('session')
 
+        values = []
         for term in terms:
             rval = self.lookup(term, kwargs)
             if rval is None:
@@ -215,7 +191,7 @@ def main():
         print("Usage: %s <field> <name> [name name ...]" % os.path.basename(__file__))
         return -1
 
-    print(LookupModule().run(sys.argv[2:], variables=None, field=sys.argv[1], file='origin.crt'))
+    print(LookupModule().run(sys.argv[2:], variables=None, field=sys.argv[1]))
 
     return 0
 
