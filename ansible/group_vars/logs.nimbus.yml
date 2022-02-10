@@ -11,6 +11,9 @@ swap_file_path: '/main.swap'
 swap_file_size_mb: 2048
 
 # ElasticSearch Cluster
+es_service_name: 'elasticsearch'
+es_cluster_name: 'nimbus-logs-search'
+es_docker_network_name: '{{ es_service_name }}'
 es_master_nodes: |
   {{ ansible_play_hosts
    | map('extract', hostvars)
@@ -21,8 +24,6 @@ es_master_nodes: |
      addr: ansible_local.wireguard.vpn_ip,
      port: to_string(es_node_port)
    }') }}
-es_cluster_name: 'nimbus-logs-search'
-es_cont_name: 'elasticsearch'
 
 es_image: 'elasticsearch:7.14.2'
 es_api_port: 9200
@@ -41,12 +42,14 @@ es_jvm_min_heap: '{{ es_jvm_mem | int }}m'
 es_jvm_max_heap: '{{ es_jvm_mem | int }}m'
 
 # ElasticSearch HQ
-es_hq_lb_cont_name: '{{ es_cont_name }}'
+es_hq_cont_enabled: true
+es_hq_cont_port: 5000
 
 # oauth access
 oauth_domain: 'nimbus-es.infra.status.im'
 oauth_cont_name: '{{ es_hq_cont_name }}-oauth'
-oauth_upstream_cont: '{{ es_hq_cont_name }}'
+oauth_cont_networks: [{name: '{{ es_docker_network_name }}'}]
+oauth_upstream_name: 'hq'
 oauth_upstream_port: '{{ es_hq_cont_port }}'
 oauth_public_port: 443
 oauth_local_port: 8090

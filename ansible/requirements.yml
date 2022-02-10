@@ -16,17 +16,17 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 7d2646cad4046e20b02628f4efc1e2b87deef773
+  version: c5f6f1c59d91f50f647def54c8b5b32998465912
   scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: 9cd9c24cec4c4a9eb8b0c080ad352d83486d1c58
+  version: cf9df32cfed59f4e7cc93f36b3fd8795d46fedde
   scm: git
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: 3c46cb38d6ba9d6d79ce31fdb3877b9dfd1fb621
+  version: 39182e507379eac63111916767006383899b0827
   scm: git
 
 - name: infra-role-wireguard
@@ -81,17 +81,12 @@
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: cb2cbb374199f5b2b627cc3d2bc9fb325bca82c1
+  version: c996858afae7effa7984403917827e79c732b957
   scm: git
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: f38d712b12e205d245cc692b6e99049acaf9401e
-  scm: git
-
-- name: elasticsearch-hq
-  src: git@github.com:status-im/infra-role-elasticsearch-hq.git
-  version: a92df1ac36c9a8e86fabefb54e24fe33d572ce10
+  version: f7391551f8d834731d8ece3eec91a2075d093973
   scm: git
 
 - name: elasticsearch-lb

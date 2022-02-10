@@ -19,8 +19,6 @@
       tags: origin-certs
     - role: elasticsearch
       tags: elasticsearch
-    - role: elasticsearch-hq
-      tags: elasticsearch-hq
     - role: oauth-proxy
       tags: oauth-proxy
     - role: nginx
@@ -50,6 +48,8 @@
               port: to_string(ServiceMeta.cluster_port)
             }') }}
   roles:
+    - role: swap-file
+      tags: swap-file
     - role: elasticsearch-lb
       tags: elasticsearch-lb
     - role: logclean-job

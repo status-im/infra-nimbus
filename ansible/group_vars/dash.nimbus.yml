@@ -1,4 +1,8 @@
 ---
+# ElasticSearch LB needs a bit
+swap_file_path: '/main.swap'
+swap_file_size_mb: 2048
+
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'status.im'
@@ -8,14 +12,19 @@ origin_certs:
 
 # Kibana Dashboard
 kibana_domain: 'nimbus-logs.infra.status.im'
-kibana_version: '7.14.2'
-kibana_cont_name: kibana
+kibana_service_name: 'kibana'
+kibana_docker_network_name: '{{ kibana_service_name }}'
+kibana_cont_name: '{{ kibana_service_name }}'
+kibana_cont_tag: '7.17.0'
 kibana_cont_port: 5601
+kiban_es_lb_addr: '{{ es_lb_cont_name }}'
+kiban_es_lb_port: '{{ es_lb_api_port }}'
 
 # oauth access
 oauth_domain: '{{ kibana_domain }}'
 oauth_cont_name: '{{ kibana_cont_name }}-oauth'
-oauth_upstream_cont: '{{ kibana_cont_name }}'
+oauth_cont_networks: [{name: '{{ kibana_docker_network_name }}'}]
+oauth_upstream_name: '{{ kibana_cont_name }}'
 oauth_upstream_port: '{{ kibana_cont_port }}'
 oauth_public_port: 443
 oauth_local_port: 8090
@@ -24,8 +33,10 @@ oauth_id: '{{ lookup("bitwarden", "nimbus/kibana/oauth", field="client-id") }}'
 oauth_secret: '{{ lookup("bitwarden", "nimbus/kibana/oauth", field="secret") }}'
 
 # ElasticSearch Load Balancer
-es_lb_image: 'elasticsearch:7.14.2'
-es_lb_cont_name: elasticsearch-lb
+es_lb_service_name: 'elasticsearch'
+es_lb_docker_network_name: '{{ kibana_docker_network_name }}'
+es_lb_cont_name: '{{ es_lb_service_name }}-lb'
+es_lb_cont_tag: '7.17.0'
 es_lb_data_center: do-ams3
 es_lb_cluster_name: 'nimbus-logs-search'
 es_lb_cluster_dc: 'he-eu-hel1'
