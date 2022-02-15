@@ -66,6 +66,18 @@ nodes_layout:
     - { branch: 'libp2p',   num: 1, start: 37500, end: 38750, build_freq: '*-*-* 18:00:00' } # 1250 validators
     - { branch: 'libp2p',   num: 2,                           build_freq: '*-*-* 19:00:00' }
 
+  'metal-03.he-eu-hel1.nimbus.prater': # 10 each
+    - { branch: 'stable',                                     build_freq: '*-*-* 11:00:00' }
+    - { branch: 'unstable',                                   build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',                                    build_freq: '*-*-* 15:00:00' }
+    - { branch: 'libp2p',                                     build_freq: '*-*-* 17:00:00' }
+
+  'metal-04.he-eu-hel1.nimbus.prater': # 30 each
+    - { branch: 'stable',                                     build_freq: '*-*-* 11:00:00' }
+    - { branch: 'unstable',                                   build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',                                    build_freq: '*-*-* 15:00:00' }
+    - { branch: 'libp2p',                                     build_freq: '*-*-* 17:00:00' }
+
   'windows-01.gc-us-central1-a.nimbus.prater':
     - { branch: 'stable',           start:  7500, end: 10000, build_start: '13:00:00' }
     - { branch: 'testing',          start: 32500, end: 35000, build_start: '15:00:00' }
