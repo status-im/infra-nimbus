@@ -6,6 +6,7 @@ beacon_node_repo_branch: >-
        node.branch_override,
        ((node.branch == "libp2p") | ternary("nim-libp2p-auto-bump-unstable", node.branch))
      ) }}
+beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 # TODO Drop this once all nodes have an number.
 service_number: '{{ node.get("num", False) | ternary(("-%02d"|format(node.get("num", 0))), "") }}'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}{{ service_number }}'
@@ -90,13 +91,13 @@ nodes_layout:
 
   'metal-06.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',                                     build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',                                    build_freq: '*-*-* 15:00:00', branch_override: 'nim-1.6' }
+    - { branch: 'testing',                                    build_freq: '*-*-* 15:00:00', branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
     - { branch: 'unstable',                                   build_freq: '*-*-* 13:00:00' }
     - { branch: 'libp2p',                                     build_freq: '*-*-* 17:00:00' }
 
   'metal-07.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',                                     build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',                                    build_freq: '*-*-* 15:00:00', branch_override: 'nim-1.6' }
+    - { branch: 'testing',                                    build_freq: '*-*-* 15:00:00', branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
     - { branch: 'unstable',                                   build_freq: '*-*-* 13:00:00' }
     - { branch: 'libp2p',                                     build_freq: '*-*-* 17:00:00' }
 
