@@ -1,6 +1,8 @@
 locals {
   /* Volumes */
   prater_root_vol_size = 20
+  prater_data_vol_size = 100
+  prater_data_vol_type = "gp2"
   /* Instances */
   prater_large_instance_type = "z1d.large"
 }
@@ -17,6 +19,8 @@ module "nimbus_nodes_prater_stable_large" {
   /* Scaling */
   type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
+  data_vol_size = local.prater_data_vol_size
+  data_vol_type = local.prater_data_vol_type
   host_count    = 1
 
   /* Firewall */
@@ -42,6 +46,8 @@ module "nimbus_nodes_prater_testing_large" {
   /* Scaling */
   type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
+  data_vol_size = local.prater_data_vol_size
+  data_vol_type = local.prater_data_vol_type
   host_count    = 1
 
   /* Firewall */
@@ -67,6 +73,8 @@ module "nimbus_nodes_prater_unstable_large" {
   /* Scaling */
   type          = local.prater_large_instance_type
   root_vol_size = local.prater_root_vol_size
+  data_vol_size = local.prater_data_vol_size
+  data_vol_type = local.prater_data_vol_type
   host_count    = 1
 
   /* Firewall */
