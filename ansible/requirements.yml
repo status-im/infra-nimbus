@@ -31,7 +31,7 @@
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: 3c489838cc65984bc8daacde1eaf1e9256852810
+  version: 56d92683bda23f75228cc4ac93b5fae47adbabeb
   scm: git
 
 - name: oauth-proxy
@@ -41,7 +41,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: ac9796d029298699abdd826d5775ceab3da55021
+  version: 7ee51839e6a032e6ca27dfb00951e897b5385609
   scm: git
 
 - name: infra-role-beacon-node-linux
