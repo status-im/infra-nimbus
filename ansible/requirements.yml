@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 5a8e8e182ce638e478ca1c94f5f46baf89c10953
+  version: 0e4ee0f27944a682c776f6795d933abfc4bedccf
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: feeecc5c471944819d52a5614346e11dd8e1e223
+  version: 558b4069d452ab5a58ac5a7ad79ddd6f0ca861e6
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -96,7 +96,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: fbcc0ce58776c59cf6e0ff9b7d605663ac3e7b95
+  version: 827033833eaf994d3b6f6ac1b555b90fdf1dd467
   scm: git
 
 - name: swap-file
