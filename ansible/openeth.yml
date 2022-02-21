@@ -1,0 +1,18 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
+- name: Configure OpenEthereum nodes
+  become: true
+  hosts:
+    - nimbus-openeth-mainnet
+  roles:
+    - { role: open-ports,              tags: open-ports }
+    - { role: infra-role-openethereum, tags: openethereum }
