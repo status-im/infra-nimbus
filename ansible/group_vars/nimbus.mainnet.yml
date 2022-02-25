@@ -76,7 +76,7 @@ nodes_layout:
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 }
+    - { branch: 'unstable', num: 1, db_purge: true }
     - { branch: 'unstable', num: 2 }
     - { branch: 'libp2p',   num: 1 }
 
@@ -85,6 +85,6 @@ nodes_layout:
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 }
+    - { branch: 'unstable', num: 1, db_purge: true, db_sync: true }
     - { branch: 'unstable', num: 2 }
     - { branch: 'libp2p',   num: 1 }

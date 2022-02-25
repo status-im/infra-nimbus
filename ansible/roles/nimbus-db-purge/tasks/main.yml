@@ -1,0 +1,24 @@
+---
+- name: Create purge and sync script
+  template:
+    src: 'purge_sync.sh.j2'
+    dest: '{{ nimbus_db_purge_timer_script_path }}'
+    owner: 'root'
+    group: 'nimbus'
+    mode: 0750
+
+- name: Create timer for purge script
+  include_role: name=systemd-timer
+  vars:
+    systemd_timer_name: '{{ nimbus_db_purge_timer_name }}'
+    systemd_timer_description: 'Purge {{ nimbus_db_purge_node_service_name }} DB'
+    systemd_timer_user: 'root'
+    systemd_timer_group: 'root'
+    systemd_timer_start_on_creation: false
+    systemd_timer_ionice_class: 'idle'
+    systemd_timer_consul_warning: true
+    systemd_timer_enabled: '{{ nimbus_db_purge_timer_enabled }}'
+    systemd_timer_frequency: '{{ nimbus_db_purge_timer_frequency }}'
+    systemd_timer_timeout_sec: '{{ nimbus_db_purge_timer_timeout }}'
+    systemd_timer_work_dir: '{{ nimbus_db_purge_node_service_path }}'
+    systemd_timer_script_path: '{{ nimbus_db_purge_timer_script_path }}'

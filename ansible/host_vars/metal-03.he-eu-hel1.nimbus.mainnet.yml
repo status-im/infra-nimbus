@@ -1,0 +1,7 @@
+---
+# Purge node DB periodically to test syncing.
+nimbus_db_purge_node_service_name: '{{ beacon_node_service_name }}'
+nimbus_db_purge_node_service_path: '{{ beacon_node_service_path }}'
+nimbus_db_purge_node_network_name: '{{ beacon_node_network }}'
+nimbus_db_purge_truster_node_api_url: 'http://localhost:1234'
+nimbus_db_purge_timer_frequency: 'weekly'
