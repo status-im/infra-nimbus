@@ -1,34 +1,33 @@
 /* SCALING --------------------------------------*/
 
+variable "region" {
+  description = "Region in which the host reside."
+  type        = string
+}
+
+variable "prefix" {
+  description = "Short name of provider being used."
+  type        = string
+  default     = "ms"
+}
+
+/* STATIC ---------------------------------------*/
+
 variable "ips" {
   description = "Static list of IPs used by the hosts."
   type        = list(string)
 }
 
-variable "region" {
-  description = "Region in which the host reside."
-  type        = string
-  default     = "eu-hel1"
-}
-
-variable "provider_name" {
-  description = "Short name of provider being used."
-  type        = string
-  default     = "he"
-}
-
-/* SECURITY --------------------------------------*/
-
-variable "ssh_user" {
-  description = "Default user for SSH access."
-  type        = string
-  default     = "root"
-}
-
-/* CONFIG ----------------------------------------*/
+/* GENERAL --------------------------------------*/
 
 variable "name" {
-  description = "Name for hosts. To be used in the DNS entry."
+  description = "Prefix of hostname before index."
+  type        = string
+  default     = "node"
+}
+
+variable "group" {
+  description = "Name of Ansible group to add hosts to."
   type        = string
 }
 
@@ -43,21 +42,25 @@ variable "stage" {
   default     = ""
 }
 
-variable "group" {
-  description = "Ansible group to assign hosts to."
-  type        = string
-}
-
 variable "domain" {
   description = "DNS Domain to update"
   type        = string
 }
 
-/* DNS ------------------------------------------*/
-
-/* We default to: statusim.net */
-variable "cf_zone_id" {
+variable "zone_id" {
   description = "ID of CloudFlare zone for host record."
-  type        = string
+  /* We default to: statusim.net */
   default     = "14660d10344c9898521c4ba49789f563"
+}
+
+variable "shell_type" {
+  description = "Type of shell used by Ansible."
+  type        = string
+  default     = null
+}
+
+variable "become" {
+  description = "Whether Ansible should become a user."
+  type        = string
+  default     = null
 }

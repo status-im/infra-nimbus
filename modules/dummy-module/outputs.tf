@@ -3,9 +3,9 @@ output "public_ips" {
 }
 
 output "hostnames" {
-  value = values(local.hostnames)
+  value = keys(local.hostnames)
 }
 
 output "hosts" {
-  value = zipmap(values(local.hostnames), var.ips)
+  value = local.hostnames
 }

@@ -5,6 +5,8 @@ module "nimbus_log_store" {
   env    = "logs"
   stage  = "nimbus"
   group  = "logs.nimbus"
+  region = "eu-hel1"
+  prefix = "he"
   domain = var.domain
 
   ips = [

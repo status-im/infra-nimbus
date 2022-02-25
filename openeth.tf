@@ -9,6 +9,8 @@ module "nimbus_openeth_mainnet" {
   env    = "nimbus"
   stage  = "openeth"
   group  = "nimbus-openeth-mainnet"
+  region = "eu-hel1"
+  prefix = "he"
   domain = var.domain
 
   ips = [

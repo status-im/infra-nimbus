@@ -9,6 +9,8 @@ module "nimbus_nodes_mainnet_hetzner" {
   env    = "nimbus"
   stage  = "mainnet"
   group  = "nimbus-mainnet-metal"
+  region = "eu-hel1"
+  prefix = "he"
   domain = var.domain
 
   ips = [

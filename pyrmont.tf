@@ -9,6 +9,8 @@ module "nimbus_nodes_pyrmont_hetzner" {
   env    = "nimbus"
   stage  = "pyrmont"
   group  = "nimbus-pyrmont-metal"
+  region = "eu-hel1"
+  prefix = "he"
   domain = var.domain
 
   ips = [

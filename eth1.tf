@@ -10,6 +10,8 @@ module "nimbus_eth1_node_hetzner" {
   env    = "nimbus"
   stage  = "eth1"
   group  = "nimbus-eth1-metal"
+  region = "eu-hel1"
+  prefix = "he"
   domain = var.domain
 
   ips = ["65.21.230.244"]

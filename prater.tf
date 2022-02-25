@@ -115,6 +115,26 @@ module "nimbus_nodes_prater_unstable_windows" {
   root_vol_type = "pd-ssd"
 }
 
+module "nimbus_nodes_prater_windows" {
+  source = "./modules/dummy-module"
+
+  name   = "windows"
+  env    = "nimbus"
+  stage  = "prater"
+  group  = "nimbus-prater-windows"
+  region = "eu-hel1"
+  prefix = "he"
+  domain = var.domain
+
+  /* Windows */
+  become     = false
+  shell_type = "powershell"
+
+  ips = [
+    "65.21.233.67", # windows-01.he-eu-hel1.nimbus.prater
+  ]
+}
+
 module "nimbus_nodes_prater_hetzner" {
   source = "./modules/dummy-module"
 
@@ -122,6 +142,8 @@ module "nimbus_nodes_prater_hetzner" {
   env    = "nimbus"
   stage  = "prater"
   group  = "nimbus-prater-metal"
+  region = "eu-hel1"
+  prefix = "he"
   domain = var.domain
 
   ips = [
@@ -155,13 +177,13 @@ resource "cloudflare_record" "testing_prater_beacon_api" {
 module "nimbus_nodes_prater_macos" {
   source = "./modules/dummy-module"
 
-  name          = "macos"
-  env           = "nimbus"
-  stage         = "prater"
-  group         = "nimbus-prater-macos"
-  region        = "eu-dublin"
-  provider_name = "ms"
-  domain        = var.domain
+  name   = "macos"
+  env    = "nimbus"
+  stage  = "prater"
+  group  = "nimbus-prater-macos"
+  region = "eu-dublin"
+  prefix = "ms"
+  domain = var.domain
 
   ips = ["207.254.102.98"]
 }
