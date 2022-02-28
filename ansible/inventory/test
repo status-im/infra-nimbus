@@ -30,7 +30,6 @@ store-02.he-eu-hel1.logs.nimbus hostname=store-02.he-eu-hel1.logs.nimbus ansible
 store-03.he-eu-hel1.logs.nimbus hostname=store-03.he-eu-hel1.logs.nimbus ansible_host=65.108.129.57 env=logs stage=nimbus data_center=he-eu-hel1 region=eu-hel1 dns_entry=store-03.he-eu-hel1.logs.nimbus.statusim.net
 testing-large-01.aws-eu-central-1a.nimbus.prater hostname=testing-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.99.236 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.prater hostname=unstable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.130 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
-windows-01.gc-us-central1-a.nimbus.prater hostname=windows-01.gc-us-central1-a.nimbus.prater ansible_host=35.232.80.244 env=nimbus stage=prater data_center=gc-us-central1-a region=us-central1-a dns_entry=windows-01.gc-us-central1-a.nimbus.prater.statusim.net
 windows-01.he-eu-hel1.nimbus.prater hostname=windows-01.he-eu-hel1.nimbus.prater ansible_host=65.21.233.67 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=windows-01.he-eu-hel1.nimbus.prater.statusim.net
 
 [aws-eu-central-1a]
@@ -45,9 +44,6 @@ unstable-large-01.aws-eu-central-1a.nimbus.prater
 
 [dash.nimbus]
 node-01.aws-eu-central-1a.dash.nimbus
-
-[gc-us-central1-a]
-windows-01.gc-us-central1-a.nimbus.prater
 
 [he-eu-hel1]
 mainnet-01.he-eu-hel1.nimbus.openeth
@@ -129,7 +125,6 @@ testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 
 [nimbus-prater-windows]
-windows-01.gc-us-central1-a.nimbus.prater
 windows-01.he-eu-hel1.nimbus.prater
 
 [nimbus-pyrmont-metal]
@@ -168,7 +163,6 @@ metal-07.he-eu-hel1.nimbus.prater
 stable-large-01.aws-eu-central-1a.nimbus.prater
 testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
-windows-01.gc-us-central1-a.nimbus.prater
 windows-01.he-eu-hel1.nimbus.prater
 
 [nimbus.pyrmont]

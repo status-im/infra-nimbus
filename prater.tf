@@ -88,33 +88,6 @@ module "nimbus_nodes_prater_unstable_large" {
   keypair_name = aws_key_pair.arthurk.key_name
 }
 
-module "nimbus_nodes_prater_unstable_windows" {
-  source = "github.com/status-im/infra-tf-google-cloud"
-
-  /* Specific */
-  name   = "windows"
-  env    = "nimbus"
-  stage  = "prater"
-  group  = "nimbus-prater-windows"
-  domain = var.domain
-  zone   = "us-central1-a"
-
-  /* System */
-  image = "windows-cloud/windows-server-2019-dc-v20210608"
-  win_password     = data.pass_password.windows_user_pass.password
-  ansible_playbook = "${path.cwd}/ansible/bootstrap-win.yml"
-
-  /* Firewall */
-  open_udp_ports = local.nimbus_ports
-  open_tcp_ports = local.nimbus_ports
-
-  /* Scaling */
-  type          = "c2-standard-8" /* 4 vCPUs, 16GB RAM */
-  host_count    = 1
-  root_vol_size = 200
-  root_vol_type = "pd-ssd"
-}
-
 module "nimbus_nodes_prater_windows" {
   source = "./modules/dummy-module"
 
