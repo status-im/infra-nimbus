@@ -100,8 +100,8 @@ module "nimbus_nodes_prater_windows" {
   domain = var.domain
 
   /* Windows */
-  become     = false
-  shell_type = "powershell"
+  become_method = "runas"
+  shell_type    = "powershell"
 
   ips = [
     "65.21.233.67", # windows-01.he-eu-hel1.nimbus.prater

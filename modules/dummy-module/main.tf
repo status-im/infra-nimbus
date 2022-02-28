@@ -35,8 +35,8 @@ resource "ansible_host" "host" {
     stage        = local.stage
     ansible_host = each.value
     /* Optional extra Ansible variables necessary for Windows */
-    ansible_shell_type = (var.shell_type == null ? null : var.shell_type)
-    ansible_become     = (var.become     == null ? null : var.become)
+    ansible_shell_type    = (var.shell_type    == null ? null : var.shell_type)
+    ansible_become_method = (var.become_method == null ? null : var.become_method)
   }
 }
 

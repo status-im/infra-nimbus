@@ -59,7 +59,7 @@ variable "shell_type" {
   default     = null
 }
 
-variable "become" {
+variable "become_method" {
   description = "Whether Ansible should become a user."
   type        = string
   default     = null

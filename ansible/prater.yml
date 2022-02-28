@@ -43,6 +43,7 @@
 
 - name: Deploy prater Windows beacon nodes
   become: true
+  become_user: 'admin'
   hosts: nimbus-prater-windows
   fact_path: 'C:/ansible/facts.d'
   roles:
