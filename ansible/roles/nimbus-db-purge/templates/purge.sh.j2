@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# vim:ft=sh
+set -Eeuo pipefail
+
+TRUSTED_NODE_API_URL='{{ nimbus_db_purge_trusted_node_api_url | mandatory }}'
+SERVICE_NAME='{{ nimbus_db_purge_node_service_name | mandatory }}'
+SERVICE_PATH='{{ nimbus_db_purge_node_service_path | mandatory }}'
+NETWORK_NAME='{{ nimbus_db_purge_node_network_name | mandatory }}'
+SERVICE_DATA_PATH="${SERVICE_PATH}/data/shared_${NETWORK_NAME}_0/"
+
+echo "Stopping node: ${SERVICE_NAME}"
+sudo systemctl stop "${SERVICE_NAME}"
+
+echo "Purging DB: ${SERVICE_DATA_PATH}"
+sudo rm -fr "${SERVICE_DATA_PATH}/db"
+
+{% if 
+echo "Syncing from trusted node: ${TRUSTED_NODE_API_URL}"
+sudo -u nimbus "${SERVICE_PATH}/repo/build/nimbus_beacon_node" \
+    trustedNodeSync \
+    --data-dir="${SERVICE_DATA_PATH}" \
+    --trusted-node-url="${TRUSTED_NODE_API_URL}" \
+    --network="${NETWORK_NAME}" \
+    --backfill=false
+
+echo "Starting node: ${SERVICE_NAME}"
+sudo systemctl start "${SERVICE_NAME}"

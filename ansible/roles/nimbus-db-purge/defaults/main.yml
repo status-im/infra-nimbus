@@ -1,0 +1,15 @@
+---
+#nimbus_db_purge_node_service_name: ~
+#nimbus_db_purge_node_service_path: ~
+#nimbus_db_purge_node_network_name: ~
+nimbus_db_purge_trusted_node_sync_enabled: false
+#nimbus_db_purge_trusted_node_api_url: 'http://localhost:1234'
+
+nimbus_db_purge_timer_name: 'purge-{{ nimbus_db_purge_node_service_name }}'
+nimbus_db_purge_timer_description: 'Purge {{ nimbus_db_purge_node_service_name }} DB'
+nimbus_db_purge_timer_user: 'nimbus'
+nimbus_db_purge_timer_group: 'staff'
+nimbus_db_purge_timer_enabled: true
+nimbus_db_purge_timer_timeout: 600
+nimbus_db_purge_timer_frequency: 'weekly'
+nimbus_db_purge_timer_script_path: '{{ nimbus_db_purge_node_service_path | mandatory }}/purge.sh'
