@@ -28,6 +28,7 @@ es_master_nodes: |
 es_image: 'elasticsearch:7.14.2'
 es_api_port: 9200
 es_node_port: 9300
+es_exp_cont_port: 9114
 
 # Since Logstash stores 1 index per day this is fine.
 # See: https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster
@@ -63,12 +64,12 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: 80,  protocol: 'tcp', chain: 'SERVICES' }
   - { port: 443, protocol: 'tcp', chain: 'SERVICES' }
-  - { port: '{{ es_api_port }}',          ipset: 'logs.nimbus' }
-  - { port: '{{ es_api_port  }}',         ipset: 'dash.nimbus' }
-  - { port: '{{ es_api_port  }}',         ipset: 'log-aggr.hq' }
-  - { port: '{{ es_node_port }}',         ipset: 'logs.nimbus' }
-  - { port: '{{ es_node_port }}',         ipset: 'dash.nimbus' }
-  - { port: '{{ es_metrics_cont_port }}', ipset: 'metrics.hq' }
+  - { port: '{{ es_api_port }}',      ipset: 'logs.nimbus' }
+  - { port: '{{ es_api_port  }}',     ipset: 'dash.nimbus' }
+  - { port: '{{ es_api_port  }}',     ipset: 'log-aggr.hq' }
+  - { port: '{{ es_node_port }}',     ipset: 'logs.nimbus' }
+  - { port: '{{ es_node_port }}',     ipset: 'dash.nimbus' }
+  - { port: '{{ es_exp_cont_port }}', ipset: 'metrics.hq' }
 
 # Proxy for ES HQ
 nginx_sites:
