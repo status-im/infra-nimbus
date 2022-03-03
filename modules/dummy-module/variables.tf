@@ -59,8 +59,13 @@ variable "shell_type" {
   default     = null
 }
 
+variable "become_user" {
+  description = "What user Ansible should become."
+  type        = string
+  default     = null
+}
 variable "become_method" {
-  description = "Whether Ansible should become a user."
+  description = "Method used by Ansible to become a user."
   type        = string
   default     = null
 }

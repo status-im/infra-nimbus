@@ -100,6 +100,7 @@ module "nimbus_nodes_prater_windows" {
   domain = var.domain
 
   /* Windows */
+  become_user   = "admin"
   become_method = "runas"
   shell_type    = "powershell"
 

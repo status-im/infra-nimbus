@@ -36,6 +36,7 @@ resource "ansible_host" "host" {
     ansible_host = each.value
     /* Optional extra Ansible variables necessary for Windows */
     ansible_shell_type    = (var.shell_type    == null ? null : var.shell_type)
+    ansible_become_user   = (var.become_user   == null ? null : var.become_user)
     ansible_become_method = (var.become_method == null ? null : var.become_method)
   }
 }
