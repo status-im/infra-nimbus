@@ -28,6 +28,8 @@ beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
 beacon_node_dist_validators_end: '{{ node.end | mandatory }}'
 # HTTP RPC support is unstable
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
+# Other
+beacon_node_proposer_boosting_debug: '{{ node.branch == "unstable" }}'
 
 # Split by hostname and branch for more central location.
 nodes_layout:
