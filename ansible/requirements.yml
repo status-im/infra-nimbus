@@ -31,7 +31,7 @@
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: 6cc6472e32b6dc53d7d854ab5a34d554451bec15
+  version: b711bbabd2dc3d9ce8b1c3a6e5bc785901db9d09
   scm: git
 
 - name: oauth-proxy
@@ -96,7 +96,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 827033833eaf994d3b6f6ac1b555b90fdf1dd467
+  version: 49c37e1df8feb4d7938b3cc2ffc59f6dfed10231
   scm: git
 
 - name: swap-file

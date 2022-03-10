@@ -127,7 +127,6 @@ module "nimbus_nodes_prater_hetzner" {
     "65.21.196.48", # metal-04.he-eu-hel1.nimbus.prater
     "65.21.92.118", # metal-05.he-eu-hel1.nimbus.prater
     "65.21.91.59",  # metal-06.he-eu-hel1.nimbus.prater
-    "65.21.89.157", # metal-07.he-eu-hel1.nimbus.prater
   ]
 }
 

@@ -7,6 +7,7 @@ mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.n
 mainnet-01.he-eu-hel1.nimbus.openeth hostname=mainnet-01.he-eu-hel1.nimbus.openeth ansible_host=95.217.120.250 env=nimbus stage=openeth data_center=he-eu-hel1 region=eu-hel1 dns_entry=mainnet-01.he-eu-hel1.nimbus.openeth.statusim.net
 metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.3 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.fluffy.statusim.net
+metal-01.he-eu-hel1.nimbus.kiln hostname=metal-01.he-eu-hel1.nimbus.kiln ansible_host=65.21.89.157 env=nimbus stage=kiln data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.kiln.statusim.net
 metal-01.he-eu-hel1.nimbus.mainnet hostname=metal-01.he-eu-hel1.nimbus.mainnet ansible_host=95.217.87.121 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-01.he-eu-hel1.nimbus.prater hostname=metal-01.he-eu-hel1.nimbus.prater ansible_host=65.21.73.183 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.prater.statusim.net
 metal-01.he-eu-hel1.nimbus.pyrmont hostname=metal-01.he-eu-hel1.nimbus.pyrmont ansible_host=65.21.196.45 env=nimbus stage=pyrmont data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.pyrmont.statusim.net
@@ -22,7 +23,6 @@ metal-05.he-eu-hel1.nimbus.mainnet hostname=metal-05.he-eu-hel1.nimbus.mainnet a
 metal-05.he-eu-hel1.nimbus.prater hostname=metal-05.he-eu-hel1.nimbus.prater ansible_host=65.21.92.118 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-05.he-eu-hel1.nimbus.prater.statusim.net
 metal-06.he-eu-hel1.nimbus.mainnet hostname=metal-06.he-eu-hel1.nimbus.mainnet ansible_host=135.181.56.50 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-06.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-06.he-eu-hel1.nimbus.prater hostname=metal-06.he-eu-hel1.nimbus.prater ansible_host=65.21.91.59 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-06.he-eu-hel1.nimbus.prater.statusim.net
-metal-07.he-eu-hel1.nimbus.prater hostname=metal-07.he-eu-hel1.nimbus.prater ansible_host=65.21.89.157 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-07.he-eu-hel1.nimbus.prater.statusim.net
 node-01.aws-eu-central-1a.dash.nimbus hostname=node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 env=dash stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.dash.nimbus.statusim.net
 stable-large-01.aws-eu-central-1a.nimbus.prater hostname=stable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.120.202.252 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-small-01.aws-eu-central-1a.nimbus.mainnet hostname=stable-small-01.aws-eu-central-1a.nimbus.mainnet ansible_host=3.120.104.18 env=nimbus stage=mainnet data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-small-01.aws-eu-central-1a.nimbus.mainnet.statusim.net
@@ -51,6 +51,7 @@ node-01.aws-eu-central-1a.dash.nimbus
 mainnet-01.he-eu-hel1.nimbus.openeth
 metal-01.he-eu-hel1.nimbus.eth1
 metal-01.he-eu-hel1.nimbus.fluffy
+metal-01.he-eu-hel1.nimbus.kiln
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-01.he-eu-hel1.nimbus.prater
 metal-01.he-eu-hel1.nimbus.pyrmont
@@ -66,7 +67,6 @@ metal-05.he-eu-hel1.nimbus.mainnet
 metal-05.he-eu-hel1.nimbus.prater
 metal-06.he-eu-hel1.nimbus.mainnet
 metal-06.he-eu-hel1.nimbus.prater
-metal-07.he-eu-hel1.nimbus.prater
 store-01.he-eu-hel1.logs.nimbus
 store-02.he-eu-hel1.logs.nimbus
 store-03.he-eu-hel1.logs.nimbus
@@ -96,6 +96,9 @@ goerli-01.aws-eu-central-1a.nimbus.geth
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
 
+[nimbus-kiln-metal]
+metal-01.he-eu-hel1.nimbus.kiln
+
 [nimbus-mainnet-metal]
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-02.he-eu-hel1.nimbus.mainnet
@@ -121,7 +124,6 @@ metal-03.he-eu-hel1.nimbus.prater
 metal-04.he-eu-hel1.nimbus.prater
 metal-05.he-eu-hel1.nimbus.prater
 metal-06.he-eu-hel1.nimbus.prater
-metal-07.he-eu-hel1.nimbus.prater
 
 [nimbus-prater-stable]
 stable-large-01.aws-eu-central-1a.nimbus.prater
@@ -150,6 +152,9 @@ metal-02.he-eu-hel1.nimbus.fluffy
 goerli-01.aws-eu-central-1a.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
 
+[nimbus.kiln]
+metal-01.he-eu-hel1.nimbus.kiln
+
 [nimbus.mainnet]
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-02.he-eu-hel1.nimbus.mainnet
@@ -171,7 +176,6 @@ metal-03.he-eu-hel1.nimbus.prater
 metal-04.he-eu-hel1.nimbus.prater
 metal-05.he-eu-hel1.nimbus.prater
 metal-06.he-eu-hel1.nimbus.prater
-metal-07.he-eu-hel1.nimbus.prater
 stable-large-01.aws-eu-central-1a.nimbus.prater
 testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater

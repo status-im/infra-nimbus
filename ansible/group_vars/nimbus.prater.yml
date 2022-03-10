@@ -94,18 +94,12 @@ nodes_layout:
 
   'metal-05.he-eu-hel1.nimbus.prater': # 60 each
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', num_threads: 0, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
+    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
     - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
 
-  'metal-06.he-eu-hel1.nimbus.prater': # 899 each
-    - { branch: 'stable',   start: 20404, end: 22303, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 24202, end: 26101, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
-    - { branch: 'unstable', start: 22303, end: 24202, build_freq: '*-*-* 13:00:00' }
-    - { branch: 'libp2p',   start: 26101, end: 28000, build_freq: '*-*-* 17:00:00' }
-
-  'metal-07.he-eu-hel1.nimbus.prater': # 4000 each
-    - { branch: 'stable',   start: 28000, end: 31000, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 34000, end: 37000, build_freq: '*-*-* 15:00:00', num_threads: 0, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
-    - { branch: 'unstable', start: 31000, end: 34000, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
-    - { branch: 'libp2p',   start: 37000, end: 40000, build_freq: '*-*-* 17:00:00' }
+  'metal-06.he-eu-hel1.nimbus.prater': # 4899 each
+    - { branch: 'stable',   start: 20404, end: 25303, build_freq: '*-*-* 11:00:00' }
+    - { branch: 'testing',  start: 25303, end: 30202, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
+    - { branch: 'unstable', start: 30202, end: 35101, build_freq: '*-*-* 13:00:00' }
+    - { branch: 'libp2p',   start: 35101, end: 40000, build_freq: '*-*-* 17:00:00' }
