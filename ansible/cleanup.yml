@@ -25,7 +25,7 @@
       command: journalctl --vacuum-time=1d
 
     - name: Remove log gzipped archives
-      shell: 'rm -f /var/log/*.gz /var/log/nginx/*.gz /var/log/docker/*/*.gz'
+      shell: 'rm -f /var/log/*.gz /var/log/nginx/*.gz /var/log/docker/*/*.gz /var/log/service/*/*.gz'
 
     - name: Remove unused Docker images
       shell: 'docker image prune -f -a'
