@@ -37,6 +37,7 @@ geth_websocket_port: '{{ 9546 + idx|int + 1 }}'
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-devauth-{{ "%02d"|format(idx|int+1) }}'
 beacon_node_network: 'kiln'
+beacon_node_proposer_boosting_debug: true
 # FIXME: Pinned because bf127920 breaks the testnet config.
 beacon_node_repo_branch: 'a35c5f83a8f7880165e19784f73463663db9fdd8'
 # Builds
