@@ -1,0 +1,22 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
+- name: Deploy Kiln Testnet nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts:
+    - nimbus-kiln-metal
+  tasks:
+    - include_role: name=infra-role-geth
+      tags: [ geth, infra-role-geth ]
+      with_sequence: start=1 end=4
+      loop_control:
+        loop_var: 'idx'
