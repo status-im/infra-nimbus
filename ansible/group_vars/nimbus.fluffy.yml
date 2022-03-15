@@ -1,13 +1,13 @@
 ---
-nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}-{{ "%02d"|format(item|int) }}'
+nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}-{{ "%02d"|format(index|int) }}'
 nimbus_fluffy_network: 'mainnet'
 nimbus_fluffy_repo_branch: 'master'
 # General
 nimbus_fluffy_log_level: 'INFO'
 # Ports
-nimbus_fluffy_listening_port: '{{ 9100 + item|int }}'
-nimbus_fluffy_metrics_port: '{{ 9200 + item|int }}'
-nimbus_fluffy_rpc_port: '{{ 9900 + item|int }}'
+nimbus_fluffy_listening_port: '{{ 9100 + index|int }}'
+nimbus_fluffy_metrics_port: '{{ 9200 + index|int }}'
+nimbus_fluffy_rpc_port: '{{ 9900 + index|int }}'
 # One build for all nodes
 nimbus_fluffy_repo_path: '/data/nimbus-fluffy/repo'
 nimbus_fluffy_build_service_name: 'build-nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}'
