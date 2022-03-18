@@ -38,12 +38,15 @@ geth_websocket_port: '{{ 9546 + idx|int + 1 }}'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-devauth-{{ "%02d"|format(idx|int+1) }}'
 beacon_node_network: 'kiln'
 beacon_node_proposer_boosting_debug: true
-# FIXME: Pinned because bf127920 breaks the testnet config.
-beacon_node_repo_branch: 'a35c5f83a8f7880165e19784f73463663db9fdd8'
+beacon_node_repo_branch: 'kiln-dev-auth'
 # Builds
 beacon_node_build_frequency: 'daily'
 # Eth1 Sync
 beacon_node_web3_urls: ['ws://{{ hostname }}.wg:{{ geth_websocket_port }}']
+# Light client data
+beacon_node_light_client_data_enabled: true
+beacon_node_light_client_data_serve: true
+beacon_node_light_client_data_import: 'only-new'
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
