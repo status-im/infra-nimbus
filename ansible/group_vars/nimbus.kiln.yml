@@ -53,7 +53,6 @@ beacon_node_discovery_port: '{{ 9000 + idx|int + 1 }}'
 beacon_node_listening_port: '{{ 9000 + idx|int + 1 }}'
 beacon_node_metrics_port:   '{{ 9200 + idx|int + 1 }}'
 beacon_node_rest_port:      '{{ 9300 + idx|int + 1 }}'
-beacon_node_rpc_port:       '{{ 9900 + idx|int + 1 }}'
 
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.kiln':

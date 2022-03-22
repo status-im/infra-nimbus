@@ -47,18 +47,5 @@ beacon_node_build_nim_flags: >-
   -d:libp2p_protobuf_metrics
   -d:libp2p_network_protocols_metrics
 
-# ports
-beacon_node_rpc_port: 11000
-beacon_node_rest_port: 5052
-beacon_node_metrics_port : 9300
-beacon_node_listening_port: 9100
-beacon_node_discovery_port: 9100
-# Used for some administrative tasks.
-beacon_node_rpc_enabled:    true
-
 # Peers
 beacon_node_max_peers: 320
-
-# resource limits
-beacon_node_mem_limit: '{{ (ansible_memtotal_mb * 0.60) | int }}'
-beacon_node_mem_reserve: '{{ (ansible_memtotal_mb * 0.4) | int }}'
