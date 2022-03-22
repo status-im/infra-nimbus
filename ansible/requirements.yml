@@ -36,7 +36,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: b1b60917e839f9205af3952574b1f2c893aaedba
+  version: 4dd42c56a40b0fe002ccc810fe48b982de805d27
   scm: git
 
 - name: consul-service
@@ -91,7 +91,7 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 47d5b38ddb22437ca0a93e060e67f46baca66293
+  version: 18503666d0ec23b0f03328575531cd8ce8dce9db
   scm: git
 
 - name: elasticsearch-lb
