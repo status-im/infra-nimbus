@@ -27,6 +27,8 @@ beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
 beacon_node_dist_validators_end: '{{ node.end | mandatory }}'
 # HTTP RPC support is unstable
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
+# Light client data
+beacon_node_light_client_data_enabled: '{{ node.branch in ["unstable", "libp2p"] }}'
 # Other
 beacon_node_proposer_boosting_debug: '{{ node.branch == "unstable" }}'
 
