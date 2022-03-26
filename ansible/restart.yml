@@ -2,7 +2,6 @@
 - name: Restart all nodes on all hosts
   hosts:
     - nimbus.mainnet
-    - nimbus.pyrmont
     - nimbus.prater
   become: false
   tasks:

@@ -27,11 +27,9 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '{{ openethereum_p2p_port }}', chain: 'SERVICES' }
   - { port: '{{ openethereum_metrics_port }}', ipset: 'metrics.hq' }
-  - { port: '{{ openethereum_rpc_port }}', ipset: 'nimbus.pyrmont' }
   - { port: '{{ openethereum_rpc_port }}', ipset: 'nimbus.prater' }
   - { port: '{{ openethereum_rpc_port }}', ipset: 'nimbus.eth1' }
   - { port: '{{ openethereum_rpc_port }}', ipset: 'rocket.prod' }
-  - { port: '{{ openethereum_websocket_port }}', ipset: 'nimbus.pyrmont' }
   - { port: '{{ openethereum_websocket_port }}', ipset: 'nimbus.prater' }
   - { port: '{{ openethereum_websocket_port }}', ipset: 'nimbus.eth1' }
   - { port: '{{ openethereum_websocket_port }}', ipset: 'rocket.prod' }

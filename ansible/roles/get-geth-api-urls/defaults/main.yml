@@ -1,6 +1,5 @@
 ---
 eth2_to_eth1_map:
-  pyrmont: 'goerli'
   prater: 'goerli'
   mainnet: 'mainnet'
 

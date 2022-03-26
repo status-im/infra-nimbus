@@ -36,12 +36,12 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 4dd42c56a40b0fe002ccc810fe48b982de805d27
+  version: b551ae21261775bd68ba59af0ccb8b11dcef962e
   scm: git
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 7ee51839e6a032e6ca27dfb00951e897b5385609
+  version: 2b3d4e53856d6cc91ae5c5a342fd12f2bb96aa88
   scm: git
 
 - name: infra-role-beacon-node-linux
@@ -51,7 +51,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: eb51f129e13509517207f9763c3522ed5fcba7be
+  version: 8599494a48d0b1f7c3da0d338088e7c895737b80
   scm: git
 
 - name: infra-role-beacon-node-macos
@@ -86,12 +86,12 @@
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: c996858afae7effa7984403917827e79c732b957
+  version: 7ea3e3b48bde0c582abdba59e3e0e418a3d2d89d
   scm: git
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 18503666d0ec23b0f03328575531cd8ce8dce9db
+  version: d759410f171fb742c63163f8f3095a8a2d97f5ed
   scm: git
 
 - name: elasticsearch-lb

@@ -48,8 +48,8 @@ There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.
 
 There are explorers available for various testnets:
 
-* https://pyrmont.beaconcha.in/
 * https://prater.beaconcha.in/
+* https://beaconchain.kiln.themerge.dev/
 
 # Details
 

@@ -10,11 +10,9 @@ metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ans
 metal-01.he-eu-hel1.nimbus.kiln hostname=metal-01.he-eu-hel1.nimbus.kiln ansible_host=65.21.89.157 env=nimbus stage=kiln data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.kiln.statusim.net
 metal-01.he-eu-hel1.nimbus.mainnet hostname=metal-01.he-eu-hel1.nimbus.mainnet ansible_host=95.217.87.121 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-01.he-eu-hel1.nimbus.prater hostname=metal-01.he-eu-hel1.nimbus.prater ansible_host=65.21.73.183 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.prater.statusim.net
-metal-01.he-eu-hel1.nimbus.pyrmont hostname=metal-01.he-eu-hel1.nimbus.pyrmont ansible_host=65.21.196.45 env=nimbus stage=pyrmont data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.pyrmont.statusim.net
 metal-02.he-eu-hel1.nimbus.fluffy hostname=metal-02.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.174 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.fluffy.statusim.net
 metal-02.he-eu-hel1.nimbus.mainnet hostname=metal-02.he-eu-hel1.nimbus.mainnet ansible_host=135.181.0.33 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-02.he-eu-hel1.nimbus.prater hostname=metal-02.he-eu-hel1.nimbus.prater ansible_host=65.108.5.45 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.prater.statusim.net
-metal-02.he-eu-hel1.nimbus.pyrmont hostname=metal-02.he-eu-hel1.nimbus.pyrmont ansible_host=65.21.196.46 env=nimbus stage=pyrmont data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.pyrmont.statusim.net
 metal-03.he-eu-hel1.nimbus.mainnet hostname=metal-03.he-eu-hel1.nimbus.mainnet ansible_host=135.181.60.170 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-03.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-03.he-eu-hel1.nimbus.prater hostname=metal-03.he-eu-hel1.nimbus.prater ansible_host=65.21.196.47 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-03.he-eu-hel1.nimbus.prater.statusim.net
 metal-04.he-eu-hel1.nimbus.mainnet hostname=metal-04.he-eu-hel1.nimbus.mainnet ansible_host=65.21.193.229 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-04.he-eu-hel1.nimbus.mainnet.statusim.net
@@ -54,11 +52,9 @@ metal-01.he-eu-hel1.nimbus.fluffy
 metal-01.he-eu-hel1.nimbus.kiln
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-01.he-eu-hel1.nimbus.prater
-metal-01.he-eu-hel1.nimbus.pyrmont
 metal-02.he-eu-hel1.nimbus.fluffy
 metal-02.he-eu-hel1.nimbus.mainnet
 metal-02.he-eu-hel1.nimbus.prater
-metal-02.he-eu-hel1.nimbus.pyrmont
 metal-03.he-eu-hel1.nimbus.mainnet
 metal-03.he-eu-hel1.nimbus.prater
 metal-04.he-eu-hel1.nimbus.mainnet
@@ -137,10 +133,6 @@ unstable-large-01.aws-eu-central-1a.nimbus.prater
 [nimbus-prater-windows]
 windows-01.he-eu-hel1.nimbus.prater
 
-[nimbus-pyrmont-metal]
-metal-01.he-eu-hel1.nimbus.pyrmont
-metal-02.he-eu-hel1.nimbus.pyrmont
-
 [nimbus.eth1]
 metal-01.he-eu-hel1.nimbus.eth1
 
@@ -180,8 +172,4 @@ stable-large-01.aws-eu-central-1a.nimbus.prater
 testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 windows-01.he-eu-hel1.nimbus.prater
-
-[nimbus.pyrmont]
-metal-01.he-eu-hel1.nimbus.pyrmont
-metal-02.he-eu-hel1.nimbus.pyrmont
 
