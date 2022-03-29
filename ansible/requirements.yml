@@ -91,7 +91,7 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: d759410f171fb742c63163f8f3095a8a2d97f5ed
+  version: 0731b84f940b4a5de7c999606bc128b238ca3e5c
   scm: git
 
 - name: elasticsearch-lb
@@ -101,7 +101,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 49c37e1df8feb4d7938b3cc2ffc59f6dfed10231
+  version: c6bbc3d1b4b0ba603d82fa06cd17297d12523182
   scm: git
 
 - name: swap-file
