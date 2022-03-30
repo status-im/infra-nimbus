@@ -13,3 +13,12 @@ module "nimbus_nodes_kiln_hetzner" {
     "65.21.89.157", # metal-01.he-eu-hel1.nimbus.kiln
   ]
 }
+
+/* Community test REST API endpoints. */
+resource "cloudflare_record" "unstable_kiln_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "unstable.kiln.beacon-api"
+  value   = module.nimbus_nodes_kiln_hetzner.public_ips[0]
+  type    = "A"
+  proxied = false
+}

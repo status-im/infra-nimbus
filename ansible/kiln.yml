@@ -14,6 +14,8 @@
   serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus-kiln-metal
+  roles:
+    - { role: redirect-ports,    tags: [ redirect-ports ] }
   tasks:
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
