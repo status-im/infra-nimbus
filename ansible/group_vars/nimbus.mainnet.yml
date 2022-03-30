@@ -33,7 +33,7 @@ beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://
 # Light client data
 beacon_node_light_client_data_enabled: '{{ node.branch in ["unstable", "libp2p"] }}'
 # Other
-beacon_node_proposer_boosting_debug: '{{ node.branch == "unstable" }}'
+beacon_node_proposer_boosting_debug: true
 
 # Purge node DB periodically to test syncing.
 nimbus_db_purge_node_service_name: '{{ beacon_node_service_name }}'
