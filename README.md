@@ -12,35 +12,9 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 | http://testing.mainnet.beacon-api.nimbus.team/  | `metal-02.he-eu-hel1.nimbus.mainnet` |
 | http://unstable.prater.beacon-api.nimbus.team/  | `metal-01.he-eu-hel1.nimbus.prater`  |
 | http://testing.prater.beacon-api.nimbus.team/   | `metal-02.he-eu-hel1.nimbus.prater`  |
+| http://unstable.kiln.beacon-api.nimbus.team/    | `metal-01.he-eu-hel1.nimbus.kiln`    |
 
 These nodes have no validators attached.
-
-# Requirements
-
-In order to use this you will need secrets(passwords, certs, keys) contained within the [infra-pass](https://github.com/status-im/infra-pass) repository. If you can't see it ask jakub@status.im to get you access for it.
-
-In order for this to work first you need to install necessary Terraform plugins and get the right secrets from the [infra-pass](https://github.com/status-im/infra-pass) repo, to do that simply run:
-```
-make
-# alternatively
-make plugins
-make secrets
-```
-This will put the necessary certificates, keys, and passwords are in place so you can deploy and configure hosts.
-
-# Usage
-
-To deploy hosts for the subsystem run:
-```
-terraform plan
-terraform apply
-```
-Then configure the cluster:
-```
-ansible-playbook ansible/nimbus.yml
-```
-
-__For more details see `README.md` files in `ansible` folders.__
 
 # Dashboards
 
@@ -51,6 +25,6 @@ There are explorers available for various testnets:
 * https://prater.beaconcha.in/
 * https://beaconchain.kiln.themerge.dev/
 
-# Details
+# Repo Usage
 
-Read the [Terraform and Ansible](https://github.com/status-im/infra-docs/blob/master/articles/ansible_terraform.md) article in our `infra-docs` repo.
+For how to use this repo read the [Infra Repo Usage](https://github.com/status-im/infra-docs/blob/master/docs/general/infra_repo_usage.md) doc.
