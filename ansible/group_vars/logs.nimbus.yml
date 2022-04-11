@@ -12,6 +12,7 @@ swap_file_size_mb: 2048
 
 # ElasticSearch Cluster
 es_service_name: 'elasticsearch'
+es_service_path: '/docker/{{ es_service_name }}'
 es_cluster_name: 'nimbus-logs-search'
 es_docker_network_name: '{{ es_service_name }}'
 es_master_nodes: |
@@ -47,23 +48,24 @@ es_hq_cont_enabled: true
 es_hq_cont_port: 5000
 
 # oauth access
+oauth_service_name: '{{ es_hq_cont_name }}-oauth'
+oauth_service_path: '{{ es_service_path }}/oauth'
 oauth_domain: 'nimbus-es.infra.status.im'
-oauth_cont_name: '{{ es_hq_cont_name }}-oauth'
-oauth_cont_networks: [{name: '{{ es_docker_network_name }}'}]
-oauth_upstream_name: 'hq'
+oauth_cont_networks: ['{{ es_docker_network_name }}']
+oauth_upstream_addr: 'hq'
 oauth_upstream_port: '{{ es_hq_cont_port }}'
-oauth_public_port: 443
-oauth_local_port: 8090
-oauth_cookie_secret: '{{ lookup("bitwarden", "cookie-secret", field="secret") }}'
+oauth_local_port: 4180
+oauth_provider: 'github'
 oauth_id: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="client-id") }}'
 oauth_secret: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="secret") }}'
+oauth_cookie_secret: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="cookie-secret") }}'
 
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
 open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: 80,  protocol: 'tcp', chain: 'SERVICES' }
-  - { port: 443, protocol: 'tcp', chain: 'SERVICES' }
+  - { port: 80,  chain: 'SERVICES' }
+  - { port: 443, chain: 'SERVICES' }
   - { port: '{{ es_api_port }}',      ipset: 'logs.nimbus' }
   - { port: '{{ es_api_port  }}',     ipset: 'dash.nimbus' }
   - { port: '{{ es_api_port  }}',     ipset: 'log-aggr.hq' }
