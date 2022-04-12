@@ -5,7 +5,7 @@ geth_network_id: 1337802
 geth_sync_mode: 'snap'
 geth_log_level_name: info
 # Container
-geth_cont_tag: 'merge-kiln-v2'
+geth_cont_tag: 'kiln'
 geth_cont_image: 'statusteam/go-client:{{ geth_cont_tag }}'
 # Geth auth
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
