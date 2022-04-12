@@ -46,8 +46,6 @@ beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://
 beacon_node_light_client_data_enabled: '{{ node.branch in ["unstable", "libp2p"] }}'
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import: 'only-new'
-# Other
-beacon_node_proposer_boosting_debug: true
 
 # Split by hostname for more central location
 nodes_layout:

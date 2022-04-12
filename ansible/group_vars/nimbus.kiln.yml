@@ -37,7 +37,6 @@ geth_websocket_port: '{{ 9546 + idx|int + 1 }}'
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-devauth-{{ "%02d"|format(idx|int+1) }}'
 beacon_node_network: 'kiln'
-beacon_node_proposer_boosting_debug: true
 beacon_node_repo_branch: 'kiln-dev-auth'
 # Builds
 beacon_node_build_frequency: 'daily'
