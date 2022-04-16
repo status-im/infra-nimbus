@@ -43,7 +43,7 @@ beacon_node_service_user_pass: '{{lookup("bitwarden", "nimbus/windows", field="p
 # HTTP RPC support is unstable
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
 # Light client data
-beacon_node_light_client_data_enabled: '{{ node.branch in ["unstable", "libp2p"] }}'
+beacon_node_light_client_data_enabled: true
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import: 'only-new'
 
