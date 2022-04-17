@@ -60,7 +60,10 @@ beacon_node_validator_monitor_totals: '{{ (node.public_api is defined and node.p
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
-# HTTP RPC support is unstable
+# Light client data
+beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
+beacon_node_light_client_data_serve: true
+beacon_node_light_client_data_import_mode: 'full'
 #beacon_node_web3_urls: '{{ beacon_node_web3_urls_all }}'
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_web3_urls: |-
