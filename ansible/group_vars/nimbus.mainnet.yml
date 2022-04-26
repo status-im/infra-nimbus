@@ -58,7 +58,7 @@ nodes_layout:
     - { branch: 'unstable', num: 2 }
 
   'metal-02.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   nun: 1 }
+    - { branch: 'stable',   num: 1 }
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, public_api: true }
     - { branch: 'testing',  num: 2 }
