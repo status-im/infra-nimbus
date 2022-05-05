@@ -89,7 +89,7 @@ module "nimbus_nodes_prater_unstable_large" {
 }
 
 module "nimbus_nodes_prater_windows" {
-  source = "./modules/dummy-module"
+  source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "windows"
   env    = "nimbus"
@@ -110,7 +110,7 @@ module "nimbus_nodes_prater_windows" {
 }
 
 module "nimbus_nodes_prater_hetzner" {
-  source = "./modules/dummy-module"
+  source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "metal"
   env    = "nimbus"
@@ -148,7 +148,7 @@ resource "cloudflare_record" "testing_prater_beacon_api" {
 }
 
 module "nimbus_nodes_prater_macos" {
-  source = "./modules/dummy-module"
+  source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "macos"
   env    = "nimbus"

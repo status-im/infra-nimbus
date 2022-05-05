@@ -1,5 +1,5 @@
 module "nimbus_log_store" {
-  source = "./modules/dummy-module"
+  source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "store"
   env    = "logs"

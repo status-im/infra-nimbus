@@ -1,5 +1,5 @@
 module "nimbus_nodes_kiln_hetzner" {
-  source = "./modules/dummy-module"
+  source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "metal"
   env    = "nimbus"

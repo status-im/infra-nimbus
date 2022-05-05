@@ -4,7 +4,7 @@
  * 2 x 512 GB NVMe SSD
  * 1 x 2 TB NVMe SSD */
 module "nimbus_eth1_node_hetzner" {
-  source = "./modules/dummy-module"
+  source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "metal"
   env    = "nimbus"
