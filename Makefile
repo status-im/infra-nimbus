@@ -38,7 +38,6 @@ install-provisioner: $(PROVISIONER_PATH)
 
 secrets:
 	pass services/consul/ca-crt > ansible/files/consul-ca.crt
-	pass services/consul/ca-key > ansible/files/consul-ca.key
 	pass services/consul/client-crt > ansible/files/consul-client.crt
 	pass services/consul/client-key > ansible/files/consul-client.key
 
