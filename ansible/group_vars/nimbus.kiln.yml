@@ -5,8 +5,7 @@ geth_network_id: 1337802
 geth_sync_mode: 'snap'
 geth_log_level_name: info
 # Container
-geth_cont_tag: 'kiln'
-geth_cont_image: 'statusteam/go-client:{{ geth_cont_tag }}'
+geth_cont_tag: 'v1.10.17'
 # Geth auth
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 # Memory settings
@@ -14,7 +13,7 @@ geth_cont_mem_ratio: 0.3
 # Genesis
 geth_init_enabled: true
 geth_init_url: 'https://config.kiln.themerge.dev/el/genesis/geth.json'
-geth_init_sha256: 'f77edfa0fd6bfa787961f994abeacb521d6a63e895a04fcb8498f0adb971fb4b'
+geth_init_sha256: 'd882fc918533489bc757683e09f9daba4921bdc4cfa80de27f088aa0ccb671ba'
 # Bootsrap
 geth_bootnodes:
   - 'enode://c354db99124f0faf677ff0e75c3cbbd568b2febc186af664e0c51ac435609badedc67a18a63adb64dacc1780a28dcefebfc29b83fd1a3f4aa3c0eb161364cf94@164.92.130.5:30303'
