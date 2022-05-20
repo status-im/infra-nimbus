@@ -1,14 +1,18 @@
+---
 - name: Update and upgrade apt packages
-  serial: 1
-  become: true
   gather_facts: false
   hosts: all
+  serial: 1
   tasks:
     - name: Upgrade packages
       apt:
         upgrade: true
         update_cache: true
-        cache_valid_time: 86400
+        cache_valid_time: 86400 # One day
+      register: packages
+    - reboot:
+      when: packages.changed
     - name: Remove unused packages
       apt:
         autoremove: true
+        autoclean: true
