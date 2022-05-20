@@ -13,6 +13,7 @@
   become: true
   hosts:
     - nimbus-geth-goerli
+    - nimbus-geth-ropsten
     - nimbus-geth-mainnet
   roles:
     - { role: swap-file,                tags: swap-file }
