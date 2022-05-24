@@ -27,5 +27,5 @@ variable "log_stores_count" {
 variable "nimbus_team_members" {
   description = "List of Nimbus team members with Console access."
   type        = list(string)
-  default     = ["stefantalpalaru"]
+  default     = []
 }
