@@ -2,6 +2,7 @@
 eth2_to_eth1_map:
   prater: 'goerli'
   mainnet: 'mainnet'
+  ropsten: 'ropsten'
 
 eth2_network_name: '{{ beacon_node_network | mandatory }}'
 eth1_network_name: '{{ eth2_to_eth1_map[eth2_network_name] | mandatory }}'
