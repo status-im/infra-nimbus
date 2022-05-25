@@ -31,7 +31,7 @@ module "nimbus_nodes_prater_stable_large" {
   vpc_id       = module.nimbus_network.vpc.id
   subnet_id    = module.nimbus_network.subnets[0].id
   secgroup_id  = module.nimbus_network.secgroup.id
-  keypair_name = aws_key_pair.arthurk.key_name
+  keypair_name = aws_key_pair.jakubgs.key_name
 }
 
 module "nimbus_nodes_prater_testing_large" {
@@ -58,7 +58,7 @@ module "nimbus_nodes_prater_testing_large" {
   vpc_id       = module.nimbus_network.vpc.id
   subnet_id    = module.nimbus_network.subnets[0].id
   secgroup_id  = module.nimbus_network.secgroup.id
-  keypair_name = aws_key_pair.arthurk.key_name
+  keypair_name = aws_key_pair.jakubgs.key_name
 }
 
 module "nimbus_nodes_prater_unstable_large" {
@@ -85,7 +85,7 @@ module "nimbus_nodes_prater_unstable_large" {
   vpc_id       = module.nimbus_network.vpc.id
   subnet_id    = module.nimbus_network.subnets[0].id
   secgroup_id  = module.nimbus_network.secgroup.id
-  keypair_name = aws_key_pair.arthurk.key_name
+  keypair_name = aws_key_pair.jakubgs.key_name
 }
 
 module "nimbus_nodes_prater_windows" {
