@@ -15,16 +15,12 @@
   roles:
     - role: swap-file
       tags: swap-file
-    - role: origin-certs
-      tags: origin-certs
+    - role: open-ports
+      tags: open-ports
     - role: elasticsearch
       tags: elasticsearch
     - role: oauth-proxy
       tags: oauth-proxy
-    - role: nginx
-      tags: nginx
-    - role: open-ports
-      tags: open-ports
 
 - name: Configure ElasticSearch servers
   become: true

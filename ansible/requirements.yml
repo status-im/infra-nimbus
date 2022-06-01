@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 53a8258d98e748ef1569647d6ecdb2b6cf00460d
+  version: 1da64ec23c0e81e2d6de818a91b2bb451043c09b
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -91,7 +91,7 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 0731b84f940b4a5de7c999606bc128b238ca3e5c
+  version: 0677d8a98721b451f3d44f9827f05bfd880cfd1d
   scm: git
 
 - name: elasticsearch-lb
