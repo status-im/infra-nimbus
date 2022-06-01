@@ -46,6 +46,8 @@
   roles:
     - role: swap-file
       tags: swap-file
+    - role: open-ports
+      tags: open-ports
     - role: elasticsearch-lb
       tags: elasticsearch-lb
     - role: logclean-job
@@ -54,9 +56,3 @@
       tags: kibana
     - role: oauth-proxy
       tags: oauth-proxy
-    - role: origin-certs
-      tags: origin-certs
-    - role: nginx
-      tags: nginx
-    - role: open-ports
-      tags: open-ports

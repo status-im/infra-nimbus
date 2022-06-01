@@ -86,7 +86,7 @@
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: 7ea3e3b48bde0c582abdba59e3e0e418a3d2d89d
+  version: 8e8c89b6999883b7558ce543108882a09b0d51ab
   scm: git
 
 - name: elasticsearch
@@ -96,7 +96,7 @@
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 18fd708e74fd7a9a390ccba1dd26a1eef0ae8529
+  version: ba77cb2660870eb84f103b30f2f10661b8429cb9
   scm: git
 
 - name: systemd-timer

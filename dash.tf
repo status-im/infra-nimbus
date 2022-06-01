@@ -27,7 +27,7 @@ module "nimbus_dashboard" {
 resource "cloudflare_record" "nimbus_dashboard" {
   zone_id = local.zones["status.im"]
   name    = "nimbus-logs.infra"
-  value   = module.nimbus_dashboard.public_ips[0]
-  type    = "A"
-  proxied = true
+  value   = "proxy.infra.status.im"
+  type    = "CNAME"
+  proxied = false
 }
