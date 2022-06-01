@@ -23,6 +23,7 @@ There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.
 There are explorers available for various testnets:
 
 * https://prater.beaconcha.in/
+* https://ropsten.beaconcha.in/
 * https://beaconchain.kiln.themerge.dev/
 
 # Repo Usage
