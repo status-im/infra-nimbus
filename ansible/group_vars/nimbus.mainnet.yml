@@ -20,10 +20,8 @@ beacon_node_build_frequency: '*-*-* {{ 12 + port_offset }}:00:00'
 # Tuning
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
 # Monitoring
-beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
-beacon_node_validator_monitor_totals: >-
-  {{ node.branch == "unstable" and
-    (node.public_api is defined and node.public_api) }}
+beacon_node_validator_monitor_auto: true
+beacon_node_validator_monitor_totals: '{{ (node.public_api is defined and node.public_api) }}'
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets

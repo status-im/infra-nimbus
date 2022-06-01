@@ -25,12 +25,10 @@ beacon_node_threads: >-
        (node.branch == "testing") | ternary(4, 1)
   ) }}
 # Monitoring
-beacon_node_validator_monitor_auto: '{{ node.branch == "unstable" }}'
+beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: >-
-  {{ node.branch == "unstable" and
-   ((node.public_api is defined and node.public_api)
-     or
-    (node.end is defined and (node.end - node.start) > 64)) }}
+  {{ (node.public_api is defined and node.public_api)
+  or (node.end is defined and (node.end - node.start) > 64) }}
 # Builds
 beacon_node_build_frequency: '{{ node.get("build_freq", "daily") }}'
 beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
