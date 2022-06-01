@@ -15,6 +15,10 @@ es_service_name: 'elasticsearch'
 es_service_path: '/docker/{{ es_service_name }}'
 es_cluster_name: 'nimbus-logs-search'
 es_docker_network_name: '{{ es_service_name }}'
+es_api_port: 9200
+es_node_port: 9300
+es_node_cont_tag: '7.17.4'
+es_exp_cont_port: 9114
 es_master_nodes: |
   {{ ansible_play_hosts
    | map('extract', hostvars)
@@ -25,11 +29,6 @@ es_master_nodes: |
      addr: ansible_local.wireguard.vpn_ip,
      port: to_string(es_node_port)
    }') }}
-
-es_image: 'elasticsearch:7.14.2'
-es_api_port: 9200
-es_node_port: 9300
-es_exp_cont_port: 9114
 
 # Since Logstash stores 1 index per day this is fine.
 # See: https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster
