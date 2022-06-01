@@ -60,12 +60,12 @@ nodes_layout:
   'macos-01.ms-eu-dublin.nimbus.prater': # 2000 each
     - { branch: 'stable',   start:  6000, end:  8000, build_start: '13:00:00' }
     - { branch: 'testing',  start:  8000, end: 10000, build_start: '15:00:00' }
-    - { branch: 'unstable', start: 12000, end: 14000, build_start: '16:00:00' }
+    - { branch: 'unstable', start: 10000, end: 12000, build_start: '16:00:00' }
 
   'windows-01.he-eu-hel1.nimbus.prater': # 2000 each
-    - { branch: 'stable',   start: 14000, end: 16000, build_start: '13:00:00' }
-    - { branch: 'testing',  start: 16000, end: 18000, build_start: '15:00:00' }
-    - { branch: 'unstable', start: 18000, end: 20000, build_start: '16:00:00' }
+    - { branch: 'stable',   start: 12000, end: 14000, build_start: '13:00:00' }
+    - { branch: 'testing',  start: 14000, end: 16000, build_start: '15:00:00' }
+    - { branch: 'unstable', start: 16000, end: 18000, build_start: '16:00:00' }
 
   'metal-01.he-eu-hel1.nimbus.prater': # 0 each
     - { branch: 'stable',                             build_freq: '*-*-* 13:00:00' }
@@ -74,31 +74,31 @@ nodes_layout:
     - { branch: 'libp2p',                             build_freq: '*-*-* 19:00:00' }
 
   'metal-02.he-eu-hel1.nimbus.prater': # 1 each
-    - { branch: 'stable',   start: 20000, end: 20001, build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', public_api: true }
-    - { branch: 'unstable', start: 20002, end: 20003, build_freq: '*-*-* 17:00:00' }
-    - { branch: 'libp2p',   start: 20003, end: 20004, build_freq: '*-*-* 19:00:00' }
+    - { branch: 'stable',   start: 18000, end: 18001, build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',  start: 18001, end: 18002, build_freq: '*-*-* 15:00:00', public_api: true }
+    - { branch: 'unstable', start: 18002, end: 18003, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'libp2p',   start: 18003, end: 18004, build_freq: '*-*-* 19:00:00' }
 
   'metal-03.he-eu-hel1.nimbus.prater': # 10 each
-    - { branch: 'stable',   start: 20004, end: 20014, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20024, end: 20034, build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable', start: 20014, end: 20024, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
-    - { branch: 'libp2p',   start: 20034, end: 20044, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'stable',   start: 18004, end: 18014, build_freq: '*-*-* 11:00:00' }
+    - { branch: 'testing',  start: 18014, end: 18024, build_freq: '*-*-* 15:00:00' }
+    - { branch: 'unstable', start: 18024, end: 18034, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
+    - { branch: 'libp2p',   start: 18034, end: 18044, build_freq: '*-*-* 17:00:00' }
 
   'metal-04.he-eu-hel1.nimbus.prater': # 30 each
-    - { branch: 'stable',   start: 20044, end: 20074, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20104, end: 20134, build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable', start: 20074, end: 20104, build_freq: '*-*-* 13:00:00' }
-    - { branch: 'libp2p',   start: 20134, end: 20164, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'stable',   start: 18044, end: 18074, build_freq: '*-*-* 11:00:00' }
+    - { branch: 'testing',  start: 18104, end: 18134, build_freq: '*-*-* 15:00:00' }
+    - { branch: 'unstable', start: 18074, end: 18104, build_freq: '*-*-* 13:00:00' }
+    - { branch: 'libp2p',   start: 18134, end: 18164, build_freq: '*-*-* 17:00:00' }
 
   'metal-05.he-eu-hel1.nimbus.prater': # 60 each
-    - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', num_threads: 0, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
-    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
-    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'stable',   start: 18164, end: 18224, build_freq: '*-*-* 11:00:00' }
+    - { branch: 'testing',  start: 18284, end: 18344, build_freq: '*-*-* 15:00:00', num_threads: 0, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
+    - { branch: 'unstable', start: 18224, end: 18284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
+    - { branch: 'libp2p',   start: 18344, end: 18404, build_freq: '*-*-* 17:00:00' }
 
   'metal-06.he-eu-hel1.nimbus.prater':
-    - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
-    - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, branch_override: 'nim-1.6', nim_commit: 'version-1-6' } # 7899 validators
-    - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00' } # 5899 validators
-    - { branch: 'libp2p',   start: 45101, end: 50000, build_freq: '*-*-* 17:00:00' } # 4899 validators
+    - { branch: 'stable',   start: 18404, end: 28404, build_freq: '*-*-* 11:00:00' } # 10000 validators
+    - { branch: 'testing',  start: 28404, end: 36404, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, branch_override: 'nim-1.6', nim_commit: 'version-1-6' } # 8000 validators
+    - { branch: 'unstable', start: 36404, end: 42404, build_freq: '*-*-* 13:00:00' } # 6000 validators
+    - { branch: 'libp2p',   start: 42404, end: 47121, build_freq: '*-*-* 17:00:00' } # 4717 validators
