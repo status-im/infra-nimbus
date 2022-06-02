@@ -10,7 +10,7 @@ beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 # HTTP RPC support is unstable
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
-
+beacon_node_extra_flags: ['--terminal-total-difficulty-override=50000000000000000']
 # Light client data
 beacon_node_light_client_data_enabled: true
 beacon_node_light_client_data_serve: true
