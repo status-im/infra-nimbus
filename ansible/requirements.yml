@@ -121,5 +121,5 @@
 
 - name: infra-role-openethereum
   src: git@github.com:status-im/infra-role-openethereum.git
-  version: ddcac93d54dbb04fe6a971e7c1d1817cfe7b2b10
+  version: 83996de847c3573c1957d563782921cb24c79971
   scm: git
