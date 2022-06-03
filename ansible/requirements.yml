@@ -111,7 +111,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 3de59d6ae76b69291905d16c264a1d11a5e2e955
+  version: 11cdfe59ff57faaa33ed0b6d98414ece8862b20d
   scm: git
 
 - name: infra-role-geth-exporter
@@ -121,5 +121,5 @@
 
 - name: infra-role-openethereum
   src: git@github.com:status-im/infra-role-openethereum.git
-  version: 83996de847c3573c1957d563782921cb24c79971
+  version: 4e8fb26533ae97924dec258e158119aa4d3edf0f
   scm: git

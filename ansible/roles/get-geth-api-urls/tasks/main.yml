@@ -1,20 +1,15 @@
 ---
 - include_tasks: consul/posix.yml
   when: ansible_system in ['Linux', 'Darwin']
+  loop: '{{ geth_node_api_consul_names }}'
+  loop_control:
+    loop_var: 'service_name'
 
 - include_tasks: consul/windows.yml
   when: ansible_system == 'Win32NT'
-
-# On Windows json attribute is missing when it's [].
-- name: Extract Geth websocket IP and port
-  set_fact:
-    geth_api_addresses: |
-      {{ (geth_rpc_services.results
-      + geth_ws_services.results)
-      | selectattr("json", "defined")
-      | sum(attribute="json", start=[])
-      | map(attribute='ServiceMeta.url')
-      | list }}
+  loop: '{{ geth_node_api_consul_names }}'
+  loop_control:
+    loop_var: 'service_name'
 
 - name: Extract Goerli Geth WebSocket URL
   set_fact:
