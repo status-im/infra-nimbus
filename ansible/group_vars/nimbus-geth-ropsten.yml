@@ -9,6 +9,9 @@ geth_sync_mode: 'snap'
 geth_log_level_name: info
 geth_websocket_enabled: true
 geth_extra_flags: ['--override.terminaltotaldifficulty=50000000000000000']
+# Enable engine API
+geth_rcp_api: 'eth,net,web3,personal,admin,engine'
+geth_websocket_api: 'eth,net,web3,personal,admin,engine'
 # Geth auth
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 # Allow connections from our VPN
