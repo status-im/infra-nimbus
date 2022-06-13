@@ -28,8 +28,6 @@ beacon_node_dist_validators_enabled: false
 beacon_node_subscribe_all: true
 # HTTP RPC support is unstable
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
-# Light client data
-beacon_node_light_client_data_enabled: '{{ node.branch in ["unstable", "libp2p"] }}'
 
 # Purge node DB periodically to test syncing.
 nimbus_db_purge_node_service_name: '{{ beacon_node_service_name }}'

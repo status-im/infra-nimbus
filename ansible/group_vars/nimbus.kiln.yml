@@ -44,10 +44,6 @@ beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 # Eth1 Sync
 beacon_node_web3_urls: ['ws://{{ hostname }}.wg:{{ geth_websocket_port }}']
-# Light client data
-beacon_node_light_client_data_enabled: true
-beacon_node_light_client_data_serve: true
-beacon_node_light_client_data_import: 'only-new'
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
