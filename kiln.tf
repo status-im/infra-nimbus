@@ -4,7 +4,7 @@ module "nimbus_nodes_kiln_hetzner" {
   name   = "metal"
   env    = "nimbus"
   stage  = "kiln"
-  group  = "nimbus-kiln-metal"
+  groups  = [ "nimbus-kiln-metal", "nimbus-sepolia-metal" ]
   region = "eu-hel1"
   prefix = "he"
   domain = var.domain
