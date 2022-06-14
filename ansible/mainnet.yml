@@ -11,6 +11,7 @@
 
 - name: Configure network mainnet bootnodes
   become: true
+  serial: '{{ serial|default(1) }}'
   hosts: 'nimbus-mainnet-small'
   vars:
     # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
@@ -29,6 +30,7 @@
 
 - name: Deploy mainnet linux beacon nodes
   become: true
+  serial: '{{ serial|default(1) }}'
   hosts: nimbus-mainnet-metal
   roles:
     - { role: redirect-ports,               tags: [ redirect-ports ] }
@@ -43,6 +45,7 @@
 
 - name: Configure periodic puging of nodes DBs
   become: true
+  serial: '{{ serial|default(1) }}'
   hosts: nimbus-mainnet-metal
   tasks:
     - include_role: name=nimbus-db-purge

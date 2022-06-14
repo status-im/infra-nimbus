@@ -13,6 +13,7 @@
   become: true
   # To avoid clashing/duplicate validators.
   any_errors_fatal: true
+  serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus-prater-stable
     - nimbus-prater-testing
@@ -29,6 +30,7 @@
 
 - name: Deploy mainnet linux beacon nodes
   become: true
+  serial: '{{ serial|default(1) }}'
   hosts: nimbus-prater-metal
   roles:
     - { role: redirect-ports,    tags: [ redirect-ports ] }
@@ -44,6 +46,7 @@
 - name: Deploy prater Windows beacon nodes
   become: true
   become_user: 'admin'
+  serial: '{{ serial|default(1) }}'
   hosts: nimbus-prater-windows
   fact_path: 'C:/ansible/facts.d'
   roles:
@@ -58,6 +61,7 @@
 
 - name: Deploy prater macOS beacon nodes
   become: true
+  serial: '{{ serial|default(1) }}'
   hosts: nimbus-prater-macos
   roles:
     - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
