@@ -93,12 +93,12 @@ nodes_layout:
 
   'metal-05.he-eu-hel1.nimbus.prater': # 60 each
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', num_threads: 0, branch_override: 'nim-1.6', nim_commit: 'version-1-6' }
+    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', num_threads: 0, nim_commit: 'version-1-6' }
     - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
     - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
 
   'metal-06.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
-    - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, branch_override: 'nim-1.6', nim_commit: 'version-1-6' } # 7899 validators
+    - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
     - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00' } # 5899 validators
     - { branch: 'libp2p',   start: 45101, end: 50000, build_freq: '*-*-* 17:00:00' } # 4899 validators
