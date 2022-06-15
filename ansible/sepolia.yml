@@ -1,3 +1,7 @@
+# Sepolia instances and kiln instances were installed on the same host
+# Because of variables precedence and merging in ansible,
+# we had to use include_vars directive to load variables properly.
+# Otherwise, we would run another 4 kiln instances under sepolia name.
 ---
 - name: Verify Ansible versions
   hosts: all
@@ -13,10 +17,10 @@
   become: true
   serial: '{{ serial|default(1) }}'
   hosts:
-    - nimbus-sepolia-metal
+    - nimbus-kiln-metal
   tasks:
     - include_vars:
-        file: group_vars/nimbus-sepolia-metal.yml
+        file: vars/nimbus-sepolia-metal.yml
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
       with_items: '{{ nodes_layout[hostname] }}'
