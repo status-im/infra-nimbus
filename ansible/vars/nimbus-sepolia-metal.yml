@@ -1,0 +1,30 @@
+---
+# Go-Ethereum
+geth_service_name: 'geth-sepolia-{{ "%02d"|format(idx|int+1) }}'
+geth_network_name: 'sepolia'
+geth_sync_mode: 'full'
+geth_log_level_name: info
+# Container
+geth_cont_tag: 'v1.10.18'
+# Geth auth
+geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+# Memory settings
+geth_cont_mem_ratio: 0.3
+# Genesis
+geth_init_enabled: false
+# Ports
+geth_port: '{{ 30303 + idx|int + 11 }}'
+geth_metrics_port: '{{ 6060 + idx|int + 11 }}'
+geth_rpc_enabled: true
+geth_rpc_addr: '0.0.0.0'
+geth_rpc_port: '{{ 8545 + idx|int + 11 }}'
+geth_websocket_enabled: true
+geth_websocket_addr: '0.0.0.0'
+geth_websocket_port: '{{ 9546 + idx|int + 11 }}'
+
+nodes_layout:
+  'metal-01.he-eu-hel1.nimbus.kiln':
+    - { }
+    - { }
+    - { }
+    - { }
