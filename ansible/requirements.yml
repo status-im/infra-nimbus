@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 27243637e56cb3c3ff83832acbb60cc772f9a7f9
+  version: 775ada48235bff1f46110190b352ab5a68f44843
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -56,7 +56,7 @@
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 11da856632fb66b79c7229f82b90aa7fc2da08c6
+  version: 159f8e6bf078e33a7901ba03c7c4225093e23d86
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -86,17 +86,17 @@
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: 8e8c89b6999883b7558ce543108882a09b0d51ab
+  version: 7ea3e3b48bde0c582abdba59e3e0e418a3d2d89d
   scm: git
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 0677d8a98721b451f3d44f9827f05bfd880cfd1d
+  version: 0731b84f940b4a5de7c999606bc128b238ca3e5c
   scm: git
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: ba77cb2660870eb84f103b30f2f10661b8429cb9
+  version: 18fd708e74fd7a9a390ccba1dd26a1eef0ae8529
   scm: git
 
 - name: systemd-timer

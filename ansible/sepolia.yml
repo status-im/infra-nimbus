@@ -21,8 +21,15 @@
   tasks:
     - include_vars:
         file: vars/nimbus-sepolia-metal.yml
+      tags: always
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx
+    - include_role: name=infra-role-beacon-node-linux
+      tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
