@@ -143,9 +143,6 @@ windows-01.he-eu-hel1.nimbus.prater
 [nimbus-ropsten-metal]
 metal-01.he-eu-hel1.nimbus.ropsten
 
-[nimbus-sepolia-metal]
-metal-01.he-eu-hel1.nimbus.kiln
-
 [nimbus.eth1]
 metal-01.he-eu-hel1.nimbus.eth1
 
