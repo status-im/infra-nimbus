@@ -89,9 +89,9 @@ nodes_layout:
 
   'metal-05.he-eu-hel1.nimbus.prater': # 60 each
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', num_threads: 0, nim_commit: 'version-1-6' }
+    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
     - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
-    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00', nim_commit: 'version-1-6' }
 
   'metal-06.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
