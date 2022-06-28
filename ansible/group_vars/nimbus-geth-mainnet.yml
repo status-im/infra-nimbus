@@ -35,6 +35,8 @@ open_ports_default_comment: 'Geth Metrics'
 open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq' }
-  - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.mainnet' }
   - { port: '{{ geth_rpc_port }}',       ipset: 'rocket.prod' }
+  - { port: '{{ geth_rpc_port }}',       ipset: 'eth2.prod' }
+  - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.mainnet' }
   - { port: '{{ geth_websocket_port }}', ipset: 'rocket.prod' }
+  - { port: '{{ geth_websocket_port }}', ipset: 'eth2.prod' }
