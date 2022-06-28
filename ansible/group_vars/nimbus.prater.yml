@@ -65,25 +65,25 @@ nodes_layout:
 
   'metal-01.he-eu-hel1.nimbus.prater': # 0 each
     - { branch: 'stable',                             build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00' }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
     - { branch: 'unstable',                           build_freq: '*-*-* 17:00:00', public_api: true }
     - { branch: 'libp2p',                             build_freq: '*-*-* 19:00:00' }
 
   'metal-02.he-eu-hel1.nimbus.prater': # 1 each
     - { branch: 'stable',   start: 20000, end: 20001, build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', public_api: true }
+    - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6', public_api: true }
     - { branch: 'unstable', start: 20002, end: 20003, build_freq: '*-*-* 17:00:00' }
     - { branch: 'libp2p',   start: 20003, end: 20004, build_freq: '*-*-* 19:00:00' }
 
   'metal-03.he-eu-hel1.nimbus.prater': # 10 each
     - { branch: 'stable',   start: 20004, end: 20014, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20024, end: 20034, build_freq: '*-*-* 15:00:00' }
+    - { branch: 'testing',  start: 20024, end: 20034, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
     - { branch: 'unstable', start: 20014, end: 20024, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
     - { branch: 'libp2p',   start: 20034, end: 20044, build_freq: '*-*-* 17:00:00' }
 
   'metal-04.he-eu-hel1.nimbus.prater': # 30 each
     - { branch: 'stable',   start: 20044, end: 20074, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20104, end: 20134, build_freq: '*-*-* 15:00:00' }
+    - { branch: 'testing',  start: 20104, end: 20134, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
     - { branch: 'unstable', start: 20074, end: 20104, build_freq: '*-*-* 13:00:00' }
     - { branch: 'libp2p',   start: 20134, end: 20164, build_freq: '*-*-* 17:00:00' }
 
