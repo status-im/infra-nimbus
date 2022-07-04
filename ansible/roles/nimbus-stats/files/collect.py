@@ -46,10 +46,10 @@ class ES:
                 { '@timestamp': { 'order': 'desc' } },
             ],
         }
-    
+
     def _index(self):
-       return 
-    
+       return
+
     def get_logs(self, query):
         return self.es.search(
             index=self._index(),
@@ -77,7 +77,7 @@ def save_stats(data, output_file):
         },
         'data': data,
     }
-    
+
     if output_file:
         LOG.info('Saving to file: %s', output_file)
         with open(output_file, 'w') as f:
@@ -111,7 +111,7 @@ def parse_opts():
                       help='Logging level. (%default)')
     parser.add_option('-o', '--output-file',
                       help='File to which write the resulting JSON.')
-    
+
     return parser.parse_args()
 
 def debug_options(opts):
@@ -126,16 +126,16 @@ def main():
     debug_options(opts)
 
     es = ES(opts.es_host, opts.es_port, opts.page_size, opts.timeout)
-    
+
     LOG.info('Querying fleet: %s', opts.fleet)
     query = es.make_query(opts.fleet, opts.program, opts.messages, opts.since)
     rval = es.get_logs(query)
 
     LOG.info('Found matching logs: %d', rval['hits']['total']['value'])
     logs = rval['hits']['hits']
-    
+
     data = get_first_for_node(logs)
-    
+
     save_stats(data, opts.output_file)
 
 if __name__ == '__main__':

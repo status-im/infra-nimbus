@@ -6,7 +6,7 @@ origin_certs:
     key: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.key")}}'
     default: true
 
-# Syncing can use a lot of mamory
+# Syncing can use a lot of memory
 swap_file_path: '/main.swap'
 swap_file_size_mb: 2048
 

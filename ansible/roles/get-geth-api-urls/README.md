@@ -12,6 +12,6 @@ infura_api_tokens:
  - 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
  - 'cccccccccccccccccccccccccccccccc'
 ```
-And the more we have the less likely that we hit the Infura treshhold.
+And the more we have the less likely that we hit the Infura threshold.
 
 The Geth node Consul service is expected to have an `url` in metadata.
