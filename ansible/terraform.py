@@ -23,7 +23,7 @@ Environment Variables:
         you have multiple copies or versions installed and need to specify a
         specific binary. The inventory script runs the `terraform state pull`
         command to fetch the Terraform state, so that remote state will be
-        fetched seamlessly regardless of the backend configuration.
+        fetched seemlessly regardless of the backend configuration.
 
     ANSIBLE_TF_DIR
         Set the working directory for the `terraform` command when the scripts
@@ -50,7 +50,7 @@ TERRAFORM_PATH = os.environ.get('ANSIBLE_TF_BIN', 'terraform')
 TERRAFORM_BPK = os.path.join(TERRAFORM_DIR, '.terraform/terraform.tfstate.backup')
 
 def _tf_env():
-    # way to figure out currently used TF workspace
+    # way to figure out currenly used TF workspace
     try:
         with open(TERRAFORM_ENV) as f:
             return f.read()
@@ -192,7 +192,7 @@ class TerraformResource(object):
 
     def read_attr(self, key):
         '''
-        Read an attribute from the underlying state content.
+        Read an attribute from the underlaying state content.
         '''
         return self._raw_attributes().get(key, None)
 

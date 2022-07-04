@@ -19,7 +19,7 @@ class Role:
     @property
     def path(self):
         return path.join(ANSIBLE_ROLES_PATH, self.name)
-
+    
     def exists(self):
         return path.isdir(self.path)
 
@@ -52,7 +52,7 @@ for req in requirements:
         errors += 1
         continue
 
-    # For now we allow not specifying versions for everything.
+    # For now we allow not specifying versions for everyhing.
     if role.version is None:
         print('%25s - No version!' % role.name)
         continue
