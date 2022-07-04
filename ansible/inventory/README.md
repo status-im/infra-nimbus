@@ -21,4 +21,4 @@ So if ever Consul KV store is lost, it can be recovered from this copy.
 
 # Details
 
-For more details on how Ansible and Terraform interact read [this article](https://github.com/status-im/infra-docs/blob/master/articles/ansible_terraform.md).
+For more details on how Ansible and Terraform interact read [this article](https://github.com/status-im/infra-docs/blob/master/docs/general/ansible_terraform.md).
