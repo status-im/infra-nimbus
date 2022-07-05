@@ -8,8 +8,6 @@ geth_network_name: 'ropsten'
 geth_sync_mode: 'snap'
 geth_log_level_name: info
 geth_websocket_enabled: true
-# Container
-geth_cont_tag: 'v1.10.19'
 # Enable engine API
 geth_rcp_api: 'eth,net,web3,personal,admin,engine'
 geth_websocket_api: 'eth,net,web3,personal,admin,engine'

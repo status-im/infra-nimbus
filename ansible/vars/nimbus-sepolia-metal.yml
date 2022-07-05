@@ -4,8 +4,6 @@ geth_service_name: 'geth-sepolia-{{ "%02d"|format(idx|int+1) }}'
 geth_network_name: 'sepolia'
 geth_sync_mode: 'full'
 geth_log_level_name: info
-# Container
-geth_cont_tag: 'v1.10.19'
 # Geth auth
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 # Memory settings
