@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+set -eof pipefail
+
+BEACON_NODE_BIN_PATH="{{ TODO }}"
+BEACON_NODE_DATA_DIR="{{ TODO }}"
+BEACON_NODE_DB_DIR="${BEACON_NODE_DATA_DIR}/data/shared_mainnet_0/db"
+
+"${BEACON_NODE_BIN_PATH}/bin/ncli_db" exportEra --db="${BEACON_NODE_DB_DIR}"
+
+

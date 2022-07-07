@@ -1,0 +1,8 @@
+---
+nimbus_era_files_timer_name: 'nimbus-era-files-update'
+nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_timer_user: 'nimbus'
+nimbus_era_files_timer_group: 'staff'
+nimbus_era_files_timer_frequency: 'weekly'
+nimbus_era_files_timer_timeout_sec: 82800
+nimbus_era_files_timer_script: '{{ nimbus_era_files_timer_path }}/update.sh'

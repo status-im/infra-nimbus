@@ -1,0 +1,22 @@
+---
+- name: Create ERA file update script
+  template:
+    src:    'update.sh.j2'
+    dest:   '{{ nimbus_era_files_timer_script }}'
+    owner:  '{{ nimbus_era_files_timer_user }}'
+    group:  '{{ nimbus_era_files_timer_group }}'
+    mode:   0755
+
+- name: Create timer for ERA file updates
+  include_role: name=systemd-timer
+  vars:
+    systemd_timer_description:  'Update Nimbus beacon node ERA files'
+    #systemd_timer_start_on_creation: false
+    systemd_timer_ionice_class: 'idle'
+    systemd_timer_name:         '{{ nimbus_era_files_timer_name }}'
+    systemd_timer_user:         '{{ nimbus_era_files_timer_user }}'
+    systemd_timer_group:        '{{ nimbus_era_files_timer_group }}'
+    systemd_timer_frequency:    '{{ nimbus_era_files_timer_frequency }}'
+    systemd_timer_timeout_sec:  '{{ nimbus_era_files_timer_timeout_sec }}'
+    systemd_timer_work_dir:     '{{ nimbus_era_files_timer_path }}'
+    systemd_timer_script_path:  '{{ nimbus_era_files_timer_script }}'
