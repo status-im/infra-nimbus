@@ -47,7 +47,7 @@ beacon_node_rest_address:   '0.0.0.0'
 
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.kiln':
-    - {  branch: 'stable',   start:  0, end:  25 }
-    - {  branch: 'testing',  start: 25, end:  50 }
-    - {  branch: 'unstable', start: 50, end:  75, nim_commit: 'version-1-6' }
-    - {  branch: 'libp2p',   start: 75, end: 100, nim_flags: '-d:json_rpc_websocket_package=websock' }
+    - { start:  0, end:  25 }
+    - { start: 25, end:  50 }
+    - { start: 50, end:  75, nim_commit: 'version-1-6' }
+    - { start: 75, end: 100, nim_flags: '-d:json_rpc_websocket_package=websock' }
