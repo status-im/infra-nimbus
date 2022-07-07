@@ -11,6 +11,7 @@ nimbus_eth1_rpc_enabled: true
 nimbus_eth1_rpc_port: '{{ 8545 + idx|int + 22 }}'
 nimbus_eth1_ws_enabled: true
 nimbus_eth1_ws_port: '{{ 9546 + idx|int + 22 }}'
+nimbus_eth1_jwt_secret:  '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
 # Beacon Nodes -----------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_repo_branch }}-trial-{{ "%02d"|format(idx|int+1) }}'
@@ -26,6 +27,7 @@ beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 #Eth1 Sync
 beacon_node_web3_urls: ['ws://localhost:{{ nimbus_eth1_ws_port }}']
+beacon_node_web3_jwt_secret: '{{ nimbus_eth1_jwt_secret }}'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
