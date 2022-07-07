@@ -19,15 +19,41 @@
   hosts:
     - nimbus-kiln-metal
   tasks:
-    - include_vars:
-        file: vars/nimbus-sepolia-metal.yml
-      tags: always
+    - name: Load network specific variables
+      tags: [ always ]
+      include_vars: file=vars/nimbus-sepolia-metal.yml
+
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
+
+    - include_role: name=infra-role-beacon-node-linux
+      tags: [ beacon-node, infra-role-beacon-node-linux ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx
+
+- name: Deploy Spolia Testnet Eth1 trial
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts:
+    - nimbus-kiln-metal
+  tasks:
+    - name: Load network specific variables
+      tags: [ always ]
+      include_vars: file=vars/nimbus-sepolia-trial.yml
+
+    - include_role: name=infra-role-nimbus-eth1
+      tags: [ nimbus-eth1, infra-role-nimbus-eth1 ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx
+
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'

@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: ac60b2f7547d72382616ac7f5f9f680dd9e41394
+  version: af4c662ce866d96073e3de5c7ee3daf56a6d7558
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -61,7 +61,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 468bc82fc98562f464dc5710202b430c9517d5b1
+  version: 341c77b1af9733968980d5301bbe81a533250af4
   scm: git
 
 - name: infra-role-nimbus-fluffy
