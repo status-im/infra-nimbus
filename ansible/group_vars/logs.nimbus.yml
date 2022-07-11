@@ -63,9 +63,9 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: 80,  chain: 'SERVICES' }
   - { port: 443, chain: 'SERVICES' }
+  - { port: '{{ es_api_port  }}',     ipset: 'logs.hq' }
   - { port: '{{ es_api_port }}',      ipset: 'logs.nimbus' }
   - { port: '{{ es_api_port  }}',     ipset: 'dash.nimbus' }
-  - { port: '{{ es_api_port  }}',     ipset: 'log-aggr.hq' }
   - { port: '{{ es_node_port }}',     ipset: 'logs.nimbus' }
   - { port: '{{ es_node_port }}',     ipset: 'dash.nimbus' }
   - { port: '{{ es_exp_cont_port }}', ipset: 'metrics.hq' }
