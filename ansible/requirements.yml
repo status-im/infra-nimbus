@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: af4c662ce866d96073e3de5c7ee3daf56a6d7558
+  version: e7bc4c0145ca98d0bbb5e986fd9b1ebf98a4535c
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -51,7 +51,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 76d6d8d59bffe8cb57c337de62263a1e19ab09e8
+  version: 895998e06833ccea7c951fda24f1e5d0292501c3
   scm: git
 
 - name: infra-role-beacon-node-macos
@@ -61,7 +61,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 474b200b7b3324b686beeaeef9ee89055b13df61
+  version: 4de341ed040c7af81fe82abca664337ed107948f
   scm: git
 
 - name: infra-role-nimbus-fluffy
