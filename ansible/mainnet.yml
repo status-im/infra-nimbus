@@ -35,6 +35,7 @@
   roles:
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
+    - { role: nimbus-era-files,             tags: [ nimbus-era-file ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
