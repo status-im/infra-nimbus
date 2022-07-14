@@ -40,33 +40,15 @@ es_number_of_replicas: 0
 es_jvm_min_heap: '32g'
 es_jvm_max_heap: '32g'
 
-# ElasticSearch HQ
-es_hq_cont_enabled: true
-es_hq_cont_port: 5000
-
-# oauth access
-oauth_service_name: '{{ es_hq_cont_name }}-oauth'
-oauth_service_path: '{{ es_service_path }}/oauth'
-oauth_domain: 'nimbus-es.infra.status.im'
-oauth_cont_networks: ['{{ es_docker_network_name }}']
-oauth_upstream_addr: 'hq'
-oauth_upstream_port: '{{ es_hq_cont_port }}'
-oauth_local_port: 4180
-oauth_provider: 'github'
-oauth_id: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="client-id") }}'
-oauth_secret: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="secret") }}'
-oauth_cookie_secret: '{{ lookup("bitwarden", "nimbus/elastic-hq/oauth", field="cookie-secret") }}'
-
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
 open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: 80,  chain: 'SERVICES' }
   - { port: 443, chain: 'SERVICES' }
-  - { port: '{{ es_api_port  }}',     ipset: 'logs.hq' }
+  - { port: '{{ es_api_port  }}',     ipset: 'dash.hq' }
   - { port: '{{ es_api_port }}',      ipset: 'logs.nimbus' }
   - { port: '{{ es_api_port  }}',     ipset: 'dash.nimbus' }
   - { port: '{{ es_node_port }}',     ipset: 'logs.nimbus' }
   - { port: '{{ es_node_port }}',     ipset: 'dash.nimbus' }
   - { port: '{{ es_exp_cont_port }}', ipset: 'metrics.hq' }
-  - { port: '{{ oauth_local_port }}', ipset: 'proxy.misc' }

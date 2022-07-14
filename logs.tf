@@ -15,11 +15,3 @@ module "nimbus_log_store" {
     "65.108.129.57",
   ]
 }
-
-resource "cloudflare_record" "nimbus_log_store" {
-  zone_id = local.zones["status.im"]
-  name    = "nimbus-es.infra"
-  value   = "proxy.infra.status.im"
-  type    = "CNAME"
-  proxied = false
-}
