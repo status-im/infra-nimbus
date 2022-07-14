@@ -15,10 +15,10 @@ kibana_domain: 'nimbus-logs.infra.status.im'
 kibana_service_name: 'kibana'
 kibana_docker_network_name: '{{ kibana_service_name }}'
 kibana_cont_name: '{{ kibana_service_name }}'
-kibana_cont_tag: '7.17.4'
+kibana_cont_tag: '7.17.5'
 kibana_cont_port: 5601
-kiban_es_lb_addr: '{{ es_lb_cont_name }}'
-kiban_es_lb_port: '{{ es_lb_api_port }}'
+kibana_es_lb_addr: '{{ es_lb_cont_name }}'
+kibana_es_lb_port: '{{ es_lb_api_port }}'
 
 # oauth access
 oauth_service_name: '{{ kibana_service_name }}'
@@ -38,7 +38,7 @@ oauth_cookie_secret: '{{ lookup("bitwarden", "nimbus/kibana/oauth", field="cooki
 es_lb_service_name: 'elasticsearch'
 es_lb_docker_network_name: '{{ kibana_docker_network_name }}'
 es_lb_cont_name: '{{ es_lb_service_name }}-lb'
-es_lb_cont_tag: '7.17.4'
+es_lb_cont_tag: '7.17.5'
 es_lb_data_center: do-ams3
 es_lb_cluster_name: 'nimbus-logs-search'
 es_lb_cluster_dc: 'he-eu-hel1'

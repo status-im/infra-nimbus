@@ -36,7 +36,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: b551ae21261775bd68ba59af0ccb8b11dcef962e
+  version: 121d5c05aee4bf59f3ab223c0f16ca368718baa3
   scm: git
 
 - name: consul-service
@@ -86,12 +86,12 @@
 
 - name: kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: 8e8c89b6999883b7558ce543108882a09b0d51ab
+  version: c69dd80b5f8c5c27e8cca799080876fdad4ee4c1
   scm: git
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 0677d8a98721b451f3d44f9827f05bfd880cfd1d
+  version: b74ce144da1ebb90fc2ff99288e8d7843839a964
   scm: git
 
 - name: elasticsearch-lb
