@@ -22,6 +22,11 @@ beacon_node_metrics_port:   '{{ 9200 + idx|int + 1 }}'
 beacon_node_rest_port:      '{{ 9300 + idx|int + 1 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
+# Additional disk drive
+bootstrap__extra_volume_device_path: '/dev/nvme2n1'
+bootstrap__extra_volume_path: '/docker'
+bootstrap__extra_volume_bind_path: ''
+
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.ropsten':
     # FIXME: Temporary layout change due to one Geth instance.
