@@ -1,4 +1,36 @@
 ---
+# Go-Ethereum
+geth_service_name: 'nimbus-ropsten-{{ "%02d"|format(idx|int+1) }}'
+geth_network_name: 'ropsten'
+geth_sync_mode: 'snap'
+geth_log_level_name: info
+geth_websocket_enable: true
+# Enable engine API¬
+geth_rcp_api: 'eth,net,web3,personal,admin,engine'
+geth_websocket_api: 'eth,net,web3,personal,admin,engine'
+# Geth auth
+geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+# Allow connections from our VPN
+geth_websocket_origins: '*'
+# Memory settings¬
+geth_cont_mem_ratio: 0.3
+geth_cache_size: '{{ (ansible_memtotal_mb * 0.25|float) | int }}'
+
+# Geth metrics¬
+geth_expo_service_name: '{{ geth_service_name }}'
+geth_expo_source_cont_name: '{{ geth_cont_name }}'
+geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
+
+# Ports
+geth_port: '{{ 30303 + idx|int + 11 }}'
+geth_metrics_port: '{{ 6060 + idx|int + 11 }}'
+geth_rpc_enabled: true
+geth_rpc_addr: '0.0.0.0'
+geth_rpc_port: '{{ 8545 + idx|int + 11 }}'
+geth_websocket_enabled: true
+geth_websocket_addr: '0.0.0.0'
+geth_websocket_port: '{{ 9546 + idx|int + 11 }}'
+
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_repo_branch }}-{{ "%02d"|format(idx|int+1) }}'
 beacon_node_network: 'ropsten'
@@ -9,7 +41,7 @@ beacon_node_build_frequency: 'daily'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 # HTTP RPC support is unstable
-beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
+beacon_node_web3_urls: ['ws://localhost:{{ geth_websocket_port }}']
 beacon_node_extra_flags: ['--terminal-total-difficulty-override=50000000000000000']
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
@@ -29,8 +61,8 @@ bootstrap__extra_volume_bind_path: ''
 
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.ropsten':
-    # FIXME: Temporary layout change due to one Geth instance.
-    - { start:    0, end: 10000 }
-    - { }
-    - { }
-    - { }
+    - { start:    0, end:  2500 }
+    - { start: 2500, end:  5000 }
+    - { start: 5000, end:  7500 }
+    - { start: 7500, end: 10000 }
+
