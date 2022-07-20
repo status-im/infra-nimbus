@@ -11,6 +11,7 @@
   vars:
     systemd_timer_description:       'Update Nimbus beacon node ERA files'
     systemd_timer_start_on_creation: false
+    systemd_timer_enabled:           '{{ nimbus_era_files_timer_enabled }}'
     systemd_timer_name:              '{{ nimbus_era_files_timer_name }}'
     systemd_timer_user:              '{{ nimbus_era_files_timer_user }}'
     systemd_timer_group:             '{{ nimbus_era_files_timer_group }}'
