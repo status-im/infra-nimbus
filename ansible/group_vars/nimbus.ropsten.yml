@@ -41,7 +41,7 @@ beacon_node_build_frequency: 'daily'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 # HTTP RPC support is unstable
-beacon_node_web3_urls: ['ws://localhost:{{ geth_websocket_port }}']
+beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
 beacon_node_extra_flags: ['--terminal-total-difficulty-override=50000000000000000']
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
@@ -61,8 +61,9 @@ bootstrap__extra_volume_bind_path: ''
 
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.ropsten':
-    - { start:    0, end:  2500 }
-    - { start: 2500, end:  5000 }
-    - { start: 5000, end:  7500 }
-    - { start: 7500, end: 10000 }
+    # FIXME: Temporary layout change due to one Geth instance.
+    - { start:    0, end:  10000 }
+    - { }
+    - { }
+    - { }
 
