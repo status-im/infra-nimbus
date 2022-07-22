@@ -22,6 +22,13 @@
         loop_var: node
         index_var: idx
 
+    - include_role: name=infra-role-geth-exporter
+      tags: [ geth, infra-role-geth-exporter ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx
+
     - include_role: name=infra-role-beacon-node-linux
       tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'
