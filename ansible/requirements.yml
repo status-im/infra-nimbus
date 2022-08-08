@@ -6,7 +6,7 @@
 
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
-  version: 60587f86e085255b537cc37647003af105214d20
+  version: f2b061da8976444d6576b755578f0e799cde4372
   scm: git
 
 - name: open-ports
@@ -16,17 +16,17 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: e7bc4c0145ca98d0bbb5e986fd9b1ebf98a4535c
+  version: 356394892900dd5ca26c41e5315c31cb2d8786bf
   scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: fb631ec6b51d3cfb45c8373486bb9cdfb2073f37
+  version: 451132e27b325cb123f3a5fa1f7c595716dce0f4
   scm: git
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: cc1e959b97dfe3320d5a17ec5b9bb888546c6500
+  version: 54b7188e69febf5df94b6f3309a3db88faccd274
   scm: git
 
 - name: infra-role-wireguard
@@ -46,17 +46,17 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 251a4c0cd5a793e37b0069cdd0e4b59656cfde1a
+  version: a3a5d18b7bf05b1f57363445e903d668dc536361
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 7f5b17addc73c7eeafbd82a0eb5b02462f4aac4f
+  version: c1b64c611331f9d1b6f456ffe8a9004dacb3b730
   scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 94d094820105e0d0ab85d0bed5e70abf3347d4cb
+  version: 4e50f87201cee38e04995c7056c8ad98a34a26be
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -101,7 +101,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 4ad0a9bfb57fcc1c1e7322c2a2293e726edb98f7
+  version: 4009905f62f6bd9e02ceb94346dd06ab2a06fc15
   scm: git
 
 - name: swap-file
@@ -111,7 +111,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 6e1474f7ab17576121eb2e509e46b90123d9be4d
+  version: 6e2e211e198711ffeb67029ad4eb1e4996962c53
   scm: git
 
 - name: infra-role-geth-exporter
