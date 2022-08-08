@@ -9,6 +9,7 @@ service_number: '{{ node.get("num", False) | ternary(("-%02d"|format(node.get("n
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch | mandatory }}{{ service_number }}'
 beacon_node_service_path: '/data/{{ beacon_node_service_name }}'
 beacon_node_data_folder: 'shared_{{ beacon_node_network }}_0'
+beacon_node_era_symlink_path: '{{ nimbus_era_files_timer_enabled | ternary(nimbus_era_files_timer_path, false) }}'
 # Ports
 beacon_node_discovery_port: '{{ 9000 + port_offset }}'
 beacon_node_listening_port: '{{ 9000 + port_offset }}'
@@ -39,7 +40,7 @@ nimbus_db_purge_truster_node_api_url: 'http://localhost:{{ beacon_node_rest_port
 nimbus_db_purge_trusted_node_sync_enabled: '{{ node.get("db_sync", false) }}'
 
 # ERA files geneartion.
-nimbus_era_files_timer_enabled: '{{ nodes_layout[hostname]|length > 1 }}'
+nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
 # FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
 nimbus_era_files_node_service_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01'
