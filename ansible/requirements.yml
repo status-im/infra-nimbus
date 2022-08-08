@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: a3a5d18b7bf05b1f57363445e903d668dc536361
+  version: 1e7e441a06dcbecdd6c0ce050dbffb28c462e7d8
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -71,7 +71,7 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 0da551085f6562f6aac6357234d38cefe135deb3
+  version: dfc2adb3bd713cef23bd142a7b04b0b43e0c650a
   scm: git
 
 - name: infra-role-rocketpool
