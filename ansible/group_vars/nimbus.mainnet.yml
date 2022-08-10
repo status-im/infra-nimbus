@@ -10,14 +10,14 @@ beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch 
 beacon_node_service_path: '/data/{{ beacon_node_service_name }}'
 beacon_node_era_symlink_path: '{{ nimbus_era_files_timer_enabled | ternary(nimbus_era_files_timer_path, false) }}'
 # Ports
-beacon_node_discovery_port: '{{ 9000 + port_offset }}'
-beacon_node_listening_port: '{{ 9000 + port_offset }}'
-beacon_node_metrics_port:   '{{ 9200 + port_offset }}'
-beacon_node_rest_port:      '{{ 9300 + port_offset }}'
+beacon_node_discovery_port: '{{ 9000 + idx }}'
+beacon_node_listening_port: '{{ 9000 + idx }}'
+beacon_node_metrics_port:   '{{ 9200 + idx }}'
+beacon_node_rest_port:      '{{ 9300 + idx }}'
 # Firewall
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Builds
-beacon_node_build_frequency: '*-*-* {{ 12 + port_offset }}:00:00'
+beacon_node_build_frequency: '*-*-* {{ 12 + idx }}:00:00'
 # Tuning
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
 # Monitoring

@@ -26,7 +26,7 @@
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
-        index_var: port_offset
+        index_var: idx
 
 - name: Deploy mainnet linux beacon nodes
   become: true
@@ -42,7 +42,7 @@
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
-        index_var: port_offset
+        index_var: idx
 
 - name: Configure periodic puging of nodes DBs
   become: true
@@ -54,4 +54,4 @@
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
-        index_var: port_offset
+        index_var: idx
