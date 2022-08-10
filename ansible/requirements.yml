@@ -36,7 +36,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 121d5c05aee4bf59f3ab223c0f16ca368718baa3
+  version: ff690889d9ad55492ea3b346ad19345c2e9083a9
   scm: git
 
 - name: consul-service
@@ -46,7 +46,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 1e7e441a06dcbecdd6c0ce050dbffb28c462e7d8
+  version: aaa9c09a720ea1ff0dc52889e888fe45254c4366
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -101,7 +101,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 4009905f62f6bd9e02ceb94346dd06ab2a06fc15
+  version: ddb42bd2d8b28d0f17f30a8ea2a1672d83714487
   scm: git
 
 - name: swap-file

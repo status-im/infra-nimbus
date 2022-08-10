@@ -13,7 +13,8 @@ beacon_node_era_symlink_path: '{{ nimbus_era_files_timer_enabled | ternary(nimbu
 beacon_node_discovery_port: '{{ 9000 + idx }}'
 beacon_node_listening_port: '{{ 9000 + idx }}'
 beacon_node_metrics_port:   '{{ 9200 + idx }}'
-beacon_node_rest_port:      '{{ 9300 + idx }}'
+beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx }}'
+beacon_node_rest_port_base: 9300
 # Firewall
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Builds
@@ -29,6 +30,10 @@ beacon_node_dist_validators_enabled: false
 beacon_node_subscribe_all: true
 # HTTP RPC support is unstable
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all | reject("match", "^http://") }}'
+# Periodic resync to save space
+beacon_node_resync_timer_enabled: '{{ idx % 2 == 1 }}'
+beacon_node_resync_timer_frequency: 'weekly'
+beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base }}'
 
 # Purge node DB periodically to test syncing.
 nimbus_db_purge_node_service_name: '{{ beacon_node_service_name }}'
