@@ -8,7 +8,7 @@
 
 - name: Find available Geth API RPC services
   win_uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-rpc?dc={{ item }}'
+    url: '{{ consul_catalog_url }}/service/{{ service_name }}-rpc?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
     content_type: 'application/json'
     return_content: true
   with_items: '{{ data_centers.json }}'
@@ -16,7 +16,7 @@
 
 - name: Find available Geth WebSocket services
   win_uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-ws?dc={{ item }}'
+    url: '{{ consul_catalog_url }}/service/{{ service_name }}-ws?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
     content_type: 'application/json'
     return_content: true
   with_items: '{{ data_centers.json }}'

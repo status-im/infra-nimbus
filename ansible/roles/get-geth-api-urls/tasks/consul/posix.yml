@@ -6,13 +6,13 @@
 
 - name: Find available Geth API RPC services
   uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-rpc?dc={{ item }}'
+    url: '{{ consul_catalog_url }}/service/{{ service_name }}-rpc?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
   with_items: '{{ data_centers.json }}'
   register: geth_rpc_services
 
 - name: Find available Geth API WebSocket services
   uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-ws?dc={{ item }}'
+    url: '{{ consul_catalog_url }}/service/{{ service_name }}-ws?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
   with_items: '{{ data_centers.json }}'
   register: geth_ws_services
 

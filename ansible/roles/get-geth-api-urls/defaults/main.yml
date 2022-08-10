@@ -6,6 +6,7 @@ eth2_to_eth1_map:
 
 eth2_network_name: '{{ beacon_node_network | mandatory }}'
 eth1_network_name: '{{ eth2_to_eth1_map[eth2_network_name] | mandatory }}'
+geth_node_api_fleet_name: 'nimbus.geth'
 geth_node_api_consul_names:
   - 'geth-{{ eth1_network_name | mandatory }}'
   - 'openeth-{{ eth1_network_name | mandatory }}'
@@ -20,3 +21,5 @@ infura_api_tokens:
 
 selected_infura_token: '{{ infura_api_tokens[play_hosts.index(inventory_hostname) % (infura_api_tokens|length)] }}'
 selected_infura_url: 'wss://{{ eth1_network_name }}.infura.io/ws/v3/{{ selected_infura_token }}'
+
+consul_catalog_url: 'http://localhost:8500/v1/catalog'
