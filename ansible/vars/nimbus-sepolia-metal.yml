@@ -50,6 +50,6 @@ beacon_node_rest_address:   '0.0.0.0'
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.kiln':
     - { start:  0, end:  25 }
-    - { start: 25, end:  50, nim_commit: 'version-1-6', branch: 'mev-register-validators', payload_builder_enabled: true  }
+    - { start: 25, end:  50, nim_commit: 'version-1-6', payload_builder_enabled: true  }
     - { start: 50, end:  75, nim_commit: 'version-1-6' }
     - { start: 75, end: 100, nim_flags: '-d:json_rpc_websocket_package=websock' }
