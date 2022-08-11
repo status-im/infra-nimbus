@@ -13,5 +13,6 @@ infura_api_tokens:
  - 'cccccccccccccccccccccccccccccccc'
 ```
 And the more we have the less likely that we hit the Infura threshold.
+Infura endpoints are only used for Mainnet.
 
 The Geth node Consul service is expected to have an `url` in metadata.

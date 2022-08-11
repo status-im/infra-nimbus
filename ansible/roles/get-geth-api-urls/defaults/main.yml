@@ -9,7 +9,10 @@ eth1_network_name: '{{ eth2_to_eth1_map[eth2_network_name] | mandatory }}'
 geth_node_api_fleet_name: 'nimbus.geth'
 geth_node_api_consul_names:
   - 'geth-{{ eth1_network_name | mandatory }}'
-  - 'openeth-{{ eth1_network_name | mandatory }}'
+
+# No Auth RPC setup yet
+#  - 'openeth-{{ eth1_network_name | mandatory }}'
+#
 geth_api_addresses: []
 # The more the merrier, since we don't want to hit Infura throttling.
 infura_api_tokens:

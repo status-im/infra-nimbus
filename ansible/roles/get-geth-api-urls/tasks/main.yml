@@ -13,5 +13,8 @@
 
 - name: Extract Goerli Geth WebSocket URL
   set_fact:
-    # our nodes first (will be used by default) then an infura node
-    beacon_node_web3_urls_all: "{{ geth_api_addresses + [ selected_infura_url ] }}"
+    # Our nodes first (will be used by default) then an Infura node.
+    # Currently only Mainnet has not had it's merge, so it can use Infura.
+    beacon_node_web3_urls_all: |
+      {{ geth_api_addresses +
+      (eth1_network_name == "mainnet") | ternary([selected_infura_url], []) }}

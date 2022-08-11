@@ -4,8 +4,9 @@ geth_service_name: 'geth-kiln-{{ "%02d"|format(idx|int+1) }}'
 geth_network_name: 'kiln'
 geth_sync_mode: 'snap'
 geth_log_level_name: info
-# Geth auth
+# Geth auth & JWT token
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 # Memory settings
 geth_cont_mem_ratio: 0.3
 # Genesis
@@ -21,6 +22,8 @@ geth_metrics_port: '{{ 6060 + idx|int + 1 }}'
 geth_rpc_enabled: true
 geth_rpc_addr: '0.0.0.0'
 geth_rpc_port: '{{ 8545 + idx|int + 1 }}'
+geth_authrpc_addr: '0.0.0.0'
+geth_authrpc_port: '{{ 8551 + idx|int + 1 }}'
 geth_websocket_enabled: true
 geth_websocket_addr: '0.0.0.0'
 geth_websocket_port: '{{ 9546 + idx|int + 1 }}'
@@ -35,7 +38,7 @@ beacon_node_build_frequency: 'daily'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 # Eth1 Sync
-beacon_node_web3_urls: ['ws://{{ hostname }}.wg:{{ geth_websocket_port }}']
+beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'

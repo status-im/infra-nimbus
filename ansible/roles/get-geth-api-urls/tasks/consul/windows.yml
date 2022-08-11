@@ -6,30 +6,20 @@
     return_content: true
   register: data_centers
 
-- name: Find available Geth API RPC services
+- name: Find available Geth API Auth RPC services
   win_uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-rpc?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
+    url: '{{ consul_catalog_url }}/service/{{ service_name }}-authrpc?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
     content_type: 'application/json'
     return_content: true
   with_items: '{{ data_centers.json }}'
   register: geth_rpc_services
 
-- name: Find available Geth WebSocket services
-  win_uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-ws?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
-    content_type: 'application/json'
-    return_content: true
-  with_items: '{{ data_centers.json }}'
-  register: geth_ws_services
-
 # On Windows json attribute is missing when it's [].
 - name: Extract Geth websocket IP and port
   set_fact:
     geth_api_addresses: |
-      {{ geth_api_addresses +
-      (geth_rpc_services.results
-      + geth_ws_services.results)
+      {{ (geth_api_addresses + geth_rpc_services.results)
       | selectattr("json", "defined")
       | sum(attribute="json", start=[])
-      | map(attribute='ServiceMeta.url')
+      | map(attribute="ServiceMeta.url")
       | list }}
