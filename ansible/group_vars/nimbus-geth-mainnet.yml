@@ -10,8 +10,9 @@ geth_network_name: 'mainnet'
 geth_sync_mode: 'snap'
 geth_log_level_name: info
 geth_websocket_enabled: true
-# Geth auth
+# Geth auth & JWT token
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 # Allow connections from our VPN
 geth_websocket_origins: '*'
 # Memory settings
@@ -26,17 +27,20 @@ geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_port: 30303
 geth_rpc_addr: '0.0.0.0'
 geth_rpc_port: 8545
+geth_authrpc_addr: '0.0.0.0'
+geth_authrpc_port: 8551
 geth_websocket_addr: '0.0.0.0'
 geth_websocket_port: 8546
 geth_expo_cont_port: 9200
 
 # Open Ports
-open_ports_default_comment: 'Geth Metrics'
+open_ports_default_comment: 'Geth API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq' }
-  - { port: '{{ geth_rpc_port }}',       ipset: 'rocket.prod' }
+  - { port: '{{ geth_expo_cont_port }}', ipset: 'metrics.hq', comment: 'Geth Metrics' }
+  - { port: '{{ geth_rpc_port }}',       ipset: 'nimbus.mainnet' }
   - { port: '{{ geth_rpc_port }}',       ipset: 'eth2.prod' }
+  - { port: '{{ geth_authrpc_port }}',   ipset: 'nimbus.mainnet' }
+  - { port: '{{ geth_authrpc_port }}',   ipset: 'eth2.prod' }
   - { port: '{{ geth_websocket_port }}', ipset: 'nimbus.mainnet' }
-  - { port: '{{ geth_websocket_port }}', ipset: 'rocket.prod' }
   - { port: '{{ geth_websocket_port }}', ipset: 'eth2.prod' }
