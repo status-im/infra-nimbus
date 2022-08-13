@@ -15,6 +15,7 @@ beacon_node_listening_port: '{{ 9000 + idx }}'
 beacon_node_metrics_port:   '{{ 9200 + idx }}'
 beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx }}'
 beacon_node_rest_port_base: 9300
+beacon_node_rest_address:   '0.0.0.0'
 # Firewall
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Builds
