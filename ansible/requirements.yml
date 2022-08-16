@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: b55047ece047a4d070813f7458325db608a24a1e
+  version: 2b98037fbdf7bfaeb914e6a3f16132f8b319f875
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -111,12 +111,12 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: fb1897650c9fe556143700eadadc2faeafa3ab13
+  version: 24993a45c7b8ada41e32559fae9ee899d37aba37
   scm: git
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
-  version: 30e6a08e9b2badffbd32472fff640aefef26fd37
+  version: 21770167cdeb5c481066547b6d0814f1ba8546c1
   scm: git
 
 - name: infra-role-openethereum
