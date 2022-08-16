@@ -19,6 +19,7 @@
     - nimbus-prater-testing
     - nimbus-prater-unstable
   roles:
+    - { role: open-ports,        tags: open-ports        }
     - { role: get-geth-api-urls, tags: get-geth-api-urls }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
@@ -33,6 +34,7 @@
   serial: '{{ serial|default(1) }}'
   hosts: nimbus-prater-metal
   roles:
+    - { role: open-ports,        tags: open-ports        }
     - { role: redirect-ports,    tags: [ redirect-ports ] }
     - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
   tasks:

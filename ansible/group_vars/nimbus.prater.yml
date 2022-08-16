@@ -43,6 +43,12 @@ beacon_node_service_user_pass: '{{lookup("bitwarden", "nimbus/windows", field="p
 beacon_node_web3_urls: '{{ beacon_node_web3_urls_all }}'
 beacon_node_web3_jwt_secret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
+# Open Ports
+open_ports_default_comment: 'Nimbus REST API'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
+
 # Split by hostname for more central location
 nodes_layout:
   # WARNING: The nodes hosted on AWS are bootstrap nodes and should not be changed.
