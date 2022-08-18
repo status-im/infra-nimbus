@@ -39,6 +39,7 @@ beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 #Eth1 Sync
 beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
+beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
