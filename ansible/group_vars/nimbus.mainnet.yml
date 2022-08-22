@@ -34,7 +34,8 @@ beacon_node_web3_urls: '{{ beacon_node_web3_urls_all }}'
 # Periodic resync to save space
 beacon_node_resync_enabled: true
 beacon_node_resync_timer_enabled: '{{ idx % 2 == 1 }}'
-beacon_node_resync_timer_frequency: 'weekly'
+beacon_node_resync_timer_frequency: 'monthly'
+beacon_node_resync_timer_random_delay_sec: 604800 # 7 days
 beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base }}'
 
 # Purge node DB periodically to test syncing.
