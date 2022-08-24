@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 2b98037fbdf7bfaeb914e6a3f16132f8b319f875
+  version: d2eaa2d875f41d063e46eb6318270903315aab4d
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -41,7 +41,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 0cddfb4dd696e759a0a95c4753e7b95aeedc4242
+  version: 7653d06cfc4d2613ee14bf637d38d98b0201864f
   scm: git
 
 - name: infra-role-beacon-node-linux
@@ -111,7 +111,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 13c92d58ccc5b4cbd01ee2957a070beb314f8ae7
+  version: 773c384dccbe0e8ada5ed4fc2af8f474f69cf944
   scm: git
 
 - name: infra-role-geth-exporter
