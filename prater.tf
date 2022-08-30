@@ -109,7 +109,7 @@ module "nimbus_nodes_prater_windows" {
   ]
 }
 
-module "nimbus_nodes_prater_hetzner" {
+module "old_nimbus_nodes_prater_hetzner" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
   name   = "metal"
@@ -127,6 +127,27 @@ module "nimbus_nodes_prater_hetzner" {
     "65.21.196.48", # metal-04.he-eu-hel1.nimbus.prater
     "65.21.92.118", # metal-05.he-eu-hel1.nimbus.prater
     "65.21.91.59",  # metal-06.he-eu-hel1.nimbus.prater
+  ]
+}
+
+module "nimbus_nodes_prater_hetzner" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "linux"
+  env    = "nimbus"
+  stage  = "prater"
+  group  = "nimbus-prater-metal"
+  region = "eu-hel1"
+  prefix = "he"
+  domain = var.domain
+
+  ips = [
+    "95.217.198.113", # linux-01.he-eu-hel1.nimbus.prater
+    "95.217.230.20",  # linux-02.he-eu-hel1.nimbus.prater
+    "65.108.132.230", # linux-03.he-eu-hel1.nimbus.prater
+    "135.181.20.36",  # linux-04.he-eu-hel1.nimbus.prater
+    "95.217.224.92",  # linux-05.he-eu-hel1.nimbus.prater
+    "95.217.204.216", # linux-06.he-eu-hel1.nimbus.prater
   ]
 }
 
