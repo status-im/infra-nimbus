@@ -4,7 +4,6 @@
 goerli-01.aws-eu-central-1a.nimbus.geth hostname=goerli-01.aws-eu-central-1a.nimbus.geth ansible_host=18.194.109.141 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=goerli-01.aws-eu-central-1a.nimbus.geth.statusim.net
 macos-01.ms-eu-dublin.nimbus.prater hostname=macos-01.ms-eu-dublin.nimbus.prater ansible_host=207.254.102.98 env=nimbus stage=prater data_center=ms-eu-dublin region=eu-dublin dns_entry=macos-01.ms-eu-dublin.nimbus.prater.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
-mainnet-01.he-eu-hel1.nimbus.openeth hostname=mainnet-01.he-eu-hel1.nimbus.openeth ansible_host=95.217.120.250 env=nimbus stage=openeth data_center=he-eu-hel1 region=eu-hel1 dns_entry=mainnet-01.he-eu-hel1.nimbus.openeth.statusim.net
 metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.3 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.fluffy.statusim.net
 metal-01.he-eu-hel1.nimbus.kiln hostname=metal-01.he-eu-hel1.nimbus.kiln ansible_host=65.21.89.157 env=nimbus stage=kiln data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.kiln.statusim.net
@@ -47,7 +46,6 @@ unstable-large-01.aws-eu-central-1a.nimbus.prater
 node-01.aws-eu-central-1a.dash.nimbus
 
 [he-eu-hel1]
-mainnet-01.he-eu-hel1.nimbus.openeth
 metal-01.he-eu-hel1.nimbus.eth1
 metal-01.he-eu-hel1.nimbus.fluffy
 metal-01.he-eu-hel1.nimbus.kiln
@@ -109,9 +107,6 @@ metal-06.he-eu-hel1.nimbus.mainnet
 stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 
-[nimbus-openeth-mainnet]
-mainnet-01.he-eu-hel1.nimbus.openeth
-
 [nimbus-prater-macos]
 macos-01.ms-eu-dublin.nimbus.prater
 
@@ -161,9 +156,6 @@ metal-05.he-eu-hel1.nimbus.mainnet
 metal-06.he-eu-hel1.nimbus.mainnet
 stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
-
-[nimbus.openeth]
-mainnet-01.he-eu-hel1.nimbus.openeth
 
 [nimbus.prater]
 macos-01.ms-eu-dublin.nimbus.prater

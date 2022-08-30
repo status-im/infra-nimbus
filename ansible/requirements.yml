@@ -118,8 +118,3 @@
   src: git@github.com:status-im/infra-role-geth-exporter.git
   version: 21770167cdeb5c481066547b6d0814f1ba8546c1
   scm: git
-
-- name: infra-role-openethereum
-  src: git@github.com:status-im/infra-role-openethereum.git
-  version: 4e8fb26533ae97924dec258e158119aa4d3edf0f
-  scm: git
