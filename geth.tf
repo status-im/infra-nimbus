@@ -51,3 +51,21 @@ module "nimbus_geth_goerli" {
   secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
+
+module "nimbus_geth_goerli_windows" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "windows-goerli"
+  env    = "nimbus"
+  stage  = "geth"
+  group  = "nimbus-geth-goerli-windows"
+  region = "eu-hel1"
+  prefix = "he"
+  domain = var.domain
+
+  ips = [
+    "65.21.196.47", # windows-goerli-01.he-eu-hel1.nimbus.geth
+  ]
+}
+
+

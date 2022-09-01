@@ -31,6 +31,7 @@ store-03.he-eu-hel1.logs.nimbus hostname=store-03.he-eu-hel1.logs.nimbus ansible
 testing-large-01.aws-eu-central-1a.nimbus.prater hostname=testing-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.99.236 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.prater hostname=unstable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.130 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 windows-01.he-eu-hel1.nimbus.prater hostname=windows-01.he-eu-hel1.nimbus.prater ansible_host=65.21.233.67 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=windows-01.he-eu-hel1.nimbus.prater.statusim.net
+windows-goerli-01.he-eu-hel1.nimbus.geth hostname=windows-goerli-01.he-eu-hel1.nimbus.geth ansible_host=65.21.196.47 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=windows-goerli-01.he-eu-hel1.nimbus.geth.statusim.net
 
 [aws-eu-central-1a]
 goerli-01.aws-eu-central-1a.nimbus.geth
@@ -67,6 +68,7 @@ store-01.he-eu-hel1.logs.nimbus
 store-02.he-eu-hel1.logs.nimbus
 store-03.he-eu-hel1.logs.nimbus
 windows-01.he-eu-hel1.nimbus.prater
+windows-goerli-01.he-eu-hel1.nimbus.geth
 
 [log-dash]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -88,6 +90,9 @@ metal-02.he-eu-hel1.nimbus.fluffy
 
 [nimbus-geth-goerli]
 goerli-01.aws-eu-central-1a.nimbus.geth
+
+[nimbus-geth-goerli-windows]
+windows-goerli-01.he-eu-hel1.nimbus.geth
 
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
@@ -143,6 +148,7 @@ metal-02.he-eu-hel1.nimbus.fluffy
 [nimbus.geth]
 goerli-01.aws-eu-central-1a.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
+windows-goerli-01.he-eu-hel1.nimbus.geth
 
 [nimbus.kiln]
 metal-01.he-eu-hel1.nimbus.kiln
