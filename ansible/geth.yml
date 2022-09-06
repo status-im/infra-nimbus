@@ -19,3 +19,24 @@
     - { role: open-ports,               tags: open-ports }
     - { role: infra-role-geth,          tags: infra-role-geth }
     - { role: infra-role-geth-exporter, tags: infra-role-geth-exporter }
+
+- name: Deploy prater Geth nodes for Windows
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts: nimbus-geth-goerli-windows
+  roles:
+    - { role: swap-file,         tags: swap-file         }
+    - { role: open-ports,        tags: open-ports        }
+  tasks:
+    - include_role: name=infra-role-geth
+      tags: [ geth, infra-role-geth ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx
+    - include_role: name=infra-role-geth-exporter
+      tags: [ geth-exporter, infra-role-geth-exporter ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx

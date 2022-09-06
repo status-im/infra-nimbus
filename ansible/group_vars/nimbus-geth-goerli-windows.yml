@@ -1,0 +1,41 @@
+---
+# Geth node
+geth_service_name: 'geth-goerli-{{ "%02d"|format(idx|int+1) }}'
+geth_service_path: '/docker/{{ geth_service_name }}'
+geth_cont_name: '{{ geth_service_name }}-node'
+geth_cont_vol: '{{ geth_service_path }}/node'
+geth_network_name: 'goerli'
+geth_sync_mode: 'full'
+geth_log_level_name: info
+# Geth auth & JWT token
+geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+# Memory settings
+geth_cont_mem_ratio: 0.8
+geth_cache_size: '{{ (ansible_memtotal_mb * 0.25|float) | int }}'
+# Ports
+geth_port: '{{ 30303 + (idx|int) + 1 }}'
+geth_rpc_port: '{{ 8545 + (idx|int) + 1 }}'
+geth_metrics_port: '{{ 6060 + (idx|int) + 1 }}'
+geth_websocket_port: '{{ 9546 + (idx|int) + 1 }}'
+geth_authrpc_port: '{{ 8551 + (idx|int) + 1 }}'
+geth_authrpc_addr: '0.0.0.0'
+
+# Geth metrics
+geth_expo_service_name: '{{ geth_service_name }}'
+geth_expo_source_cont_name: '{{ geth_cont_name }}'
+geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
+geth_expo_cont_port: '{{ 9400 + (idx|int) + 1 }}'
+
+# Open Ports
+open_ports_default_comment: 'Geth API'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '9400:9404', ipset: 'metrics.hq', comment: 'Geth Metrics' }
+  - { port: '8551:8554', ipset: 'nimbus.prater' }
+
+nodes_layout:
+  'windows-goerli-01.he-eu-hel1.nimbus.geth':
+    - { }
+    - { }
+    - { }
