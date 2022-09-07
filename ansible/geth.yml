@@ -12,7 +12,6 @@
 - name: Configure geth nodes
   become: true
   hosts:
-    - nimbus-geth-goerli
     - nimbus-geth-mainnet
   roles:
     - { role: swap-file,                tags: swap-file }
@@ -23,7 +22,8 @@
 - name: Deploy prater Geth nodes for Windows
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus-geth-goerli-windows
+  hosts:
+    - nimbus-geth-goerli
   roles:
     - { role: swap-file,         tags: swap-file         }
     - { role: open-ports,        tags: open-ports        }
