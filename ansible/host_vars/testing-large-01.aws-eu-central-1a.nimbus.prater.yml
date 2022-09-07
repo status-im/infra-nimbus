@@ -1,3 +1,4 @@
+---
 # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
 beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
 
@@ -7,3 +8,7 @@ beacon_node_listening_port: 9100
 
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
+
+# HTTP RPC support is unstable
+beacon_node_web3_urls: ['http://goerli-01.he-eu-hel1.nimbus.geth.wg:8552']
+beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'

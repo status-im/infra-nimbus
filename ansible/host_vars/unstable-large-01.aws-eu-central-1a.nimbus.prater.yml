@@ -1,0 +1,4 @@
+---
+# HTTP RPC support is unstable
+beacon_node_web3_urls: ['http://goerli-01.he-eu-hel1.nimbus.geth.wg:8553']
+beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
