@@ -2,9 +2,9 @@ output "hosts" {
   value = merge(
     module.nimbus_dashboard.hosts,
     module.nimbus_log_store.hosts,
-    module.nimbus_geth_goerli.hosts,
     module.nimbus_geth_mainnet.hosts,
-    module.nimbus_geth_goerli_windows.hosts,
+    module.nimbus_geth_goerli.hosts,
+    module.nimbus_geth_goerli_metal.hosts,
     module.nimbus_nodes_mainnet_hetzner.hosts,
     module.nimbus_nodes_mainnet_stable_small.hosts,
     module.nimbus_nodes_prater_stable_large.hosts,

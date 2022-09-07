@@ -2,6 +2,9 @@
 # For emergency use when Consul fails
 [all]
 goerli-01.aws-eu-central-1a.nimbus.geth hostname=goerli-01.aws-eu-central-1a.nimbus.geth ansible_host=18.194.109.141 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=goerli-01.aws-eu-central-1a.nimbus.geth.statusim.net
+goerli-01.he-eu-hel1.nimbus.geth hostname=goerli-01.he-eu-hel1.nimbus.geth ansible_host=65.21.73.183 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-01.he-eu-hel1.nimbus.geth.statusim.net
+goerli-02.he-eu-hel1.nimbus.geth hostname=goerli-02.he-eu-hel1.nimbus.geth ansible_host=65.21.196.48 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-02.he-eu-hel1.nimbus.geth.statusim.net
+goerli-03.he-eu-hel1.nimbus.geth hostname=goerli-03.he-eu-hel1.nimbus.geth ansible_host=65.21.196.47 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-03.he-eu-hel1.nimbus.geth.statusim.net
 linux-01.he-eu-hel1.nimbus.prater hostname=linux-01.he-eu-hel1.nimbus.prater ansible_host=95.217.198.113 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.prater.statusim.net
 linux-02.he-eu-hel1.nimbus.prater hostname=linux-02.he-eu-hel1.nimbus.prater ansible_host=95.217.230.20 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-02.he-eu-hel1.nimbus.prater.statusim.net
 linux-03.he-eu-hel1.nimbus.prater hostname=linux-03.he-eu-hel1.nimbus.prater ansible_host=65.108.132.230 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-03.he-eu-hel1.nimbus.prater.statusim.net
@@ -9,7 +12,6 @@ linux-04.he-eu-hel1.nimbus.prater hostname=linux-04.he-eu-hel1.nimbus.prater ans
 linux-05.he-eu-hel1.nimbus.prater hostname=linux-05.he-eu-hel1.nimbus.prater ansible_host=95.217.224.92 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-05.he-eu-hel1.nimbus.prater.statusim.net
 linux-06.he-eu-hel1.nimbus.prater hostname=linux-06.he-eu-hel1.nimbus.prater ansible_host=95.217.204.216 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-06.he-eu-hel1.nimbus.prater.statusim.net
 macos-01.ms-eu-dublin.nimbus.prater hostname=macos-01.ms-eu-dublin.nimbus.prater ansible_host=207.254.102.98 env=nimbus stage=prater data_center=ms-eu-dublin region=eu-dublin dns_entry=macos-01.ms-eu-dublin.nimbus.prater.statusim.net
-macos-goerli-01.he-eu-hel1.nimbus.geth hostname=macos-goerli-01.he-eu-hel1.nimbus.geth ansible_host=65.21.196.48 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=macos-goerli-01.he-eu-hel1.nimbus.geth.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
 metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.3 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.fluffy.statusim.net
@@ -32,7 +34,6 @@ store-03.he-eu-hel1.logs.nimbus hostname=store-03.he-eu-hel1.logs.nimbus ansible
 testing-large-01.aws-eu-central-1a.nimbus.prater hostname=testing-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.99.236 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=testing-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 unstable-large-01.aws-eu-central-1a.nimbus.prater hostname=unstable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.65.85.130 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=unstable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 windows-01.he-eu-hel1.nimbus.prater hostname=windows-01.he-eu-hel1.nimbus.prater ansible_host=65.21.233.67 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=windows-01.he-eu-hel1.nimbus.prater.statusim.net
-windows-goerli-01.he-eu-hel1.nimbus.geth hostname=windows-goerli-01.he-eu-hel1.nimbus.geth ansible_host=65.21.196.47 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=windows-goerli-01.he-eu-hel1.nimbus.geth.statusim.net
 
 [aws-eu-central-1a]
 goerli-01.aws-eu-central-1a.nimbus.geth
@@ -48,13 +49,15 @@ unstable-large-01.aws-eu-central-1a.nimbus.prater
 node-01.aws-eu-central-1a.dash.nimbus
 
 [he-eu-hel1]
+goerli-01.he-eu-hel1.nimbus.geth
+goerli-02.he-eu-hel1.nimbus.geth
+goerli-03.he-eu-hel1.nimbus.geth
 linux-01.he-eu-hel1.nimbus.prater
 linux-02.he-eu-hel1.nimbus.prater
 linux-03.he-eu-hel1.nimbus.prater
 linux-04.he-eu-hel1.nimbus.prater
 linux-05.he-eu-hel1.nimbus.prater
 linux-06.he-eu-hel1.nimbus.prater
-macos-goerli-01.he-eu-hel1.nimbus.geth
 metal-01.he-eu-hel1.nimbus.eth1
 metal-01.he-eu-hel1.nimbus.fluffy
 metal-01.he-eu-hel1.nimbus.kiln
@@ -70,7 +73,6 @@ store-01.he-eu-hel1.logs.nimbus
 store-02.he-eu-hel1.logs.nimbus
 store-03.he-eu-hel1.logs.nimbus
 windows-01.he-eu-hel1.nimbus.prater
-windows-goerli-01.he-eu-hel1.nimbus.geth
 
 [log-dash]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -92,12 +94,9 @@ metal-02.he-eu-hel1.nimbus.fluffy
 
 [nimbus-geth-goerli]
 goerli-01.aws-eu-central-1a.nimbus.geth
-
-[nimbus-geth-goerli-macos]
-macos-goerli-01.he-eu-hel1.nimbus.geth
-
-[nimbus-geth-goerli-windows]
-windows-goerli-01.he-eu-hel1.nimbus.geth
+goerli-01.he-eu-hel1.nimbus.geth
+goerli-02.he-eu-hel1.nimbus.geth
+goerli-03.he-eu-hel1.nimbus.geth
 
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
@@ -152,9 +151,10 @@ metal-02.he-eu-hel1.nimbus.fluffy
 
 [nimbus.geth]
 goerli-01.aws-eu-central-1a.nimbus.geth
-macos-goerli-01.he-eu-hel1.nimbus.geth
+goerli-01.he-eu-hel1.nimbus.geth
+goerli-02.he-eu-hel1.nimbus.geth
+goerli-03.he-eu-hel1.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
-windows-goerli-01.he-eu-hel1.nimbus.geth
 
 [nimbus.kiln]
 metal-01.he-eu-hel1.nimbus.kiln

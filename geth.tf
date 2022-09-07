@@ -52,34 +52,20 @@ module "nimbus_geth_goerli" {
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 
-module "nimbus_geth_goerli_windows" {
+module "nimbus_geth_goerli_metal" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
-  name   = "windows-goerli"
+  name   = "goerli"
   env    = "nimbus"
   stage  = "geth"
-  group  = "nimbus-geth-goerli-windows"
+  group  = "nimbus-geth-goerli"
   region = "eu-hel1"
   prefix = "he"
   domain = var.domain
 
   ips = [
-    "65.21.196.47", # windows-goerli-01.he-eu-hel1.nimbus.geth
-  ]
-}
-
-module "nimbus_geth_goerli_macos" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "macos-goerli"
-  env    = "nimbus"
-  stage  = "geth"
-  group  = "nimbus-geth-goerli-macos"
-  region = "eu-hel1"
-  prefix = "he"
-  domain = var.domain
-
-  ips = [
-    "65.21.196.48", # macos-goerli-01.he-eu-hel1.nimbus.geth
+    "65.21.73.183", # goerli-01.he-eu-hel1.nimbus.geth
+    "65.21.196.48", # goerli-02.he-eu-hel1.nimbus.geth
+    "65.21.196.47", # goerli-03.he-eu-hel1.nimbus.geth
   ]
 }
