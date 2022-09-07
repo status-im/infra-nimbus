@@ -68,4 +68,18 @@ module "nimbus_geth_goerli_windows" {
   ]
 }
 
+module "nimbus_geth_goerli_macos" {
+  source = "github.com/status-im/infra-tf-dummy-module"
 
+  name   = "macos-goerli"
+  env    = "nimbus"
+  stage  = "geth"
+  group  = "nimbus-geth-goerli-macos"
+  region = "eu-hel1"
+  prefix = "he"
+  domain = var.domain
+
+  ips = [
+    "65.21.196.48", # macos-goerli-01.he-eu-hel1.nimbus.geth
+  ]
+}
