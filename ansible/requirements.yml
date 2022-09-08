@@ -26,7 +26,7 @@
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: a2f62bab930a8a1a73949ddf941104868d76fadc
+  version: c0d021970a9f42e4ce069a46dbb437cdfb3e25b7
   scm: git
 
 - name: infra-role-wireguard
