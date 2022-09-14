@@ -12,7 +12,7 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 | http://testing.mainnet.beacon-api.nimbus.team/  | `metal-02.he-eu-hel1.nimbus.mainnet` |
 | http://unstable.prater.beacon-api.nimbus.team/  | `metal-01.he-eu-hel1.nimbus.prater`  |
 | http://testing.prater.beacon-api.nimbus.team/   | `metal-02.he-eu-hel1.nimbus.prater`  |
-| http://unstable.kiln.beacon-api.nimbus.team/    | `metal-01.he-eu-hel1.nimbus.kiln`    |
+| http://unstable.sepolia.beacon-api.nimbus.team/ | `metal-01.he-eu-hel1.nimbus.sepolia` |
 
 These nodes have no validators attached.
 
@@ -22,9 +22,9 @@ There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.
 
 There are explorers available for various testnets:
 
-* https://prater.beaconcha.in/
+* https://mainnet.beaconcha.in/
 * https://ropsten.beaconcha.in/
-* https://beaconchain.kiln.themerge.dev/
+* https://prater.beaconcha.in/
 
 # Repo Usage
 

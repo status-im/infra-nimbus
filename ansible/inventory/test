@@ -5,6 +5,7 @@ goerli-01.he-eu-hel1.nimbus.geth hostname=goerli-01.he-eu-hel1.nimbus.geth ansib
 goerli-02.he-eu-hel1.nimbus.geth hostname=goerli-02.he-eu-hel1.nimbus.geth ansible_host=65.21.196.48 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-02.he-eu-hel1.nimbus.geth.statusim.net
 goerli-03.he-eu-hel1.nimbus.geth hostname=goerli-03.he-eu-hel1.nimbus.geth ansible_host=65.21.196.47 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-03.he-eu-hel1.nimbus.geth.statusim.net
 linux-01.he-eu-hel1.nimbus.prater hostname=linux-01.he-eu-hel1.nimbus.prater ansible_host=95.217.198.113 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.prater.statusim.net
+linux-01.he-eu-hel1.nimbus.sepolia hostname=linux-01.he-eu-hel1.nimbus.sepolia ansible_host=65.21.89.157 env=nimbus stage=sepolia data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.sepolia.statusim.net
 linux-02.he-eu-hel1.nimbus.prater hostname=linux-02.he-eu-hel1.nimbus.prater ansible_host=95.217.230.20 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-02.he-eu-hel1.nimbus.prater.statusim.net
 linux-03.he-eu-hel1.nimbus.prater hostname=linux-03.he-eu-hel1.nimbus.prater ansible_host=65.108.132.230 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-03.he-eu-hel1.nimbus.prater.statusim.net
 linux-04.he-eu-hel1.nimbus.prater hostname=linux-04.he-eu-hel1.nimbus.prater ansible_host=135.181.20.36 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-04.he-eu-hel1.nimbus.prater.statusim.net
@@ -14,7 +15,6 @@ macos-01.ms-eu-dublin.nimbus.prater hostname=macos-01.ms-eu-dublin.nimbus.prater
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
 metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.3 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.fluffy.statusim.net
-metal-01.he-eu-hel1.nimbus.kiln hostname=metal-01.he-eu-hel1.nimbus.kiln ansible_host=65.21.89.157 env=nimbus stage=kiln data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.kiln.statusim.net
 metal-01.he-eu-hel1.nimbus.mainnet hostname=metal-01.he-eu-hel1.nimbus.mainnet ansible_host=95.217.87.121 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-01.he-eu-hel1.nimbus.ropsten hostname=metal-01.he-eu-hel1.nimbus.ropsten ansible_host=135.181.57.169 env=nimbus stage=ropsten data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.ropsten.statusim.net
 metal-02.he-eu-hel1.nimbus.fluffy hostname=metal-02.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.174 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.fluffy.statusim.net
@@ -51,6 +51,7 @@ goerli-01.he-eu-hel1.nimbus.geth
 goerli-02.he-eu-hel1.nimbus.geth
 goerli-03.he-eu-hel1.nimbus.geth
 linux-01.he-eu-hel1.nimbus.prater
+linux-01.he-eu-hel1.nimbus.sepolia
 linux-02.he-eu-hel1.nimbus.prater
 linux-03.he-eu-hel1.nimbus.prater
 linux-04.he-eu-hel1.nimbus.prater
@@ -58,7 +59,6 @@ linux-05.he-eu-hel1.nimbus.prater
 linux-06.he-eu-hel1.nimbus.prater
 metal-01.he-eu-hel1.nimbus.eth1
 metal-01.he-eu-hel1.nimbus.fluffy
-metal-01.he-eu-hel1.nimbus.kiln
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-01.he-eu-hel1.nimbus.ropsten
 metal-02.he-eu-hel1.nimbus.fluffy
@@ -98,9 +98,6 @@ goerli-03.he-eu-hel1.nimbus.geth
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
 
-[nimbus-kiln-metal]
-metal-01.he-eu-hel1.nimbus.kiln
-
 [nimbus-mainnet-metal]
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-02.he-eu-hel1.nimbus.mainnet
@@ -139,6 +136,9 @@ windows-01.he-eu-hel1.nimbus.prater
 [nimbus-ropsten-metal]
 metal-01.he-eu-hel1.nimbus.ropsten
 
+[nimbus-sepolia-linux]
+linux-01.he-eu-hel1.nimbus.sepolia
+
 [nimbus.eth1]
 metal-01.he-eu-hel1.nimbus.eth1
 
@@ -151,9 +151,6 @@ goerli-01.he-eu-hel1.nimbus.geth
 goerli-02.he-eu-hel1.nimbus.geth
 goerli-03.he-eu-hel1.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
-
-[nimbus.kiln]
-metal-01.he-eu-hel1.nimbus.kiln
 
 [nimbus.mainnet]
 metal-01.he-eu-hel1.nimbus.mainnet
@@ -180,4 +177,7 @@ windows-01.he-eu-hel1.nimbus.prater
 
 [nimbus.ropsten]
 metal-01.he-eu-hel1.nimbus.ropsten
+
+[nimbus.sepolia]
+linux-01.he-eu-hel1.nimbus.sepolia
 

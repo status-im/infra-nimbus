@@ -31,15 +31,16 @@ beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'https://builder-relay-sepolia.flashbots.net/'
-
-#Builds
+# Builds
 beacon_node_build_frequency: 'daily'
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
-#Eth1 Sync
+# Eth1 Sync
 beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
+# Suggests it to the Execution Layer client.
+beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/prater", field="address")}}'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
@@ -52,7 +53,7 @@ beacon_node_rest_port:      '{{ 9300 + idx|int + 11 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
 nodes_layout:
-  'metal-01.he-eu-hel1.nimbus.kiln':
+  'linux-01.he-eu-hel1.nimbus.sepolia':
     - { start:  0, end:  25 }
     - { start: 25, end:  50, nim_commit: 'version-1-6', payload_builder: true  }
     - { start: 50, end:  75, nim_commit: 'version-1-6' }

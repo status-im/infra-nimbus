@@ -40,5 +40,5 @@ beacon_node_rest_port:      '{{ 9300 + idx|int + 22 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
 nodes_layout:
-  'metal-01.he-eu-hel1.nimbus.kiln':
+  'linux-01.he-eu-hel1.nimbus.sepolia':
     - { }
