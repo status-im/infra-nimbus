@@ -85,6 +85,13 @@ nimbus_era_files_node_service_path: '/data/beacon-node-{{ beacon_node_network }}
 nimbus_era_files_nclidb_path: '{{ nimbus_era_files_node_service_path }}/repo/build/ncli_db'
 nimbus_era_files_db_path: '{{ nimbus_era_files_node_service_path }}/data/db'
 
+# Open Ports
+open_ports_default_comment: 'Nimbus REST API'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
+  - { port: '9400',      ipset: 'metrics.hq', comment: 'Geth Exporter' }
+
 # Split by hostname for more central location
 nodes_layout:
   'stable-small-01.aws-eu-central-1a.nimbus.mainnet':
