@@ -1,6 +1,12 @@
 ---
+# Beacon nodes are held on /data so we can't bind it.
+bootstrap__extra_volume_path: '/docker'
+bootstrap__extra_volume_bind_path: null
+
+# SWAP
 swap_file_size_mb: 2048
 
+# Nimbus Beacon Node
 beacon_node_network: 'mainnet'
 # TODO This is to avoid too long service names.
 beacon_node_repo_branch: '{{ (node.branch == "libp2p") | ternary("nim-libp2p-auto-bump-unstable", node.branch) }}'
