@@ -43,15 +43,3 @@
       loop_control:
         loop_var: node
         index_var: idx
-
-- name: Configure periodic puging of nodes DBs
-  become: true
-  serial: '{{ serial|default(1) }}'
-  hosts: nimbus-mainnet-metal
-  tasks:
-    - include_role: name=nimbus-db-purge
-      when: node.get("db_purge", None)
-      with_items: '{{ nodes_layout[hostname] }}'
-      loop_control:
-        loop_var: node
-        index_var: idx
