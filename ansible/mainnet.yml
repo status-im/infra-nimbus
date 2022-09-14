@@ -34,6 +34,8 @@
   hosts: nimbus-mainnet-metal
   roles:
     - { role: redirect-ports,               tags: [ redirect-ports ] }
+    - { role: infra-role-geth,              tags: [ infra-role-geth ] }
+    - { role: infra-role-geth-exporter,     tags: [ infra-role-geth-exporter ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
     - { role: nimbus-era-files,             tags: [ nimbus-era-file ] }
   tasks:
