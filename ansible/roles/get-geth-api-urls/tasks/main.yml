@@ -10,11 +10,3 @@
   loop: '{{ geth_node_api_consul_names }}'
   loop_control:
     loop_var: 'service_name'
-
-- name: Extract Goerli Geth WebSocket URL
-  set_fact:
-    # Our nodes first (will be used by default) then an Infura node.
-    # Currently only Mainnet has not had it's merge, so it can use Infura.
-    beacon_node_web3_urls_all: |
-      {{ geth_api_addresses +
-      (eth1_network_name == "mainnet") | ternary([selected_infura_url], []) }}
