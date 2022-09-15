@@ -61,7 +61,14 @@ beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
 # HTTP RPC support is unstable
-beacon_node_web3_urls: '{{ beacon_node_web3_urls_all }}'
+#beacon_node_web3_urls: '{{ beacon_node_web3_urls_all }}'
+beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+beacon_node_web3_urls: |-
+  {{ (data_center == "he-eu-hel1")
+    | ternary(
+        ['http://localhost:{{ geth_authrpc_port }}'],
+        beacon_node_web3_urls_all
+    ) }}
 # Periodic resync to save space
 beacon_node_resync_enabled: true
 beacon_node_resync_timer_enabled: '{{ idx % 2 == 1 }}'
