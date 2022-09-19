@@ -4,12 +4,11 @@ geth_service_name: 'nimbus-ropsten-{{ "%02d"|format(idx|int+1) }}'
 geth_network_name: 'ropsten'
 geth_sync_mode: 'snap'
 geth_log_level_name: info
-geth_websocket_enable: true
 # Enable engine API¬
 geth_rcp_api: 'eth,net,web3,personal,admin,engine'
-geth_websocket_api: 'eth,net,web3,personal,admin,engine'
 # Geth auth
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 # Allow connections from our VPN
 geth_websocket_origins: '*'
 # Memory settings¬
@@ -27,8 +26,7 @@ geth_metrics_port: '{{ 6060 + idx|int + 11 }}'
 geth_rpc_enabled: true
 geth_rpc_addr: '0.0.0.0'
 geth_rpc_port: '{{ 8545 + idx|int + 11 }}'
-geth_websocket_enabled: true
-geth_websocket_addr: '0.0.0.0'
+geth_authrpc_port: '{{ 8551 + (idx|int) + 1 }}'
 geth_websocket_port: '{{ 9546 + idx|int + 11 }}'
 
 # Beacon Nodes
@@ -41,7 +39,8 @@ beacon_node_build_frequency: 'daily'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: true
 # HTTP RPC support is unstable
-beacon_node_web3_urls: ['ws://localhost:{{ geth_websocket_port }}']
+beacon_node_web3_urls: ['ws://localhost:{{ geth_authrpc_port }}']
+beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_extra_flags: ['--terminal-total-difficulty-override=50000000000000000']
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
