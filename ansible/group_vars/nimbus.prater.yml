@@ -77,8 +77,7 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
   # https://github.com/status-im/infra-nim-waku/issues/59
-  - { port: '8545:9550', ipset: 'wakuv2.test' }
-  - { port: '8545:9550', ipset: 'wakuv2.prod' }
+  - { port: '9546:9550', ipset: 'wakuv2.test' }
 
 # Split by hostname for more central location
 nodes_layout:
