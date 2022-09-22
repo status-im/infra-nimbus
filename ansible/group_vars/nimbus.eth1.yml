@@ -10,15 +10,21 @@ rocketpool_eth2_rest_port: 55052
 rocketpool_eth2_rpc_port: 59190
 # Eth1 Sync
 # TODO query Consul for these
-rocketpool_eth2_web3_http_url: 'http://goerli-01.he-eu-hel1.nimbus.geth:8546'
-rocketpool_eth2_web3_ws_url: 'ws://goerli-01.he-eu-hel1.nimbus.geth:9547'
+rocketpool_eth1_web3_rpc_url: 'http://localhost:{{ nimbus_eth1_rpc_port }}'
+rocketpool_eth1_web3_ws_url: 'ws://localhost:{{ nimbus_eth1_ws_port }}'
 # Eth1 Wallet
 rocketpool_password: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/pass")}}'
 rocketpool_wallet: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/wallet")}}'
+# Transaction Fees
+rocketpool_eth2_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/prater", field="address")}}'
 
 # Nimbus Eth1 node
 nimbus_eth1_repo_branch: 'master'
 nimbus_eth1_network: 'goerli'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'
+# Ports
+nimbus_eth1_ws_port: 8546
+nimbus_eth1_rpc_port: 8545
+nimbus_eth1_metrics_port: 9093
 nimbus_eth1_metrics_address: '0.0.0.0'
