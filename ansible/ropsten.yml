@@ -15,15 +15,22 @@
   hosts:
     - nimbus.ropsten
   tasks:
-    - include_role: name=infra-role-geth
-      tags: [ geth, infra-role-geth ]
+    #- include_role: name=infra-role-geth
+    #  tags: [ geth, infra-role-geth ]
+    #  with_items: '{{ nodes_layout[hostname] }}'
+    #  loop_control:
+    #    loop_var: node
+    #    index_var: idx
+
+    - include_role: name=infra-role-beacon-node-linux
+      tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
 
-    - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
+    - include_role: name=infra-role-validator-client
+      tags: [ validator-client, infra-role-validator-client ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
