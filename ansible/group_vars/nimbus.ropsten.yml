@@ -81,7 +81,7 @@ validator_client_dist_validators_end:   '{{ (not node.validator_client) | ternar
 
 nodes_layout:
   'metal-01.he-eu-hel1.nimbus.ropsten':
-    - { start:     0, end:  2500, validator_client: true }
-    - { start:  2500, end:  5000, validator_client: false }
-    - { start:  5000, end:  7500, validator_client: true }
-    - { start:  7500, end: 10000, validator_client: false }
+    - { start:     0, end:   500, validator_client: true  } # 500
+    - { start:   500, end:  1500, validator_client: true  } # 1000
+    - { start:  1500, end:  3500, validator_client: false } # 2000
+    - { start:  3500, end: 10000, validator_client: false } # 6500
