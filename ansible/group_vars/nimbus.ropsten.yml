@@ -17,8 +17,8 @@ geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 # Allow connections from our VPN
 geth_websocket_origins: '*'
 # Memory settings¬
-geth_cont_mem_ratio: 0.3
-geth_cache_size: '{{ (ansible_memtotal_mb * 0.25|float) | int }}'
+geth_cont_mem_ratio: 0.15
+geth_cache_size: '{{ (ansible_memtotal_mb * 0.1|float) | int }}'
 
 # Geth metrics¬
 geth_expo_service_name: '{{ geth_service_name }}'
