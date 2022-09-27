@@ -19,8 +19,6 @@
       tags: open-ports
     - role: elasticsearch
       tags: elasticsearch
-    - role: oauth-proxy
-      tags: oauth-proxy
 
 - name: Configure ElasticSearch servers
   become: true
