@@ -69,7 +69,7 @@ beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_web3_urls: |-
   {{ (data_center == "he-eu-hel1")
     | ternary(
-        ['http://localhost:{{ geth_authrpc_port }}'],
+        ["http://localhost:"+(geth_authrpc_port|string)],
         beacon_node_web3_urls_all
     ) }}
 # Periodic resync to save space
