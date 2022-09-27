@@ -41,7 +41,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 7653d06cfc4d2613ee14bf637d38d98b0201864f
+  version: 4849a3c9d7f2045669880e4e17eeb71980b2e4d0
   scm: git
 
 - name: infra-role-beacon-node-linux
@@ -61,7 +61,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 928073b75034b7646a0ed4e2bed3c31a63250001
+  version: 4acb22624d2f00d30c3a028453cf36ab82aa578f
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -71,7 +71,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: 0e75161807c4d8d17e5a421bc27113436357b18c
+  version: d8f04d0a374fbdd108557b805af1560437d1a80d
   scm: git
 
 - name: infra-role-dist-validators
