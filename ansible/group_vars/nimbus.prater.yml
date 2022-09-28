@@ -68,7 +68,11 @@ beacon_node_service_user_pass: '{{lookup("bitwarden", "nimbus/windows", field="p
 # MEV Payload Builder
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'https://builder-relay-goerli.flashbots.net/'
-# HTTP RPC support is unstable
+# Light client data
+beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
+beacon_node_light_client_data_serve: true
+beacon_node_light_client_data_import_mode: 'full'
+# Web3 Auth RPC
 beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 

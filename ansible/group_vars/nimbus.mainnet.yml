@@ -64,7 +64,7 @@ beacon_node_subscribe_all: true
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
-#beacon_node_web3_urls: '{{ beacon_node_web3_urls_all }}'
+# Web3 Auth RPC
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_web3_urls: |-
   {{ (data_center == "he-eu-hel1")
