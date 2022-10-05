@@ -46,7 +46,6 @@ beacon_node_validator_monitor_totals: true
 # HTTP RPC support is unstable
 beacon_node_web3_urls: ['ws://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
-beacon_node_extra_flags: ['--terminal-total-difficulty-override=50000000000000000']
 # Ports
 beacon_node_discovery_port: '{{ 9000 + idx|int + 1 }}'
 beacon_node_listening_port: '{{ 9000 + idx|int + 1 }}'
