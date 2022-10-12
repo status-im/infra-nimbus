@@ -13,3 +13,4 @@ nimbus_era_files_timer_script: '{{ nimbus_era_files_timer_path }}/update.sh'
 # Mandatory
 #nimbus_era_files_nclidb_path: ~
 #nimbus_era_files_db_path: ~
+#nimbus_era_files_network: ~

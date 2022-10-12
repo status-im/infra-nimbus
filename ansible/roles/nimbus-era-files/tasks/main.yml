@@ -21,4 +21,5 @@
     systemd_timer_ionice_class:      '{{ nimbus_era_files_timer_ionice_class }}'
     systemd_timer_work_dir:          '{{ nimbus_era_files_timer_path }}'
     systemd_timer_script_path:       '{{ nimbus_era_files_nclidb_path }}'
-    systemd_timer_script_args:       'exportEra --db={{ nimbus_era_files_db_path }}'
+    systemd_timer_script_args: >
+      --network={{ nimbus_era_files_network }} exportEra --db={{ nimbus_era_files_db_path }}
