@@ -13,8 +13,6 @@ geth_websocket_enabled: true
 # Geth auth & JWT token
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
-# Allow connections from our VPN
-geth_websocket_origins: '*'
 # Memory settings
 geth_cont_mem_ratio: 0.7
 
