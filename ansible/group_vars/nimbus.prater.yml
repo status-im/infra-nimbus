@@ -77,7 +77,7 @@ beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 
 # Validator Client
-validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ validator_client_build_repo_branch }}-{{ "%02d"|format(idx|int+1) }}'
+validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ validator_client_build_repo_branch }}'
 validator_client_service_enabled: '{{ node.get("validator_client", false) }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
