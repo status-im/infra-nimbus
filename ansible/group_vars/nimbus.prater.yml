@@ -142,7 +142,7 @@ nodes_layout:
   'linux-03.he-eu-hel1.nimbus.prater': # 10 each
     - { branch: 'stable',   start: 20004, end: 20014, build_freq: '*-*-* 11:00:00' }
     - { branch: 'testing',  start: 20024, end: 20034, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
-    - { branch: 'unstable', start: 20014, end: 20024, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
+    - { branch: 'unstable', start: 20014, end: 20024, build_freq: '*-*-* 13:00:00', validator_client: true, open_libp2p_ports: false }
     - { branch: 'libp2p',   start: 20034, end: 20044, build_freq: '*-*-* 17:00:00' }
 
   'linux-04.he-eu-hel1.nimbus.prater': # 30 each
