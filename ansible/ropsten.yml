@@ -14,9 +14,18 @@
   serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus.ropsten
+  roles:
+    - { role: open-ports,        tags: open-ports        }
   tasks:
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control:
+        loop_var: node
+        index_var: idx
+
+    - include_role: name=infra-role-geth-exporter
+      tags: [ geth, infra-role-geth-exporter ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
