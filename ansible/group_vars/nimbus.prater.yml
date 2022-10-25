@@ -59,8 +59,8 @@ beacon_node_build_frequency: '{{ node.get("build_freq", "daily") }}'
 beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
 # Validators from nimbus-private repo
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
-beacon_node_dist_validators_start: '{{ node.start | mandatory }}'
-beacon_node_dist_validators_end: '{{ node.end | mandatory }}'
+beacon_node_dist_validators_start: '{{ node.get("validator_client", false) | ternary(0, node.start) | mandatory }}'
+beacon_node_dist_validators_end:   '{{ node.get("validator_client", false) | ternary(0, node.end)   | mandatory }}'
 # Suggests it to the Execution Layer client.
 beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/prater", field="address")}}'
 # Windows service user
