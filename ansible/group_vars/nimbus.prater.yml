@@ -162,4 +162,4 @@ nodes_layout:
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
     - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
     - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00' } # 5899 validators
-    - { branch: 'libp2p',   start: 45101, end: 50000, build_freq: '*-*-* 17:00:00' } # 4899 validators
+    - { branch: 'libp2p',   start: 45101, end: 49617, build_freq: '*-*-* 17:00:00' } # 4516 validators
