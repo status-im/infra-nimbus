@@ -80,7 +80,7 @@ beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
 validator_client_service_enabled: '{{ node.get("validator_client", false) }}'
 validator_client_network: '{{ beacon_node_network }}'
-validator_client_log_level: 'INFO'
+validator_client_log_level: 'DEBUG'
 validator_client_beacon_node_url: 'http://127.0.0.1:{{ beacon_node_rest_port }}'
 validator_client_doppelganger_detection: false
 # Builds
