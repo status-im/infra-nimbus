@@ -77,14 +77,14 @@ beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 
 # Validator Client
-validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ validator_client_build_repo_branch }}'
+validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
 validator_client_service_enabled: '{{ node.get("validator_client", false) }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
 validator_client_beacon_node_url: 'http://127.0.0.1:{{ beacon_node_rest_port }}'
 validator_client_doppelganger_detection: false
 # Builds
-validator_client_build_repo_branch: '{{ beacon_node_repo_branch }}'
+validator_client_build_repo_branch: '{{ "unstable" if "libp2p" in beacon_node_repo_branch else beacon_node_repo_branch  }}'
 validator_client_build_frequency: 'daily'
 # Ports
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
@@ -162,4 +162,4 @@ nodes_layout:
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
     - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
     - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00' } # 5899 validators
-    - { branch: 'libp2p',   start: 45101, end: 49617, build_freq: '*-*-* 17:00:00' } # 4516 validators
+    - { branch: 'libp2p',   start: 45101, end: 49617, build_freq: '*-*-* 17:00:00', validator_client: true } # 4516 validators
