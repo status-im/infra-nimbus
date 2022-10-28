@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 71825ec1f264a9403206abc85838ac3f9cbe37b1
+  version: 08cbaaf426aec73bb112da228b6c0ffd6b939993
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -76,7 +76,7 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 281fa659e6629a0523d61b47e79ba360d35b9f17
+  version: 402dfd104a8a124548eecae15ecdccb4aae2330d
   scm: git
 
 - name: infra-role-rocketpool
@@ -96,12 +96,12 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: bf2042809811ab244d54f605741b956e17e38720
+  version: 6fdb0999ca1bd8b25eac92a40e84b76c735a66ab
   scm: git
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 353baef658c2d8d333735e84d8e33f00db026abd
+  version: d77dcf1e583aca2ad7010b94cbe8ddb43b5062fb
   scm: git
 
 - name: systemd-timer
