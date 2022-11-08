@@ -1,0 +1,20 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./versioncheck.py
+      changed_when: false
+
+- name: Configure ERA files hosting
+  become: true
+  hosts:
+    - metal-03.he-eu-hel1.nimbus.mainnet
+  roles:
+    - role: origin-certs
+      tags: origin-certs
+    - role: nginx
+      tags: nginx
