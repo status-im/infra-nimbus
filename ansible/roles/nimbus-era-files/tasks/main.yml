@@ -5,6 +5,7 @@
     owner: '{{ nimbus_era_files_timer_user }}'
     group: '{{ nimbus_era_files_timer_group }}'
     state: 'directory'
+    mode:  '0755'
 
 - name: Create timer for ERA file updates
   include_role: name=systemd-timer
