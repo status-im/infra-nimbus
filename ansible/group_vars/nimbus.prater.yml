@@ -99,6 +99,15 @@ validator_client_dist_validators_enabled: '{{ node.start is defined and node.end
 validator_client_dist_validators_start: '{{ (not node.get("validator_client", false)) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.get("validator_client", false)) | ternary(0, node.end)   | mandatory }}'
 
+# ERA files geneartion.
+nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
+nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_network: '{{ beacon_node_network }}'
+# FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
+nimbus_era_files_node_service_path: '/data/beacon-node-{{ beacon_node_network }}-stable'
+nimbus_era_files_nclidb_path: '{{ nimbus_era_files_node_service_path }}/repo/build/ncli_db'
+nimbus_era_files_db_path: '{{ nimbus_era_files_node_service_path }}/data/db'
+
 # Open Ports
 open_ports_default_comment: 'Nimbus REST API'
 open_ports_default_chain: 'VPN'

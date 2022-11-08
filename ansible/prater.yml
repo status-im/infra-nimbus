@@ -34,8 +34,9 @@
   serial: '{{ serial|default(1) }}'
   hosts: nimbus-prater-metal
   roles:
-    - { role: open-ports,        tags: open-ports        }
-    - { role: redirect-ports,    tags: [ redirect-ports ] }
+    - { role: open-ports,        tags: [ open-ports ]       }
+    - { role: redirect-ports,    tags: [ redirect-ports ]   }
+    - { role: nimbus-era-files,  tags: [ nimbus-era-files ] }
   tasks:
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
