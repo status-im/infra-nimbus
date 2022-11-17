@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 08cbaaf426aec73bb112da228b6c0ffd6b939993
+  version: cb3b8f385d7b4844e8e5a00b850402fd9e3b1dbc
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -81,7 +81,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: f55398e51a8389fa2e7751827e97e6291a71d510
+  version: a81bc0bc6ce83b7d284b9cda5a583f207b6ac439
   scm: git
 
 - name: infra-role-winsw
