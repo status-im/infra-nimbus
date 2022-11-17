@@ -14,7 +14,13 @@
   hosts:
     - metal-03.he-eu-hel1.nimbus.mainnet
     - linux-01.he-eu-hel1.nimbus.prater
+  vars:
+    open_ports_default_comment: 'Nginx'
+    open_ports_default_chain: 'SERVICES'
+    open_ports_list: [ { port: 80 }, { port: 443 } ]
   roles:
+    - role: open-ports
+      tags: open-ports
     - role: origin-certs
       tags: origin-certs
     - role: nginx
