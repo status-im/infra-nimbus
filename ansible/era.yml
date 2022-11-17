@@ -13,6 +13,7 @@
   become: true
   hosts:
     - metal-03.he-eu-hel1.nimbus.mainnet
+    - linux-01.he-eu-hel1.nimbus.prater
   roles:
     - role: origin-certs
       tags: origin-certs

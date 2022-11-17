@@ -40,7 +40,7 @@ resource "cloudflare_record" "testing_mainnet_beacon_api" {
   type    = "A"
   proxied = false
 }
- 
+
 /* ERA Files hosting */
 resource "cloudflare_record" "era_mainnet" {
   zone_id = local.zones["nimbus.team"]

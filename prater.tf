@@ -147,6 +147,15 @@ resource "cloudflare_record" "testing_prater_beacon_api" {
   proxied = false
 }
 
+/* ERA Files hosting */
+resource "cloudflare_record" "era_prater" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "prater.era"
+  value   = module.nimbus_nodes_prater_hetzner.public_ips[0]
+  type    = "A"
+  proxied = true
+}
+
 module "nimbus_nodes_prater_macos" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
