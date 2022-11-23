@@ -13,7 +13,7 @@
     systemd_timer_description:       'Update Nimbus beacon node ERA files'
     systemd_timer_start_on_creation: false
     systemd_timer_enabled:           '{{ nimbus_era_files_timer_enabled }}'
-    systemd_timer_name:              '{{ nimbus_era_files_timer_name }}'
+    systemd_timer_name:              '{{ nimbus_era_files_timer_update_name }}'
     systemd_timer_user:              '{{ nimbus_era_files_timer_user }}'
     systemd_timer_group:             '{{ nimbus_era_files_timer_group }}'
     systemd_timer_frequency:         '{{ nimbus_era_files_timer_frequency }}'
@@ -24,3 +24,29 @@
     systemd_timer_script_path:       '{{ nimbus_era_files_nclidb_path }}'
     systemd_timer_script_args: >
       --network={{ nimbus_era_files_network }} exportEra --db={{ nimbus_era_files_db_path }}
+
+- name: Create timer for ERA file verification
+  include_role: name=systemd-timer
+  vars:
+    systemd_timer_description:       'Verify Nimbus beacon node ERA files'
+    systemd_timer_start_on_creation: false
+    systemd_timer_consul_warning:    true
+    systemd_timer_enabled:           '{{ nimbus_era_files_timer_enabled }}'
+    systemd_timer_name:              '{{ nimbus_era_files_timer_verify_name }}'
+    systemd_timer_user:              '{{ nimbus_era_files_timer_user }}'
+    systemd_timer_group:             '{{ nimbus_era_files_timer_group }}'
+    systemd_timer_frequency:         '{{ nimbus_era_files_timer_frequency }}'
+    systemd_timer_random_delay_sec:  '{{ nimbus_era_files_timer_random_delay_sec }}'
+    systemd_timer_timeout_sec:       '{{ nimbus_era_files_timer_timeout_sec }}'
+    systemd_timer_ionice_class:      '{{ nimbus_era_files_timer_ionice_class }}'
+    systemd_timer_work_dir:          '{{ nimbus_era_files_timer_path }}'
+    systemd_timer_after_extra:       '{{ nimbus_era_files_timer_update_name }}.service'
+    systemd_timer_script_content: |
+      #!/usr/bin/env bash
+      set -e
+      for ERA_FILE in {{ nimbus_era_files_timer_path }}/*; do
+        echo "Checking: ${ERA_FILE}"
+        {{ nimbus_era_files_nclidb_path }} \
+          --network={{ nimbus_era_files_network }} \
+          verifyEra --eraFile="${ERA_FILE}"
+      done

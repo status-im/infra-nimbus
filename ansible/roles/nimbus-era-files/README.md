@@ -9,7 +9,9 @@ Read more about ERA files [here](https://github.com/status-im/nimbus-eth2/blob/u
 # Configuration
 
 ```yaml
-nimbus_era_files_timer_name: 'nimbus-era-files-update'
+nimbus_era_files_timer_name: 'nimbus-era-files'
+nimbus_era_files_timer_update_name: '{{ nimbus_era_files_timer_name }}-update'
+nimbus_era_files_timer_verify_name: '{{ nimbus_era_files_timer_name }}-verify'
 nimbus_era_files_timer_path: '/data/era'
 nimbus_era_files_nclidb_path: '/data/nimbus/repo/build/bin/ncli_db'
 nimbus_era_files_db_path: '/data/nimbus/data/db'
@@ -18,7 +20,7 @@ nimbus_era_files_db_path: '/data/nimbus/data/db'
 
 # Management
 
-The timer runs weekly with 12h random delay by default, but you can start it manually:
+The timers runs weekly with 12h random delay by default, but you can start it manually:
 ```
  > systemctl -o cat status nimbus-era-files-update
 ● nimbus-era-files-update.service - Update Nimbus beacon node ERA files
@@ -36,4 +38,7 @@ All time are ms
     1107.374,      147.118,      685.914,     1293.401,           45, tBlocks
 nimbus-era-files-update.service: Succeeded.
 Finished Update Nimbus beacon node ERA files.
+```
+```
+TODO
 ```
