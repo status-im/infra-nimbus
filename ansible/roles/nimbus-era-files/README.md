@@ -40,5 +40,18 @@ nimbus-era-files-update.service: Succeeded.
 Finished Update Nimbus beacon node ERA files.
 ```
 ```
-TODO
+admin@linux-03.he-eu-hel1.nimbus.prater:~ % systemctl -o cat status nimbus-era-files-verify 
+× nimbus-era-files-verify.service - Verify Nimbus beacon node ERA files                    
+     Loaded: loaded (/etc/systemd/system/nimbus-era-files-verify.service; static)
+     Active: failed (Result: exit-code) since Wed 2022-11-23 18:17:58 UTC; 39min ago
+TriggeredBy: ● nimbus-era-files-verify.timer
+       Docs: https://github.com/status-im/infra-role-systemd-timer
+    Process: 444226 ExecStart=/usr/local/bin/nimbus-era-files-verify (code=exited, status=1/FAILURE)
+   Main PID: 444226 (code=exited, status=1/FAILURE)
+        CPU: 333ms
+
+Starting Verify Nimbus beacon node ERA files...
+Checking: /data/era/prater-00000-043db0d9.era
+895390e92edc03df7096e9f51e51896e8dbe6e7e838180dadbfd869fdd77a659
+Checking: /data/era/prater-00001-d530d14d.era
 ```
