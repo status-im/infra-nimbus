@@ -71,6 +71,8 @@ validator_client_build_frequency: 'daily'
 # Ports
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
 validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
+# MEV Payload Builder
+validator_client_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 # Keymanager
 validator_client_keymanager_enabled: true
 validator_client_keymanager_token: '{{lookup("bitwarden", "nimbus/keymanager", field="token")}}'
