@@ -40,7 +40,7 @@ beacon_node_validator_monitor_totals: true
 beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
 # Suggests it to the Execution Layer client.
-beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/prater", field="address")}}'
+beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.validator_client | ternary(0, node.start) | mandatory }}'
@@ -64,6 +64,8 @@ validator_client_build_frequency: 'daily'
 # Ports
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
 validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
+# Suggests it to the Execution Layer client and the builder network.
+validator_client_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
 # MEV Payload Builder
 validator_client_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 # Keymanager

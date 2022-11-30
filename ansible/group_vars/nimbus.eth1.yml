@@ -16,7 +16,7 @@ rocketpool_eth1_web3_ws_url: 'ws://localhost:{{ nimbus_eth1_ws_port }}'
 rocketpool_password: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/pass")}}'
 rocketpool_wallet: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/wallet")}}'
 # Transaction Fees
-rocketpool_eth2_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/prater", field="address")}}'
+rocketpool_eth2_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
 
 # Nimbus Eth1 node
 nimbus_eth1_repo_branch: 'master'
