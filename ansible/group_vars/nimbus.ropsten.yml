@@ -39,7 +39,7 @@ geth_websocket_port: '{{ 9546 + idx|int + 11 }}'
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_repo_branch }}-{{ "%02d"|format(idx|int+1) }}'
 beacon_node_network: 'ropsten'
-beacon_node_repo_branch: 'unstable'
+beacon_node_repo_branch: 'stable'
 # Builds
 beacon_node_build_frequency: 'daily'
 # Monitoring
