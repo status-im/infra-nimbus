@@ -111,7 +111,7 @@
 
 - name: launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: d73da3f46608a3a6522e4de5ec51ef6be8e46f0d
+  version: 12601d6ac260607b1949b6ea6e99f750a17350f0
   scm: git
 
 - name: swap-file
