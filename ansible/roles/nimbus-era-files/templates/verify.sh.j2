@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+set -e
+for ERA_FILE in {{ nimbus_era_files_timer_path }}/*; do
+  echo "Checking: ${ERA_FILE}"
+  {{ nimbus_era_files_nclidb_path }} \
+    --network={{ nimbus_era_files_network }} \
+    verifyEra --eraFile="${ERA_FILE}"
+done

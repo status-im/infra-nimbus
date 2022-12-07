@@ -1,0 +1,31 @@
+---
+- name: Create timer for ERA file updates
+  include_role: name=launchd-timer
+  vars:
+    launchd_timer_description:       'Update Nimbus beacon node ERA files'
+    launchd_timer_start_on_creation: false
+    launchd_timer_enabled:           '{{ nimbus_era_files_timer_enabled }}'
+    launchd_timer_name:              '{{ nimbus_era_files_timer_update_name }}'
+    launchd_timer_user:              '{{ nimbus_era_files_timer_user }}'
+    launchd_timer_group:             '{{ nimbus_era_files_timer_group }}'
+    launchd_timer_frequency:         '{{ nimbus_era_files_timer_frequency }}'
+    launchd_timer_timeout_sec:       '{{ nimbus_era_files_timer_timeout_sec }}'
+    launchd_timer_work_dir:          '{{ nimbus_era_files_timer_path }}'
+    launchd_timer_script_path:       '{{ nimbus_era_files_nclidb_path }}'
+    launchd_timer_script_args: >
+      --network={{ nimbus_era_files_network }} exportEra --db={{ nimbus_era_files_db_path }}
+
+- name: Create timer for ERA file verification
+  include_role: name=launchd-timer
+  vars:
+    launchd_timer_description:       'Verify Nimbus beacon node ERA files'
+    launchd_timer_start_on_creation: false
+    launchd_timer_consul_warning:    true
+    launchd_timer_enabled:           '{{ nimbus_era_files_timer_enabled }}'
+    launchd_timer_name:              '{{ nimbus_era_files_timer_verify_name }}'
+    launchd_timer_user:              '{{ nimbus_era_files_timer_user }}'
+    launchd_timer_group:             '{{ nimbus_era_files_timer_group }}'
+    launchd_timer_frequency:         '{{ nimbus_era_files_timer_frequency }}'
+    launchd_timer_timeout_sec:       '{{ nimbus_era_files_timer_timeout_sec }}'
+    launchd_timer_work_dir:          '{{ nimbus_era_files_timer_path }}'
+    launchd_timer_script_content:    '{{ lookup("template", "verify.sh.j2") }}'
