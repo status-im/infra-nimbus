@@ -107,6 +107,7 @@
   hosts: nimbus-prater-macos
   roles:
     - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
+    - { role: nimbus-era-files,  tags: [ nimbus-era-files ] }
   tasks:
     - include_role: name=infra-role-beacon-node-macos
       tags: [ beacon-node, infra-role-beacon-node-macos ]
