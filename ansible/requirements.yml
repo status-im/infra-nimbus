@@ -56,7 +56,7 @@
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: ba40b3afc3453f975dd4a48f593788c960474f31
+  version: 09421b3a5f8c3552f6241236811b659b25762155
   scm: git
 
 - name: infra-role-validator-client
@@ -111,7 +111,7 @@
 
 - name: launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: 12601d6ac260607b1949b6ea6e99f750a17350f0
+  version: 791174a9de57ffbbb4d60cdde05d74a66415f1bd
   scm: git
 
 - name: swap-file
