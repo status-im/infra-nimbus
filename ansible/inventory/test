@@ -16,7 +16,6 @@ mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.n
 metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.3 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.fluffy.statusim.net
 metal-01.he-eu-hel1.nimbus.mainnet hostname=metal-01.he-eu-hel1.nimbus.mainnet ansible_host=95.217.87.121 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.mainnet.statusim.net
-metal-01.he-eu-hel1.nimbus.ropsten hostname=metal-01.he-eu-hel1.nimbus.ropsten ansible_host=135.181.57.169 env=nimbus stage=ropsten data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.ropsten.statusim.net
 metal-02.he-eu-hel1.nimbus.fluffy hostname=metal-02.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.174 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.fluffy.statusim.net
 metal-02.he-eu-hel1.nimbus.mainnet hostname=metal-02.he-eu-hel1.nimbus.mainnet ansible_host=135.181.0.33 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.mainnet.statusim.net
 metal-03.he-eu-hel1.nimbus.mainnet hostname=metal-03.he-eu-hel1.nimbus.mainnet ansible_host=135.181.60.170 env=nimbus stage=mainnet data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-03.he-eu-hel1.nimbus.mainnet.statusim.net
@@ -61,7 +60,6 @@ linux-06.he-eu-hel1.nimbus.prater
 metal-01.he-eu-hel1.nimbus.eth1
 metal-01.he-eu-hel1.nimbus.fluffy
 metal-01.he-eu-hel1.nimbus.mainnet
-metal-01.he-eu-hel1.nimbus.ropsten
 metal-02.he-eu-hel1.nimbus.fluffy
 metal-02.he-eu-hel1.nimbus.mainnet
 metal-03.he-eu-hel1.nimbus.mainnet
@@ -136,9 +134,6 @@ unstable-large-01.aws-eu-central-1a.nimbus.prater
 [nimbus-prater-windows]
 windows-01.he-eu-hel1.nimbus.prater
 
-[nimbus-ropsten-metal]
-metal-01.he-eu-hel1.nimbus.ropsten
-
 [nimbus-sepolia-linux]
 linux-01.he-eu-hel1.nimbus.sepolia
 
@@ -178,9 +173,6 @@ stable-large-01.aws-eu-central-1a.nimbus.prater
 testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
 windows-01.he-eu-hel1.nimbus.prater
-
-[nimbus.ropsten]
-metal-01.he-eu-hel1.nimbus.ropsten
 
 [nimbus.sepolia]
 linux-01.he-eu-hel1.nimbus.sepolia
