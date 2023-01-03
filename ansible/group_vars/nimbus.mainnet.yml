@@ -79,14 +79,6 @@ beacon_node_resync_timer_frequency: 'monthly'
 beacon_node_resync_timer_random_delay_sec: 604800 # 7 days
 beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base }}'
 
-# Purge node DB periodically to test syncing.
-nimbus_db_purge_node_service_name: '{{ beacon_node_service_name }}'
-nimbus_db_purge_node_service_path: '{{ beacon_node_service_path }}'
-nimbus_db_purge_node_network_name: '{{ beacon_node_network }}'
-nimbus_db_purge_timer_frequency: 'weekly'
-nimbus_db_purge_truster_node_api_url: 'http://localhost:{{ beacon_node_rest_port|int - 1 }}'
-nimbus_db_purge_trusted_node_sync_enabled: '{{ node.get("db_sync", false) }}'
-
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
