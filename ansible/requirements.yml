@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: bb2137702c9b29ff2e9488804f468bb5d9570894
+  version: 338a830648b210726a5b3e7837ed52046a9936f9
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -26,7 +26,7 @@
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: c93e5dca0f63e6fa1e082f43177212e82e98cee7
+  version: be4188636c7d73bf16a3e0ab257afeb1d85c9078
   scm: git
 
 - name: infra-role-wireguard
@@ -81,7 +81,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: a81bc0bc6ce83b7d284b9cda5a583f207b6ac439
+  version: 820bf30e4b2546ac9656933fdc3cccc2b82e8c77
   scm: git
 
 - name: infra-role-winsw
@@ -121,7 +121,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 98838533df1c92d36db131d70f0acc38d6e19c79
+  version: f8f2e337727117061d598d29812ee21252f71212
   scm: git
 
 - name: infra-role-geth-exporter
