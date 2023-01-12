@@ -1,7 +1,7 @@
 locals {
   /* Volumes */
   prater_root_vol_size = 20
-  prater_data_vol_size = 150
+  prater_data_vol_size = 300
   prater_data_vol_type = "gp2"
   /* Instances */
   prater_large_instance_type = "z1d.large"

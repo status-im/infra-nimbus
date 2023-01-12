@@ -1,0 +1,30 @@
+---
+- name: Resize /data volume
+  hosts: all
+  serial: '{{ serial|default(1) }}'
+  become: true
+  tasks:
+    - find: paths=/data file_type=directory pattern='beacon-node-*'
+      register: services
+    - systemd:
+        name: '{{ item.path | basename }}'
+        state: stopped
+      with_items: '{{ services.files }}'
+    - command: awk '/\/data/{print $1}' /etc/mtab
+      register: device_path
+    - name: umount /docker
+      command: umount /docker
+    - name: umount /data
+      command: umount /data
+    - name: e2fsck {{ device_path.stdout }}
+      command: e2fsck -pf {{ device_path.stdout }}
+    - name: resize2fs {{ device_path.stdout }}
+      command: resize2fs {{ device_path.stdout }}
+    - name: mount /data
+      command: mount /data
+    - name: mount /docker
+      command: mount /docker
+    - systemd:
+        name: '{{ item.path | basename }}'
+        state: started
+      with_items: '{{ services.files }}'
