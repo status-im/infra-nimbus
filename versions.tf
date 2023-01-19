@@ -3,7 +3,7 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = " = 2.21.0"
+      version = " = 3.26.0"
     }
     pass = {
       source  = "camptocamp/pass"
