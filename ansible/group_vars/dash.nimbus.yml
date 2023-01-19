@@ -50,10 +50,6 @@ logclean_es_host: 'localhost'
 logclean_es_port: '{{ es_lb_api_port }}'
 logclean_keep_indices: 14
 
-# JVM Memory settings
-es_lb_jvm_min_heap: 2g
-es_lb_jvm_max_heap: 2g
-
 # Open Nginx Ports
 open_ports_default_comment: 'ElasticSearch LB'
 open_ports_default_chain: 'VPN'

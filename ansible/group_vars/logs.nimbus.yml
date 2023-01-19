@@ -36,10 +36,6 @@ es_number_of_shards: 3
 # Since Nimbus logs are low-value we don't need replicas.
 es_number_of_replicas: 0
 
-# JVM memory settings
-es_jvm_min_heap: '32g'
-es_jvm_max_heap: '32g'
-
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
 open_ports_default_chain: 'VPN'
