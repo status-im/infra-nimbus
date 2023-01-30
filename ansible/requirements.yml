@@ -16,7 +16,7 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 45ecfc30c0bb603d58140fc9abfe372b6343c874
+  version: 9cbaa6c4fed4ecadce7c1ba0bbfbd9b57522cc9e
   scm: git
 
 - name: infra-role-bootstrap-windows
@@ -26,7 +26,7 @@
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: be4188636c7d73bf16a3e0ab257afeb1d85c9078
+  version: 4ad699edd09e60032d588bfc4eb26059c62281b7
   scm: git
 
 - name: infra-role-wireguard
@@ -51,7 +51,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: e9afc5d21058378216afb3dbda3cf1f832bb2db7
+  version: 224ebafabab91716b0fcd78d7d155f7d1bb00883
   scm: git
 
 - name: infra-role-beacon-node-macos

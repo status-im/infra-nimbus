@@ -1,0 +1,7 @@
+---
+# CtrlServ4ers has no dedicated Consul Cluster
+bootstrap__consul_data_center: 'he-eu-hel1'
+# Volumes
+bootstrap__extra_volume_bind_paths:
+  DATA_VOLUME1: ['/data']
+  DATA_VOLUME2: ['/docker']

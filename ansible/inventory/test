@@ -4,6 +4,7 @@
 goerli-01.he-eu-hel1.nimbus.geth hostname=goerli-01.he-eu-hel1.nimbus.geth ansible_host=65.21.73.183 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-01.he-eu-hel1.nimbus.geth.statusim.net
 goerli-02.he-eu-hel1.nimbus.geth hostname=goerli-02.he-eu-hel1.nimbus.geth ansible_host=65.21.196.48 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-02.he-eu-hel1.nimbus.geth.statusim.net
 goerli-03.he-eu-hel1.nimbus.geth hostname=goerli-03.he-eu-hel1.nimbus.geth ansible_host=65.21.196.47 env=nimbus stage=geth data_center=he-eu-hel1 region=eu-hel1 dns_entry=goerli-03.he-eu-hel1.nimbus.geth.statusim.net
+linux-01.cs-eu-nld1.nimbus.prater hostname=linux-01.cs-eu-nld1.nimbus.prater ansible_host=95.168.165.2 env=nimbus stage=prater data_center=cs-eu-nld1 region=eu-nld1 dns_entry=linux-01.cs-eu-nld1.nimbus.prater.statusim.net
 linux-01.he-eu-hel1.nimbus.prater hostname=linux-01.he-eu-hel1.nimbus.prater ansible_host=95.217.198.113 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.prater.statusim.net
 linux-01.he-eu-hel1.nimbus.sepolia hostname=linux-01.he-eu-hel1.nimbus.sepolia ansible_host=65.21.89.157 env=nimbus stage=sepolia data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.sepolia.statusim.net
 linux-02.he-eu-hel1.nimbus.prater hostname=linux-02.he-eu-hel1.nimbus.prater ansible_host=95.217.230.20 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-02.he-eu-hel1.nimbus.prater.statusim.net
@@ -42,6 +43,9 @@ stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater
+
+[cs-eu-nld1]
+linux-01.cs-eu-nld1.nimbus.prater
 
 [dash.nimbus]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -115,6 +119,7 @@ stable-small-02.aws-eu-central-1a.nimbus.mainnet
 macos-01.ms-eu-dublin.nimbus.prater
 
 [nimbus-prater-metal]
+linux-01.cs-eu-nld1.nimbus.prater
 linux-01.he-eu-hel1.nimbus.prater
 linux-02.he-eu-hel1.nimbus.prater
 linux-03.he-eu-hel1.nimbus.prater
@@ -162,6 +167,7 @@ stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 
 [nimbus.prater]
+linux-01.cs-eu-nld1.nimbus.prater
 linux-01.he-eu-hel1.nimbus.prater
 linux-02.he-eu-hel1.nimbus.prater
 linux-03.he-eu-hel1.nimbus.prater
