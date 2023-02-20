@@ -38,8 +38,8 @@ es_number_of_replicas: 0
 
 # JVM Memory settings
 es_jvm_heap_auto: false
-es_jvm_min_heap: 48g
-es_jvm_max_heap: 48g
+es_jvm_min_heap: 40g
+es_jvm_max_heap: 40g
 
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
