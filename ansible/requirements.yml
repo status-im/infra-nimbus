@@ -1,4 +1,28 @@
 ---
+- name: infra-role-bootstrap-linux
+  src: git@github.com:status-im/infra-role-bootstrap-linux.git
+  scm: git
+
+- name: infra-role-bootstrap-windows
+  src: git@github.com:status-im/infra-role-bootstrap-windows.git
+  scm: git
+
+- name: infra-role-bootstrap-macos
+  src: git@github.com:status-im/infra-role-bootstrap-macos.git
+  scm: git
+
+- name: infra-role-wireguard
+  src: git@github.com:status-im/infra-role-wireguard.git
+  scm: git
+
+- name: open-ports
+  src: git@github.com:status-im/infra-role-open-ports.git
+  scm: git
+
+- name: swap-file
+  src: git@github.com:status-im/infra-role-swap-file.git
+  scm: git
+
 - name: nginx
   src: git@github.com:status-im/infra-role-nginx.git
   version: 3043c998cbc92a634a71dc48363b3e2525696d26
@@ -7,31 +31,6 @@
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
   version: f2b061da8976444d6576b755578f0e799cde4372
-  scm: git
-
-- name: open-ports
-  src: git@github.com:status-im/infra-role-open-ports.git
-  version: 24dc30dbdf85e6758cb6924074b2f7a0f4541524
-  scm: git
-
-- name: infra-role-bootstrap-linux
-  src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 9cbaa6c4fed4ecadce7c1ba0bbfbd9b57522cc9e
-  scm: git
-
-- name: infra-role-bootstrap-windows
-  src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  version: 9f08bb44ea69c32f9efcb5d778a19df3a077af60
-  scm: git
-
-- name: infra-role-bootstrap-macos
-  src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: 4ad699edd09e60032d588bfc4eb26059c62281b7
-  scm: git
-
-- name: infra-role-wireguard
-  src: git@github.com:status-im/infra-role-wireguard.git
-  version: 6c83e0bdcecba772e5c652c89e1995865d14c662
   scm: git
 
 - name: oauth-proxy
@@ -46,17 +45,17 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: e377c5fab1a3fc06ccfb4a24d6c5be700a2c0e58
+  version: 339998be51d970da18b5dd2d70b8a5f06b98e1b1
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 224ebafabab91716b0fcd78d7d155f7d1bb00883
+  version: 53dc3b1724bc2e98fedbda1e4c21e47775f5246a
   scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 09421b3a5f8c3552f6241236811b659b25762155
+  version: ec5b0601526fa2ba053e197d66b132056606cac9
   scm: git
 
 - name: infra-role-validator-client
@@ -81,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 820bf30e4b2546ac9656933fdc3cccc2b82e8c77
+  version: 8c96f6c15af5aefc1f022f6dcd7c0efb1ce29b63
   scm: git
 
 - name: infra-role-winsw
@@ -114,14 +113,9 @@
   version: 791174a9de57ffbbb4d60cdde05d74a66415f1bd
   scm: git
 
-- name: swap-file
-  src: git@github.com:status-im/infra-role-swap-file.git
-  version: 3fb0fb8d313ab388df1b38d516e2ff88b72a2cf7
-  scm: git
-
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: f8f2e337727117061d598d29812ee21252f71212
+  version: 432a93f7250d7e9c5fc2b303f7c7efa38d4e4bba
   scm: git
 
 - name: infra-role-geth-exporter
