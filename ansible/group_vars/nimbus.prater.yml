@@ -51,6 +51,7 @@ beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Tuning
 beacon_node_max_peers: 300
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: >-
@@ -81,7 +82,7 @@ beacon_node_web3_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 # Periodic resync to save space
 beacon_node_resync_enabled: true
-beacon_node_resync_timer_enabled: '{{ idx % 2 == 1 }}'
+beacon_node_resync_timer_enabled: '{{ (idx % 2 == 1) and not node.get("public_api") }}'
 beacon_node_resync_timer_frequency: 'monthly'
 beacon_node_resync_timer_random_delay_sec: 604800 # 7 days
 beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base }}'
@@ -133,13 +134,13 @@ open_ports_list:
 nodes_layout:
   # WARNING: The nodes hosted on AWS are bootstrap nodes and should not be changed.
   'stable-large-01.aws-eu-central-1a.nimbus.prater': # 2000 each
-    - { branch: 'stable',   start:     0, end:  2000 }
+    - { branch: 'stable',   start:     0, end:  2000, history: 'archive' }
 
   'testing-large-01.aws-eu-central-1a.nimbus.prater': # 2000 each
-    - { branch: 'testing',  start:  2000, end:  4000 }
+    - { branch: 'testing',  start:  2000, end:  4000, history: 'archive' }
 
   'unstable-large-01.aws-eu-central-1a.nimbus.prater': # 2000 each
-    - { branch: 'unstable', start:  4000, end:  6000, payload_builder: true }
+    - { branch: 'unstable', start:  4000, end:  6000, history: 'archive', payload_builder: true }
 
   'macos-01.ms-eu-dublin.nimbus.prater': # 2000 each
     - { branch: 'stable',   start:  6000, end:  8000, build_start: '13:00:00' }

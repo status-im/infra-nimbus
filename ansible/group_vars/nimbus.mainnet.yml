@@ -53,6 +53,7 @@ beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 beacon_node_build_frequency: '*-*-* {{ 12 + idx }}:00:00'
 # Tuning
 beacon_node_threads: '{{ (node.branch == "testing") | ternary(4, 1) }}'
+beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_totals: '{{ (node.public_api is defined and node.public_api) }}'
@@ -74,7 +75,7 @@ beacon_node_web3_urls: |-
     ) }}
 # Periodic resync to save space
 beacon_node_resync_enabled: true
-beacon_node_resync_timer_enabled: '{{ idx % 2 == 1 }}'
+beacon_node_resync_timer_enabled: '{{ (idx % 2 == 1) and not node.get("public_api") }}'
 beacon_node_resync_timer_frequency: 'monthly'
 beacon_node_resync_timer_random_delay_sec: 604800 # 7 days
 beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base }}'
