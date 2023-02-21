@@ -130,23 +130,6 @@ module "nimbus_nodes_prater_hetzner" {
   ]
 }
 
-/* Possible future alternative to Hetzner */
-module "nimbus_nodes_prater_ctrl_servers" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "linux"
-  env    = "nimbus"
-  stage  = "prater"
-  group  = "nimbus-prater-metal"
-  region = "eu-nld1"
-  prefix = "cs"
-  domain = var.domain
-
-  ips = [
-    "95.168.165.2", # linux-01.cs-eu-nld1.nimbus.prater
-  ]
-}
-
 /* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_prater_beacon_api" {
   zone_id = local.zones["nimbus.team"]
