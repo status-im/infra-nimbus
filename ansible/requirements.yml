@@ -95,12 +95,12 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 26a74907e1cb748eac709169815427bef4008897
+  version: ada672a3f59d943c7c02269679d35964aeff4b79
   scm: git
 
 - name: elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 874822c6460c9c841234af88dcec1182142245ad
+  version: 96b9a6c647abb2afcd4074982eed26d1f9fe6aa8
   scm: git
 
 - name: systemd-timer
