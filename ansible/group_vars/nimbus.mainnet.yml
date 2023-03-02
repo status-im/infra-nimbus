@@ -79,7 +79,9 @@ beacon_node_resync_enabled: true
 beacon_node_resync_timer_enabled: '{{ (idx % 2 == 1) and not node.get("public_api") }}'
 beacon_node_resync_timer_frequency: 'monthly'
 beacon_node_resync_timer_random_delay_sec: 604800 # 7 days
-beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base }}'
+beacon_node_resync_timer_trusted_api_url: >-
+  {{ "http://stable-small-01.aws-eu-central-1a.nimbus.mainnet.wg:9300"
+     if idx == 0  else "http://localhost:"+(beacon_node_rest_port_base|string) }}
 
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
