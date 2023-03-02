@@ -102,10 +102,10 @@ open_ports_list:
 # Split by hostname for more central location
 nodes_layout:
   'stable-small-01.aws-eu-central-1a.nimbus.mainnet':
-    - { branch: 'stable' }
+    - { branch: 'stable', history: 'archive' }
 
   'stable-small-02.aws-eu-central-1a.nimbus.mainnet':
-    - { branch: 'stable' }
+    - { branch: 'stable', history: 'archive' }
 
   'metal-01.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
