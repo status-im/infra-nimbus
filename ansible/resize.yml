@@ -16,10 +16,14 @@
       command: umount /docker
     - name: umount /data
       command: umount /data
+    - name: umount {{ device_path.stdout }}
+      command: umount {{ device_path.stdout }}
     - name: e2fsck {{ device_path.stdout }}
       command: e2fsck -pf {{ device_path.stdout }}
     - name: resize2fs {{ device_path.stdout }}
       command: resize2fs {{ device_path.stdout }}
+    - name: mount {{ device_path.stdout }}
+      command: mount {{ device_path.stdout }}
     - name: mount /data
       command: mount /data
     - name: mount /docker
