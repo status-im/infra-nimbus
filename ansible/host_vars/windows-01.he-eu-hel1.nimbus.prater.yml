@@ -2,6 +2,6 @@
 # Scans affect disk I/O performance.
 bootstrap__defender_enabled: false
 
-# HTTP RPC support is unstable
-beacon_node_web3_urls: ['http://goerli-03.he-eu-hel1.nimbus.geth.wg:{{ geth_authrpc_port }}']
-beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+# Execution layer Enginer API
+beacon_node_exec_layer_urls: ['http://goerli-03.he-eu-hel1.nimbus.geth.wg:{{ geth_authrpc_port }}']
+beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'

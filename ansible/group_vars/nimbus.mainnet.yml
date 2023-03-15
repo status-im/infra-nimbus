@@ -66,13 +66,13 @@ beacon_node_subscribe_all: true
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
-# Web3 Auth RPC
-beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
-beacon_node_web3_urls: |-
+# Execution layer Enginer API
+beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+beacon_node_exec_layer_urls: |-
   {{ (data_center == "he-eu-hel1")
     | ternary(
         ["http://localhost:"+(geth_authrpc_port|string)],
-        beacon_node_web3_urls_all
+        beacon_node_exec_layer_urls_all
     ) }}
 # Periodic resync to save space
 beacon_node_resync_enabled: true

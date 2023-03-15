@@ -6,9 +6,9 @@ bootstrap__consul_data_center: 'he-eu-hel1'
 # https://github.com/status-im/nimbus-eth2/issues/2984
 beacon_node_max_peers: 200
 
-# HTTP RPC support is unstable
-beacon_node_web3_urls: ['http://goerli-02.he-eu-hel1.nimbus.geth.wg:{{ geth_authrpc_port }}']
-beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+# Execution layer Enginer API
+beacon_node_exec_layer_urls: ['http://goerli-02.he-eu-hel1.nimbus.geth.wg:{{ geth_authrpc_port }}']
+beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 
 # ERA Files Generation
 nimbus_era_files_timer_enabled: true

@@ -17,7 +17,7 @@
 # On Windows json attribute is missing when it's [].
 - name: Extract Geth websocket IP and port
   set_fact:
-    beacon_node_web3_urls_all: |
+    beacon_node_exec_layer_urls_all: |
       {{ geth_rpc_services.results
       | selectattr("json", "defined")
       | sum(attribute="json", start=[])

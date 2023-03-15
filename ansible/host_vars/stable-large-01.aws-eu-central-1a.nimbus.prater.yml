@@ -9,6 +9,6 @@ beacon_node_listening_port: 9100
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
 
-# HTTP RPC support is unstable
-beacon_node_web3_urls: ['http://goerli-01.he-eu-hel1.nimbus.geth.wg:8551']
-beacon_node_web3_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+# Execution layer Enginer API
+beacon_node_exec_layer_urls: ['http://goerli-01.he-eu-hel1.nimbus.geth.wg:8551']
+beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
