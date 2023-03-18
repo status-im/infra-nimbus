@@ -16,6 +16,7 @@
   roles:
     - { role: swap-file,                tags: swap-file }
     - { role: open-ports,               tags: open-ports }
+    - { role: smart-metrics,            tags: smart-metrics }
     - { role: infra-role-geth,          tags: infra-role-geth }
     - { role: infra-role-geth-exporter, tags: infra-role-geth-exporter }
 
@@ -25,8 +26,9 @@
   hosts:
     - nimbus-geth-goerli
   roles:
-    - { role: swap-file,         tags: swap-file         }
-    - { role: open-ports,        tags: open-ports        }
+    - { role: swap-file,                tags: swap-file }
+    - { role: open-ports,               tags: open-ports }
+    - { role: smart-metrics,            tags: smart-metrics }
   tasks:
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]

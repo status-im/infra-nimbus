@@ -38,6 +38,9 @@ consul_catalog_url: 'http://localhost:8500/v1/catalog'
 swap_file_path: '/docker/main.swap'
 swap_file_size_mb: 2048
 
+# SMART Metrics
+smart_metrics_listen_port: 9633
+
 # Nimbus ------------------------------
 beacon_node_log_level: DEBUG
 # Builds

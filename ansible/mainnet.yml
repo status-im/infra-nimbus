@@ -34,6 +34,7 @@
   hosts: nimbus-mainnet-metal
   roles:
     - { role: open-ports,                   tags: [ open-ports ] }
+    - { role: smart-metrics,                tags: [ smart-metrics ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: infra-role-geth,              tags: [ infra-role-geth ] }
     - { role: infra-role-geth-exporter,     tags: [ infra-role-geth-exporter ] }

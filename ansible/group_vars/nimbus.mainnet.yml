@@ -96,8 +96,9 @@ nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unsta
 open_ports_default_comment: 'Nimbus REST API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
-  - { port: '9400',      ipset: 'metrics.hq', comment: 'Geth Exporter' }
+  - { port: '9300:9310',                       ipset: '{{ env }}.{{ stage }}' }
+  - { port: '9400',                            ipset: 'metrics.hq', comment: 'Geth Exporter' }
+  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq', comment: 'SMART Metrics' }
 
 # Split by hostname for more central location
 nodes_layout:

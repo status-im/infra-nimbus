@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 8c96f6c15af5aefc1f022f6dcd7c0efb1ce29b63
+  version: 5b8106a8c6e17ec96e992fd8711fc42f0aab901a
   scm: git
 
 - name: infra-role-winsw
@@ -121,4 +121,9 @@
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
   version: 21770167cdeb5c481066547b6d0814f1ba8546c1
+  scm: git
+
+- name: smart-metrics
+  src: git@github.com:status-im/infra-role-smart-metrics.git
+  version: f94db4679ef3f920188565dda1e3933cdf70e39a
   scm: git

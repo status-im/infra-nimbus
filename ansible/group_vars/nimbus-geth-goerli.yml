@@ -33,6 +33,7 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '9400:9404', ipset: 'metrics.hq', comment: 'Geth Metrics' }
   - { port: '8551:8554', ipset: 'nimbus.prater' }
+  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq', comment: 'SMART Metrics' }
 
 nodes_layout:
   # For AWS Prater nodes.
