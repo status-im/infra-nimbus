@@ -10,7 +10,7 @@ geth_log_level_name: info
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 # Memory settings¬
-geth_cont_mem_ratio: 0.15
+geth_cont_mem_ratio: 0.10
 geth_cache_size: '{{ (ansible_memtotal_mb * 0.05|float) | int }}'
 # Ports
 geth_rpc_enabled: true
@@ -19,13 +19,27 @@ geth_rpc_port: '{{ 8545 + (idx|int) + 1 }}'
 geth_port: '{{ 30303 + (idx|int) + 1 }}'
 geth_metrics_port: '{{ 6060 + (idx|int) + 1 }}'
 geth_authrpc_port: '{{ 8551 + (idx|int) + 1 }}'
-geth_websocket_addr: '0.0.0.0'
-geth_websocket_port: '{{ 9546 + (idx|int) + 1 }}'
 # Geth metrics¬
 geth_expo_service_name: '{{ geth_service_name }}'
 geth_expo_source_cont_name: '{{ geth_cont_name }}'
 geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_expo_cont_port: '{{ 9400 + (idx|int) + 1 }}'
+
+# Erigon node
+erigon_network_name: 'goerli'
+erigon_service_name: 'erigon-{{ erigon_network_name }}-{{ "%02d"|format(idx|int+1) }}'
+erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
+erigon_log_level: 'info'
+erigon_cont_mem_ratio: 0.1
+erigon_mining_ether_base: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
+# Ports
+erigon_port: '{{ 40303 + (idx|int) + 1 }}'
+erigon_metrics_port: '{{ 6060 + (idx|int) + 1 }}'
+erigon_rpc_addr: '0.0.0.0'
+erigon_rpc_port: '{{ 9545 + (idx|int) + 1 }}'
+erigon_authrpc_addr: '0.0.0.0'
+erigon_authrpc_port: '{{ 9551 + (idx|int) + 1 }}'
+erigon_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
 # Nimbus Beacon node
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
@@ -195,11 +209,11 @@ nodes_layout:
   'linux-05.he-eu-hel1.nimbus.prater': # 60 each
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
     - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
-    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
+    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false, erigon: true }
     - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00', nim_commit: 'version-1-6', nim_flags: '-d:json_rpc_websocket_package=websock' }
 
   'linux-06.he-eu-hel1.nimbus.prater':
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
     - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', validator_client: true, payload_builder: true, open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
-    - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00', payload_builder: true } # 5899 validators
+    - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00', payload_builder: true, erigon: true } # 5899 validators
     - { branch: 'libp2p',   start: 45101, end: 49617, build_freq: '*-*-* 17:00:00', validator_client: true } # 4516 validators
