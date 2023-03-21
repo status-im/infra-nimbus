@@ -34,7 +34,7 @@ erigon_cont_mem_ratio: 0.1
 erigon_mining_ether_base: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
 # Ports
 erigon_port: '{{ 40303 + (idx|int) + 1 }}'
-erigon_metrics_port: '{{ 6060 + (idx|int) + 1 }}'
+erigon_metrics_port: '{{ 7060 + (idx|int) + 1 }}'
 erigon_rpc_addr: '0.0.0.0'
 erigon_rpc_port: '{{ 9545 + (idx|int) + 1 }}'
 erigon_authrpc_addr: '0.0.0.0'
