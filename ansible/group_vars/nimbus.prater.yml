@@ -100,7 +100,9 @@ beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://localhost:{{ geth_authrpc_port }}']
+beacon_node_exec_layer_urls: >-
+  {{ [ "http://localhost:"+geth_authrpc_port ] +
+     ([ "http://localhost:"+erigon_authrpc_port ] if node.get("erigon", False) else []) }}
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 # Periodic resync to save space
 beacon_node_resync_enabled: true
