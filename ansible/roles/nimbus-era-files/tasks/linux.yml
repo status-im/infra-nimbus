@@ -33,4 +33,4 @@
     systemd_timer_ionice_class:      '{{ nimbus_era_files_timer_ionice_class }}'
     systemd_timer_work_dir:          '{{ nimbus_era_files_timer_path }}'
     systemd_timer_after_extra:       '{{ nimbus_era_files_timer_update_name }}.service'
-    launchd_timer_script_content:    '{{ lookup("template", "verify.sh.j2") }}'
+    systemd_timer_script_content:    '{{ lookup("template", "verify.sh.j2") }}'
