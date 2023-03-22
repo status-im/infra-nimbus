@@ -40,7 +40,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 4849a3c9d7f2045669880e4e17eeb71980b2e4d0
+  version: 4d7c9c606f5e039a22c34ba93961d05056c0e002
   scm: git
 
 - name: infra-role-beacon-node-linux
@@ -121,6 +121,11 @@
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
   version: 21770167cdeb5c481066547b6d0814f1ba8546c1
+  scm: git
+
+- name: infra-role-erigon
+  src: git@github.com:status-im/infra-role-erigon.git
+  version: 8fc4f1cbbd09d44c53bc1e0e799fa1a90402ca1b
   scm: git
 
 - name: smart-metrics

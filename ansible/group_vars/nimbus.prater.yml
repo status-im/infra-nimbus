@@ -35,6 +35,7 @@ erigon_miner_enabled: true
 erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
 # Ports
 erigon_port: '{{ 40303 + (idx|int) + 1 }}'
+erigon_metrics_enabled: true
 erigon_metrics_port: '{{ 7060 + (idx|int) + 1 }}'
 erigon_rpc_addr: '0.0.0.0'
 erigon_rpc_port: '{{ 9545 + (idx|int) + 1 }}'
