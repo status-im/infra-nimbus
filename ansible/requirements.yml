@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 8fc4f1cbbd09d44c53bc1e0e799fa1a90402ca1b
+  version: 8582b643db625128a7e41c0d6aa7d7738b8d631c
   scm: git
 
 - name: smart-metrics
