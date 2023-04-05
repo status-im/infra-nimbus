@@ -48,7 +48,7 @@ es_lb_node_port: 9300
 # Cleanup to avoid running out of space
 logclean_es_host: 'localhost'
 logclean_es_port: '{{ es_lb_api_port }}'
-logclean_keep_indices: 14
+logclean_keep_indices: 30
 
 # Open Nginx Ports
 open_ports_default_comment: 'ElasticSearch LB'
