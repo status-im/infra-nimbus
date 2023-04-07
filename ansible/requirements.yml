@@ -60,7 +60,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 95fb05ae039b22a346d7e84d95b1f76bd1e2d55d
+  version: b8c8af50dc0f7b61fb8c00b97fb7b048981e0b73
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 5b8106a8c6e17ec96e992fd8711fc42f0aab901a
+  version: 452523daea017196d21b66c0521536e92af9fb6d
   scm: git
 
 - name: infra-role-winsw
@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 293ebe55053525fb05bfc7c96abe8c090fbdac60
+  version: 853ac7f158db945d64fcf2f204d2befd5509b14b
   scm: git
 
 - name: infra-role-geth-exporter
@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 8582b643db625128a7e41c0d6aa7d7738b8d631c
+  version: 039b0631cec9fe45b8a6a42ad1a30739caf59c2f
   scm: git
 
 - name: smart-metrics
