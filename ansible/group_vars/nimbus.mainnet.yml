@@ -110,7 +110,6 @@ nodes_layout:
 
   'metal-01.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, open_libp2p_ports: false }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1, public_api: true }
@@ -118,7 +117,6 @@ nodes_layout:
 
   'metal-02.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, public_api: true }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1, open_libp2p_ports: false }
@@ -126,7 +124,6 @@ nodes_layout:
 
   'metal-03.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
@@ -134,7 +131,6 @@ nodes_layout:
 
   'metal-04.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
@@ -142,7 +138,6 @@ nodes_layout:
 
   'metal-05.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
@@ -150,7 +145,6 @@ nodes_layout:
 
   'metal-06.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
