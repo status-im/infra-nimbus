@@ -13,6 +13,9 @@
   become: true
   hosts:
     - nimbus.fluffy
+  roles:
+    - { role: open-ports,    tags: open-ports    }
+    - { role: smart-metrics, tags: smart-metrics }
   tasks:
     - include_role: name=infra-role-nimbus-fluffy
       tags: [ beacon-node, infra-role-nimbus-fluffy ]
