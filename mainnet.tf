@@ -24,6 +24,24 @@ module "nimbus_nodes_mainnet_hetzner" {
   ]
 }
 
+module "nimbus_nodes_mainnet_innova" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "linux"
+  env    = "nimbus"
+  stage  = "mainnet"
+  group  = "nimbus-mainnet-metal"
+  region = "eu-mda1"
+  prefix = "ih"
+  domain = var.domain
+
+  ips = [
+    "194.33.40.70", /* linux-01.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.72", /* linux-02.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.78", /* linux-03.ih-eu-mda1.nimbus.mainnet */
+  ]
+}
+
 /* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
