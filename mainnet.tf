@@ -39,6 +39,7 @@ module "nimbus_nodes_mainnet_innova" {
     "194.33.40.70", /* linux-01.ih-eu-mda1.nimbus.mainnet */
     "194.33.40.72", /* linux-02.ih-eu-mda1.nimbus.mainnet */
     "194.33.40.78", /* linux-03.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.99", /* linux-04.ih-eu-mda1.nimbus.mainnet */
   ]
 }
 

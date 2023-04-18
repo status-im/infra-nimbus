@@ -13,6 +13,7 @@ linux-02.ih-eu-mda1.nimbus.mainnet hostname=linux-02.ih-eu-mda1.nimbus.mainnet a
 linux-03.he-eu-hel1.nimbus.prater hostname=linux-03.he-eu-hel1.nimbus.prater ansible_host=65.108.132.230 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-03.he-eu-hel1.nimbus.prater.statusim.net
 linux-03.ih-eu-mda1.nimbus.mainnet hostname=linux-03.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.78 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-03.ih-eu-mda1.nimbus.mainnet.statusim.net
 linux-04.he-eu-hel1.nimbus.prater hostname=linux-04.he-eu-hel1.nimbus.prater ansible_host=135.181.20.36 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-04.he-eu-hel1.nimbus.prater.statusim.net
+linux-04.ih-eu-mda1.nimbus.mainnet hostname=linux-04.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.99 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-04.ih-eu-mda1.nimbus.mainnet.statusim.net
 linux-05.he-eu-hel1.nimbus.prater hostname=linux-05.he-eu-hel1.nimbus.prater ansible_host=95.217.224.92 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-05.he-eu-hel1.nimbus.prater.statusim.net
 linux-06.he-eu-hel1.nimbus.prater hostname=linux-06.he-eu-hel1.nimbus.prater ansible_host=95.217.204.216 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-06.he-eu-hel1.nimbus.prater.statusim.net
 macos-01.ms-eu-dublin.nimbus.prater hostname=macos-01.ms-eu-dublin.nimbus.prater ansible_host=207.254.102.98 env=nimbus stage=prater data_center=ms-eu-dublin region=eu-dublin dns_entry=macos-01.ms-eu-dublin.nimbus.prater.statusim.net
@@ -81,6 +82,7 @@ linux-01.ih-eu-mda1.nimbus.mainnet
 linux-01.ih-eu-mda1.nimbus.prater
 linux-02.ih-eu-mda1.nimbus.mainnet
 linux-03.ih-eu-mda1.nimbus.mainnet
+linux-04.ih-eu-mda1.nimbus.mainnet
 
 [log-dash]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -112,6 +114,7 @@ mainnet-01.aws-eu-central-1a.nimbus.geth
 linux-01.ih-eu-mda1.nimbus.mainnet
 linux-02.ih-eu-mda1.nimbus.mainnet
 linux-03.ih-eu-mda1.nimbus.mainnet
+linux-04.ih-eu-mda1.nimbus.mainnet
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-02.he-eu-hel1.nimbus.mainnet
 metal-03.he-eu-hel1.nimbus.mainnet
@@ -168,6 +171,7 @@ mainnet-01.aws-eu-central-1a.nimbus.geth
 linux-01.ih-eu-mda1.nimbus.mainnet
 linux-02.ih-eu-mda1.nimbus.mainnet
 linux-03.ih-eu-mda1.nimbus.mainnet
+linux-04.ih-eu-mda1.nimbus.mainnet
 metal-01.he-eu-hel1.nimbus.mainnet
 metal-02.he-eu-hel1.nimbus.mainnet
 metal-03.he-eu-hel1.nimbus.mainnet
