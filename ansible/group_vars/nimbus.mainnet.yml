@@ -69,7 +69,7 @@ beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_exec_layer_urls: |-
-  {{ (data_center == "he-eu-hel1")
+  {{ (data_center in ["he-eu-hel1", "ih-eu-mda1"])
     | ternary(
         ["http://localhost:"+(geth_authrpc_port|string)],
         beacon_node_exec_layer_urls_all
@@ -102,6 +102,7 @@ open_ports_list:
 
 # Split by hostname for more central location
 nodes_layout:
+  # AWS --------------------------------------------------------------
   'stable-small-01.aws-eu-central-1a.nimbus.mainnet':
     - { branch: 'stable', history: 'archive' }
 
