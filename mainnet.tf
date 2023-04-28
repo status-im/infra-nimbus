@@ -14,13 +14,13 @@ module "nimbus_nodes_mainnet_hetzner" {
   domain = var.domain
 
   ips = [
-    "95.217.87.121",
-    "135.181.0.33",
-    "135.181.60.170",
-    "65.21.193.229",
-    "135.181.60.177",
-    "135.181.56.50",
-    "65.109.80.106",
+    "95.217.87.121",  /* metal-01.he-eu-hel1.nimbus.mainnet */
+    "135.181.0.33",   /* metal-02.he-eu-hel1.nimbus.mainnet */
+    "135.181.60.170", /* metal-03.he-eu-hel1.nimbus.mainnet */
+    "65.21.193.229",  /* metal-04.he-eu-hel1.nimbus.mainnet */
+    "135.181.60.177", /* metal-05.he-eu-hel1.nimbus.mainnet */
+    "135.181.56.50",  /* metal-06.he-eu-hel1.nimbus.mainnet */
+    "65.109.80.106",  /* metal-07.he-eu-hel1.nimbus.mainnet */
   ]
 }
 
