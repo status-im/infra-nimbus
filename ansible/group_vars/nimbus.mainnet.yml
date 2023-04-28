@@ -150,7 +150,7 @@ nodes_layout:
     - { branch: 'unstable', num: 1 }
     - { branch: 'unstable', num: 2 }
 
-  'linux-06.ih-eu-mda1.nimbus.mainnet':
+  'linux-06.ih-eu-mda1.nimbus.mainnet': # Doesn't exist yet.
     - { branch: 'stable',   num: 1 }
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
@@ -158,7 +158,7 @@ nodes_layout:
     - { branch: 'unstable', num: 1 }
     - { branch: 'unstable', num: 2 }
 
-  'linux-07.ih-eu-mda1.nimbus.mainnet':
+  'linux-07.ih-eu-mda1.nimbus.mainnet': # Doesn't exist yet.
     - { branch: 'stable',   num: 1 }
     - { branch: 'libp2p',   num: 1 }
     - { branch: 'libp2p',   num: 2 }
@@ -167,54 +167,6 @@ nodes_layout:
 
   # Hetzner ----------------------------------------------------------
   'metal-01.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1, open_libp2p_ports: false }
-    - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1, public_api: true }
-    - { branch: 'unstable', num: 2 }
-
-  'metal-02.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1, public_api: true }
-    - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1, open_libp2p_ports: false }
-    - { branch: 'unstable', num: 2 }
-
-  'metal-03.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
-
-  'metal-04.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
-
-  'metal-05.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
-
-  'metal-06.he-eu-hel1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'testing',  num: 2 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
-
-  'metal-07.he-eu-hel1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
     - { branch: 'libp2p',   num: 1 }
     - { branch: 'libp2p',   num: 2 }

@@ -14,13 +14,7 @@ module "nimbus_nodes_mainnet_hetzner" {
   domain = var.domain
 
   ips = [
-    "95.217.87.121",  /* metal-01.he-eu-hel1.nimbus.mainnet */
-    "135.181.0.33",   /* metal-02.he-eu-hel1.nimbus.mainnet */
-    "135.181.60.170", /* metal-03.he-eu-hel1.nimbus.mainnet */
-    "65.21.193.229",  /* metal-04.he-eu-hel1.nimbus.mainnet */
-    "135.181.60.177", /* metal-05.he-eu-hel1.nimbus.mainnet */
-    "135.181.56.50",  /* metal-06.he-eu-hel1.nimbus.mainnet */
-    "65.109.80.106",  /* metal-07.he-eu-hel1.nimbus.mainnet */
+    "65.109.80.106",  /* metal-01.he-eu-hel1.nimbus.mainnet */
   ]
 }
 
@@ -48,7 +42,7 @@ module "nimbus_nodes_mainnet_innova" {
 resource "cloudflare_record" "unstable_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "unstable.mainnet.beacon-api"
-  value   = module.nimbus_nodes_mainnet_hetzner.public_ips[0]
+  value   = module.nimbus_nodes_mainnet_innova.public_ips[0]
   type    = "A"
   proxied = false
 }
@@ -56,7 +50,7 @@ resource "cloudflare_record" "unstable_mainnet_beacon_api" {
 resource "cloudflare_record" "testing_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "testing.mainnet.beacon-api"
-  value   = module.nimbus_nodes_mainnet_hetzner.public_ips[1]
+  value   = module.nimbus_nodes_mainnet_innova.public_ips[1]
   type    = "A"
   proxied = false
 }
@@ -65,7 +59,7 @@ resource "cloudflare_record" "testing_mainnet_beacon_api" {
 resource "cloudflare_record" "era_mainnet" {
   zone_id = local.zones["nimbus.team"]
   name    = "mainnet.era"
-  value   = module.nimbus_nodes_mainnet_hetzner.public_ips[2]
+  value   = module.nimbus_nodes_mainnet_innova.public_ips[2]
   type    = "A"
   proxied = true
 }
