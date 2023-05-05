@@ -69,12 +69,16 @@ beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_exec_layer_urls_local_geth: ['http://localhost:{{ geth_authrpc_port|string }}']
-beacon_node_exec_layer_urls: |-
+beacon_node_exec_layer_urls_auto: |-
   {{ (data_center in ["he-eu-hel1", "ih-eu-mda1"])
     | ternary(
         beacon_node_exec_layer_urls_local_geth,
         beacon_node_exec_layer_urls_discovered_geth
     ) }}
+beacon_node_exec_layer_urls: |-
+  {{ beacon_node_exec_layer_urls_auto if inventory_hostname_short == "linux-01"
+    else (idx % 2 == 0) | ternary(beacon_node_exec_layer_urls_auto, []) }}
+
 # Periodic resync to save space
 beacon_node_resync_enabled: true
 beacon_node_resync_timer_enabled: '{{ (idx % 2 == 1) and not node.get("public_api") }}'
@@ -111,7 +115,7 @@ nodes_layout:
     - { branch: 'stable', history: 'archive' }
 
   # Innova Hosting ---------------------------------------------------
-  'linux-01.ih-eu-mda1.nimbus.mainnet':
+  'linux-01.ih-eu-mda1.nimbus.mainnet': # Frankenstein host, all nodes use one Geth.
     - { branch: 'stable',   num: 1 }
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, open_libp2p_ports: false }
