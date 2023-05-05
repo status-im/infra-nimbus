@@ -68,11 +68,12 @@ beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+beacon_node_exec_layer_urls_local_geth: ['http://localhost:{{ geth_authrpc_port|string }}']
 beacon_node_exec_layer_urls: |-
   {{ (data_center in ["he-eu-hel1", "ih-eu-mda1"])
     | ternary(
-        ["http://localhost:"+(geth_authrpc_port|string)],
-        beacon_node_exec_layer_urls_all
+        beacon_node_exec_layer_urls_local_geth,
+        beacon_node_exec_layer_urls_discovered_geth
     ) }}
 # Periodic resync to save space
 beacon_node_resync_enabled: true
