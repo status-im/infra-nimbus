@@ -30,11 +30,13 @@ module "nimbus_nodes_mainnet_innova" {
   domain = var.domain
 
   ips = [
-    "194.33.40.70",  /* linux-01.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.72",  /* linux-02.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.78",  /* linux-03.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.99",  /* linux-04.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.100", /* linux-05.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.70",   /* linux-01.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.72",   /* linux-02.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.78",   /* linux-03.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.99",   /* linux-04.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.100",  /* linux-05.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.101",  /* linux-06.ih-eu-mda1.nimbus.mainnet */
+    "185.181.229.82", /* linux-07.ih-eu-mda1.nimbus.mainnet */
   ]
 }
 
