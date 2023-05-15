@@ -130,5 +130,5 @@
 
 - name: smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
-  version: f94db4679ef3f920188565dda1e3933cdf70e39a
+  version: c7de707932b878cc4ad22cd69b78203e57dd50fd
   scm: git
