@@ -1,5 +1,0 @@
----
-bootstrap__extra_volume_devices:
-  - 'disk/by-id/nvme-SAMSUNG_MZVL22T0HBLB-00B00_S677NF0RB00032'
-bootstrap__extra_volume_bind_paths:
-  DATA_VOLUME1: ['/docker']
