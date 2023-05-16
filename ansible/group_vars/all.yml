@@ -3,8 +3,11 @@
 bootstrap__root_pass: '{{lookup("bitwarden", "root-pass")}}'
 bootstrap__admin_pass: '{{lookup("bitwarden", "macos/admin", field="password")}}'
 # Consul
-bootstrap__consul_encryption_key: '{{lookup("bitwarden", "consul/cluster", field="encryption-key")}}'
-bootstarp__consul_agent_acl_token: '{{lookup("bitwarden", "consul/acl-tokens", field="agent-default")}}'
+bootstrap__consul_encryption_key:   '{{lookup("bitwarden", "consul/cluster",    field="encryption-key")}}'
+bootstarp__consul_agent_acl_token:  '{{lookup("bitwarden", "consul/acl-tokens", field="agent-default")}}'
+bootstrap__consul_certs_ca_crt:     '{{lookup("bitwarden", "consul/certs",      file="ca.pem")}}'
+bootstrap__consul_certs_client_crt: '{{lookup("bitwarden", "consul/certs",      file="client.pem")}}'
+bootstrap__consul_certs_client_key: '{{lookup("bitwarden", "consul/certs",      file="client-key.pem")}}'
 # SSHGuard
 bootstrap__sshguard_whitelist_extra: ['{{lookup("bitwarden", "sshguard/whitelist", field="jakubgs-home")}}']
 # Wireguard
