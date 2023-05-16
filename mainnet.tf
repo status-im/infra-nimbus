@@ -1,23 +1,3 @@
-/* Hetzner AX41-NVMe
- * AMD Ryzen 5 3600 Hexa-Core
- * 64 GB DDR4 RAM
- * 2 x 512 GB NVMe SSD */
-module "nimbus_nodes_mainnet_hetzner" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "metal"
-  env    = "nimbus"
-  stage  = "mainnet"
-  group  = "nimbus-mainnet-metal"
-  region = "eu-hel1"
-  prefix = "he"
-  domain = var.domain
-
-  ips = [
-    "65.109.80.106",  /* metal-01.he-eu-hel1.nimbus.mainnet */
-  ]
-}
-
 module "nimbus_nodes_mainnet_innova" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
