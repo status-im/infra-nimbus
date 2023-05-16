@@ -12,7 +12,7 @@
 - name: Configure ERA files hosting
   become: true
   hosts:
-    - metal-03.he-eu-hel1.nimbus.mainnet
+    - linux-03.ih-eu-mda1.nimbus.mainnet
     - linux-01.he-eu-hel1.nimbus.prater
   vars:
     open_ports_default_comment: 'Nginx'
