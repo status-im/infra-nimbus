@@ -94,8 +94,7 @@ nimbus_era_files_timer_path: '/data/era'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 # FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01/data/db'
-# FIXME: Using unstable version to include fixes not present in stable.
-nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable-01/repo/build/ncli_db'
+nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01/repo/build/ncli_db'
 
 # Open Ports
 open_ports_default_comment: 'Nimbus REST API'
