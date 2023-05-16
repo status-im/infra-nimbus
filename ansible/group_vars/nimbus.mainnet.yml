@@ -47,6 +47,7 @@ beacon_node_metrics_port:   '{{ 9200 + idx }}'
 beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx }}'
 beacon_node_rest_port_base: 9300
 beacon_node_rest_address:   '0.0.0.0'
+beacon_node_max_peers: '{{ node.get("max_peers", 320) }}'
 # Firewall
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Builds
@@ -131,7 +132,7 @@ nodes_layout:
     - { branch: 'unstable', num: 2 }
 
   'linux-03.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
+    - { branch: 'stable',   num: 1, max_peers: 10000 }
     - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
