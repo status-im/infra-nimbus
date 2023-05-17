@@ -76,6 +76,11 @@ validator_client_dist_validators_enabled: '{{ node.start is defined and node.end
 validator_client_dist_validators_start: '{{ (not node.validator_client) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.validator_client) | ternary(0, node.end)   | mandatory }}'
 
+# Open Ports
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',  comment: 'SMART Metrics' }
+
 nodes_layout:
   'linux-01.he-eu-hel1.nimbus.sepolia':
     - { start:  0, end:  25, validator_client: true }
