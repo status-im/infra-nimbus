@@ -45,17 +45,17 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: c401b27637e3b06e4a5de05618edce0f7f36b40c
+  version: edba943d039131f55818db69628fff1984fa5006
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: f3fc1aa3093fa2832a70d2ebb43269ebd16eb307
+  version: e3d9f50136a9ca56f7e2cf2ea4d5af9a430fade5
   scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 370b823f5f54578e5cbb7c53c2d91b442384def4
+  version: b00f8ba09d7beafe5450a80af21293953393729b
   scm: git
 
 - name: infra-role-validator-client
@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 452523daea017196d21b66c0521536e92af9fb6d
+  version: d9008250d7d95c48c24fd921c4b1df41e3ae00ce
   scm: git
 
 - name: infra-role-winsw
@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 853ac7f158db945d64fcf2f204d2befd5509b14b
+  version: f2fc2892635cf69e1160a6cbeae2212da7202884
   scm: git
 
 - name: infra-role-geth-exporter
@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 039b0631cec9fe45b8a6a42ad1a30739caf59c2f
+  version: 44b4b0629e714de06ae5b36b2235c538d11c0401
   scm: git
 
 - name: smart-metrics
