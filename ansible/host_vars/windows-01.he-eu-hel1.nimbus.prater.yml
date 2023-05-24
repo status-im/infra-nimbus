@@ -3,5 +3,5 @@
 bootstrap__defender_enabled: false
 
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://goerli-03.he-eu-hel1.nimbus.geth.wg:{{ geth_authrpc_port }}']
+beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_discovered_geth }}'
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'

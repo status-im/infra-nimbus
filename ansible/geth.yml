@@ -14,7 +14,6 @@
   hosts:
     - nimbus-geth-mainnet
   roles:
-    - { role: swap-file,                tags: swap-file }
     - { role: open-ports,               tags: open-ports }
     - { role: smart-metrics,            tags: smart-metrics }
     - { role: infra-role-geth,          tags: infra-role-geth }
@@ -26,7 +25,6 @@
   hosts:
     - nimbus-geth-goerli
   roles:
-    - { role: swap-file,                tags: swap-file }
     - { role: open-ports,               tags: open-ports }
     - { role: smart-metrics,            tags: smart-metrics }
   tasks:

@@ -10,5 +10,5 @@ beacon_node_listening_port: 9100
 beacon_node_subscribe_all: true
 
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://goerli-01.he-eu-hel1.nimbus.geth.wg:8551']
+beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_discovered_geth }}'
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'

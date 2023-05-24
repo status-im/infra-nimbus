@@ -7,6 +7,7 @@ geth_cont_vol: '{{ geth_service_path }}/node'
 geth_network_name: 'goerli'
 geth_sync_mode: 'full'
 geth_log_level_name: info
+geth_consul_advertised_address: '{{ hostname }}.wg'
 # Geth auth & JWT token
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
@@ -37,10 +38,10 @@ open_ports_list:
 
 nodes_layout:
   # For AWS Prater nodes.
-  'goerli-01.he-eu-hel1.nimbus.geth': [{}, {}, {}]
+  'goerli-01.he-eu-hel1.nimbus.geth': [{}, {}]
 
   # For MacOS Prater nodes.
-  'goerli-02.he-eu-hel1.nimbus.geth': [{}, {}, {}]
+  'goerli-02.he-eu-hel1.nimbus.geth': [{}, {}]
 
   # For Windows prater nodes.
-  'goerli-03.he-eu-hel1.nimbus.geth': [{}, {}, {}]
+  'goerli-03.he-eu-hel1.nimbus.geth': [{}, {}]

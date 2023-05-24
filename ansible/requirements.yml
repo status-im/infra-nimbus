@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: d9008250d7d95c48c24fd921c4b1df41e3ae00ce
+  version: 2fb7afec7cb7503789ef03e17a781ac7014590d5
   scm: git
 
 - name: infra-role-winsw
@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: f2fc2892635cf69e1160a6cbeae2212da7202884
+  version: 862d068c736db1b64dd10c3feb2d82124a634b17
   scm: git
 
 - name: infra-role-geth-exporter

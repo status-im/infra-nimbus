@@ -1,4 +1,4 @@
 ---
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://goerli-01.he-eu-hel1.nimbus.geth.wg:8553']
+beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_discovered_geth }}'
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
