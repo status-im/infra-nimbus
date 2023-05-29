@@ -1,0 +1,3 @@
+---
+# Hetzner detects discovery as network scanning.
+erigon_discovery_enabled: false
