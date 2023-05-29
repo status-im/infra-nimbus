@@ -36,6 +36,7 @@ erigon_miner_enabled: true
 erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
 # Hetzner detects discovery as network scanning.
 erigon_discovery_enabled: false
+erigon_discovery_dns_entries: ['enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.goerli.ethdisco.net']
 # Ports
 erigon_port: '{{ 40303 + (idx|int) + 1 }}'
 erigon_metrics_enabled: true
