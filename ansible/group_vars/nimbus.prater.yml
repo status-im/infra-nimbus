@@ -66,6 +66,7 @@ beacon_node_rest_max_headers_size: 1024
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Tuning
 beacon_node_max_peers: 300
+validator_client_service_nofile_limit: 32768
 beacon_node_cores_per_node: '{{ (ansible_processor_vcpus|int / nodes_layout[hostname]|length) | round(0, "ceil") | int }}'
 beacon_node_threads: '{{ (node.branch == "libp2p") | ternary(1, beacon_node_cores_per_node) }}'
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
