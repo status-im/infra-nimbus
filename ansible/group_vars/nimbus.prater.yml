@@ -31,8 +31,11 @@ erigon_service_name: 'erigon-{{ erigon_network_name }}-{{ "%02d"|format(idx|int+
 erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
 erigon_log_level: 'info'
 erigon_cont_mem_ratio: 0.1
+erigon_max_peers: 20
 erigon_miner_enabled: true
 erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
+# Hetzner detects discovery as network scanning.
+erigon_discovery_enabled: false
 # Ports
 erigon_port: '{{ 40303 + (idx|int) + 1 }}'
 erigon_metrics_enabled: true
