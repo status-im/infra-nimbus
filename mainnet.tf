@@ -1,3 +1,7 @@
+/* MOB: ProLiant DL380p Gen8
+ * CPU: Intel Xeon E5-2690 v2 @ 3.00GHz
+ * MEM: 62 GB DDR3
+ * SSD: 1x400 GB, 2x1.6 TB */
 module "nimbus_nodes_mainnet_innova" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
