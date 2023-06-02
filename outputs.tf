@@ -12,5 +12,7 @@ output "hosts" {
     module.nimbus_nodes_prater_windows.hosts,
     module.nimbus_nodes_prater_hetzner.hosts,
     module.nimbus_nodes_prater_macos.hosts,
+    module.nimbus_nodes_sepolia_hetzner.hosts,
+    module.nimbus_nodes_sepolia_innova.hosts,
   )
 }

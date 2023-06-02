@@ -7,6 +7,7 @@ goerli-03.he-eu-hel1.nimbus.geth hostname=goerli-03.he-eu-hel1.nimbus.geth ansib
 linux-01.he-eu-hel1.nimbus.prater hostname=linux-01.he-eu-hel1.nimbus.prater ansible_host=95.217.198.113 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.prater.statusim.net
 linux-01.he-eu-hel1.nimbus.sepolia hostname=linux-01.he-eu-hel1.nimbus.sepolia ansible_host=65.21.89.157 env=nimbus stage=sepolia data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-01.he-eu-hel1.nimbus.sepolia.statusim.net
 linux-01.ih-eu-mda1.nimbus.mainnet hostname=linux-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.mainnet.statusim.net
+linux-01.ih-eu-mda1.nimbus.sepolia hostname=linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 env=nimbus stage=sepolia data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.statusim.net
 linux-02.he-eu-hel1.nimbus.prater hostname=linux-02.he-eu-hel1.nimbus.prater ansible_host=95.217.230.20 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-02.he-eu-hel1.nimbus.prater.statusim.net
 linux-02.ih-eu-mda1.nimbus.mainnet hostname=linux-02.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.72 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-02.ih-eu-mda1.nimbus.mainnet.statusim.net
 linux-03.he-eu-hel1.nimbus.prater hostname=linux-03.he-eu-hel1.nimbus.prater ansible_host=65.108.132.230 env=nimbus stage=prater data_center=he-eu-hel1 region=eu-hel1 dns_entry=linux-03.he-eu-hel1.nimbus.prater.statusim.net
@@ -67,6 +68,7 @@ windows-01.he-eu-hel1.nimbus.prater
 
 [ih-eu-mda1]
 linux-01.ih-eu-mda1.nimbus.mainnet
+linux-01.ih-eu-mda1.nimbus.sepolia
 linux-02.ih-eu-mda1.nimbus.mainnet
 linux-03.ih-eu-mda1.nimbus.mainnet
 linux-04.ih-eu-mda1.nimbus.mainnet
@@ -138,6 +140,7 @@ windows-01.he-eu-hel1.nimbus.prater
 
 [nimbus-sepolia-linux]
 linux-01.he-eu-hel1.nimbus.sepolia
+linux-01.ih-eu-mda1.nimbus.sepolia
 
 [nimbus.eth1]
 metal-01.he-eu-hel1.nimbus.eth1
@@ -178,4 +181,5 @@ windows-01.he-eu-hel1.nimbus.prater
 
 [nimbus.sepolia]
 linux-01.he-eu-hel1.nimbus.sepolia
+linux-01.ih-eu-mda1.nimbus.sepolia
 
