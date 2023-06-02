@@ -45,3 +45,6 @@ beacon_node_rest_address:   '0.0.0.0'
 nodes_layout:
   'linux-01.he-eu-hel1.nimbus.sepolia':
     - { }
+
+  'linux-01.ih-eu-mda1.nimbus.sepolia':
+    - { }
