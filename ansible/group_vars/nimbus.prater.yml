@@ -219,3 +219,16 @@ nodes_layout:
     - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', validator_client: true, payload_builder: true, open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
     - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00', payload_builder: true, erigon: true } # 5899 validators
     - { branch: 'libp2p',   start: 45101, end: 49617, build_freq: '*-*-* 17:00:00', validator_client: true } # 4516 validators
+
+  # Innova Hosting
+  'linux-01.ih-eu-mda1.nimbus.prater': # 0 each
+    - { branch: 'stable',                             build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'unstable',                           build_freq: '*-*-* 17:00:00', public_api: true }
+    - { branch: 'libp2p',                             build_freq: '*-*-* 19:00:00' }
+
+  'linux-02.ih-eu-mda1.nimbus.prater': # 1 each
+    - { branch: 'stable',                             build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6', public_api: true }
+    - { branch: 'unstable',                           build_freq: '*-*-* 17:00:00' }
+    - { branch: 'libp2p',                             build_freq: '*-*-* 19:00:00' }
