@@ -55,6 +55,7 @@ beacon_node_build_frequency: '*-*-* {{ 12 + idx }}:00:00'
 # Tuning
 beacon_node_cores_per_node: '{{ (ansible_processor_vcpus / nodes_layout[hostname]|length) | round(0, "ceil") | int }}'
 beacon_node_threads: '{{ (node.branch == "libp2p") | ternary(1, beacon_node_cores_per_node) }}'
+beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
