@@ -74,9 +74,9 @@ beacon_node_threads: '{{ (node.branch == "libp2p") | ternary(1, beacon_node_core
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
-beacon_node_validator_monitor_totals: >-
-  {{ (node.public_api is defined and node.public_api)
-  or (node.end is defined and (node.end - node.start) > 64) }}
+beacon_node_validator_monitor_details: >-
+  {{ (node.public_api is not defined or not node.public_api)
+  or (node.end is defined and (node.end - node.start) <= 64) }}
 # Builds
 beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'

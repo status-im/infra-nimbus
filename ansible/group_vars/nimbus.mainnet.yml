@@ -59,7 +59,7 @@ beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
-beacon_node_validator_monitor_totals: '{{ (node.public_api is defined and node.public_api) }}'
+beacon_node_validator_monitor_details: '{{ node.public_api is not defined or not node.public_api }}'
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets

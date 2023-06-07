@@ -35,7 +35,7 @@ beacon_node_payload_builder_url: 'https://builder-relay-sepolia.flashbots.net/'
 beacon_node_build_frequency: 'daily'
 # Monitoring
 beacon_node_validator_monitor_auto: true
-beacon_node_validator_monitor_totals: true
+beacon_node_validator_monitor_details: true
 # Execution layer Enginer API
 beacon_node_exec_layer_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
