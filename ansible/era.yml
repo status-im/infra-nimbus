@@ -13,7 +13,7 @@
   become: true
   hosts:
     - linux-03.ih-eu-mda1.nimbus.mainnet
-    - linux-01.he-eu-hel1.nimbus.prater
+    - linux-01.ih-eu-mda1.nimbus.prater
   vars:
     open_ports_default_comment: 'Nginx'
     open_ports_default_chain: 'SERVICES'
