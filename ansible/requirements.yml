@@ -35,7 +35,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: ff690889d9ad55492ea3b346ad19345c2e9083a9
+  version: 61e77e71671c07ae4f406441ebd5cbeedd90e5ae
   scm: git
 
 - name: consul-service
@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 862d068c736db1b64dd10c3feb2d82124a634b17
+  version: 48f84762959d0e595b8363534ce1dc19e95f09d1
   scm: git
 
 - name: infra-role-geth-exporter
