@@ -174,10 +174,9 @@ nodes_layout:
   'unstable-large-01.aws-eu-central-1a.nimbus.prater': # 2000 each
     - { branch: 'unstable', start:  4000, end:  6000, history: 'archive', payload_builder: true }
 
-  'macos-01.ms-eu-dublin.nimbus.prater': # 2000 each
-    - { branch: 'stable',   start:  6000, end:  8000, build_start: '13:00:00' }
-    - { branch: 'testing',  start:  8000, end: 10000, build_start: '15:00:00' }
-    - { branch: 'unstable', start: 12000, end: 14000, build_start: '16:00:00', nim_flags: '-d:json_rpc_websocket_package=websock' }
+  'macos-01.ms-eu-dublin.nimbus.prater': # 3000 each
+    - { branch: 'testing',   start:  6000, end:  9000, build_start: '13:00:00' }
+    - { branch: 'unstable',  start:  9000, end: 10000, build_start: '15:00:00' }
 
   'windows-01.he-eu-hel1.nimbus.prater': # 2000 each
     - { branch: 'stable',   start: 14000, end: 16000, build_start: '13:00:00' }
