@@ -220,3 +220,27 @@ nodes_layout:
     - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6', public_api: true }
     - { branch: 'unstable', start: 20002, end: 20003, build_freq: '*-*-* 17:00:00' }
     - { branch: 'libp2p',   start: 20003, end: 20004, build_freq: '*-*-* 19:00:00' }
+
+  'linux-03.ih-eu-mda1.nimbus.prater': # 10 each
+    - { branch: 'stable',                             build_freq: '*-*-* 11:00:00' }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'unstable',                           build_freq: '*-*-* 13:00:00', validator_client: true, open_libp2p_ports: false }
+    - { branch: 'libp2p',                             build_freq: '*-*-* 17:00:00' }
+
+  'linux-04.ih-eu-mda1.nimbus.prater': # 30 each
+    - { branch: 'stable',                             build_freq: '*-*-* 11:00:00', validator_client: true }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'unstable',                           build_freq: '*-*-* 13:00:00', payload_builder: true }
+    - { branch: 'libp2p',                             build_freq: '*-*-* 17:00:00' }
+
+  'linux-05.ih-eu-mda1.nimbus.prater': # 60 each
+    - { branch: 'stable',                             build_freq: '*-*-* 11:00:00' }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'unstable',                           build_freq: '*-*-* 13:00:00', open_libp2p_ports: false, erigon: true }
+    - { branch: 'libp2p',                             build_freq: '*-*-* 17:00:00', nim_commit: 'version-1-6' }
+
+  'linux-06.ih-eu-mda1.nimbus.prater':
+    - { branch: 'stable',                             build_freq: '*-*-* 11:00:00' } # 10899 validators
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', validator_client: true, payload_builder: true, open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
+    - { branch: 'unstable',                           build_freq: '*-*-* 13:00:00', payload_builder: true, erigon: true } # 5899 validators
+    - { branch: 'libp2p',                             build_freq: '*-*-* 17:00:00', validator_client: true } # 4516 validators

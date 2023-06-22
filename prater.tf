@@ -142,8 +142,12 @@ module "nimbus_nodes_prater_innova" {
   domain = var.domain
 
   ips = [
-    "185.181.230.78", # linux-01.ih-eu-mda1.nimbus.prater
-    "185.181.230.79", # linux-02.ih-eu-mda1.nimbus.prater
+    "185.181.230.78",  # linux-01.ih-eu-mda1.nimbus.prater
+    "185.181.230.79",  # linux-02.ih-eu-mda1.nimbus.prater
+    "185.181.230.121", # linux-03.ih-eu-mda1.nimbus.prater
+    "194.33.40.231",   # linux-04.ih-eu-mda1.nimbus.prater
+    "194.33.40.232",   # linux-05.ih-eu-mda1.nimbus.prater
+    "194.33.40.233",   # linux-06.ih-eu-mda1.nimbus.prater
   ]
 }
 
