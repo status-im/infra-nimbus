@@ -75,8 +75,8 @@ beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: >-
-  {{ (node.public_api is not defined or not node.public_api)
-  or (node.end is defined and (node.end - node.start) <= 64) }}
+  {{  (node.public_api is not defined or not node.public_api)
+  and (node.end is defined and (node.end - node.start) <= 64) }}
 # Builds
 beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
