@@ -64,6 +64,7 @@ beacon_node_validator_monitor_details: '{{ node.public_api is not defined or not
 beacon_node_dist_validators_enabled: false
 # Bootnodes should subscribe to all subnets
 beacon_node_subscribe_all: true
+beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else [] }}'
 # Light client data
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
@@ -168,5 +169,5 @@ nodes_layout:
     - { branch: 'stable',   num: 1 }
     - { branch: 'libp2p',   num: 1 }
     - { branch: 'libp2p',   num: 2 }
-    - { branch: 'libp2p',   num: 3 }
-    - { branch: 'libp2p',   num: 4 }
+    - { branch: 'libp2p',   num: 3, extra_flags: ['--enable-yamux=true'] }
+    - { branch: 'libp2p',   num: 4, extra_flags: ['--enable-yamux=true'] }
