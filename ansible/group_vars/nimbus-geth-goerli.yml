@@ -39,9 +39,12 @@ open_ports_list:
 nodes_layout:
   # For AWS Prater nodes.
   'goerli-01.he-eu-hel1.nimbus.geth': [{}, {}]
+  'goerli-01.ih-eu-mda1.nimbus.geth': [{}, {}]
 
   # For MacOS Prater nodes.
   'goerli-02.he-eu-hel1.nimbus.geth': [{}, {}]
+  'goerli-02.ih-eu-mda1.nimbus.geth': [{}, {}]
 
   # For Windows prater nodes.
   'goerli-03.he-eu-hel1.nimbus.geth': [{}, {}]
+  'goerli-03.ih-eu-mda1.nimbus.geth': [{}, {}]
