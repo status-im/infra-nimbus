@@ -32,7 +32,9 @@ mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.n
 metal-01.he-eu-hel1.nimbus.eth1 hostname=metal-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.230.244 env=nimbus stage=eth1 data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.eth1.statusim.net
 metal-01.he-eu-hel1.nimbus.fluffy hostname=metal-01.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.3 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-01.he-eu-hel1.nimbus.fluffy.statusim.net
 metal-01.ih-eu-mda1.nimbus.eth1 hostname=metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 env=nimbus stage=eth1 data_center=ih-eu-mda1 region=eu-mda1 dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.statusim.net
+metal-01.ih-eu-mda1.nimbus.fluffy hostname=metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 env=nimbus stage=fluffy data_center=ih-eu-mda1 region=eu-mda1 dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.statusim.net
 metal-02.he-eu-hel1.nimbus.fluffy hostname=metal-02.he-eu-hel1.nimbus.fluffy ansible_host=65.108.42.174 env=nimbus stage=fluffy data_center=he-eu-hel1 region=eu-hel1 dns_entry=metal-02.he-eu-hel1.nimbus.fluffy.statusim.net
+metal-02.ih-eu-mda1.nimbus.fluffy hostname=metal-02.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.239 env=nimbus stage=fluffy data_center=ih-eu-mda1 region=eu-mda1 dns_entry=metal-02.ih-eu-mda1.nimbus.fluffy.statusim.net
 node-01.aws-eu-central-1a.dash.nimbus hostname=node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 env=dash stage=nimbus data_center=aws-eu-central-1a region=eu-central-1a dns_entry=node-01.aws-eu-central-1a.dash.nimbus.statusim.net
 stable-large-01.aws-eu-central-1a.nimbus.prater hostname=stable-large-01.aws-eu-central-1a.nimbus.prater ansible_host=3.120.202.252 env=nimbus stage=prater data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-large-01.aws-eu-central-1a.nimbus.prater.statusim.net
 stable-small-01.aws-eu-central-1a.nimbus.mainnet hostname=stable-small-01.aws-eu-central-1a.nimbus.mainnet ansible_host=3.120.104.18 env=nimbus stage=mainnet data_center=aws-eu-central-1a region=eu-central-1a dns_entry=stable-small-01.aws-eu-central-1a.nimbus.mainnet.statusim.net
@@ -93,6 +95,8 @@ linux-06.ih-eu-mda1.nimbus.mainnet
 linux-06.ih-eu-mda1.nimbus.prater
 linux-07.ih-eu-mda1.nimbus.mainnet
 metal-01.ih-eu-mda1.nimbus.eth1
+metal-01.ih-eu-mda1.nimbus.fluffy
+metal-02.ih-eu-mda1.nimbus.fluffy
 
 [log-dash]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -111,7 +115,9 @@ metal-01.ih-eu-mda1.nimbus.eth1
 
 [nimbus-fluffy-metal]
 metal-01.he-eu-hel1.nimbus.fluffy
+metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.he-eu-hel1.nimbus.fluffy
+metal-02.ih-eu-mda1.nimbus.fluffy
 
 [nimbus-geth-goerli]
 goerli-01.he-eu-hel1.nimbus.geth
@@ -175,7 +181,9 @@ metal-01.ih-eu-mda1.nimbus.eth1
 
 [nimbus.fluffy]
 metal-01.he-eu-hel1.nimbus.fluffy
+metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.he-eu-hel1.nimbus.fluffy
+metal-02.ih-eu-mda1.nimbus.fluffy
 
 [nimbus.geth]
 goerli-01.he-eu-hel1.nimbus.geth

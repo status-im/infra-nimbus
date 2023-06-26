@@ -70,7 +70,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: f4c304dcca60b8dbbbcf3c67247ca5b4a227aea7
+  version: bb41fcf6ee03c4ae83576b248ef0ab7215ce430f
   scm: git
 
 - name: infra-role-dist-validators
