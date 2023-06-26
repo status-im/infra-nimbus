@@ -7,7 +7,10 @@ bootstrap__consul_data_center: 'he-eu-hel1'
 beacon_node_max_peers: 200
 
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_discovered_geth }}'
+macos_exec_layer_urls:
+  0: ['http://goerli-02.ih-eu-mda1.nimbus.geth.wg:8552']
+  1: ['http://goerli-02.ih-eu-mda1.nimbus.geth.wg:8553']
+beacon_node_exec_layer_urls: '{{ macos_exec_layer_urls[idx] }}'
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 
 # ERA Files Generation
