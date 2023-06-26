@@ -1,4 +1,8 @@
 ---
+# Volumes
+bootstrap__extra_volume_bind_paths:
+  DATA_VOLUME1: ['/data', '/docker']
+
 # Geth node
 geth_service_name: 'geth-goerli-{{ "%02d"|format(idx|int+1) }}'
 geth_service_path: '/docker/{{ geth_service_name }}'
