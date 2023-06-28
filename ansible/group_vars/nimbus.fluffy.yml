@@ -1,6 +1,8 @@
 ---
-nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}-{{ "%02d"|format(index|int) }}'
-nimbus_fluffy_network: 'mainnet'
+nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network_nice_name }}-{{ nimbus_fluffy_repo_branch }}-{{ "%02d"|format(index|int) }}'
+# Separate variable to not change node names.
+nimbus_fluffy_network_nice_name: 'mainnet'
+nimbus_fluffy_network: 'testnet0'
 nimbus_fluffy_repo_branch: 'master'
 # General
 nimbus_fluffy_log_level: 'INFO'
@@ -13,12 +15,6 @@ nimbus_fluffy_repo_path: '/data/nimbus-fluffy/repo'
 nimbus_fluffy_build_service_name: 'build-nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}'
 nimbus_fluffy_build_restart_service: 'nimbus-fluffy-*.service'
 nimbus_fluffy_build_script_path: '/data/nimbus-fluffy/build.sh'
-# Bootstrapping nodes
-nimbus_fluffy_bootstrap_nodes:
-  - 'enr:-IS4QGeTMHteRmm-MSYniUd48OZ1M7RMUsIjnSP_TRbo-goQZAdYuqY2PyNJfDJQBz33kv16k7WB3bZnBK-O1DagvJIBgmlkgnY0gmlwhEFsKgOJc2VjcDI1NmsxoQIQXNgOCBNyoXz_7XP4Vm7pIB1Lp35d67BbC4iSlrrcJoN1ZHCCI40' # nimbus-fluffy-mainnet-master-01@metal-01.he-eu-hel1.nimbus.fluffy
-  - 'enr:-IS4QOA4voX3J7-R_x8pjlaxBTpT1S_CL7ZaNjetjZ-0nnr2VaP0wEZsT2KvjA5UWc8vi9I0XvNSd1bjU0GXUjlt7J0BgmlkgnY0gmlwhEFsKgOJc2VjcDI1NmsxoQI7aL5dFuHhwbxWD-C1yWH7UPlae5wuV_3WbPylCBwPboN1ZHCCI44' # nimbus-fluffy-mainnet-master-02@metal-01.he-eu-hel1.nimbus.fluffy
-  - 'enr:-IS4QFzPZ7Cc7BGYSQBlWdkPyep8XASIVlviHbi-ZzcCdvkcE382unsRq8Tb_dYQFNZFWLqhJsJljdgJ7WtWP830Gq0BgmlkgnY0gmlwhEFsKq6Jc2VjcDI1NmsxoQPjz2Y1Hsa0edvzvn6-OADS3re-FOkSiJSmBB7DVrsAXIN1ZHCCI40' # nimbus-fluffy-mainnet-master-01@metal-02.he-eu-hel1.nimbus.fluffy
-  - 'enr:-IS4QHA1PJCdmESyKkQsBmMUhSkRDgwKjwTtPZYMcbMiqCb8I1Xt-Xyh9Nj0yWeIN4S3sOpP9nxI6qCCR1Nf4LjY0IABgmlkgnY0gmlwhEFsKq6Jc2VjcDI1NmsxoQLMWRNAgXVdGc0Ij9RZCPsIyrrL67eYfE9PPwqwRvmZooN1ZHCCI44' # nimbus-fluffy-mainnet-master-02@metal-02.he-eu-hel1.nimbus.fluffy
 # Consul healthchecks
 nimbus_fluffy_consul_check_interval: '60s'
 nimbus_fluffy_consul_check_timeout: '5s'
