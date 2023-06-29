@@ -35,7 +35,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: b8f73add0f82ff933015ae46f116125cb6871666
+  version: c1a6684e97d5e8819043c049375a9d2e4cef69f3
   scm: git
 
 - name: consul-service
@@ -70,7 +70,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: bb41fcf6ee03c4ae83576b248ef0ab7215ce430f
+  version: 775ba48ed66c3d43a4e1134a0691841ab9fa4922
   scm: git
 
 - name: infra-role-dist-validators
@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 2fb7afec7cb7503789ef03e17a781ac7014590d5
+  version: 4206b2b6f38b11cdd04253118a822c65f1a2bb39
   scm: git
 
 - name: infra-role-winsw
@@ -95,7 +95,7 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: c94433b9f6f077a5919d034769bdbedf871d5d09
+  version: a989381d59e1e0fdeab3a7911a0124a19f68698a
   scm: git
 
 - name: elasticsearch-lb
@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: f5c1071456f194c0f803025df850d192e6964f02
+  version: 60900cc1b5e69467cae3498cc36793c04dc3832e
   scm: git
 
 - name: smart-metrics
