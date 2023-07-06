@@ -72,6 +72,7 @@ beacon_node_service_nofile_limit: 32768
 beacon_node_cores_per_node: '{{ (ansible_processor_vcpus|int / nodes_layout[hostname]|length) | round(0, "ceil") | int }}'
 beacon_node_threads: '{{ (node.branch == "libp2p") | ternary(1, beacon_node_cores_per_node) }}'
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
+beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else [] }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: >-
@@ -212,7 +213,7 @@ nodes_layout:
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
     - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00' }
     - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false, erigon: true }
-    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00', extra_flags: ['--debug-use-old-attestation-stability-subnets=false']  }
 
   'linux-06.ih-eu-mda1.nimbus.prater':
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
