@@ -109,27 +109,6 @@ module "nimbus_nodes_prater_windows" {
   ]
 }
 
-module "nimbus_nodes_prater_hetzner" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "linux"
-  env    = "nimbus"
-  stage  = "prater"
-  group  = "nimbus-prater-metal"
-  region = "eu-hel1"
-  prefix = "he"
-  domain = var.domain
-
-  ips = [
-    "95.217.198.113", # linux-01.he-eu-hel1.nimbus.prater (GONE)
-    "95.217.230.20",  # linux-02.he-eu-hel1.nimbus.prater (GONE)
-    "65.108.132.230", # linux-03.he-eu-hel1.nimbus.prater
-    "135.181.20.36",  # linux-04.he-eu-hel1.nimbus.prater
-    "95.217.224.92",  # linux-05.he-eu-hel1.nimbus.prater
-    "95.217.204.216", # linux-06.he-eu-hel1.nimbus.prater
-  ]
-}
-
 module "nimbus_nodes_prater_innova" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
@@ -172,7 +151,7 @@ resource "cloudflare_record" "testing_prater_beacon_api" {
 resource "cloudflare_record" "era_prater" {
   zone_id = local.zones["nimbus.team"]
   name    = "prater.era"
-  value   = module.nimbus_nodes_prater_hetzner.public_ips[0]
+  value   = module.nimbus_nodes_prater_innova.public_ips[0]
   type    = "A"
   proxied = true
 }
