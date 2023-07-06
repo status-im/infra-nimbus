@@ -5,7 +5,6 @@ output "hosts" {
     module.nimbus_geth_mainnet.hosts,
     module.nimbus_geth_goerli_metal.hosts,
     module.nimbus_geth_goerli_innova.hosts,
-    module.nimbus_nodes_fluffy_hetzner.hosts,
     module.nimbus_nodes_fluffy_innova.hosts,
     module.nimbus_eth1_node_hetzner.hosts,
     module.nimbus_eth1_node_innova.hosts,
