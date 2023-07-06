@@ -78,7 +78,6 @@ beacon_node_validator_monitor_details: >-
   {{  (node.public_api is not defined or not node.public_api)
   and (node.end is defined and (node.end - node.start) <= 64) }}
 # Builds
-beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_build_frequency: '{{ node.get("build_freq", "daily") }}'
 beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
@@ -187,36 +186,36 @@ nodes_layout:
   # Innova Hosting
   'linux-01.ih-eu-mda1.nimbus.prater': # 0 each
     - { branch: 'stable',                             build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00' }
     - { branch: 'unstable',                           build_freq: '*-*-* 17:00:00', public_api: true }
     - { branch: 'libp2p',                             build_freq: '*-*-* 19:00:00' }
 
   'linux-02.ih-eu-mda1.nimbus.prater': # 1 each
     - { branch: 'stable',   start: 20000, end: 20001, build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6', public_api: true }
+    - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', public_api: true }
     - { branch: 'unstable', start: 20002, end: 20003, build_freq: '*-*-* 17:00:00' }
     - { branch: 'libp2p',   start: 20003, end: 20004, build_freq: '*-*-* 19:00:00' }
 
   'linux-03.ih-eu-mda1.nimbus.prater': # 10 each
     - { branch: 'stable',   start: 20004, end: 20014, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20024, end: 20034, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'testing',  start: 20024, end: 20034, build_freq: '*-*-* 15:00:00' }
     - { branch: 'unstable', start: 20014, end: 20024, build_freq: '*-*-* 13:00:00', validator_client: true, open_libp2p_ports: false }
     - { branch: 'libp2p',   start: 20034, end: 20044, build_freq: '*-*-* 17:00:00' }
 
   'linux-04.ih-eu-mda1.nimbus.prater': # 30 each
     - { branch: 'stable',   start: 20044, end: 20074, build_freq: '*-*-* 11:00:00', validator_client: true }
-    - { branch: 'testing',  start: 20104, end: 20134, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'testing',  start: 20104, end: 20134, build_freq: '*-*-* 15:00:00' }
     - { branch: 'unstable', start: 20074, end: 20104, build_freq: '*-*-* 13:00:00', payload_builder: true }
     - { branch: 'libp2p',   start: 20134, end: 20164, build_freq: '*-*-* 17:00:00' }
 
   'linux-05.ih-eu-mda1.nimbus.prater': # 60 each
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
-    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00' }
     - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false, erigon: true }
-    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00', nim_commit: 'version-1-6' }
+    - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
 
   'linux-06.ih-eu-mda1.nimbus.prater':
     - { branch: 'stable',   start: 20404, end: 31303, build_freq: '*-*-* 11:00:00' } # 10899 validators
-    - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', validator_client: true, payload_builder: true, open_libp2p_ports: false, nim_commit: 'version-1-6' } # 7899 validators
+    - { branch: 'testing',  start: 31303, end: 39202, build_freq: '*-*-* 15:00:00', validator_client: true, payload_builder: true, open_libp2p_ports: false } # 7899 validators
     - { branch: 'unstable', start: 39202, end: 45101, build_freq: '*-*-* 13:00:00', payload_builder: true, erigon: true } # 5899 validators
     - { branch: 'libp2p',   start: 45101, end: 49617, build_freq: '*-*-* 17:00:00', validator_client: true } # 4516 validators
