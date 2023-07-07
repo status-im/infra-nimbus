@@ -21,23 +21,36 @@
 
 - name: Bootstrap Python support for Ansible
   become: true
-  hosts: all
+  hosts:
+    - all
+    - !nimbus-prater-macos
+    - !nimbus-prater-windows
   serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux/raw
       when: ansible_system == 'Linux'
 
 - name: Bootstrap admin users and Consul
-  become: true
+  become: false
+  gather_facts: true
   hosts: all
   serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux
       when: ansible_system == 'Linux'
 
+- name: Bootstrap MacOS hosts
+  become: false
+  hosts:
+    - nimbus-prater-macos
+  roles:
     - role: infra-role-bootstrap-macos
       when: ansible_system == 'Darwin'
 
+- name: Bootstrap Windows hosts
+  become: false
+  hosts:
+    - nimbus-prater-windows
+  roles:
     - role: infra-role-bootstrap-windows
-      when: ansible_system == 'Win32NT'
       vars: { fact_path: 'C:/ansible/facts.d' }
