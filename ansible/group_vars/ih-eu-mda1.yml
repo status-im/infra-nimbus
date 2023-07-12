@@ -7,6 +7,10 @@ bootstrap__extra_volume_bind_paths:
   DATA_VOLUME1: ['/data']
   DATA_VOLUME2: ['/docker']
 
+# SWAP
+swap_file_path: '/main.swap'
+swap_file_size_mb: 16384
+
 # SMART Metrics are broken
 # https://github.com/prometheus-community/smartctl_exporter/issues/26
 smart_metrics_consul_check_enabled: false
