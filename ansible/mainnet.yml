@@ -33,6 +33,7 @@
   serial: '{{ serial|default(1) }}'
   hosts: nimbus-mainnet-metal
   roles:
+    - { role: swap-file,                    tags: [ swap-file ] }
     - { role: open-ports,                   tags: [ open-ports ] }
     - { role: smart-metrics,                tags: [ smart-metrics ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
