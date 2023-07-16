@@ -82,6 +82,7 @@ open_ports_list:
   - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',  comment: 'SMART Metrics' }
   # https://github.com/status-im/infra-nim-waku/issues/59
   - { port: '9557:9560',                       ipset: 'wakuv2.test', comment: 'Wakuv2 Websocket' }
+  - { port: '9557:9560',                       ipset: 'vacdev.misc', comment: 'Vac Simulations Websocket' }
 
 nodes_layout:
   'linux-01.ih-eu-mda1.nimbus.sepolia':
