@@ -30,7 +30,7 @@ erigon_network_name: 'goerli'
 erigon_service_name: 'erigon-{{ erigon_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
 erigon_log_level: 'info'
-erigon_cont_mem_ratio: 0.1
+erigon_cont_mem_ratio: 0.15
 erigon_max_peers: 20
 erigon_miner_enabled: true
 erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
