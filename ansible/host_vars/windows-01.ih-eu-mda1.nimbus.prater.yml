@@ -8,3 +8,6 @@ windows_exec_layer_urls:
   1: ['http://goerli-03.ih-eu-mda1.nimbus.geth.wg:8553']
 beacon_node_exec_layer_urls: '{{ windows_exec_layer_urls[idx] }}'
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+
+# Use dedicated data volume
+beacon_node_service_home: 'D:'
