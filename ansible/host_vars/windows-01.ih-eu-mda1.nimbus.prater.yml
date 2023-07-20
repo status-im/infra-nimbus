@@ -11,3 +11,4 @@ beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 
 # Use dedicated data volume
 beacon_node_service_home: 'D:'
+beacon_node_era_dir_path: 'D:\era'
