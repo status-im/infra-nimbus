@@ -38,7 +38,7 @@
       when: ansible_system == 'Linux'
 
 - name: Bootstrap MacOS hosts
-  become: false
+  become: true
   hosts:
     - nimbus-prater-macos
   roles:
