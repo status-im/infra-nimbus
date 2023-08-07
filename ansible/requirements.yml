@@ -50,7 +50,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: db9607510b9872e4317a836d35a1fbf5a18f1a84
+  version: ada178b08f91f84bf87651356ad60d0c14277b05
   scm: git
 
 - name: infra-role-beacon-node-macos
@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 4206b2b6f38b11cdd04253118a822c65f1a2bb39
+  version: ecf022e798d1f48552f3724e503c53445d1ee894
   scm: git
 
 - name: infra-role-winsw
