@@ -128,6 +128,11 @@
   version: 60900cc1b5e69467cae3498cc36793c04dc3832e
   scm: git
 
+- name: infra-role-nethermind
+  src: git@github.com:status-im/infra-role-nethermind.git
+  version: a08777b8c49fd5b838420a965afd75e689a4d68a
+  scm: git
+
 - name: smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
   version: c7de707932b878cc4ad22cd69b78203e57dd50fd

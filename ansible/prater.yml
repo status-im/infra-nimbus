@@ -47,6 +47,13 @@
       loop_control:
         loop_var: node
         index_var: idx
+    - include_role: name=infra-role-nethermind
+      tags: [ geth, infra-role-nethermind ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      when: node.get('nethermind', false)
+      loop_control:
+        loop_var: node
+        index_var: idx
     - include_role: name=infra-role-geth
       tags: [ geth, infra-role-geth ]
       with_items: '{{ nodes_layout[hostname] }}'

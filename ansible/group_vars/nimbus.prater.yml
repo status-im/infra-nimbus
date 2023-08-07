@@ -15,8 +15,8 @@ geth_cache_size: '{{ (ansible_memtotal_mb * 0.05|float) | int }}'
 # Ports
 geth_rpc_enabled: true
 geth_rpc_addr: '0.0.0.0'
-geth_rpc_port: '{{ 8545 + (idx|int) + 1 }}'
-geth_port: '{{ 30303 + (idx|int) + 1 }}'
+geth_rpc_port:     '{{ 8545 + (idx|int) + 1 }}'
+geth_port:         '{{ 30303 + (idx|int) + 1 }}'
 geth_metrics_port: '{{ 6060 + (idx|int) + 1 }}'
 geth_authrpc_port: '{{ 8551 + (idx|int) + 1 }}'
 # Geth metrics¬
@@ -24,6 +24,18 @@ geth_expo_service_name: '{{ geth_service_name }}'
 geth_expo_source_cont_name: '{{ geth_cont_name }}'
 geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_expo_cont_port: '{{ 9400 + (idx|int) + 1 }}'
+
+# Nethermind
+nethermind_network_name: 'goerli'
+nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
+nethermind_service_path: '/docker/{{ nethermind_service_name }}'
+nethermind_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+nethermind_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+nethermind_sync_mode: 'snap'
+nethermind_port:         '{{ 40303 + (idx|int) + 1 }}'
+nethermind_rpc_port:     '{{ 8645  + (idx|int) + 1 }}'
+nethermind_authrpc_port: '{{ 8651  + (idx|int) + 1 }}'
+nethermind_metrics_port: '{{ 6660  + (idx|int) + 1 }}'
 
 # Erigon node
 erigon_network_name: 'goerli'
@@ -105,7 +117,9 @@ beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
 beacon_node_exec_layer_urls: >-
   {{ [ "http://localhost:"+geth_authrpc_port ] +
-     ([ "http://localhost:"+erigon_authrpc_port ] if node.get("erigon", False) else []) }}
+    ([ "http://localhost:"+erigon_authrpc_port ]     if node.get("erigon", False)     else []) +
+    ([ "http://localhost:"+nethermind_authrpc_port ] if node.get("nethermind", False) else [])
+  }}
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 # Periodic resync to save space
 beacon_node_resync_enabled: true
@@ -198,7 +212,7 @@ nodes_layout:
   'linux-02.ih-eu-mda1.nimbus.prater': # 1 each
     - { branch: 'stable',   start: 20000, end: 20001, build_freq: '*-*-* 13:00:00' }
     - { branch: 'testing',  start: 20001, end: 20002, build_freq: '*-*-* 15:00:00', public_api: true }
-    - { branch: 'unstable', start: 20002, end: 20003, build_freq: '*-*-* 17:00:00' }
+    - { branch: 'unstable', start: 20002, end: 20003, build_freq: '*-*-* 17:00:00', nethermind: true }
     - { branch: 'libp2p',   start: 20003, end: 20004, build_freq: '*-*-* 19:00:00' }
 
   'linux-03.ih-eu-mda1.nimbus.prater': # 10 each
