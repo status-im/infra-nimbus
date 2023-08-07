@@ -63,7 +63,6 @@ beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx }}'
 beacon_node_rest_port_base: 9300
 beacon_node_rest_address:   '0.0.0.0'
 beacon_node_rest_max_body_size: 65536
-beacon_node_rest_max_headers_size: 1024
 # Firewall
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Tuning
