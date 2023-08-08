@@ -33,8 +33,10 @@ geth_expo_cont_port: 9400
 
 # Nimbus Beacon Node
 beacon_node_network: 'mainnet'
-# TODO This is to avoid too long service names.
-beacon_node_repo_branch: '{{ (node.branch == "libp2p") | ternary("nim-libp2p-auto-bump-unstable", node.branch) }}'
+beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
+# We map short names to branches to avoid too long service names.
+node_name_to_branch_map:
+  libp2p: 'nim-libp2p-auto-bump-unstable'
 # TODO Drop this once all nodes have an number.
 service_number: '{{ node.get("num", False) | ternary(("-%02d"|format(node.get("num", 0))), "") }}'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch | mandatory }}{{ service_number }}'
