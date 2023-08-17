@@ -227,7 +227,7 @@ nodes_layout:
   'linux-04.ih-eu-mda1.nimbus.prater': # 30 each
     - { branch: 'stable',   start: 20044, end: 20074, build_freq: '*-*-* 11:00:00', validator_client: true }
     - { branch: 'testing',  start: 20104, end: 20134, build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable', start: 20074, end: 20104, build_freq: '*-*-* 13:00:00', payload_builder: true }
+    - { branch: 'unstable', start: 20074, end: 20104, build_freq: '*-*-* 13:00:00', nethermind: true, payload_builder: true }
     - { branch: 'libp2p',   start: 20134, end: 20164, build_freq: '*-*-* 17:00:00' }
 
   'linux-05.ih-eu-mda1.nimbus.prater': # 60 each
