@@ -195,6 +195,10 @@ nodes_layout:
     - { branch: 'testing',   start:  6000, end:  9000, build_start: '13:00:00' }
     - { branch: 'unstable',  start:  9000, end: 10000, build_start: '15:00:00' }
 
+  'macm1-01.ih-eu-mda1.nimbus.prater': # 0 each
+    - { branch: 'testing',                             build_start: '13:00:00' }
+    - { branch: 'unstable',                            build_start: '15:00:00' }
+
   'windows-01.he-eu-hel1.nimbus.prater': # 2000 each
     - { branch: 'stable',   start: 14000, end: 16000, build_start: '13:00:00' }
     - { branch: 'testing',  start: 16000, end: 18000, build_start: '15:00:00' }

@@ -188,5 +188,23 @@ module "nimbus_nodes_prater_macos" {
   prefix = "ms"
   domain = var.domain
 
-  ips = ["207.254.102.98"]
+  ips = [
+    "207.254.102.98" # macos-01.ms-eu-dublin.nimbus.prater
+  ]
+}
+
+module "nimbus_nodes_prater_macm1_innova" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "macm1"
+  env    = "nimbus"
+  stage  = "prater"
+  group  = "nimbus-prater-macos"
+  region = "eu-mda1"
+  prefix = "ih"
+  domain = var.domain
+
+  ips = [
+    "185.181.230.76" # macm1-01.ih-eu-mda1.nimbus.prater
+  ]
 }
