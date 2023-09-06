@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: ecf022e798d1f48552f3724e503c53445d1ee894
+  version: c73bc08a1fdcc1f9535fffc791694f019ec23277
   scm: git
 
 - name: infra-role-winsw
