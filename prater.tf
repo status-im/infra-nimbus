@@ -177,22 +177,6 @@ resource "cloudflare_record" "era_prater" {
   proxied = true
 }
 
-module "nimbus_nodes_prater_macos" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "macos"
-  env    = "nimbus"
-  stage  = "prater"
-  group  = "nimbus-prater-macos"
-  region = "eu-dublin"
-  prefix = "ms"
-  domain = var.domain
-
-  ips = [
-    "207.254.102.98" # macos-01.ms-eu-dublin.nimbus.prater
-  ]
-}
-
 module "nimbus_nodes_prater_macm1_innova" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
