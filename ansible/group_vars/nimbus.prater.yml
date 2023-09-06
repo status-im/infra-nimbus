@@ -192,6 +192,7 @@ nodes_layout:
     - { branch: 'unstable', start:  4000, end:  6000, history: 'archive', payload_builder: true }
 
   'macm1-01.ih-eu-mda1.nimbus.prater': # 3000 each
+    - { branch: 'stable',   start:  6000, end:  9000, build_start: '13:00:00' }
     - { branch: 'testing',  start:  9000, end: 12000, build_start: '15:00:00' }
     - { branch: 'unstable', start: 12000, end: 14000, build_start: '17:00:00' }
 
