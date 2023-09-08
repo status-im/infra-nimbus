@@ -41,39 +41,33 @@
     - { role: nimbus-era-files,  tags: [ nimbus-era-files ] }
   tasks:
     - include_role: name=infra-role-erigon
-      tags: [ geth, infra-role-erigon ]
       with_items: '{{ nodes_layout[hostname] }}'
       when: node.get('erigon', false)
       loop_control:
         loop_var: node
         index_var: idx
     - include_role: name=infra-role-nethermind
-      tags: [ geth, infra-role-nethermind ]
       with_items: '{{ nodes_layout[hostname] }}'
       when: node.get('nethermind', false)
       loop_control:
         loop_var: node
         index_var: idx
     - include_role: name=infra-role-geth
-      tags: [ geth, infra-role-geth ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
     - include_role: name=infra-role-geth-exporter
-      tags: [ geth-exporter, infra-role-geth-exporter ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
     - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
     - include_role: name=infra-role-validator-client
-      tags: [ validator-client, infra-role-validator-client ]
       with_items: '{{ nodes_layout[hostname] }}'
       when: validator_client_service_enabled
       loop_control:
@@ -111,7 +105,6 @@
     - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-windows
-      tags: [ beacon-node, infra-role-beacon-node-windows ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
@@ -126,7 +119,6 @@
     - { role: nimbus-era-files,  tags: [ nimbus-era-files ] }
   tasks:
     - include_role: name=infra-role-beacon-node-macos
-      tags: [ beacon-node, infra-role-beacon-node-macos ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node

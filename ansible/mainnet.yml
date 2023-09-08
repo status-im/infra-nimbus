@@ -22,7 +22,6 @@
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
@@ -43,7 +42,6 @@
     - { role: nimbus-era-files,             tags: [ nimbus-era-files ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
