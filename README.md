@@ -16,6 +16,13 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 
 These nodes have no validators attached.
 
+There are also archives of ERA files:
+
+| Endpoint                         | Host                                 |
+|----------------------------------|--------------------------------------|
+| https://mainnet.era.nimbus.team/ | `linux-03.ih-eu-mda1.nimbus.mainnet` |
+| https://prater.era.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.prater`  |
+
 # Dashboards
 
 There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.infra.status.im/
