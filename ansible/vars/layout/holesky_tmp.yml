@@ -1,0 +1,94 @@
+---
+# Temporary setup caused by lower number of hosts being provisioned.
+nodes_layout:
+  # Geth -------------------------------------------------------------------------
+  'linux-01.ih-eu-mda1.nimbus.holesky': # 0 each
+    - { branch: 'stable',                             el: 'geth',      vc: true  }
+    - { branch: 'testing',                            el: 'geth',      vc: false }
+    - { branch: 'unstable',                           el: 'geth',      vc: false }
+    - { branch: 'libp2p',                             el: 'geth',      vc: false }
+
+  'linux-02.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start:     0, end:  2000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start:  2000, end:  4000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start:  4000, end:  6000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start:  6000, end:  8000, el: 'geth',      vc: false }
+
+  'linux-03.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start:  8000, end: 10000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 10000, end: 12000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 12000, end: 14000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 14000, end: 16000, el: 'geth',      vc: false }
+
+  'linux-04.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 16000, end: 18000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 18000, end: 20000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 20000, end: 22000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 22000, end: 24000, el: 'geth',      vc: false }
+
+  'linux-05.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 24000, end: 26000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 26000, end: 28000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 28000, end: 30000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 30000, end: 32000, el: 'geth',      vc: false }
+
+  'linux-06.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 32000, end: 34000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 34000, end: 36000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 36000, end: 38000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 38000, end: 40000, el: 'geth',      vc: false }
+
+  'linux-07.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 40000, end: 42000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 42000, end: 44000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 44000, end: 46000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 46000, end: 48000, el: 'geth',      vc: false }
+
+  'linux-08.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 48000, end: 50000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 50000, end: 52000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 52000, end: 54000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 54000, end: 56000, el: 'geth',      vc: false }
+
+  'linux-09.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 56000, end: 58000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 58000, end: 60000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 60000, end: 62000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 62000, end: 64000, el: 'geth',      vc: false }
+
+  'linux-10.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 64000, end: 66000, el: 'geth',      vc: true  }
+    - { branch: 'testing',  start: 66000, end: 68000, el: 'geth',      vc: false }
+    - { branch: 'unstable', start: 68000, end: 70000, el: 'geth',      vc: false }
+    - { branch: 'libp2p',   start: 70000, end: 72000, el: 'geth',      vc: false }
+
+  # Erigon -----------------------------------------------------------------------
+  'linux-11.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 72000, end: 74000, el: 'erigon',    vc: false }
+    - { branch: 'testing',  start: 74000, end: 76000, el: 'erigon',    vc: true  }
+    - { branch: 'unstable', start: 76000, end: 78000, el: 'erigon',    vc: false }
+    - { branch: 'libp2p',   start: 78000, end: 80000, el: 'erigon',    vc: false }
+
+  'linux-12.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 80000, end: 82000, el: 'erigon',    vc: false }
+    - { branch: 'testing',  start: 82000, end: 84000, el: 'erigon',    vc: true  }
+    - { branch: 'unstable', start: 84000, end: 86000, el: 'erigon',    vc: false }
+    - { branch: 'libp2p',   start: 86000, end: 88000, el: 'erigon',    vc: false }
+
+  'linux-13.ih-eu-mda1.nimbus.holesky': # 2000 each
+    - { branch: 'stable',   start: 88000, end: 90000, el: 'erigon',    vc: false }
+    - { branch: 'testing',  start: 90000, end: 92000, el: 'erigon',    vc: true  }
+    - { branch: 'unstable', start: 92000, end: 94000, el: 'erigon',    vc: false }
+    - { branch: 'libp2p',   start: 94000, end: 96000, el: 'erigon',    vc: false }
+
+  'linux-14.ih-eu-mda1.nimbus.holesky': # 1000 each
+    - { branch: 'stable',   start: 96000, end: 97000, el: 'erigon',    vc: false }
+    - { branch: 'testing',  start: 97000, end: 98000, el: 'erigon',    vc: true  }
+    - { branch: 'unstable', start: 98000, end: 99000, el: 'erigon',    vc: false }
+    - { branch: 'libp2p',   start: 99000, end:100000, el: 'erigon',    vc: false }
+
+  'linux-15.ih-eu-mda1.nimbus.holesky': # 0 each
+    - { branch: 'stable',                             el: 'erigon',    vc: false }
+    - { branch: 'testing',                            el: 'erigon',    vc: true  }
+    - { branch: 'unstable',                           el: 'erigon',    vc: false }
+    - { branch: 'libp2p',                             el: 'erigon',    vc: false }
