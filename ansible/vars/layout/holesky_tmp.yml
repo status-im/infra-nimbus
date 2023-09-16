@@ -91,4 +91,22 @@ nodes_layout:
     - { branch: 'stable',                             el: 'erigon',    vc: false }
     - { branch: 'testing',                            el: 'erigon',    vc: true  }
     - { branch: 'unstable',                           el: 'erigon',    vc: false }
+
+  'linux-15.ih-eu-mda1.nimbus.holesky': # 0 each
+    - { branch: 'stable',                             el: 'erigon',    vc: false }
+    - { branch: 'testing',                            el: 'erigon',    vc: true  }
+    - { branch: 'unstable',                           el: 'erigon',    vc: false }
+    - { branch: 'libp2p',                             el: 'erigon',    vc: false }
+    - { branch: 'libp2p',                             el: 'erigon',    vc: false }
+
+  'linux-16.ih-eu-mda1.nimbus.holesky': # 0 each
+    - { branch: 'stable',                             el: 'erigon',    vc: false }
+    - { branch: 'testing',                            el: 'erigon',    vc: true  }
+    - { branch: 'unstable',                           el: 'erigon',    vc: false }
+    - { branch: 'libp2p',                             el: 'erigon',    vc: false }
+
+  'linux-17.ih-eu-mda1.nimbus.holesky': # 0 each
+    - { branch: 'stable',                             el: 'erigon',    vc: false }
+    - { branch: 'testing',                            el: 'erigon',    vc: true  }
+    - { branch: 'unstable',                           el: 'erigon',    vc: false }
     - { branch: 'libp2p',                             el: 'erigon',    vc: false }
