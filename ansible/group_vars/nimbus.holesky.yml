@@ -119,4 +119,13 @@ validator_client_dist_validators_enabled: '{{ node.start is defined and node.end
 validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.get("vc", false)) | ternary(0, node.end)   | mandatory }}'
 
+# Open Ports -------------------------------------------------------------------
+open_ports_default_comment: 'Nimbus REST API'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
+  - { port: '9400:9404', ipset: 'metrics.hq',  comment: 'Geth Exporter' }
+  - { port: '7060:7070', ipset: 'metrics.hq',  comment: 'Erigon Metrics' }
+  - { port: '6660:6670', ipset: 'metrics.hq',  comment: 'Nethermind Metrics' }
+
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml
