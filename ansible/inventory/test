@@ -32,7 +32,9 @@ linux-11.ih-eu-mda1.nimbus.holesky hostname=linux-11.ih-eu-mda1.nimbus.holesky a
 linux-12.ih-eu-mda1.nimbus.holesky hostname=linux-12.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.157 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-12.ih-eu-mda1.nimbus.holesky.statusim.net
 linux-13.ih-eu-mda1.nimbus.holesky hostname=linux-13.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.241 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-13.ih-eu-mda1.nimbus.holesky.statusim.net
 linux-14.ih-eu-mda1.nimbus.holesky hostname=linux-14.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.242 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-14.ih-eu-mda1.nimbus.holesky.statusim.net
-linux-15.ih-eu-mda1.nimbus.holesky hostname=linux-15.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.245 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-15.ih-eu-mda1.nimbus.holesky.statusim.net
+linux-15.ih-eu-mda1.nimbus.holesky hostname=linux-15.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.243 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-15.ih-eu-mda1.nimbus.holesky.statusim.net
+linux-16.ih-eu-mda1.nimbus.holesky hostname=linux-16.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.245 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-16.ih-eu-mda1.nimbus.holesky.statusim.net
+linux-17.ih-eu-mda1.nimbus.holesky hostname=linux-17.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.246 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-17.ih-eu-mda1.nimbus.holesky.statusim.net
 macm1-01.ih-eu-mda1.nimbus.prater hostname=macm1-01.ih-eu-mda1.nimbus.prater ansible_host=185.181.230.76 env=nimbus stage=prater data_center=ih-eu-mda1 region=eu-mda1 dns_entry=macm1-01.ih-eu-mda1.nimbus.prater.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
 metal-01.ih-eu-mda1.nimbus.eth1 hostname=metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 env=nimbus stage=eth1 data_center=ih-eu-mda1 region=eu-mda1 dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.statusim.net
@@ -101,6 +103,8 @@ linux-12.ih-eu-mda1.nimbus.holesky
 linux-13.ih-eu-mda1.nimbus.holesky
 linux-14.ih-eu-mda1.nimbus.holesky
 linux-15.ih-eu-mda1.nimbus.holesky
+linux-16.ih-eu-mda1.nimbus.holesky
+linux-17.ih-eu-mda1.nimbus.holesky
 macm1-01.ih-eu-mda1.nimbus.prater
 metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
@@ -146,6 +150,8 @@ linux-12.ih-eu-mda1.nimbus.holesky
 linux-13.ih-eu-mda1.nimbus.holesky
 linux-14.ih-eu-mda1.nimbus.holesky
 linux-15.ih-eu-mda1.nimbus.holesky
+linux-16.ih-eu-mda1.nimbus.holesky
+linux-17.ih-eu-mda1.nimbus.holesky
 
 [nimbus-mainnet-metal]
 linux-01.ih-eu-mda1.nimbus.mainnet
@@ -216,6 +222,8 @@ linux-12.ih-eu-mda1.nimbus.holesky
 linux-13.ih-eu-mda1.nimbus.holesky
 linux-14.ih-eu-mda1.nimbus.holesky
 linux-15.ih-eu-mda1.nimbus.holesky
+linux-16.ih-eu-mda1.nimbus.holesky
+linux-17.ih-eu-mda1.nimbus.holesky
 
 [nimbus.mainnet]
 linux-01.ih-eu-mda1.nimbus.mainnet

@@ -24,6 +24,8 @@ module "nimbus_nodes_holesky_innova" {
     "194.33.40.157", # linux-12.ih-eu-mda1.nimbus.holesky
     "194.33.40.241", # linux-13.ih-eu-mda1.nimbus.holesky
     "194.33.40.242", # linux-14.ih-eu-mda1.nimbus.holesky
-    "194.33.40.245", # linux-15.ih-eu-mda1.nimbus.holesky
+    "194.33.40.243", # linux-15.ih-eu-mda1.nimbus.holesky
+    "194.33.40.245", # linux-16.ih-eu-mda1.nimbus.holesky
+    "194.33.40.246", # linux-17.ih-eu-mda1.nimbus.holesky
   ]
 }
