@@ -13,8 +13,7 @@
   become: true
   serial: '{{ serial|default(1) }}'
   hosts: nimbus-holesky-linux
-  # Temporary denser validator layout.
-  vars_files: layout/holesky_tmp.yml
+  vars_files: layout/holesky.yml
   roles:
     - { role: swap-file,         tags: [ swap-file ]        }
     - { role: open-ports,        tags: [ open-ports ]       }
