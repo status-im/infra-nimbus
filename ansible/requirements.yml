@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 904da4e09ac2c099785ce600f4d5975edc649451
+  version: 8aebbaf320dc5c940dcb437c62ee526340aaf285
   scm: git
 
 - name: infra-role-nethermind
