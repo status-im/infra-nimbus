@@ -1,4 +1,7 @@
 ---
+# Temporary fix for lack of releases for new Holesky genesis.
+geth_cont_image: 'ethpandaops/geth:master-614804b'
+erigon_cont_image: 'ethpandaops/erigon:devel-f99f326'
 # Go-Ethereum ------------------------------------------------------------------
 
 geth_service_name: 'geth-{{ geth_network_name }}-{{ "%02d"|format(idx|int+1) }}'

@@ -35,7 +35,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 0cab2cd31f12ed683d2a155fc51f40316304b655
+  version: 1fe033064cf77d61db9219252986d841c4eb5364
   scm: git
 
 - name: consul-service
@@ -130,7 +130,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 2725b8c982fbe6f0caa50d83a210588c6f1950eb
+  version: ad2326a3bf365d125d8f4144438605f735635ca2
   scm: git
 
 - name: smart-metrics
