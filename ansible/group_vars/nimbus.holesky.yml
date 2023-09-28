@@ -1,4 +1,10 @@
 ---
+# Ports used for all 3 EL nodes as they are mutually exclusive.
+exec_layer_p2p_port:     '{{ 30303 + idx|int + 1 }}'
+exec_layer_rpc_port:     '{{ 8545  + idx|int + 1 }}'
+exec_layer_authrpc_port: '{{ 8551  + idx|int + 1 }}'
+exec_layer_metrics_port: '{{ 6060  + idx|int + 1 }}'
+
 # Go-Ethereum ------------------------------------------------------------------
 
 geth_service_name: 'geth-{{ geth_network_name }}-{{ "%02d"|format(idx|int+1) }}'
@@ -15,15 +21,13 @@ geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 geth_cont_mem_ratio: 0.2
 # Ports
 geth_rpc_enabled: true
-geth_websocket_enabled: true
+geth_websocket_enabled: false
 geth_rpc_addr:        '0.0.0.0'
 geth_authrpc_addr:    '0.0.0.0'
-geth_websocket_addr:  '0.0.0.0'
-geth_port:            '{{ 30303 + idx|int + 1 }}'
-geth_metrics_port:    '{{ 6060  + idx|int + 1 }}'
-geth_rpc_port:        '{{ 8545  + idx|int + 1 }}'
-geth_authrpc_port:    '{{ 8551  + idx|int + 1 }}'
-geth_websocket_port:  '{{ 9546  + idx|int + 1 }}'
+geth_port:            '{{ exec_layer_p2p_port }}'
+geth_rpc_port:        '{{ exec_layer_rpc_port }}'
+geth_authrpc_port:    '{{ exec_layer_authrpc_port }}'
+geth_metrics_port:    '{{ exec_layer_metrics_port }}'
 # Geth metrics¬
 geth_expo_service_name: '{{ geth_service_name }}'
 geth_expo_source_cont_name: '{{ geth_cont_name }}'
@@ -44,10 +48,10 @@ erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", fiel
 erigon_metrics_enabled: true
 erigon_rpc_addr: '0.0.0.0'
 erigon_authrpc_addr: '0.0.0.0'
-erigon_port:         '{{ 40303 + (idx|int) + 1 }}'
-erigon_metrics_port: '{{ 7060  + (idx|int) + 1 }}'
-erigon_rpc_port:     '{{ 9545  + (idx|int) + 1 }}'
-erigon_authrpc_port: '{{ 9551  + (idx|int) + 1 }}'
+erigon_port:         '{{ exec_layer_p2p_port }}'
+erigon_rpc_port:     '{{ exec_layer_rpc_port }}'
+erigon_metrics_port: '{{ exec_layer_metrics_port }}'
+erigon_authrpc_port: '{{ exec_layer_authrpc_port }}'
 erigon_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
 # Nethermind -------------------------------------------------------------------
@@ -58,10 +62,10 @@ nethermind_service_path: '/docker/{{ nethermind_service_name }}'
 nethermind_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
 nethermind_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 nethermind_sync_mode: 'snap'
-nethermind_port:         '{{ 40303 + (idx|int) + 1 }}'
-nethermind_rpc_port:     '{{ 8645  + (idx|int) + 1 }}'
-nethermind_authrpc_port: '{{ 8651  + (idx|int) + 1 }}'
-nethermind_metrics_port: '{{ 6660  + (idx|int) + 1 }}'
+nethermind_port:         '{{ exec_layer_p2p_port }}'
+nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
+nethermind_authrpc_port: '{{ exec_layer_authrpc_port }}'
+nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 
 # Beacon Nodes -----------------------------------------------------------------
 
@@ -81,7 +85,7 @@ beacon_node_validator_monitor_details: >-
   {{  (node.public_api is not defined or not node.public_api)
   and (node.end is defined and (node.end - node.start) <= 64) }}
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://localhost:{{ geth_authrpc_port }}']
+beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
 # Suggests it to the Execution Layer client.
 beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
@@ -124,8 +128,7 @@ open_ports_default_comment: 'Nimbus REST API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
+  - { port: '6060:6070', ipset: 'metrics.hq',  comment: 'EL Metrics' }
   - { port: '9400:9404', ipset: 'metrics.hq',  comment: 'Geth Exporter' }
-  - { port: '7060:7070', ipset: 'metrics.hq',  comment: 'Erigon Metrics' }
-  - { port: '6660:6670', ipset: 'metrics.hq',  comment: 'Nethermind Metrics' }
 
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml
