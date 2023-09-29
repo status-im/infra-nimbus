@@ -6,3 +6,29 @@ beacon_node_rest_address: '0.0.0.0'
 redirect_ports:
   # beacon-node-sepolia-unstable-01
   - { src: 80, dst: 9311, comment: 'Test Beacon API (80->9311/tcp)' }
+
+# Era files hosting
+era_files_domain: 'sepolia.era.nimbus.team'
+era_files_path: '/data/era'
+
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'nimbus.team'
+    crt: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.crt")}}'
+    key: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.key")}}'
+
+nginx_sites:
+  era_files:
+    - listen 80 default_server
+    - listen 443 ssl
+
+    - server_name {{ era_files_domain }}
+
+    - ssl_certificate     /certs/nimbus.team/origin.crt
+    - ssl_certificate_key /certs/nimbus.team/origin.key
+
+    - location / {
+        root {{ era_files_path }};
+        autoindex on;
+        autoindex_format html;
+      }

@@ -22,6 +22,7 @@ There are also archives of ERA files:
 |----------------------------------|--------------------------------------|
 | https://mainnet.era.nimbus.team/ | `linux-03.ih-eu-mda1.nimbus.mainnet` |
 | https://prater.era.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.prater`  |
+| https://sepolia.era.nimbus.team/ | `linux-01.ih-eu-mda1.sepolia.prater` |
 
 # Dashboards
 

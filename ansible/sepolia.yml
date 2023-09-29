@@ -15,9 +15,10 @@
   hosts:
     - nimbus-sepolia-linux
   roles:
-    - { role: open-ports,     tags: [ open-ports ] }
-    - { role: smart-metrics,  tags: [ smart-metrics ] }
-    - { role: redirect-ports, tags: [ redirect-ports ] }
+    - { role: open-ports,         tags: [ open-ports ]        }
+    - { role: smart-metrics,      tags: [ smart-metrics ]     }
+    - { role: redirect-ports,     tags: [ redirect-ports ]    }
+    - { role: nimbus-era-files,   tags: [ nimbus-era-files ]  }
   tasks:
     - include_role: name=infra-role-geth
       with_items: '{{ nodes_layout[hostname] }}'

@@ -26,6 +26,7 @@ geth_websocket_port: '{{ 9546 + idx|int + 11 }}'
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_repo_branch }}-{{ "%02d"|format(idx|int+1) }}'
 beacon_node_network: 'sepolia'
+beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
 beacon_node_repo_branch: '{{ node.get("branch", "unstable") }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else [] }}'
@@ -75,6 +76,13 @@ validator_client_keymanager_token: '{{lookup("bitwarden", "nimbus/keymanager", f
 validator_client_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 validator_client_dist_validators_start: '{{ (not node.validator_client) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.validator_client) | ternary(0, node.end)   | mandatory }}'
+
+# ERA files geneartion.
+nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
+nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_network: '{{ beacon_node_network }}'
+nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable-01/data/db'
+nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable-01/repo/build/ncli_db'
 
 # Open Ports
 open_ports_default_chain: 'VPN'
