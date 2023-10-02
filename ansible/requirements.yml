@@ -50,7 +50,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 9799dfb9160ae8d6604e5ae20a1276da63a580f6
+  version: 51bd279d0ffd26933057bff854a6c7b4ebb72ae3
   scm: git
 
 - name: infra-role-beacon-node-macos
@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 5ee43ddffe0da62ed03cd22b2e0389e9b2bc3662
+  version: eaef1e9f0ad932b829dd2409f4a2bb687f181ad7
   scm: git
 
 - name: infra-role-nethermind

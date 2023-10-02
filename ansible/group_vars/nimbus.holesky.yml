@@ -1,9 +1,9 @@
 ---
 # Ports used for all 3 EL nodes as they are mutually exclusive.
-exec_layer_p2p_port:     '{{ 30303 + idx|int + 1 }}'
-exec_layer_rpc_port:     '{{ 8545  + idx|int + 1 }}'
-exec_layer_authrpc_port: '{{ 8551  + idx|int + 1 }}'
-exec_layer_metrics_port: '{{ 6060  + idx|int + 1 }}'
+exec_layer_p2p_port:     '{{ 30303 + 10*idx|int + 1 }}'
+exec_layer_rpc_port:     '{{ 8545  +    idx|int + 1 }}'
+exec_layer_authrpc_port: '{{ 8551  +    idx|int + 1 }}'
+exec_layer_metrics_port: '{{ 6060  +    idx|int + 1 }}'
 
 # Go-Ethereum ------------------------------------------------------------------
 
@@ -48,10 +48,11 @@ erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", fiel
 erigon_metrics_enabled: true
 erigon_rpc_addr: '0.0.0.0'
 erigon_authrpc_addr: '0.0.0.0'
-erigon_port:         '{{ exec_layer_p2p_port }}'
-erigon_rpc_port:     '{{ exec_layer_rpc_port }}'
-erigon_metrics_port: '{{ exec_layer_metrics_port }}'
-erigon_authrpc_port: '{{ exec_layer_authrpc_port }}'
+erigon_port:              '{{ exec_layer_p2p_port }}'
+erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
+erigon_rpc_port:          '{{ exec_layer_rpc_port }}'
+erigon_metrics_port:      '{{ exec_layer_metrics_port }}'
+erigon_authrpc_port:      '{{ exec_layer_authrpc_port }}'
 erigon_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
 # Nethermind -------------------------------------------------------------------
@@ -124,11 +125,10 @@ validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternar
 validator_client_dist_validators_end:   '{{ (not node.get("vc", false)) | ternary(0, node.end)   | mandatory }}'
 
 # Open Ports -------------------------------------------------------------------
-open_ports_default_comment: 'Nimbus REST API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
-  - { port: '6060:6070', ipset: 'metrics.hq',  comment: 'EL Metrics' }
-  - { port: '9400:9404', ipset: 'metrics.hq',  comment: 'Geth Exporter' }
+  - { port: '6060:6070',   ipset: 'metrics.hq',  comment: 'EL Metrics' }
+  - { port: '9400:9404',   ipset: 'metrics.hq',  comment: 'Geth Exporter' }
+  - { port: '9300:9310',   ipset: '{{ env }}.{{ stage }}', comment: 'Nimbus REST API' }
 
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml
