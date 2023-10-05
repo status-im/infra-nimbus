@@ -33,10 +33,10 @@ nethermind_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")
 nethermind_discovery_dns: 'enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@snap.goerli.ethdisco.net'
 nethermind_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 nethermind_sync_mode: 'snap'
-nethermind_port:         '{{ 40303 + (idx|int) + 1 }}'
-nethermind_rpc_port:     '{{ 8645  + (idx|int) + 1 }}'
-nethermind_authrpc_port: '{{ 8651  + (idx|int) + 1 }}'
-nethermind_metrics_port: '{{ 6660  + (idx|int) + 1 }}'
+nethermind_port:         '{{ 40303 + (idx|int) + 11 }}'
+nethermind_rpc_port:     '{{ 8645  + (idx|int) + 11 }}'
+nethermind_authrpc_port: '{{ 8651  + (idx|int) + 11 }}'
+nethermind_metrics_port: '{{ 6660  + (idx|int) + 11 }}'
 
 # Erigon node
 erigon_network_name: 'goerli'
@@ -49,13 +49,14 @@ erigon_miner_enabled: true
 erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
 erigon_discovery_dns_entries: ['enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.goerli.ethdisco.net']
 # Ports
-erigon_port: '{{ 40303 + (idx|int) + 1 }}'
 erigon_metrics_enabled: true
-erigon_metrics_port: '{{ 7060 + (idx|int) + 1 }}'
 erigon_rpc_addr: '0.0.0.0'
-erigon_rpc_port: '{{ 9545 + (idx|int) + 1 }}'
 erigon_authrpc_addr: '0.0.0.0'
-erigon_authrpc_port: '{{ 9551 + (idx|int) + 1 }}'
+erigon_port:              '{{ 40303 + (idx|int) + 21 }}'
+erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
+erigon_metrics_port:      '{{ 7060 + (idx|int) + 21 }}'
+erigon_rpc_port:          '{{ 9545 + (idx|int) + 21 }}'
+erigon_authrpc_port:      '{{ 9551 + (idx|int) + 21 }}'
 erigon_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
 # Nimbus Beacon node
@@ -170,14 +171,14 @@ open_ports_default_comment: 'Nimbus REST API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
-  - { port: '9400:9404', ipset: 'metrics.hq',  comment: 'Geth Exporter' }
-  - { port: '7060:7070', ipset: 'metrics.hq',  comment: 'Erigon Metrics' }
-  - { port: '6660:6670', ipset: 'metrics.hq',  comment: 'Nethermind Metrics' }
+  - { port: '9400:9500', ipset: 'metrics.hq',  comment: 'Geth Exporter' }
+  - { port: '7060:7160', ipset: 'metrics.hq',  comment: 'Erigon Metrics' }
+  - { port: '6660:6760', ipset: 'metrics.hq',  comment: 'Nethermind Metrics' }
+  - { port: '9546:9550', ipset: 'wakuv2.test', comment: 'Wakuv2 Websocket' }
+  - { port: '40303:40403', chain: 'SERVICES',  comment: 'Nethermind', protocol: 'tcp' }
+  - { port: '40303:40403', chain: 'SERVICES',  comment: 'Nethermind', protocol: 'udp' }
   - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq', comment: 'SMART Metrics' }
   # https://github.com/status-im/infra-nim-waku/issues/59
-  - { port: '9546:9550', ipset: 'wakuv2.test', comment: 'Wakuv2 Websocket' }
-  - { port: '40303:40313', chain: 'SERVICES',  comment: 'Nethermind', protocol: 'tcp' }
-  - { port: '40303:40313', chain: 'SERVICES',  comment: 'Nethermind', protocol: 'udp' }
 
 # Split by hostname for more central location
 nodes_layout:
