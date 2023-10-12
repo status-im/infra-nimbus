@@ -1,7 +1,4 @@
 ---
-# MacStadium has no dedicated Consul Cluster
-bootstrap__consul_data_center: 'he-eu-hel1'
-
 # Lowered to avoid hitting open files limit at boot.
 # https://github.com/status-im/nimbus-eth2/issues/2984
 beacon_node_max_peers: 200
