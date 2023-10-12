@@ -95,7 +95,7 @@
 
 - name: elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: a989381d59e1e0fdeab3a7911a0124a19f68698a
+  version: 7ec1d25604800e0b5b3172d08e938bef564a2c22
   scm: git
 
 - name: elasticsearch-lb

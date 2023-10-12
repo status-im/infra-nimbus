@@ -35,6 +35,8 @@ es_master_nodes: |
 es_number_of_shards: 3
 # Since Nimbus logs are low-value we don't need replicas.
 es_number_of_replicas: 0
+# Bump due to large number of fields in JSON logs.
+es_mapping_total_fields_limit: 1500
 
 # JVM Memory settings
 es_jvm_g1gc_enabled: true
