@@ -29,6 +29,10 @@ bootstrap__active_extra_users:
 bootstrap__rsyslog_docker_logs_path: '/docker/log'
 # Print just the message, lower size of log files and make parsing easier
 bootstrap__rsyslog_docker_format: !unsafe '%msg:2:2048%\n'
+# Some logs are just SPAMmed too much.
+bootstrap__rsyslog_filter_rules:
+  - 'Attestation resolved'
+  - 'Attestation received'
 # lower local retention to save space
 bootstrap__logrotate_frequency: 'hourly'
 bootstrap__logrotate_count: 48
