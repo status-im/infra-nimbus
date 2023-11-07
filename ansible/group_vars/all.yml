@@ -39,6 +39,17 @@ bootstrap__logrotate_frequency: 'hourly'
 bootstrap__logrotate_count: 48
 bootstrap__logrotate_mbytes: 500
 
+# Extra packages for debugging
+bootstrap__extra_packages:
+  - gdb
+  - linux-tools-common
+  - linux-tools-generic
+bootstrap_sysctl_config:
+  kernel.core_pattern: '/var/lib/systemd/coredump/core.%e.%p.%u.%t'
+  fs.inotify.max_user_watches: 131072
+  # Allow calling 'perf' without root'
+  kernel.perf_event_paranoid: 1
+
 # Consul Catalog Query URL
 consul_catalog_url: 'http://localhost:8500/v1/catalog'
 
