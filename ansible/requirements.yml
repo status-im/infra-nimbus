@@ -105,7 +105,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 15fadc81c5bf709be3e0d6071cebb6d6d8287ea0
+  version: 8fe1d6a85fa0f4020938107a39d09a1db51cecfb
   scm: git
 
 - name: launchd-timer
@@ -130,7 +130,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 2cb26454e5b5d1f398cccf6e1d260b5fbc93d499
+  version: 0642734ae63c685b471af5dbae16881a5282cfd6
   scm: git
 
 - name: smart-metrics
