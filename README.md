@@ -34,6 +34,12 @@ There are explorers available for various testnets:
 * https://prater.beaconcha.in/
 * https://sepolia.beaconcha.in/
 
+# Fleet Layouts
+
+The fleet layout configuration used by Ansible can be found in [`ansible/vars/layout`](ansible/vars/layout).
+
+But for finding which host holds which validator use TSV files in [`ansible/files/layout`](ansible/files/layout).
+
 # Repo Usage
 
 For how to use this repo read the [Infra Repo Usage](https://github.com/status-im/infra-docs/blob/master/docs/general/infra_repo_usage.md) doc.

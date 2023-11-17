@@ -1,4 +1,6 @@
 ---
+# This is data for infra-role-dist-validators.
+# To search for a validator ID see: ansible/files/layouts/nimbus.holesky.tsv
 nodes_layout:
   'geth-01.ih-eu-mda1.nimbus.holesky': # 0 each
     - { branch: 'stable',                             el: 'geth',      vc: true  }
