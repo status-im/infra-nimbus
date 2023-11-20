@@ -16,12 +16,11 @@ nimbus_fluffy_build_service_name: 'build-nimbus-fluffy-{{ nimbus_fluffy_network 
 nimbus_fluffy_build_restart_service: 'nimbus-fluffy-*.service'
 nimbus_fluffy_build_script_path: '/data/nimbus-fluffy/build.sh'
 # Consul healthchecks
-nimbus_fluffy_consul_check_disabled: true # https://github.com/status-im/nimbus-eth1/issues/1880
 nimbus_fluffy_consul_check_interval: '60s'
-nimbus_fluffy_consul_check_timeout: '15s'
-nimbus_fluffy_consul_success_before_passing:   '{{ 60*12 }}'   # 12h
-nimbus_fluffy_consul_failures_before_warning:  '{{ 60*24 }}'   # 24h
-nimbus_fluffy_consul_failures_before_critical: '{{ 60*24*2 }}' # 48h
+nimbus_fluffy_consul_check_timeout: '5s'
+nimbus_fluffy_consul_success_before_passing: 2
+nimbus_fluffy_consul_failures_before_warning: 5
+nimbus_fluffy_consul_failures_before_critical: 10
 
 # Open Ports
 open_ports_default_comment: 'SMART Metrics'
