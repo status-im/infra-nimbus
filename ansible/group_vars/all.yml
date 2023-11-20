@@ -50,6 +50,10 @@ bootstrap_sysctl_config:
   # Allow calling 'perf' without root'
   kernel.perf_event_paranoid: 1
 
+# MTR network latency metrics
+bootstrap__mtr_jobs:
+  - { name: 'github-icmp', addr: 'github.com', flags: '-c1' }
+
 # Consul Catalog Query URL
 consul_catalog_url: 'http://localhost:8500/v1/catalog'
 
