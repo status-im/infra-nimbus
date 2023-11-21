@@ -12,6 +12,7 @@
 - name: Deploy Spolia Testnet nodes
   become: true
   serial: '{{ serial|default(1) }}'
+  vars_files: layout/sepolia.yml
   hosts:
     - nimbus-sepolia-linux
   roles:
