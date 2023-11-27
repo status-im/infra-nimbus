@@ -125,13 +125,8 @@ beacon_node_exec_layer_urls: >-
   }}
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 # Periodic resync to save space
-beacon_node_resync_enabled: true
-beacon_node_resync_timer_enabled: '{{ (idx % 2 == 1) and not node.get("public_api") }}'
-beacon_node_resync_timer_frequency: 'monthly'
-beacon_node_resync_timer_random_delay_sec: 604800 # 7 days
-beacon_node_resync_timer_trusted_api_url: >-
-  {{ "http://stable-large-01.aws-eu-central-1a.nimbus.prater.wg:9300"
-     if idx == 0  else "http://localhost:"+(beacon_node_rest_port_base|string) }}
+beacon_node_resync_enabled: false
+beacon_node_resync_timer_enabled: false
 
 # Validator Client
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
