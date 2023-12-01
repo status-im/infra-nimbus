@@ -18,6 +18,7 @@
   roles:
     - { role: swap-file,         tags: [ swap-file ]        }
     - { role: open-ports,        tags: [ open-ports ]       }
+    - { role: redirect-ports,    tags: [ redirect-ports ]   }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       with_items: '{{ nodes_layout[hostname] }}'

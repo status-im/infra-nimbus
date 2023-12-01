@@ -72,3 +72,21 @@ module "nimbus_nodes_holesky_innova_neth" {
     "185.181.229.103", # neth-10.ih-eu-mda1.nimbus.holesky
   ]
 }
+
+/* Community test REST API endpoints. */
+resource "cloudflare_record" "unstable_holesky_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "unstable.holesky.beacon-api"
+  value   = module.nimbus_nodes_holesky_innova_geth.public_ips[0]
+  type    = "A"
+  proxied = false
+}
+
+resource "cloudflare_record" "testing_holesky_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "testing.holesky.beacon-api"
+  value   = module.nimbus_nodes_holesky_innova_geth.public_ips[1]
+  type    = "A"
+  proxied = false
+}
+

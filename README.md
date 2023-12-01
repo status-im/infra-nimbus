@@ -13,6 +13,8 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 | http://unstable.prater.beacon-api.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.prater`  |
 | http://testing.prater.beacon-api.nimbus.team/   | `linux-02.he-eu-hel1.nimbus.prater`  |
 | http://unstable.sepolia.beacon-api.nimbus.team/ | `linux-02.ih-eu-mda1.nimbus.prater`  |
+| http://testing.holesky.beacon-api.nimbus.team/  | `geth-01.ih-eu-mda1.nimbus.holesky`  |
+| http://unstable.holesky.beacon-api.nimbus.team/ | `geth-02.ih-eu-mda1.nimbus.holesky`  |
 
 These nodes have no validators attached.
 
