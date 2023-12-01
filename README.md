@@ -35,6 +35,7 @@ There are explorers available for various testnets:
 * https://mainnet.beaconcha.in/
 * https://prater.beaconcha.in/
 * https://sepolia.beaconcha.in/
+* https://holesky.beaconcha.in/
 
 # Fleet Layouts
 
