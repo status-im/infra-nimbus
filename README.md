@@ -10,9 +10,9 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 |-------------------------------------------------|--------------------------------------|
 | http://unstable.mainnet.beacon-api.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.mainnet` |
 | http://testing.mainnet.beacon-api.nimbus.team/  | `linux-02.ih-eu-mda1.nimbus.mainnet` |
-| http://unstable.prater.beacon-api.nimbus.team/  | `linux-01.he-eu-hel1.nimbus.prater`  |
+| http://unstable.prater.beacon-api.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.prater`  |
 | http://testing.prater.beacon-api.nimbus.team/   | `linux-02.he-eu-hel1.nimbus.prater`  |
-| http://unstable.sepolia.beacon-api.nimbus.team/ | `linux-01.he-eu-hel1.nimbus.sepolia` |
+| http://unstable.sepolia.beacon-api.nimbus.team/ | `linux-02.ih-eu-mda1.nimbus.prater`  |
 
 These nodes have no validators attached.
 
