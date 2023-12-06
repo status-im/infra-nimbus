@@ -124,6 +124,10 @@ beacon_node_exec_layer_urls: >-
     ([ "http://localhost:"+nethermind_authrpc_port ] if node.get("nethermind", False) else [])
   }}
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+# Reduce Consul alerts sensitivity
+beacon_node_consul_success_before_passing: 5
+beacon_node_consul_failures_before_warning: 10
+beacon_node_consul_failures_before_critical: 20
 # Periodic resync to save space
 beacon_node_resync_enabled: false
 beacon_node_resync_timer_enabled: false
