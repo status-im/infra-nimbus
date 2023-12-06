@@ -84,6 +84,11 @@ beacon_node_exec_layer_urls: |-
   {{ beacon_node_exec_layer_urls_auto if inventory_hostname_short == "linux-01"
     else (idx % 2 == 0) | ternary(beacon_node_exec_layer_urls_auto, []) }}
 
+# Reduce Consul alerts sensitivity
+beacon_node_consul_success_before_passing: 5
+beacon_node_consul_failures_before_warning: 10
+beacon_node_consul_failures_before_critical: 20
+
 # Periodic resync to save space
 beacon_node_resync_enabled: true
 beacon_node_resync_timer_enabled: '{{ (idx % 2 == 1) and not node.get("public_api") }}'
