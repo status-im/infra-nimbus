@@ -125,12 +125,12 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 5ea5092f6e8f4b9cab067cb441299319e374d873
+  version: 00f0151128f57ba611ea47695bb828344ef1902f
   scm: git
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 0642734ae63c685b471af5dbae16881a5282cfd6
+  version: 966cbb4aecca6d35bb6d71caca77f12da8d68bf9
   scm: git
 
 - name: smart-metrics
