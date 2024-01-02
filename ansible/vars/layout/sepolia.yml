@@ -3,7 +3,7 @@
 # To search for a validator ID see: ansible/files/layouts/nimbus.sepolia.tsv
 nodes_layout:
   'linux-01.ih-eu-mda1.nimbus.sepolia':
-    - { start:  0, end:  25, validator_client: true  }
+    - { start:  0, end:  25, validator_client: true,  payload_builder: true }
     - { start: 25, end:  50, validator_client: false, payload_builder: true }
     - { start: 50, end:  75, validator_client: false }
     - { start: 75, end: 100, validator_client: false, payload_builder: true }
