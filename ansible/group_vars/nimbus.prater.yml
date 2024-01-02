@@ -41,27 +41,6 @@ nethermind_rpc_port:     '{{ 8645  + (idx|int) + 11 }}'
 nethermind_authrpc_port: '{{ 8651  + (idx|int) + 11 }}'
 nethermind_metrics_port: '{{ 6660  + (idx|int) + 11 }}'
 
-# Erigon node
-erigon_network_name: 'goerli'
-erigon_service_name: 'erigon-{{ erigon_network_name }}-{{ "%02d"|format(idx|int+1) }}'
-erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
-erigon_log_level: 'info'
-erigon_cont_mem_ratio: 0.15
-erigon_max_peers: 20
-erigon_miner_enabled: true
-erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
-erigon_discovery_dns_entries: ['enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.goerli.ethdisco.net']
-# Ports
-erigon_metrics_enabled: true
-erigon_rpc_addr: '0.0.0.0'
-erigon_authrpc_addr: '0.0.0.0'
-erigon_port:              '{{ 40303 + (idx|int) + 21 }}'
-erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
-erigon_metrics_port:      '{{ 7060 + (idx|int) + 21 }}'
-erigon_rpc_port:          '{{ 9545 + (idx|int) + 21 }}'
-erigon_authrpc_port:      '{{ 9551 + (idx|int) + 21 }}'
-erigon_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
-
 # Nimbus Beacon node
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'prater'
@@ -120,7 +99,6 @@ beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
 beacon_node_exec_layer_urls: >-
   {{ [ "http://localhost:"+geth_authrpc_port ] +
-    ([ "http://localhost:"+erigon_authrpc_port ]     if node.get("erigon", False)     else []) +
     ([ "http://localhost:"+nethermind_authrpc_port ] if node.get("nethermind", False) else [])
   }}
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
@@ -173,7 +151,6 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '9300:9310', ipset: '{{ env }}.{{ stage }}' }
   - { port: '9400:9500', ipset: 'metrics.hq',  comment: 'Geth Exporter' }
-  - { port: '7060:7160', ipset: 'metrics.hq',  comment: 'Erigon Metrics' }
   - { port: '6660:6760', ipset: 'metrics.hq',  comment: 'Nethermind Metrics' }
   - { port: '9546:9550', ipset: 'wakuv2.test', comment: 'Wakuv2 Websocket' }
   - { port: '40303:40403', chain: 'SERVICES',  comment: 'Nethermind', protocol: 'tcp' }

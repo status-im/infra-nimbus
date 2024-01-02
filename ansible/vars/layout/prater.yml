@@ -55,7 +55,7 @@ nodes_layout:
   'linux-05.ih-eu-mda1.nimbus.prater': # 60 each
     - { branch: 'stable',   start: 20164, end: 20224, build_freq: '*-*-* 11:00:00' }
     - { branch: 'testing',  start: 20284, end: 20344, build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false, erigon: true }
+    - { branch: 'unstable', start: 20224, end: 20284, build_freq: '*-*-* 13:00:00', open_libp2p_ports: false }
     - { branch: 'libp2p',   start: 20344, end: 20404, build_freq: '*-*-* 17:00:00' }
 
   'linux-06.ih-eu-mda1.nimbus.prater':
