@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 35bbb7dfcaafc78075da6723de7628ad18df42a8
+  version: 082e41ef09ec8b31585239ad2ed5c8055d668ed6
   scm: git
 
 - name: infra-role-geth-exporter
@@ -130,7 +130,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 966cbb4aecca6d35bb6d71caca77f12da8d68bf9
+  version: f80d638a2a196360f2e5c21476f92661b0fab10e
   scm: git
 
 - name: smart-metrics
