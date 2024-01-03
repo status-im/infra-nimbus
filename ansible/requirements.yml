@@ -105,7 +105,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 8fe1d6a85fa0f4020938107a39d09a1db51cecfb
+  version: bfd404dd92642e1d310f8ce40df97fcb9e33be98
   scm: git
 
 - name: launchd-timer
