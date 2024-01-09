@@ -1,12 +1,12 @@
 ---
 - include_tasks: consul/posix.yml
   when: ansible_system in ['Linux', 'Darwin']
-  loop: '{{ geth_node_api_consul_names }}'
+  loop: '{{ geth_node_api_fleet_names }}'
   loop_control:
-    loop_var: 'service_name'
+    loop_var: 'fleet_name'
 
 - include_tasks: consul/windows.yml
   when: ansible_system == 'Win32NT'
-  loop: '{{ geth_node_api_consul_names }}'
+  loop: '{{ geth_node_api_fleet_names }}'
   loop_control:
-    loop_var: 'service_name'
+    loop_var: 'fleet_name'

@@ -6,7 +6,7 @@
 
 - name: Find available Geth API Auth RPC services
   uri:
-    url: '{{ consul_catalog_url }}/service/{{ service_name }}-authrpc?dc={{ item }}&tag={{ geth_node_api_fleet_name }}'
+    url: '{{ consul_catalog_url }}/service/{{ geth_node_api_consul_name }}-authrpc?dc={{ item }}&tag={{ fleet_name }}'
   with_items: '{{ data_centers.json }}'
   register: geth_rpc_services
 
