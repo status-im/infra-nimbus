@@ -112,8 +112,9 @@ open_ports_default_comment: 'Nimbus REST API'
 open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '9300:9310',                       ipset: '{{ env }}.{{ stage }}' }
-  - { port: '9400',                            ipset: 'metrics.hq', comment: 'Geth Exporter' }
-  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq', comment: 'SMART Metrics' }
+  - { port: '9400',                            ipset: 'metrics.hq',     comment: 'Geth Exporter' }
+  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',     comment: 'SMART Metrics' }
+  - { port: '{{ geth_authrpc_port }}',         ipset: 'nimbus.mainnet', comment: 'Geth RPC' }
 
 # Split by hostname for more central location
 nodes_layout:

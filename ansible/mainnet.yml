@@ -31,6 +31,9 @@
   become: true
   serial: '{{ serial|default(1) }}'
   hosts: nimbus-mainnet-metal
+  vars:
+    # FIXME: Use all Geth nodes available in the fleet until we resync.
+    geth_node_api_fleet_name: 'nimbus.{{ beacon_node_network }}'
   roles:
     - { role: swap-file,                    tags: [ swap-file ] }
     - { role: open-ports,                   tags: [ open-ports ] }
