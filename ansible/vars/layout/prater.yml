@@ -17,11 +17,6 @@ nodes_layout:
     - { branch: 'testing',  start:  9000, end: 12000, build_start: '15:00:00' }
     - { branch: 'unstable', start: 12000, end: 14000, build_start: '17:00:00' }
 
-  'windows-01.he-eu-hel1.nimbus.prater': # 2000 each
-    - { branch: 'stable',   start: 14000, end: 16000, build_start: '13:00:00' }
-    - { branch: 'testing',  start: 16000, end: 18000, build_start: '15:00:00' }
-    - { branch: 'unstable', start: 18000, end: 20000, build_start: '16:00:00', nim_flags: '-d:json_rpc_websocket_package=websock' }
-
   'windows-01.ih-eu-mda1.nimbus.prater':
     - { branch: 'stable',                             build_start: '13:00:00' }
     - { branch: 'testing',                            build_start: '15:00:00' }
@@ -29,9 +24,9 @@ nodes_layout:
 
   # Innova Hosting
   'linux-01.ih-eu-mda1.nimbus.prater': # 0 each
-    - { branch: 'stable',                             build_freq: '*-*-* 13:00:00' }
-    - { branch: 'testing',                            build_freq: '*-*-* 15:00:00' }
-    - { branch: 'unstable',                           build_freq: '*-*-* 17:00:00', public_api: true }
+    - { branch: 'stable',   start: 14000, end: 16000, build_freq: '*-*-* 13:00:00' }
+    - { branch: 'testing',  start: 16000, end: 18000, build_freq: '*-*-* 15:00:00' }
+    - { branch: 'unstable', start: 18000, end: 20000, build_freq: '*-*-* 17:00:00', public_api: true }
     - { branch: 'libp2p',                             build_freq: '*-*-* 19:00:00' }
 
   'linux-02.ih-eu-mda1.nimbus.prater': # 1 each

@@ -88,27 +88,6 @@ module "nimbus_nodes_prater_unstable_large" {
   keypair_name = aws_key_pair.jakubgs.key_name
 }
 
-module "nimbus_nodes_prater_windows_hetzner" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "windows"
-  env    = "nimbus"
-  stage  = "prater"
-  group  = "nimbus-prater-windows"
-  region = "eu-hel1"
-  prefix = "he"
-  domain = var.domain
-
-  /* Windows */
-  become_user   = "admin"
-  become_method = "runas"
-  shell_type    = "powershell"
-
-  ips = [
-    "65.21.233.67", # windows-01.he-eu-hel1.nimbus.prater
-  ]
-}
-
 module "nimbus_nodes_prater_windows_innova" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
