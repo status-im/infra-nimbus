@@ -1,6 +1,6 @@
 ---
 # Go-Ethereum
-geth_service_name: 'geth-sepolia-{{ "%02d"|format(idx|int+1) }}'
+geth_service_name: 'geth-sepolia-{{ node.branch }}'
 geth_network_name: 'sepolia'
 geth_sync_mode: 'full'
 geth_log_level_name: info
@@ -12,22 +12,26 @@ geth_cont_mem_ratio: 0.3
 # Genesis
 geth_init_enabled: false
 # Ports
-geth_port: '{{ 30303 + idx|int + 11 }}'
-geth_metrics_port: '{{ 6060 + idx|int + 11 }}'
 geth_rpc_enabled: true
 geth_rpc_addr: '0.0.0.0'
-geth_rpc_port: '{{ 8545 + idx|int + 11 }}'
 geth_authrpc_addr: '0.0.0.0'
-geth_authrpc_port: '{{ 8551 + idx|int + 11 }}'
 geth_websocket_enabled: true
 geth_websocket_addr: '0.0.0.0'
-geth_websocket_port: '{{ 9546 + idx|int + 11 }}'
+geth_port:           '{{ 30303 + idx|int + 11 }}'
+geth_metrics_port:   '{{ 6060  + idx|int + 11 }}'
+geth_rpc_port:       '{{ 8545  + idx|int + 11 }}'
+geth_authrpc_port:   '{{ 8551  + idx|int + 11 }}'
+geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
+
+# We map short names to branches to avoid too long service names.
+node_name_to_branch_map:
+  libp2p: 'nim-libp2p-auto-bump-unstable'
 
 # Beacon Nodes
-beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_repo_branch }}-{{ "%02d"|format(idx|int+1) }}'
+beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
 beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
-beacon_node_repo_branch: '{{ node.get("branch", "unstable") }}'
+beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else [] }}'
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
@@ -54,7 +58,7 @@ beacon_node_rest_port:      '{{ 9300 + idx|int + 11 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
 # Validator Client
-validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ validator_client_build_repo_branch }}-{{ "%02d"|format(idx|int+1) }}'
+validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
 validator_client_service_enabled: '{{ node.validator_client }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
@@ -81,8 +85,8 @@ validator_client_dist_validators_end:   '{{ (not node.validator_client) | ternar
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
 nimbus_era_files_network: '{{ beacon_node_network }}'
-nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable-01/data/db'
-nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable-01/repo/build/ncli_db'
+nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-stable/data/db'
+nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-stable/repo/build/ncli_db'
 
 # Open Ports
 open_ports_default_chain: 'VPN'
