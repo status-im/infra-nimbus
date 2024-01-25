@@ -39,7 +39,7 @@
         loop_var: node
         index_var: idx
 
-- name: Deploy Spolia Testnet Nimbus-Eth1 trial
+- name: Deploy Sepolia Testnet Nimbus-Eth1 trial
   become: true
   serial: '{{ serial|default(1) }}'
   hosts:
