@@ -38,7 +38,7 @@ beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branc
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else [] }}'
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
-beacon_node_payload_builder_url: 'https://builder-relay-sepolia.flashbots.net/'
+beacon_node_payload_builder_url: 'https://boost-relay-sepolia.flashbots.net/ '
 # Builds
 beacon_node_build_frequency: 'daily'
 # Monitoring
