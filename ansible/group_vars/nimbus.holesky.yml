@@ -113,7 +113,7 @@ beacon_node_rest_address:   '0.0.0.0'
 
 # Validator Client -------------------------------------------------------------
 
-validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ validator_client_build_repo_branch }}'
+validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
 validator_client_service_enabled: '{{ node.get("vc", false) }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
