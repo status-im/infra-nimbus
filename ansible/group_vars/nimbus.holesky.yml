@@ -80,9 +80,6 @@ beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined els
 node_name_to_branch_map:
   libp2p:  'nim-libp2p-auto-bump-unstable'
   chronos: 'nim-chronos-auto-bump-unstable'
-  # Temporary switch to avoid broken version in Dencun
-  stable:   'unstable'
-  testing:  'unstable'
 # Builds
 beacon_node_build_frequency: 'daily'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
