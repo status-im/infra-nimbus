@@ -38,7 +38,7 @@ linux-05.ih-eu-mda1.nimbus.prater hostname=linux-05.ih-eu-mda1.nimbus.prater ans
 linux-06.ih-eu-mda1.nimbus.mainnet hostname=linux-06.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.101 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-06.ih-eu-mda1.nimbus.mainnet.statusim.net
 linux-06.ih-eu-mda1.nimbus.prater hostname=linux-06.ih-eu-mda1.nimbus.prater ansible_host=194.33.40.233 env=nimbus stage=prater data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-06.ih-eu-mda1.nimbus.prater.statusim.net
 linux-07.ih-eu-mda1.nimbus.mainnet hostname=linux-07.ih-eu-mda1.nimbus.mainnet ansible_host=185.181.229.82 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-07.ih-eu-mda1.nimbus.mainnet.statusim.net
-macm1-01.ih-eu-mda1.nimbus.prater hostname=macm1-01.ih-eu-mda1.nimbus.prater ansible_host=185.181.230.76 env=nimbus stage=prater data_center=ih-eu-mda1 region=eu-mda1 dns_entry=macm1-01.ih-eu-mda1.nimbus.prater.statusim.net
+macm2-01.ih-eu-mda1.nimbus.holesky hostname=macm2-01.ih-eu-mda1.nimbus.holesky ansible_host=185.181.230.76 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=macm2-01.ih-eu-mda1.nimbus.holesky.statusim.net
 mainnet-01.aws-eu-central-1a.nimbus.geth hostname=mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 env=nimbus stage=geth data_center=aws-eu-central-1a region=eu-central-1a dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.statusim.net
 metal-01.ih-eu-mda1.nimbus.eth1 hostname=metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 env=nimbus stage=eth1 data_center=ih-eu-mda1 region=eu-mda1 dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.statusim.net
 metal-01.ih-eu-mda1.nimbus.fluffy hostname=metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 env=nimbus stage=fluffy data_center=ih-eu-mda1 region=eu-mda1 dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.statusim.net
@@ -119,7 +119,7 @@ linux-05.ih-eu-mda1.nimbus.prater
 linux-06.ih-eu-mda1.nimbus.mainnet
 linux-06.ih-eu-mda1.nimbus.prater
 linux-07.ih-eu-mda1.nimbus.mainnet
-macm1-01.ih-eu-mda1.nimbus.prater
+macm2-01.ih-eu-mda1.nimbus.holesky
 metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
@@ -182,6 +182,9 @@ geth-08.ih-eu-mda1.nimbus.holesky
 geth-09.ih-eu-mda1.nimbus.holesky
 geth-10.ih-eu-mda1.nimbus.holesky
 
+[nimbus-holesky-macm2]
+macm2-01.ih-eu-mda1.nimbus.holesky
+
 [nimbus-holesky-neth]
 neth-01.ih-eu-mda1.nimbus.holesky
 neth-02.ih-eu-mda1.nimbus.holesky
@@ -206,9 +209,6 @@ linux-07.ih-eu-mda1.nimbus.mainnet
 [nimbus-mainnet-small]
 stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
-
-[nimbus-prater-macos]
-macm1-01.ih-eu-mda1.nimbus.prater
 
 [nimbus-prater-metal]
 linux-01.ih-eu-mda1.nimbus.prater
@@ -267,6 +267,7 @@ geth-07.ih-eu-mda1.nimbus.holesky
 geth-08.ih-eu-mda1.nimbus.holesky
 geth-09.ih-eu-mda1.nimbus.holesky
 geth-10.ih-eu-mda1.nimbus.holesky
+macm2-01.ih-eu-mda1.nimbus.holesky
 neth-01.ih-eu-mda1.nimbus.holesky
 neth-02.ih-eu-mda1.nimbus.holesky
 neth-03.ih-eu-mda1.nimbus.holesky
@@ -296,7 +297,6 @@ linux-03.ih-eu-mda1.nimbus.prater
 linux-04.ih-eu-mda1.nimbus.prater
 linux-05.ih-eu-mda1.nimbus.prater
 linux-06.ih-eu-mda1.nimbus.prater
-macm1-01.ih-eu-mda1.nimbus.prater
 stable-large-01.aws-eu-central-1a.nimbus.prater
 testing-large-01.aws-eu-central-1a.nimbus.prater
 unstable-large-01.aws-eu-central-1a.nimbus.prater

@@ -40,7 +40,7 @@
 - name: Bootstrap MacOS hosts
   become: true
   hosts:
-    - nimbus-prater-macos
+    - nimbus-holesky-macm2
   roles:
     - role: infra-role-bootstrap-macos
       when: ansible_system == 'Darwin'

@@ -13,10 +13,10 @@ output "hosts" {
     module.nimbus_nodes_prater_unstable_large.hosts,
     module.nimbus_nodes_prater_innova.hosts,
     module.nimbus_nodes_prater_windows_innova.hosts,
-    module.nimbus_nodes_prater_macm1_innova.hosts,
     module.nimbus_nodes_sepolia_innova.hosts,
     module.nimbus_nodes_holesky_innova_geth.hosts,
     module.nimbus_nodes_holesky_innova_erigon.hosts,
     module.nimbus_nodes_holesky_innova_neth.hosts,
+    module.nimbus_nodes_holesky_innova_macm2.hosts,
   )
 }

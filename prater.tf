@@ -155,19 +155,3 @@ resource "cloudflare_record" "era_prater" {
   type    = "A"
   proxied = true
 }
-
-module "nimbus_nodes_prater_macm1_innova" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "macm1"
-  env    = "nimbus"
-  stage  = "prater"
-  group  = "nimbus-prater-macos"
-  region = "eu-mda1"
-  prefix = "ih"
-  domain = var.domain
-
-  ips = [
-    "185.181.230.76" # macm1-01.ih-eu-mda1.nimbus.prater
-  ]
-}

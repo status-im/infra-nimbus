@@ -82,6 +82,7 @@ node_name_to_branch_map:
   chronos: 'nim-chronos-auto-bump-unstable'
 # Builds
 beacon_node_build_frequency: 'daily'
+beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true

@@ -9,6 +9,15 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
+- name: Deploy Holesky MacOS Beacon Nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts: nimbus-holesky-macm2
+  vars_files: layout/holesky.yml
+  tasks:
+    - include_role: name=infra-role-beacon-node-macos
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Holesky Beacon Nodes
   become: true

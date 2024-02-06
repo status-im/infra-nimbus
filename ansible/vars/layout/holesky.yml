@@ -183,3 +183,9 @@ nodes_layout:
     - { branch: 'testing',  start: 84000, end: 89000,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 89000, end: 94000,  el: 'nethermind', vc: true  }
     - { branch: 'libp2p',   start: 94000, end: 100000, el: 'nethermind', vc: false }
+
+  # MacOS --------------------------------------------------------------------------
+  'macm2-01.ih-eu-mda1.nimbus.holesky': # 0 each (FIXME: No exec client.)
+    - { branch: 'stable',                                  build_start: '13:00:00' }
+    - { branch: 'testing',                                 build_start: '15:00:00' }
+    - { branch: 'unstable',                                build_start: '17:00:00' }
