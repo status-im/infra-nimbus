@@ -8,12 +8,9 @@ nimbus_eth1_log_level: 'DEBUG'
 nimbus_eth1_metrics_address: '0.0.0.0'
 # Kinda hacky way to just add this as 5th node.
 nimbus_eth1_rpc_enabled: true
-nimbus_eth1_rpc_port: '{{ 8545 + idx|int + 22 }}'
+nimbus_eth1_http_port: '{{ 8545 + idx|int + 22 }}'
 nimbus_eth1_ws_enabled: true
-nimbus_eth1_ws_port: '{{ 8646 + idx|int + 22 }}'
 nimbus_eth1_engine_ws_enabled: true
-nimbus_eth1_engine_ws_port: '{{ 8551 + idx|int + 22 }}'
-nimbus_eth1_graphql_port: '{{ 8848 + idx|int + 22 }}'
 nimbus_eth1_jwt_secret:  '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 
 # Beacon Nodes -----------------------------------------------------------------
@@ -29,7 +26,7 @@ beacon_node_build_frequency: 'daily'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: true
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['ws://localhost:{{ nimbus_eth1_engine_ws_port }}']
+beacon_node_exec_layer_urls: ['ws://localhost:{{ nimbus_eth1_http_port }}']
 beacon_node_exec_layer_jwt_secret: '{{ nimbus_eth1_jwt_secret }}'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'

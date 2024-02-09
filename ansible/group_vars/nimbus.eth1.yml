@@ -15,10 +15,10 @@ rocketpool_eth2_rpc_port: 59190
 # Eth1 Sync
 # TODO query Consul for these
 rocketpool_eth1_exec_layer_jwtsecret: '{{ nimbus_eth1_jwt_secret }}'
-rocketpool_eth1_exec_layer_authrpc_url: 'http://localhost:{{ nimbus_eth1_engine_ws_port }}'
-rocketpool_eth1_exec_layer_rpc_url: 'http://localhost:{{ nimbus_eth1_rpc_port }}'
-rocketpool_eth1_exec_layer_ws_url: 'ws://localhost:{{ nimbus_eth1_ws_port }}'
-rocketpool_eth1_archive_url: 'http://localhost:{{ nimbus_eth1_rpc_port }}'
+rocketpool_eth1_exec_layer_authrpc_url: 'http://localhost:{{ nimbus_eth1_http_port }}'
+rocketpool_eth1_exec_layer_rpc_url: 'http://localhost:{{ nimbus_eth1_http_port }}'
+rocketpool_eth1_exec_layer_ws_url: 'ws://localhost:{{ nimbus_eth1_http_port }}'
+rocketpool_eth1_archive_url: 'http://localhost:{{ nimbus_eth1_http_port }}'
 # Eth1 Wallet
 rocketpool_password: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/pass")}}'
 rocketpool_wallet: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/wallet")}}'
@@ -31,9 +31,6 @@ nimbus_eth1_network: 'goerli'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'
 # Ports
-nimbus_eth1_ws_port: 8546
-nimbus_eth1_rpc_port: 8545
-nimbus_eth1_engine_ws_port: 8551
 nimbus_eth1_metrics_port: 9093
 nimbus_eth1_metrics_address: '0.0.0.0'
 # API secert
