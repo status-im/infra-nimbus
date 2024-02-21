@@ -35,7 +35,7 @@
 
 - name: oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 1fe033064cf77d61db9219252986d841c4eb5364
+  version: f407d2533495a18c17bbba77d7703c063dbfd9be
   scm: git
 
 - name: consul-service
@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 8f92e762003e0f72bbad5f2af067b89fd0172bbb
+  version: e41eaa0570f3513e9ad0081d02d502cbee390e2b
   scm: git
 
 - name: infra-role-geth-exporter
@@ -125,12 +125,12 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 6d3ce447278cba9089892e01eb20d4a85dbbe81b
+  version: b8b1a1c181f3a77021e131212f2c6e8c2e25dd84
   scm: git
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 65207e85869e835c1be4dae607c4acde6b22a60f
+  version: 456b0230ad3f4baeda295e628c51f158cbeb6d5c
   scm: git
 
 - name: smart-metrics
