@@ -130,7 +130,6 @@ nodes_layout:
   # Innova Hosting ---------------------------------------------------
   'linux-01.ih-eu-mda1.nimbus.mainnet': # Frankenstein host, all nodes use one Geth.
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, open_libp2p_ports: false }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1, public_api: true }
@@ -138,7 +137,6 @@ nodes_layout:
 
   'linux-02.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1, public_api: true }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1, open_libp2p_ports: false }
@@ -146,7 +144,6 @@ nodes_layout:
 
   'linux-03.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   num: 1, max_peers: 10000 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
@@ -154,7 +151,6 @@ nodes_layout:
 
   'linux-04.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
@@ -162,7 +158,6 @@ nodes_layout:
 
   'linux-05.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
@@ -170,7 +165,6 @@ nodes_layout:
 
   'linux-06.ih-eu-mda1.nimbus.mainnet': # Doesn't exist yet.
     - { branch: 'stable',   num: 1 }
-    - { branch: 'stable',   num: 2 }
     - { branch: 'testing',  num: 1 }
     - { branch: 'testing',  num: 2 }
     - { branch: 'unstable', num: 1 }
