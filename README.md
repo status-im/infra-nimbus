@@ -45,4 +45,10 @@ But for finding which host holds which validator use TSV files in [`ansible/file
 
 # Repo Usage
 
-For how to use this repo read the [Infra Repo Usage](https://github.com/status-im/infra-docs/blob/master/docs/general/infra_repo_usage.md) doc.
+Simplest way to run commands on fleets if you have SSH access:
+```
+ > ./foreach.sh nimbus-mainnet-small "sudo systemctl --no-block restart 'build-beacon-node-*'"
+stable-small-01.aws-eu-central-1a.nimbus.mainnet
+stable-small-02.aws-eu-central-1a.nimbus.mainnet
+```
+For more details read the [Infra Repo Usage](https://github.com/status-im/infra-docs/blob/master/docs/general/infra_repo_usage.md) doc.
