@@ -89,7 +89,7 @@ beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: >-
   {{  (node.public_api is not defined or not node.public_api)
-  and (node.end is defined and (node.end - node.start) <= 64) }}
+  and (node.end is defined and (node.end - node.start) < 10) }}
 # Execution layer Enginer API
 beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
