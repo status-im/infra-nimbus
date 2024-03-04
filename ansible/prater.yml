@@ -9,27 +9,6 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
-- name: Deploy prater AWS Linux nodes
-  become: true
-  # To avoid clashing/duplicate validators.
-  any_errors_fatal: true
-  serial: '{{ serial|default(1) }}'
-  vars_files: layout/prater.yml
-  hosts:
-    - nimbus-prater-stable
-    - nimbus-prater-testing
-    - nimbus-prater-unstable
-  roles:
-    - { role: open-ports,        tags: open-ports        }
-    - { role: get-geth-api-urls, tags: get-geth-api-urls }
-  tasks:
-    - include_role: name=infra-role-beacon-node-linux
-      tags: [ beacon-node, infra-role-beacon-node-linux ]
-      with_items: '{{ nodes_layout[hostname] }}'
-      loop_control:
-        loop_var: node
-        index_var: idx
-
 - name: Deploy prater Hetzner linux nodes
   become: true
   serial: '{{ serial|default(1) }}'
@@ -66,59 +45,6 @@
     - include_role: name=infra-role-validator-client
       with_items: '{{ nodes_layout[hostname] }}'
       when: validator_client_service_enabled
-      loop_control:
-        loop_var: node
-        index_var: idx
-
-- name: Deploy prater Geth nodes for Windows
-  become: true
-  serial: '{{ serial|default(1) }}'
-  vars_files: layout/prater.yml
-  hosts: nimbus-geth-goerli-windows
-  roles:
-    - { role: swap-file,         tags: swap-file         }
-    - { role: open-ports,        tags: open-ports        }
-  tasks:
-    - include_role: name=infra-role-geth
-      tags: [ geth, infra-role-geth ]
-      with_items: '{{ nodes_layout[hostname] }}'
-      loop_control:
-        loop_var: node
-        index_var: idx
-    - include_role: name=infra-role-geth-exporter
-      tags: [ geth-exporter, infra-role-geth-exporter ]
-      with_items: '{{ nodes_layout[hostname] }}'
-      loop_control:
-        loop_var: node
-        index_var: idx
-
-- name: Deploy prater Windows beacon nodes
-  become: true
-  become_user: 'admin'
-  serial: '{{ serial|default(1) }}'
-  vars_files: layout/prater.yml
-  hosts: nimbus-prater-windows
-  fact_path: 'C:/ansible/facts.d'
-  roles:
-    - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
-  tasks:
-    - include_role: name=infra-role-beacon-node-windows
-      with_items: '{{ nodes_layout[hostname] }}'
-      loop_control:
-        loop_var: node
-        index_var: idx
-
-- name: Deploy prater macOS beacon nodes
-  become: true
-  serial: '{{ serial|default(1) }}'
-  vars_files: layout/prater.yml
-  hosts: nimbus-prater-macos
-  roles:
-    - { role: get-geth-api-urls, tags: [ get-geth-api-urls ] }
-    - { role: nimbus-era-files,  tags: [ nimbus-era-files ] }
-  tasks:
-    - include_role: name=infra-role-beacon-node-macos
-      with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx

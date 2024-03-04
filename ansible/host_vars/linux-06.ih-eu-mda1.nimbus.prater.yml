@@ -1,4 +1,0 @@
----
-beacon_node_consul_success_before_passing: 50
-beacon_node_consul_failures_before_warning: 1000
-beacon_node_consul_failures_before_critical: 2000

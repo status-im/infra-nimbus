@@ -24,21 +24,3 @@ module "nimbus_geth_mainnet" {
   secgroup_id  = module.nimbus_network.secgroup.id
   keypair_name = aws_key_pair.jakubgs.key_name
 }
-
-module "nimbus_geth_goerli_innova" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "goerli"
-  env    = "nimbus"
-  stage  = "geth"
-  group  = "nimbus-geth-goerli"
-  region = "eu-mda1"
-  prefix = "ih"
-  domain = var.domain
-
-  ips = [
-    "194.33.40.234", # goerli-01.ih-eu-mda1.nimbus.geth
-    "194.33.40.235", # goerli-02.ih-eu-mda1.nimbus.geth
-    "194.33.40.236", # goerli-03.ih-eu-mda1.nimbus.geth
-  ]
-}

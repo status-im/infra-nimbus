@@ -1,3 +1,0 @@
----
-bootstrap__extra_volume_bind_paths:
-  DATA_VOLUME1: ['/docker']
