@@ -1,6 +1,0 @@
----
-swap_file_path: '/main.swap'
-
-# These bootstrap nodes were published with these ports.
-beacon_node_discovery_port: 9100
-beacon_node_listening_port: 9100

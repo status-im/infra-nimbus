@@ -43,6 +43,19 @@ The fleet layout configuration used by Ansible can be found in [`ansible/vars/la
 
 But for finding which host holds which validator use TSV files in [`ansible/files/layout`](ansible/files/layout).
 
+# Bootstrap Nodes
+
+Some nodes in this repo are used as [bootstrap nodes](https://ethereum.org/en/developers/docs/nodes-and-clients/bootnodes/) for testnets and mainnet.
+
+Currently this includes:
+
+| Host                                            | IP             |
+|-------------------------------------------------|----------------|
+| `bootstrap-01.aws-eu-central-1a.nimbus.mainnet` | `3.120.104.18` |
+| `bootstrap-02.aws-eu-central-1a.nimbus.mainnet` | `3.64.117.223` |
+
+They are recorded in the [`eth2-networks`](https://github.com/eth-clients/eth2-networks/blob/934c948e69205dcf2deb87e4ae6cc140c335f94d/shared/mainnet/bootstrap_nodes.txt#L28-L30) repository.
+
 # Repo Usage
 
 Simplest way to run commands on fleets if you have SSH access:

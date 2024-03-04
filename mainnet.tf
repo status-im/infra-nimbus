@@ -54,7 +54,7 @@ resource "cloudflare_record" "era_mainnet" {
 module "nimbus_nodes_mainnet_stable_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"
 
-  name   = "stable-small"
+  name   = "bootstrap"
   env    = "nimbus"
   stage  = "mainnet"
   group  = "nimbus-mainnet-small"
