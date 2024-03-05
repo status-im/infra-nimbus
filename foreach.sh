@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eof pipefail
+set -of pipefail
 
 GRN='\033[0;32m'
 BLD='\033[1m'
