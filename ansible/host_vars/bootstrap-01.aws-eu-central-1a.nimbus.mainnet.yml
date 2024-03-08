@@ -4,6 +4,9 @@ swap_file_path: '/main.swap'
 # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
 beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
 
+# Not necessary to stress test bootnodes.
+beacon_node_subscribe_all: false
+
 # These bootstrap nodes were published with these ports.
 beacon_node_discovery_port: 9100
 beacon_node_listening_port: 9100

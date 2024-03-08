@@ -66,7 +66,7 @@ beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: '{{ node.public_api is not defined or not node.public_api }}'
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
-# Bootnodes should subscribe to all subnets
+# Excellent stress test and good service to the community.
 beacon_node_subscribe_all: true
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else [] }}'
 # Light client data
