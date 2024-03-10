@@ -15,11 +15,11 @@
   vars_files: layout/prater.yml
   hosts: nimbus-prater-metal
   roles:
-    - { role: swap-file,         tags: [ swap-file ]        }
-    - { role: open-ports,        tags: [ open-ports ]       }
-    - { role: smart-metrics,     tags: [ smart-metrics ]    }
-    - { role: redirect-ports,    tags: [ redirect-ports ]   }
-    - { role: nimbus-era-files,  tags: [ nimbus-era-files ] }
+    - { role: infra-role-swap-file,     tags: [ swap-file ]        }
+    - { role: infra-role-open-ports,    tags: [ open-ports ]       }
+    - { role: infra-role-smart-metrics, tags: [ smart-metrics ]    }
+    - { role: redirect-ports,           tags: [ redirect-ports ]   }
+    - { role: nimbus-era-files,         tags: [ nimbus-era-files ] }
   tasks:
     - include_role: name=infra-role-nethermind
       with_items: '{{ nodes_layout[hostname] }}'

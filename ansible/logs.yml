@@ -13,12 +13,9 @@
   become: true
   hosts: logs.nimbus
   roles:
-    - role: swap-file
-      tags: swap-file
-    - role: open-ports
-      tags: open-ports
-    - role: elasticsearch
-      tags: elasticsearch
+    - { role: infra-role-swap-file,        tags: swap-file }
+    - { role: infra-role-open-ports,       tags: open-ports }
+    - { role: infra-role-elasticsearch,    tags: elasticsearch }
 
 - name: Configure ElasticSearch servers
   become: true
@@ -42,15 +39,9 @@
               port: to_string(ServiceMeta.cluster_port)
             }') }}
   roles:
-    - role: swap-file
-      tags: swap-file
-    - role: open-ports
-      tags: open-ports
-    - role: elasticsearch-lb
-      tags: elasticsearch-lb
-    - role: logclean-job
-      tags: logclean-job
-    - role: kibana
-      tags: kibana
-    - role: oauth-proxy
-      tags: oauth-proxy
+    - { role: infra-role-swap-file,        tags: swap-file }
+    - { role: infra-role-open-ports,       tags: open-ports }
+    - { role: infra-role-elasticsearch-lb, tags: elasticsearch-lb }
+    - { role: infra-role-logclean-job,     tags: logclean-job }
+    - { role: infra-role-kibana,           tags: kibana }
+    - { role: infra-role-oauth-proxy,      tags: oauth-proxy }

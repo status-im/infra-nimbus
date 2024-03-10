@@ -11,7 +11,7 @@
     mode: 0755
 
 - name: Set systemd timer for debug script
-  include_role: name=systemd-timer
+  include_role: name=infra-role-systemd-timer
   vars:
     systemd_timer_name: 'network-debug-script'
     systemd_timer_description: 'Network Debug Script'

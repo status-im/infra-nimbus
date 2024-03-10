@@ -62,7 +62,7 @@
     - Save iptables rules
 
 - name: Set systemd timer
-  include_role: name=systemd-timer
+  include_role: name=infra-role-systemd-timer
   vars:
     systemd_timer_name: '{{ nimbus_stats_service_name }}'
     systemd_timer_description: 'Generates stats for Nimbus cluster.'

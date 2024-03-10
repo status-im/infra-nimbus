@@ -1,6 +1,6 @@
 ---
 - name: Create timer for ERA file updates
-  include_role: name=launchd-timer
+  include_role: name=infra-role-launchd-timer
   vars:
     launchd_timer_description:       'Update Nimbus beacon node ERA files'
     launchd_timer_start_on_creation: false
@@ -16,7 +16,7 @@
       --network={{ nimbus_era_files_network }} exportEra --db={{ nimbus_era_files_db_path }}
 
 - name: Create timer for ERA file verification
-  include_role: name=launchd-timer
+  include_role: name=infra-role-launchd-timer
   vars:
     launchd_timer_description:       'Verify Nimbus beacon node ERA files'
     launchd_timer_start_on_creation: false
