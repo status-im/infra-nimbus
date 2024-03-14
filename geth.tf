@@ -5,7 +5,6 @@ module "nimbus_geth_mainnet" {
   env    = "nimbus"
   stage  = "geth"
   group  = "nimbus-geth-mainnet"
-  domain = var.domain
 
   /* Scaling */
   type          = "t3a.xlarge"

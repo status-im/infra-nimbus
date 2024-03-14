@@ -7,7 +7,6 @@ module "nimbus_log_store" {
   group  = "logs.nimbus"
   region = "eu-hel1"
   prefix = "he"
-  domain = var.domain
 
   ips = [
     "65.108.226.62", /* store-01.he-eu-hel1.logs.nimbus */

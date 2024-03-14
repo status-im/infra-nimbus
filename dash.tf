@@ -5,7 +5,6 @@ module "nimbus_dashboard" {
   env    = "dash"
   group  = "log-dash"
   stage  = "nimbus"
-  domain = var.domain
 
   /* Scaling */
   host_count    = 1

@@ -12,7 +12,6 @@ module "nimbus_eth1_node_innova" {
   group  = "nimbus-eth1-metal"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = ["194.33.40.237"] # metal-01.ih-eu-mda1.nimbus.eth1
 }

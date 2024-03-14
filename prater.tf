@@ -7,7 +7,6 @@ module "nimbus_nodes_prater_innova" {
   group  = "nimbus-prater-metal"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "185.181.230.78",  # linux-01.ih-eu-mda1.nimbus.prater

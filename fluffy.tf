@@ -12,7 +12,6 @@ module "nimbus_nodes_fluffy_innova" {
   group  = "nimbus-fluffy-metal"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "194.33.40.238", # metal-01.ih-eu-mda1.nimbus.fluffy

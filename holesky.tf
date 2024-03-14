@@ -7,7 +7,6 @@ module "nimbus_nodes_holesky_innova_geth" {
   group  = "nimbus-holesky-geth"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "194.33.40.71",    # geth-01.ih-eu-mda1.nimbus.holesky
@@ -32,7 +31,6 @@ module "nimbus_nodes_holesky_innova_erigon" {
   group  = "nimbus-holesky-erigon"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "194.33.40.148",   # erigon-01.ih-eu-mda1.nimbus.holesky
@@ -57,7 +55,6 @@ module "nimbus_nodes_holesky_innova_neth" {
   group  = "nimbus-holesky-neth"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "194.33.40.247",   # neth-01.ih-eu-mda1.nimbus.holesky
@@ -82,7 +79,6 @@ module "nimbus_nodes_holesky_innova_macm2" {
   group  = "nimbus-holesky-macm2"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "185.181.230.76" # macm2-01.ih-eu-mda1.nimbus.holesky

@@ -5,11 +5,6 @@ variable "public_domain" {
   default     = "status.im"
 }
 
-variable "domain" {
-  description = "DNS Domain to update"
-  default     = "statusim.net"
-}
-
 /* RESOURCES ------------------------------------*/
 
 variable "hosts_count" {

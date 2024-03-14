@@ -11,7 +11,6 @@ module "nimbus_nodes_mainnet_innova" {
   group  = "nimbus-mainnet-metal"
   region = "eu-mda1"
   prefix = "ih"
-  domain = var.domain
 
   ips = [
     "194.33.40.70",   /* linux-01.ih-eu-mda1.nimbus.mainnet */
@@ -58,7 +57,6 @@ module "nimbus_nodes_mainnet_stable_small" {
   env    = "nimbus"
   stage  = "mainnet"
   group  = "nimbus-mainnet-small"
-  domain = var.domain
 
   /* Scaling */
   type          = "t3a.large"
