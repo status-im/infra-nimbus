@@ -22,7 +22,7 @@ rm -f "${INFRA_NIMBUS_SSH_CONFIG}"
 for host in $(ansible all -i ansible/inventory/test --list-hosts | grep -v 'hosts'); do
   cat << EOF >> "${INFRA_NIMBUS_SSH_CONFIG}"
 Host nimbus-$host
-  Hostname $host.statusim.net
+  Hostname $host.status.im
   User ${SSH_USERNAME}
 
 EOF

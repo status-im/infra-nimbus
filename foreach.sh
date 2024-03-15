@@ -5,7 +5,7 @@ GRN='\033[0;32m'
 BLD='\033[1m'
 RST='\033[0m'
 
-DOMAIN='statusim.net'
+DOMAIN='status.im'
 
 function fleets() {
     grep -oP '^\[\K[^]]+' ansible/inventory/test
