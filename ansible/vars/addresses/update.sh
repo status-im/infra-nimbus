@@ -17,3 +17,4 @@ for FILE in geth-*.holesky.yml;   do update_yaml "${FILE}"; done
 for FILE in erigon-*.holesky.yml; do update_yaml "${FILE}"; done
 for FILE in neth-*.holesky.yml;   do update_yaml "${FILE}"; done
 for FILE in linux-*.mainnet.yml;  do update_yaml "${FILE}"; done
+for FILE in linux-*.sepolia.yml;  do update_yaml "${FILE}"; done

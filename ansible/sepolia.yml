@@ -16,6 +16,7 @@
   hosts:
     - nimbus-sepolia-linux
   roles:
+    - { role: update-netplan,           tags: [ update-netplan ], when: ansible_system == 'Linux' }
     - { role: infra-role-open-ports,    tags: [ open-ports ]        }
     - { role: infra-role-smart-metrics, tags: [ smart-metrics ]     }
     - { role: redirect-ports,           tags: [ redirect-ports ]    }
