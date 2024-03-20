@@ -4,7 +4,7 @@ bootstrap__extra_volume_bind_paths:
   DATA_VOLUME1: ['/data', '/docker']
 
 # Rocketpool
-rocketpool_eth1_network: 'goerli'
+rocketpool_eth1_network: 'holesky'
 # Ports
 rocketpool_metrics_port: 9102
 rocketpool_eth2_libp2p_port: 59001
@@ -27,7 +27,7 @@ rocketpool_eth2_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", 
 
 # Nimbus Eth1 node
 nimbus_eth1_repo_branch: 'master'
-nimbus_eth1_network: 'goerli'
+nimbus_eth1_network: 'holesky'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'
 # Ports
