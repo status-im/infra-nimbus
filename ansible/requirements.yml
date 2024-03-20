@@ -45,7 +45,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 168fe7b817cc19344bab803eed74bb9a478d65eb
+  version: 0b41cfe3b14cc47818a1a1a9e53bae732079e84f
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -105,7 +105,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 49077fb66d14189bee713045d34248b30b0bc615
+  version: 50575b23eb71b6d838a87eec92e4094b0f34dccd
   scm: git
 
 - name: infra-role-launchd-timer
