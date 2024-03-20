@@ -1,0 +1,17 @@
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eno1:
+      critical: true
+      addresses:
+        - 194.33.40.72/24
+        - 2a0a:d580:40:60::11f/64
+      gateway4: 194.33.40.1
+      gateway6: 2a0a:d580:40:60::1
+      nameservers:
+        addresses:
+        - 194.33.40.10
+        - 8.8.8.8
+        search:
+        - iphost.md.
+  version: 2

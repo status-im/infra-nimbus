@@ -19,7 +19,7 @@
     beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
   roles:
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
-    - { role: infra-role-redirect-ports,    tags: [ redirect-ports ] }
+    - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
   tasks:
     - include_role: name=infra-role-beacon-node-linux
@@ -37,6 +37,7 @@
     # FIXME: Use all Geth nodes available in the fleet until we resync.
     geth_node_api_fleet_names: ['nimbus.geth']
   roles:
+    - { role: update-netplan,               tags: [ update-netplan ], when: ansible_system == 'Linux' }
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
     - { role: infra-role-open-ports,        tags: [ open-ports ] }
     - { role: infra-role-smart-metrics,     tags: [ smart-metrics ] }
