@@ -14,6 +14,10 @@
   serial: '{{ serial|default(1) }}'
   hosts: nimbus.holesky
   vars_files: layout/holesky.yml
+  roles:
+    - role: update-netplan
+      tags: update-netplan
+      when: ansible_system == 'Linux'
   tasks:
     - include_role: name=infra-role-beacon-node-linux
       with_items: '{{ nodes_layout[hostname] }}'

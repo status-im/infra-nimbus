@@ -1,0 +1,10 @@
+---
+- name: Copy netplan config file
+  register: netplan
+  copy:
+    src:  'vars/addresses/{{ hostname }}.yml'
+    dest: '/etc/netplan/00-installer-config.yaml'
+
+- name: Apply host netplan
+  when: netplan.changed
+  command: sudo netplan apply
