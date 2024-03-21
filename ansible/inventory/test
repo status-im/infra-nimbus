@@ -23,6 +23,8 @@ geth-07.ih-eu-mda1.nimbus.holesky hostname=geth-07.ih-eu-mda1.nimbus.holesky ans
 geth-08.ih-eu-mda1.nimbus.holesky hostname=geth-08.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.140 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=geth-08.ih-eu-mda1.nimbus.holesky.status.im
 geth-09.ih-eu-mda1.nimbus.holesky hostname=geth-09.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.141 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=geth-09.ih-eu-mda1.nimbus.holesky.status.im
 geth-10.ih-eu-mda1.nimbus.holesky hostname=geth-10.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.147 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=geth-10.ih-eu-mda1.nimbus.holesky.status.im
+holesky-01.ih-eu-mda1.nimbus.geth hostname=holesky-01.ih-eu-mda1.nimbus.geth ansible_host=194.33.40.232 env=nimbus stage=geth data_center=ih-eu-mda1 region=eu-mda1 dns_entry=holesky-01.ih-eu-mda1.nimbus.geth.status.im
+holesky-02.ih-eu-mda1.nimbus.geth hostname=holesky-02.ih-eu-mda1.nimbus.geth ansible_host=194.33.40.233 env=nimbus stage=geth data_center=ih-eu-mda1 region=eu-mda1 dns_entry=holesky-02.ih-eu-mda1.nimbus.geth.status.im
 linux-01.ih-eu-mda1.nimbus.mainnet hostname=linux-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.mainnet.status.im
 linux-01.ih-eu-mda1.nimbus.prater hostname=linux-01.ih-eu-mda1.nimbus.prater ansible_host=185.181.230.78 env=nimbus stage=prater data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.prater.status.im
 linux-01.ih-eu-mda1.nimbus.sepolia hostname=linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 env=nimbus stage=sepolia data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im
@@ -88,6 +90,8 @@ geth-07.ih-eu-mda1.nimbus.holesky
 geth-08.ih-eu-mda1.nimbus.holesky
 geth-09.ih-eu-mda1.nimbus.holesky
 geth-10.ih-eu-mda1.nimbus.holesky
+holesky-01.ih-eu-mda1.nimbus.geth
+holesky-02.ih-eu-mda1.nimbus.geth
 linux-01.ih-eu-mda1.nimbus.mainnet
 linux-01.ih-eu-mda1.nimbus.prater
 linux-01.ih-eu-mda1.nimbus.sepolia
@@ -127,6 +131,10 @@ metal-01.ih-eu-mda1.nimbus.eth1
 [nimbus-fluffy-metal]
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
+
+[nimbus-geth-holesky]
+holesky-01.ih-eu-mda1.nimbus.geth
+holesky-02.ih-eu-mda1.nimbus.geth
 
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
@@ -198,6 +206,8 @@ metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
 
 [nimbus.geth]
+holesky-01.ih-eu-mda1.nimbus.geth
+holesky-02.ih-eu-mda1.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
 
 [nimbus.holesky]

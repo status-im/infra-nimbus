@@ -22,8 +22,9 @@
 - name: Deploy prater Geth nodes for Windows
   become: true
   serial: '{{ serial|default(1) }}'
+  vars_files: layout/holesky.yml
   hosts:
-    - nimbus-geth-goerli
+    - nimbus-geth-holesky
   roles:
     - { role: infra-role-open-ports,    tags: open-ports }
     - { role: infra-role-smart-metrics, tags: smart-metrics }

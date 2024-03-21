@@ -9,10 +9,13 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
-- name: Deploy Holesky Beacon Nodes
+- name: Deploy Holesky Linux Beacon Nodes
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus.holesky
+  hosts:
+    - nimbus-holesky-geth
+    - nimbus-holesky-erigon
+    - nimbus-holesky-neth
   vars_files: layout/holesky.yml
   roles:
     - role: update-netplan
@@ -20,5 +23,16 @@
       when: ansible_system == 'Linux'
   tasks:
     - include_role: name=infra-role-beacon-node-linux
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Holesky MacOS Beacon Nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts:
+    - nimbus-holesky-macm2
+  vars_files: layout/holesky.yml
+  tasks:
+    - include_role: name=infra-role-beacon-node-macos
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }

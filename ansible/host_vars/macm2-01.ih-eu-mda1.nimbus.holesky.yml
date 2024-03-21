@@ -1,0 +1,2 @@
+---
+beacon_node_exec_layer_urls: ['http://holesky-01.ih-eu-mda1.nimbus.geth.wg:{{ 8551 + (idx|int) }}']
