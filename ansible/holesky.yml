@@ -28,11 +28,20 @@
 
 - name: Deploy Holesky MacOS Beacon Nodes
   become: true
-  serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus-holesky-macm2
   vars_files: layout/holesky.yml
   tasks:
     - include_role: name=infra-role-beacon-node-macos
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Holesky Windows Beacon Nodes
+  become: true
+  hosts:
+    - nimbus-holesky-windows
+  vars_files: layout/holesky.yml
+  tasks:
+    - include_role: name=infra-role-beacon-node-windows
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }

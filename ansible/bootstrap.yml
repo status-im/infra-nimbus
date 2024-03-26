@@ -48,7 +48,7 @@
 - name: Bootstrap Windows hosts
   become: false
   hosts:
-    - nimbus-prater-windows
+    - nimbus-holesky-windows
   roles:
     - role: infra-role-bootstrap-windows
       vars: { fact_path: 'C:/ansible/facts.d' }

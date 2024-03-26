@@ -54,6 +54,7 @@ node-01.aws-eu-central-1a.dash.nimbus hostname=node-01.aws-eu-central-1a.dash.ni
 store-01.he-eu-hel1.logs.nimbus hostname=store-01.he-eu-hel1.logs.nimbus ansible_host=65.108.226.62 env=logs stage=nimbus data_center=he-eu-hel1 region=eu-hel1 dns_entry=store-01.he-eu-hel1.logs.nimbus.status.im
 store-02.he-eu-hel1.logs.nimbus hostname=store-02.he-eu-hel1.logs.nimbus ansible_host=65.109.62.247 env=logs stage=nimbus data_center=he-eu-hel1 region=eu-hel1 dns_entry=store-02.he-eu-hel1.logs.nimbus.status.im
 store-03.he-eu-hel1.logs.nimbus hostname=store-03.he-eu-hel1.logs.nimbus ansible_host=65.109.49.101 env=logs stage=nimbus data_center=he-eu-hel1 region=eu-hel1 dns_entry=store-03.he-eu-hel1.logs.nimbus.status.im
+windows-01.ih-eu-mda1.nimbus.holesky hostname=windows-01.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.240 env=nimbus stage=holesky data_center=ih-eu-mda1 region=eu-mda1 dns_entry=windows-01.ih-eu-mda1.nimbus.holesky.status.im
 
 [aws-eu-central-1a]
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet
@@ -116,6 +117,7 @@ neth-07.ih-eu-mda1.nimbus.holesky
 neth-08.ih-eu-mda1.nimbus.holesky
 neth-09.ih-eu-mda1.nimbus.holesky
 neth-10.ih-eu-mda1.nimbus.holesky
+windows-01.ih-eu-mda1.nimbus.holesky
 
 [log-dash]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -177,6 +179,9 @@ neth-07.ih-eu-mda1.nimbus.holesky
 neth-08.ih-eu-mda1.nimbus.holesky
 neth-09.ih-eu-mda1.nimbus.holesky
 neth-10.ih-eu-mda1.nimbus.holesky
+
+[nimbus-holesky-windows]
+windows-01.ih-eu-mda1.nimbus.holesky
 
 [nimbus-mainnet-metal]
 linux-01.ih-eu-mda1.nimbus.mainnet
@@ -242,6 +247,7 @@ neth-07.ih-eu-mda1.nimbus.holesky
 neth-08.ih-eu-mda1.nimbus.holesky
 neth-09.ih-eu-mda1.nimbus.holesky
 neth-10.ih-eu-mda1.nimbus.holesky
+windows-01.ih-eu-mda1.nimbus.holesky
 
 [nimbus.mainnet]
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet
