@@ -93,7 +93,7 @@ open_ports_default_chain: 'VPN'
 open_ports_list:
   - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',  comment: 'SMART Metrics' }
   # https://github.com/status-im/infra-nim-waku/issues/59
-  - { port: '9557:9560',                       ipset: 'waku-nmon.misc', comment: 'Websocket for Waku Network Monitor' }
+  - { port: '8556:8559',                       ipset: 'waku-nmon.misc', comment: 'HTTP RCP for WakuNetwork Monitor' }
   - { port: '8556:8559',                       ipset: 'waku.test',      comment: 'HTTP RCP for Waku' }
   - { port: '9557:9560',                       ipset: 'waku.test',      comment: 'Websocket for Waku' }
   - { port: '8556:8559',                       ipset: 'waku.sandbox',   comment: 'HTTP RCP for Waku' }
