@@ -40,6 +40,7 @@
   become: true
   hosts:
     - nimbus-holesky-windows
+  fact_path: 'C:/ansible/facts.d'
   vars_files: layout/holesky.yml
   tasks:
     - include_role: name=infra-role-beacon-node-windows
