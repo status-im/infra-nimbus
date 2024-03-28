@@ -19,6 +19,6 @@
   tasks:
     - include_role: name=infra-role-nimbus-fluffy
       tags: [ beacon-node, infra-role-nimbus-fluffy ]
-      with_sequence: start=1 end=16
+      with_sequence: start=1 end=32
       loop_control:
         loop_var: index
