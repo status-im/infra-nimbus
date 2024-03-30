@@ -115,6 +115,11 @@ beacon_node_metrics_port:   '{{ 9200 + idx|int + 1 }}'
 beacon_node_rest_port:      '{{ 9300 + idx|int + 1 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
+# Reduce Consul alerts sensitivity
+beacon_node_consul_success_before_passing: 1
+beacon_node_consul_failures_before_warning: 2
+beacon_node_consul_failures_before_critical: 60
+
 # Validator Client -------------------------------------------------------------
 
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
