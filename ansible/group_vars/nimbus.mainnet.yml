@@ -53,6 +53,7 @@ beacon_node_max_peers: '{{ node.get("max_peers", 320) }}'
 # Firewall
 beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
 # Builds
+beacon_node_update_build: '{{ beacon_node_repo_branch != "stable" }}'
 beacon_node_build_frequency: '*-*-* {{ 12 + idx }}:00:00'
 # Tuning
 beacon_node_cores_per_node: '{{ (ansible_processor_vcpus / nodes_layout[hostname]|length) | round(0, "ceil") | int }}'
