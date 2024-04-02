@@ -45,7 +45,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 91da1349fec819ce43b23a828a72c2b98d7e7d31
+  version: 4b80cdb31b8d489064c160ee2ebff434ece4880a
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -70,7 +70,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: c231a4320d3367c52c5d610ef6aa5e65d04f0967
+  version: 354204e7ca4dcc8b1e6c5c86c7f4639949df9075
   scm: git
 
 - name: infra-role-dist-validators
