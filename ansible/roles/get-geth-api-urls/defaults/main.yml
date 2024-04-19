@@ -1,6 +1,5 @@
 ---
 eth2_to_eth1_map:
-  prater: 'goerli'
   mainnet: 'mainnet'
   sepolia: 'sepolia'
 

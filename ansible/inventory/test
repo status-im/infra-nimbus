@@ -26,10 +26,8 @@ geth-10.ih-eu-mda1.nimbus.holesky hostname=geth-10.ih-eu-mda1.nimbus.holesky ans
 holesky-01.ih-eu-mda1.nimbus.geth hostname=holesky-01.ih-eu-mda1.nimbus.geth ansible_host=194.33.40.232 env=nimbus stage=geth data_center=ih-eu-mda1 region=eu-mda1 dns_entry=holesky-01.ih-eu-mda1.nimbus.geth.status.im
 holesky-02.ih-eu-mda1.nimbus.geth hostname=holesky-02.ih-eu-mda1.nimbus.geth ansible_host=194.33.40.233 env=nimbus stage=geth data_center=ih-eu-mda1 region=eu-mda1 dns_entry=holesky-02.ih-eu-mda1.nimbus.geth.status.im
 linux-01.ih-eu-mda1.nimbus.mainnet hostname=linux-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.mainnet.status.im
-linux-01.ih-eu-mda1.nimbus.prater hostname=linux-01.ih-eu-mda1.nimbus.prater ansible_host=185.181.230.78 env=nimbus stage=prater data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.prater.status.im
 linux-01.ih-eu-mda1.nimbus.sepolia hostname=linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 env=nimbus stage=sepolia data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im
 linux-02.ih-eu-mda1.nimbus.mainnet hostname=linux-02.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.72 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-02.ih-eu-mda1.nimbus.mainnet.status.im
-linux-02.ih-eu-mda1.nimbus.prater hostname=linux-02.ih-eu-mda1.nimbus.prater ansible_host=185.181.230.79 env=nimbus stage=prater data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-02.ih-eu-mda1.nimbus.prater.status.im
 linux-03.ih-eu-mda1.nimbus.mainnet hostname=linux-03.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.78 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-03.ih-eu-mda1.nimbus.mainnet.status.im
 linux-04.ih-eu-mda1.nimbus.mainnet hostname=linux-04.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.99 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-04.ih-eu-mda1.nimbus.mainnet.status.im
 linux-05.ih-eu-mda1.nimbus.mainnet hostname=linux-05.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.100 env=nimbus stage=mainnet data_center=ih-eu-mda1 region=eu-mda1 dns_entry=linux-05.ih-eu-mda1.nimbus.mainnet.status.im
@@ -94,10 +92,8 @@ geth-10.ih-eu-mda1.nimbus.holesky
 holesky-01.ih-eu-mda1.nimbus.geth
 holesky-02.ih-eu-mda1.nimbus.geth
 linux-01.ih-eu-mda1.nimbus.mainnet
-linux-01.ih-eu-mda1.nimbus.prater
 linux-01.ih-eu-mda1.nimbus.sepolia
 linux-02.ih-eu-mda1.nimbus.mainnet
-linux-02.ih-eu-mda1.nimbus.prater
 linux-03.ih-eu-mda1.nimbus.mainnet
 linux-04.ih-eu-mda1.nimbus.mainnet
 linux-05.ih-eu-mda1.nimbus.mainnet
@@ -196,10 +192,6 @@ linux-07.ih-eu-mda1.nimbus.mainnet
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet
 bootstrap-02.aws-eu-central-1a.nimbus.mainnet
 
-[nimbus-prater-metal]
-linux-01.ih-eu-mda1.nimbus.prater
-linux-02.ih-eu-mda1.nimbus.prater
-
 [nimbus-sepolia-linux]
 linux-01.ih-eu-mda1.nimbus.sepolia
 
@@ -259,10 +251,6 @@ linux-04.ih-eu-mda1.nimbus.mainnet
 linux-05.ih-eu-mda1.nimbus.mainnet
 linux-06.ih-eu-mda1.nimbus.mainnet
 linux-07.ih-eu-mda1.nimbus.mainnet
-
-[nimbus.prater]
-linux-01.ih-eu-mda1.nimbus.prater
-linux-02.ih-eu-mda1.nimbus.prater
 
 [nimbus.sepolia]
 linux-01.ih-eu-mda1.nimbus.sepolia

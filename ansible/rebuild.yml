@@ -2,7 +2,8 @@
 - name: Start rebuilds of all nodes
   hosts:
     - nimbus.mainnet
-    - nimbus.prater
+    - nimbus.sepolia
+    - nimbus.holesky
   become: false
   tasks:
     - name: Start node rebuilds on Linux

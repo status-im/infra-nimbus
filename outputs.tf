@@ -13,7 +13,6 @@ output "hosts" {
     module.nimbus_nodes_holesky_innova_windows.hosts,
     module.nimbus_nodes_mainnet_innova.hosts,
     module.nimbus_nodes_mainnet_stable_small.hosts,
-    module.nimbus_nodes_prater_innova.hosts,
     module.nimbus_nodes_sepolia_innova.hosts,
   )
 }

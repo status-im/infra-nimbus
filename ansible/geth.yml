@@ -19,7 +19,7 @@
     - { role: infra-role-geth,          tags: infra-role-geth }
     - { role: infra-role-geth-exporter, tags: infra-role-geth-exporter }
 
-- name: Deploy prater Geth nodes for Windows
+- name: Deploy Geth nodes for Windows
   become: true
   serial: '{{ serial|default(1) }}'
   vars_files: layout/holesky.yml

@@ -22,7 +22,7 @@
 - name: Bootstrap Python support for Ansible
   become: true
   hosts:
-    - all,!nimbus-prater-macos,!nimbus-prater-windows
+    - all,!nimbus-holesky-macos,!nimbus-holesky-windows
   serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux/raw
