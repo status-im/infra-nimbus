@@ -75,3 +75,11 @@ beacon_node_build_nim_flags: >-
 
 # Peers
 beacon_node_max_peers: 320
+
+# VC inherits Consul settings from BN
+validator_client_consul_check_disabled:           '{{ beacon_node_consul_check_disabled }}'
+validator_client_consul_check_interval:           '{{ beacon_node_consul_check_interval }}'
+validator_client_consul_check_timeout:            '{{ beacon_node_consul_check_timeout }}'
+validator_client_consul_success_before_passing:   '{{ beacon_node_consul_success_before_passing }}'
+validator_client_consul_failures_before_warning:  '{{ beacon_node_consul_failures_before_warning }}'
+validator_client_consul_failures_before_critical: '{{ beacon_node_consul_failures_before_critical }}'

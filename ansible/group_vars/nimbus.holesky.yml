@@ -116,9 +116,11 @@ beacon_node_rest_port:      '{{ 9300 + idx|int + 1 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
 # Reduce Consul alerts sensitivity
-beacon_node_consul_success_before_passing: 1
-beacon_node_consul_failures_before_warning: 2
-beacon_node_consul_failures_before_critical: 60
+beacon_node_consul_check_interval: '60s'
+beacon_node_consul_check_timeout: '10s'
+beacon_node_consul_success_before_passing:    360 # 6h
+beacon_node_consul_failures_before_warning:   720 # 12h
+beacon_node_consul_failures_before_critical: 1440 # 24h
 
 # Validator Client -------------------------------------------------------------
 

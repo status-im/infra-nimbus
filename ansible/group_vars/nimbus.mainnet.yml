@@ -89,9 +89,11 @@ beacon_node_exec_layer_urls: |-
     else (idx % 2 == 0) | ternary(beacon_node_exec_layer_urls_all, []) }}
 
 # Reduce Consul alerts sensitivity
-beacon_node_consul_success_before_passing: 5
-beacon_node_consul_failures_before_warning: 10
-beacon_node_consul_failures_before_critical: 20
+beacon_node_consul_check_interval: '60s'
+beacon_node_consul_check_timeout: '10s'
+beacon_node_consul_success_before_passing:    60 # 1h
+beacon_node_consul_failures_before_warning:  120 # 2h
+beacon_node_consul_failures_before_critical: 180 # 3h
 
 # Periodic resync to save space
 beacon_node_resync_enabled: true

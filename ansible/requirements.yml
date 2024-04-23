@@ -40,27 +40,27 @@
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 4d7c9c606f5e039a22c34ba93961d05056c0e002
+  version: d62993069bd045edade5d5fd90c098655089db85
   scm: git
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 0b41cfe3b14cc47818a1a1a9e53bae732079e84f
+  version: 91c2fe1afa845fbae87d70bccd09dc098db6dc04
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 51bd279d0ffd26933057bff854a6c7b4ebb72ae3
+  version: 1ec3d72aaef35ddd1bc52ad6a41f51353ff78338
   scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 18f11473e3196d2c8cac893988eb9cd0cd255fbc
+  version: 72e9ec63c029304fad9f2b77d4d559ae76d0d949
   scm: git
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 87f6be288c96d2b956b6650b44f4e9dfa6ff2d2b
+  version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
   scm: git
 
 - name: infra-role-nimbus-eth1

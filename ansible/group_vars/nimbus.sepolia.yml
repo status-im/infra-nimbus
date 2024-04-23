@@ -56,6 +56,12 @@ beacon_node_listening_port: '{{ 9000 + idx|int + 11 }}'
 beacon_node_metrics_port:   '{{ 9200 + idx|int + 11 }}'
 beacon_node_rest_port:      '{{ 9300 + idx|int + 11 }}'
 beacon_node_rest_address:   '0.0.0.0'
+# Reduce Consul alerts sensitivity
+beacon_node_consul_check_interval: '60s'
+beacon_node_consul_check_timeout: '10s'
+beacon_node_consul_success_before_passing:    60 # 1h
+beacon_node_consul_failures_before_warning:  360 # 6h
+beacon_node_consul_failures_before_critical: 720 # 12h
 
 # Validator Client
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
