@@ -17,10 +17,10 @@ nimbus_fluffy_build_restart_service: 'nimbus-fluffy-*.service'
 nimbus_fluffy_build_script_path: '/data/nimbus-fluffy/build.sh'
 # Consul healthchecks
 nimbus_fluffy_consul_check_interval: '60s'
-nimbus_fluffy_consul_check_timeout: '5s'
-nimbus_fluffy_consul_success_before_passing: 2
-nimbus_fluffy_consul_failures_before_warning: 5
-nimbus_fluffy_consul_failures_before_critical: 10
+nimbus_fluffy_consul_check_timeout: '10s'
+nimbus_fluffy_consul_success_before_passing: 30
+nimbus_fluffy_consul_failures_before_warning: 1440
+nimbus_fluffy_consul_failures_before_critical: 2880
 
 # Open Ports
 open_ports_default_comment: 'SMART Metrics'
