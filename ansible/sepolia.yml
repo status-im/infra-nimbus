@@ -36,6 +36,7 @@
 
     - include_role: name=infra-role-validator-client
       with_items: '{{ nodes_layout[hostname] }}'
+      when: validator_client_service_enabled
       loop_control:
         loop_var: node
         index_var: idx
