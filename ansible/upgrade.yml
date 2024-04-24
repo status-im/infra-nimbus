@@ -1,6 +1,7 @@
 ---
 - name: Update and upgrade apt packages
   gather_facts: false
+  become: true
   hosts: all
   serial: 1
   tasks:
