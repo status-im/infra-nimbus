@@ -40,12 +40,12 @@
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: d62993069bd045edade5d5fd90c098655089db85
+  version: 4d7c9c606f5e039a22c34ba93961d05056c0e002
   scm: git
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: ed1c7b7f3edab0c2f17f97c92514ddef18c80e5d
+  version: dc366a4198b60b0560b1b0aba6b2c26f4d552557
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -60,7 +60,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
+  version: 87f6be288c96d2b956b6650b44f4e9dfa6ff2d2b
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -70,7 +70,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: c231a4320d3367c52c5d610ef6aa5e65d04f0967
+  version: 8dfeba41eef225ae0f6b45be2e6a38758ac89886
   scm: git
 
 - name: infra-role-dist-validators
@@ -80,7 +80,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 282d20d4164fb26d1d1d88229e85bcb10b123b4b
+  version: ab6834c7d291c9bf115a8e106afc83246bf803ae
   scm: git
 
 - name: infra-role-winsw
@@ -125,7 +125,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 62de19b37f855e4ae673b6764776e4cec51f1802
+  version: 8ff07cee0ba86a647b292e49086244d4420a135f
   scm: git
 
 - name: infra-role-nethermind
