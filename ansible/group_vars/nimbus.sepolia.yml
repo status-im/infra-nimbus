@@ -48,13 +48,14 @@ beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
 beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
-beacon_node_dist_validators_start: '{{ node.validator_client | ternary(0, node.start) | mandatory }}'
-beacon_node_dist_validators_end:   '{{ node.validator_client | ternary(0, node.end)   | mandatory }}'
+beacon_node_dist_validators_start: '{{ node.vc | ternary(0, node.start) | mandatory }}'
+beacon_node_dist_validators_end:   '{{ node.vc | ternary(0, node.end)   | mandatory }}'
 # Ports
+beacon_node_rest_port_base: 9300
 beacon_node_discovery_port: '{{ 9000 + idx|int + 11 }}'
 beacon_node_listening_port: '{{ 9000 + idx|int + 11 }}'
 beacon_node_metrics_port:   '{{ 9200 + idx|int + 11 }}'
-beacon_node_rest_port:      '{{ 9300 + idx|int + 11 }}'
+beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx|int + 11 }}'
 beacon_node_rest_address:   '0.0.0.0'
 # Reduce Consul alerts sensitivity
 beacon_node_consul_check_interval: '60s'
@@ -65,7 +66,7 @@ beacon_node_consul_failures_before_critical: 720 # 12h
 
 # Validator Client
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
-validator_client_service_enabled: '{{ node.validator_client }}'
+validator_client_service_enabled: '{{ node.vc }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
 validator_client_beacon_node_url: 'http://127.0.0.1:{{ beacon_node_rest_port }}'
@@ -84,8 +85,8 @@ validator_client_keymanager_enabled: true
 validator_client_keymanager_token: '{{lookup("bitwarden", "nimbus/keymanager", field="token")}}'
 # Validators Distribution
 validator_client_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
-validator_client_dist_validators_start: '{{ (not node.validator_client) | ternary(0, node.start) | mandatory }}'
-validator_client_dist_validators_end:   '{{ (not node.validator_client) | ternary(0, node.end)   | mandatory }}'
+validator_client_dist_validators_start: '{{ (not node.vc) | ternary(0, node.start) | mandatory }}'
+validator_client_dist_validators_end:   '{{ (not node.vc) | ternary(0, node.end)   | mandatory }}'
 
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'

@@ -5,5 +5,5 @@ nodes_layout:
   'linux-01.ih-eu-mda1.nimbus.sepolia':
     - { branch: 'stable',   start:  0, end:  25, vc: true,  payload_builder: true }
     - { branch: 'testing',  start: 25, end:  50, vc: false, payload_builder: true }
-    - { branch: 'unstable', start: 50, end:  75, vc: false }
+    - { branch: 'unstable', start: 50, end:  75, vc: false, public_api: true      }
     - { branch: 'libp2p',   start: 75, end: 100, vc: false, payload_builder: true }
