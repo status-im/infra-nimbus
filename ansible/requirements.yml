@@ -45,7 +45,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: dc366a4198b60b0560b1b0aba6b2c26f4d552557
+  version: ceb5a0a2f3d4c12aaf424fb020470e84f0437d89
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -115,7 +115,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: dd3808cfe20e7e276ca31e39eea62bd9a1f873b7
+  version: 7e9953509266d05bdf30ae639f9d41f0ceb382a0
   scm: git
 
 - name: infra-role-geth-exporter
@@ -130,7 +130,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: c524f170c79905625f5903e87294e9ce07372830
+  version: c014302215821b0b7df07947a1259027b60a614e
   scm: git
 
 - name: infra-role-smart-metrics
