@@ -45,17 +45,17 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 9017cbb0c464b3d2e2050e4fc1c9e79d72a93c39
+  version: 03f284d6c71362e69fe9a75810d4e6cf12edf20d
   scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 1ec3d72aaef35ddd1bc52ad6a41f51353ff78338
+  version: ebfece8f56ef18ba6dbb413778fbf7f56de06683
   scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 82e23e15b65e5e4200e0a44fe95ef5eabc75dd2b
+  version: f1411a2f0dfc3f2b35cdcda618cd81766a22e4e7
   scm: git
 
 - name: infra-role-validator-client
@@ -85,7 +85,7 @@
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
-  version: 2f89ee1ffac7d678ed25b63a718b1018e1ec860f
+  version: 93c8a5b5ac091a128efe937c028b548751295297
   scm: git
 
 - name: infra-role-kibana
