@@ -25,6 +25,8 @@ There are also archives of ERA files:
 
 # Dashboards
 
+The fleet catalog can be seen at: https://fleets.nimbus.team/
+
 There's a dedicated Kibana dashboard for Nimbus fleet logs: https://nimbus-logs.infra.status.im/
 
 There are explorers available for various testnets:
