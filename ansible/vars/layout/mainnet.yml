@@ -17,7 +17,7 @@ nodes_layout:
 
   'linux-02.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   num: 1 }
-    - { branch: 'testing',  num: 1, public_api: true, success_before_passing: 5 }
+    - { branch: 'testing',  num: 1, public_api: true }
     - { branch: 'unstable', num: 1, open_libp2p_ports: false }
     - { branch: 'unstable', num: 2 }
 
