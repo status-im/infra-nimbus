@@ -14,7 +14,7 @@
   hosts:
     - linux-03.ih-eu-mda1.nimbus.mainnet
     - linux-01.ih-eu-mda1.nimbus.sepolia
-    - linux-01.ih-eu-mda1.nimbus.holesky
+    - geth-01.ih-eu-mda1.nimbus.holesky
   vars:
     open_ports_default_comment: 'Nginx'
     open_ports_default_chain: 'SERVICES'

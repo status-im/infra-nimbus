@@ -40,15 +40,6 @@ resource "cloudflare_record" "testing_mainnet_beacon_api" {
   proxied = false
 }
 
-/* ERA Files hosting */
-resource "cloudflare_record" "era_mainnet" {
-  zone_id = local.zones["nimbus.team"]
-  name    = "mainnet.era"
-  value   = module.nimbus_nodes_mainnet_innova.public_ips[2]
-  type    = "A"
-  proxied = true
-}
-
 /* WARNING: These are bootnodes and losing their IPs and private keys would be bad. */
 module "nimbus_nodes_mainnet_stable_small" {
   source = "github.com/status-im/infra-tf-amazon-web-services"

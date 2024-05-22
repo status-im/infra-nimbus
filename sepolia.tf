@@ -21,12 +21,3 @@ resource "cloudflare_record" "unstable_sepolia_beacon_api" {
   type    = "A"
   proxied = false
 }
-
-/* ERA Files hosting */
-resource "cloudflare_record" "era_sepolia" {
-  zone_id = local.zones["nimbus.team"]
-  name    = "sepolia.era"
-  value   = module.nimbus_nodes_sepolia_innova.public_ips[0]
-  type    = "A"
-  proxied = true
-}

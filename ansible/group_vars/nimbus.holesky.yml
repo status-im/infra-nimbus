@@ -84,6 +84,7 @@ node_name_to_branch_map:
 beacon_node_build_frequency: 'daily'
 beacon_node_build_start_time: '{{ node.get("build_start", omit) }}'
 beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
+beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
@@ -145,6 +146,13 @@ validator_client_keymanager_token: '{{lookup("bitwarden", "nimbus/keymanager", f
 validator_client_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.get("vc", false)) | ternary(0, node.end)   | mandatory }}'
+
+# ERA files geneartion ---------------------------------------------------------
+nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
+nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_network: '{{ beacon_node_network }}'
+nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'
+nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/repo/build/ncli_db'
 
 # Open Ports -------------------------------------------------------------------
 open_ports_default_chain: 'VPN'

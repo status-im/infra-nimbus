@@ -22,6 +22,7 @@ There are also archives of ERA files:
 |----------------------------------|--------------------------------------|
 | https://mainnet.era.nimbus.team/ | `linux-03.ih-eu-mda1.nimbus.mainnet` |
 | https://sepolia.era.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia` |
+| https://holesky.era.nimbus.team/ | `geth-01.ih-eu-mda1.nimbus.holesky`  |
 
 # Dashboards
 
