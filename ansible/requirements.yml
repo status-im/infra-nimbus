@@ -45,7 +45,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: c4a6680a154b7f685c798eeb89e854d1747862c1
+  version: 03f284d6c71362e69fe9a75810d4e6cf12edf20d
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -70,7 +70,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: 8dfeba41eef225ae0f6b45be2e6a38758ac89886
+  version: 5337a3b285413a7243e0acdd40506bddae9f4454
   scm: git
 
 - name: infra-role-dist-validators
@@ -105,7 +105,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 50575b23eb71b6d838a87eec92e4094b0f34dccd
+  version: 9bbb72fe9df7379c5c63cfe9f144efa30ed828d9
   scm: git
 
 - name: infra-role-launchd-timer

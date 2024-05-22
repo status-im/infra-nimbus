@@ -1,8 +1,6 @@
 ---
-nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network_nice_name }}-{{ nimbus_fluffy_repo_branch }}-{{ "%02d"|format(index|int) }}'
-# Separate variable to not change node names.
-nimbus_fluffy_network_nice_name: 'mainnet'
-nimbus_fluffy_network: 'testnet0'
+nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}-{{ "%02d"|format(index|int) }}'
+nimbus_fluffy_network: 'mainnet'
 nimbus_fluffy_repo_branch: 'master'
 # General
 nimbus_fluffy_log_level: 'INFO'
