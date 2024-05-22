@@ -92,7 +92,6 @@ beacon_node_exec_layer_urls: |-
 beacon_node_consul_check_interval: '60s'
 beacon_node_consul_check_timeout: '10s'
 beacon_node_consul_success_before_passing: '{{ 5 if node.get("public_api") else 60 }}' # 1h by default
-#beacon_node_consul_success_before_passing: '{{ node.get("success_before_passing", 60) }}' # 1h by default
 beacon_node_consul_failures_before_warning:  120 # 2h
 beacon_node_consul_failures_before_critical: 180 # 3h
 
