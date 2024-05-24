@@ -1,0 +1,4 @@
+---
+bootstrap__extra_volume_bind_paths:
+  DATA_VOLUME1: ['/data']
+  DATA_VOLUME2: ['/era']
