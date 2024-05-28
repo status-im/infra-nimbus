@@ -35,7 +35,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 64ee6a0d397d0d4ec89f87880a2ff1fc80a75a12
+  version: e984edd9e2c207896e5f47fd0418a1bc87b9e027
   scm: git
 
 - name: infra-role-consul-service
@@ -45,7 +45,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 03f284d6c71362e69fe9a75810d4e6cf12edf20d
+  version: 5f83a05f673826e15fb1ceddd288cae7ab8c74b9
   scm: git
 
 - name: infra-role-beacon-node-windows
@@ -60,7 +60,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 87f6be288c96d2b956b6650b44f4e9dfa6ff2d2b
+  version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
   scm: git
 
 - name: infra-role-nimbus-eth1
@@ -135,5 +135,5 @@
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
-  version: c7de707932b878cc4ad22cd69b78203e57dd50fd
+  version: 76aba3c459e6c5e8afc6979dd9532c8cea0fbeea
   scm: git
