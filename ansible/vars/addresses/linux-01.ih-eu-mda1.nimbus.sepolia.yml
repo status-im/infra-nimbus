@@ -4,9 +4,9 @@ network:
     eno1:
       addresses:
         - 185.181.230.77/24
-        - 2a0a:d580:40:60::125/64
+        - 2a0a:d580:804:40::100/64
       gateway4: 185.181.230.1
-      gateway6: 2a0a:d580:40:60::1
+      gateway6: 2a0a:d580:804:40::1
       nameservers:
         addresses: [ 194.33.40.10, 1.1.1.1 ]
   version: 2
