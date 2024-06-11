@@ -65,7 +65,7 @@ smart_metrics_listen_port: 9633
 # Nimbus ------------------------------
 beacon_node_log_level: DEBUG
 # Builds
-beacon_node_build_nim_flags: >-
+beacon_node_update_build_nim_flags: >-
   -d:testnet_servers_image
   -d:noSignalHandler
   -d:libp2p_protobuf_metrics

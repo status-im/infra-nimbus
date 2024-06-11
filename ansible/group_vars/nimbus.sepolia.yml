@@ -36,7 +36,7 @@ beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined els
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'https://boost-relay-sepolia.flashbots.net/ '
 # Updates
-beacon_node_update_frequency: 'daily'
+beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 # Monitoring

@@ -18,10 +18,9 @@ beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ beacon_node_
 beacon_node_network: 'sepolia'
 beacon_node_repo_branch: 'unstable'
 beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
-beacon_node_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
-
-#Builds
-beacon_node_build_frequency: 'daily'
+# Builds
+beacon_node_update_frequency: 'daily'
+beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: true
