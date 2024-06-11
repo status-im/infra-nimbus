@@ -106,5 +106,3 @@ open_ports_list:
   - { port: '9557:9560',                       ipset: 'waku.test',      comment: 'Websocket for Waku' }
   - { port: '8556:8559',                       ipset: 'waku.sandbox',   comment: 'HTTP RCP for Waku' }
   - { port: '9557:9560',                       ipset: 'waku.sandbox',   comment: 'Websocket for Waku' }
-  - { port: '8556:8559',                       ipset: 'wakuv2.test',    comment: 'HTTP RCP for Waku' }
-  - { port: '9557:9560',                       ipset: 'wakuv2.test',    comment: 'Websocket for Waku' }
