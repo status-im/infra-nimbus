@@ -35,7 +35,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: e984edd9e2c207896e5f47fd0418a1bc87b9e027
+  version: 9119f7af1feb809b28fcf68ce044795affe1aa76
   scm: git
 
 - name: infra-role-consul-service
@@ -45,7 +45,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 5f83a05f673826e15fb1ceddd288cae7ab8c74b9
+  version: 89e1b2a0aaacba8bde7a933c2fa1e38d7e23bb90
   scm: git
 
 - name: infra-role-beacon-node-windows

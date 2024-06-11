@@ -49,5 +49,5 @@ nodes_layout:
     - { branch: 'stable',   num: 1 }
     - { branch: 'libp2p',   num: 1 }
     - { branch: 'libp2p',   num: 2 }
-    - { branch: 'libp2p',   num: 3, extra_flags: ['--debug-enable-yamux=true'] }
-    - { branch: 'libp2p',   num: 4, extra_flags: ['--debug-enable-yamux=true'] }
+    - { branch: 'libp2p',   num: 3, extra_flags: {'debug-enable-yamux': true} }
+    - { branch: 'libp2p',   num: 4, extra_flags: {'debug-enable-yamux': true} }
