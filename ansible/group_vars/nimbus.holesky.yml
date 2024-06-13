@@ -118,9 +118,9 @@ beacon_node_rest_address:   '0.0.0.0'
 # Reduce Consul alerts sensitivity
 beacon_node_consul_check_interval: '60s'
 beacon_node_consul_check_timeout: '10s'
-beacon_node_consul_success_before_passing:     60 # 1h
-beacon_node_consul_failures_before_warning:   720 # 12h
-beacon_node_consul_failures_before_critical: 1440 # 24h
+beacon_node_consul_success_before_passing:   '{{  60 if not node.get("public_api") else    1 }}' # 1h  or 60s for public API
+beacon_node_consul_failures_before_warning:  '{{ 360 if not node.get("public_api") else 1440 }}' # 6h  or 24h for public API
+beacon_node_consul_failures_before_critical: '{{ 720 if not node.get("public_api") else 2880 }}' # 12h or 48h for public API
 
 # Validator Client -------------------------------------------------------------
 
