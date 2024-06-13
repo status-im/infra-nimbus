@@ -1,139 +1,109 @@
----
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  scm: git
 
 - name: infra-role-bootstrap-windows
   src: git@github.com:status-im/infra-role-bootstrap-windows.git
-  scm: git
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  scm: git
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  scm: git
 
 - name: infra-role-open-ports
   src: git@github.com:status-im/infra-role-open-ports.git
-  scm: git
 
 - name: infra-role-swap-file
   src: git@github.com:status-im/infra-role-swap-file.git
-  scm: git
 
 - name: infra-role-nginx
   src: git@github.com:status-im/infra-role-nginx.git
   version: 3043c998cbc92a634a71dc48363b3e2525696d26
-  scm: git
 
 - name: infra-role-origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
   version: f2b061da8976444d6576b755578f0e799cde4372
-  scm: git
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
   version: 9119f7af1feb809b28fcf68ce044795affe1aa76
-  scm: git
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
   version: d62993069bd045edade5d5fd90c098655089db85
-  scm: git
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
   version: c2ba324a5b442b6e46e2bdf4746320e8e8a24579
-  scm: git
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
   version: ebfece8f56ef18ba6dbb413778fbf7f56de06683
-  scm: git
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
   version: f1411a2f0dfc3f2b35cdcda618cd81766a22e4e7
-  scm: git
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
   version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
-  scm: git
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
   version: f4dfbb31eea9a1fa1fed575749723f9576844c84
-  scm: git
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
   version: 164cd9b1f8bf18cdcc3cce7be43e73743394adaf
-  scm: git
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
   version: 95a5de787aef58712121d2ac6c0bd97b6948baec
-  scm: git
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
   version: ab6834c7d291c9bf115a8e106afc83246bf803ae
-  scm: git
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
   version: 93c8a5b5ac091a128efe937c028b548751295297
-  scm: git
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
   version: ccc1c3a41d2ea2f125db9a3418e447958c72bfce
-  scm: git
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
   version: 1e86928b7848ab5520ead99a5f1432770af4fc22
-  scm: git
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
   version: 5ff5e5d526e38a7faf1ff7dfb809c6b6e5bdc17a
-  scm: git
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
   version: 9bbb72fe9df7379c5c63cfe9f144efa30ed828d9
-  scm: git
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
   version: 791174a9de57ffbbb4d60cdde05d74a66415f1bd
-  scm: git
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
   version: cd4fd6403549673e86047c10e2289cb6d34a4e20
-  scm: git
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
   version: c129dc06a407b153371c1467e5293b7ebaca04ab
-  scm: git
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
   version: 8568c7c0b8fefe85bad9a704d0e4d56f9c628631
-  scm: git
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
   version: c014302215821b0b7df07947a1259027b60a614e
-  scm: git
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
   version: 76aba3c459e6c5e8afc6979dd9532c8cea0fbeea
-  scm: git

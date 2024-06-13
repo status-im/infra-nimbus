@@ -6,7 +6,7 @@
   run_once: true
   gather_facts: false
   tasks:
-    - local_action: command ./versioncheck.py
+    - local_action: command ./roles.py --check
       changed_when: false
 
 - name: Configure network mainnet bootnodes
