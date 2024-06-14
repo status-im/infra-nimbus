@@ -89,6 +89,7 @@ beacon_node_exec_layer_urls: |-
     else (idx % 2 == 0) | ternary(beacon_node_exec_layer_urls_all, []) }}
 
 # Reduce Consul alerts sensitivity
+beacon_node_consul_check_disabled: '{{ node.get("public_api", false) }}'
 beacon_node_consul_check_interval: '60s'
 beacon_node_consul_check_timeout: '10s'
 beacon_node_consul_success_before_passing: '{{ 5 if node.get("public_api") else 60 }}' # 1h by default

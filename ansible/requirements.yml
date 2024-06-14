@@ -30,7 +30,7 @@
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: d62993069bd045edade5d5fd90c098655089db85
+  version: 2ef75e12a6bd0b57e1db95c834d30be45fe17af4
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
