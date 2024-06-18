@@ -109,10 +109,11 @@ beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is d
 beacon_node_dist_validators_start: '{{ node.get("vc", false) | ternary(0, node.start) | mandatory }}'
 beacon_node_dist_validators_end:   '{{ node.get("vc", false) | ternary(0, node.end)   | mandatory }}'
 # Ports
+beacon_node_rest_port_base: 9300
+beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx|int + 1 }}'
 beacon_node_discovery_port: '{{ 9000 + idx|int + 1 }}'
 beacon_node_listening_port: '{{ 9000 + idx|int + 1 }}'
 beacon_node_metrics_port:   '{{ 9200 + idx|int + 1 }}'
-beacon_node_rest_port:      '{{ 9300 + idx|int + 1 }}'
 beacon_node_rest_address:   '0.0.0.0'
 
 # Reduce Consul alerts sensitivity
