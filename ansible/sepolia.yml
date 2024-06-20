@@ -22,19 +22,31 @@
     - { role: redirect-ports,           tags: [ redirect-ports ]    }
     - { role: nimbus-era-files,         tags: [ nimbus-era-files ]  }
   tasks:
-    - include_role: name=infra-role-geth
+    - include_role:
+        name: infra-role-geth
+        apply:
+          tags: always
+      tags: [ geth ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
 
-    - include_role: name=infra-role-beacon-node-linux
+    - include_role:
+        name: infra-role-beacon-node-linux
+        apply:
+          tags: always
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
 
-    - include_role: name=infra-role-validator-client
+    - include_role:
+        name: infra-role-validator-client
+        apply:
+          tags: always
+      tags: [ validator-client ]
       with_items: '{{ nodes_layout[hostname] }}'
       when: validator_client_service_enabled
       loop_control:
@@ -44,20 +56,24 @@
 - name: Deploy Sepolia Testnet Nimbus-Eth1 trial
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts:
-    - nimbus-sepolia-linux
+  hosts: nimbus-sepolia-linux
+  vars_files: vars/nimbus-sepolia-trial.yml
   tasks:
-    - name: Load network specific variables
-      tags: [ always ]
-      include_vars: file=vars/nimbus-sepolia-trial.yml
-
-    - include_role: name=infra-role-nimbus-eth1
+    - include_role:
+        name: infra-role-nimbus-eth1
+        apply:
+          tags: always
+      tags: [ nimbus-eth ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
 
-    - include_role: name=infra-role-beacon-node-linux
+    - include_role:
+        name: infra-role-beacon-node-linux
+        apply:
+          tags: always
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node

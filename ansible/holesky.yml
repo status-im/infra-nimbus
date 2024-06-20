@@ -24,10 +24,18 @@
     - { role: redirect-ports,        tags: redirect-ports   }
     - { role: nimbus-era-files,      tags: nimbus-era-files }
   tasks:
-    - include_role: name=infra-role-beacon-node-linux
+    - include_role:
+        name: infra-role-beacon-node-linux
+        apply:
+          tags: always
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
-    - include_role: name=infra-role-validator-client
+    - include_role:
+        name: infra-role-validator-client
+        apply:
+          tags: always
+      tags: [ validator-client ]
       with_items: '{{ nodes_layout[hostname] }}'
       when: validator_client_service_enabled
       loop_control: { loop_var: node, index_var: idx }
@@ -38,12 +46,20 @@
   hosts: nimbus-holesky-geth
   vars_files: layout/holesky.yml
   tasks:
-    - include_role: name=infra-role-geth
+    - include_role:
+        name: infra-role-geth
+        apply:
+          tags: always
+      tags: [ geth ]
       when: node.el == "geth"
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
 
-    - include_role: name=infra-role-geth-exporter
+    - include_role:
+        name: infra-role-geth-exporter
+        apply:
+          tags: always
+      tags: [ geth-exporter ]
       when: node.el == "geth"
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
@@ -54,7 +70,11 @@
   hosts: nimbus-holesky-erigon
   vars_files: layout/holesky.yml
   tasks:
-    - include_role: name=infra-role-erigon
+    - include_role:
+        name: infra-role-erigon
+        apply:
+          tags: always
+      tags: [ erigon ]
       when: node.el == "erigon"
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
@@ -65,7 +85,11 @@
   hosts: nimbus-holesky-neth
   vars_files: layout/holesky.yml
   tasks:
-    - include_role: name=infra-role-nethermind
+    - include_role:
+        name: infra-role-nethermind
+        apply:
+          tags: always
+      tags: [ nethermind ]
       when: node.el == "nethermind"
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
@@ -76,7 +100,11 @@
     - nimbus-holesky-macm2
   vars_files: layout/holesky.yml
   tasks:
-    - include_role: name=infra-role-beacon-node-macos
+    - include_role:
+        name: infra-role-beacon-node-macos
+        apply:
+          tags: always
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
 
@@ -87,6 +115,10 @@
   fact_path: 'C:/ansible/facts.d'
   vars_files: layout/holesky.yml
   tasks:
-    - include_role: name=infra-role-beacon-node-windows
+    - include_role:
+        name: infra-role-beacon-node-windows
+        apply:
+          tags: always
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control: { loop_var: node, index_var: idx }

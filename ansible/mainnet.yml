@@ -20,9 +20,12 @@
   roles:
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
-    - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
+    - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
   tasks:
-    - include_role: name=infra-role-beacon-node-linux
+    - include_role:
+        name: infra-role-beacon-node-linux
+        apply: { tags: always }
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
@@ -44,10 +47,13 @@
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: infra-role-geth,              tags: [ infra-role-geth ] }
     - { role: infra-role-geth-exporter,     tags: [ infra-role-geth-exporter ] }
-    - { role: get-geth-api-urls,            tags: [ get-geth-api-urls ] }
+    - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
     - { role: nimbus-era-files,             tags: [ nimbus-era-files ] }
   tasks:
-    - include_role: name=infra-role-beacon-node-linux
+    - include_role:
+        name: infra-role-beacon-node-linux
+        apply: { tags: always }
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[hostname] }}'
       loop_control:
         loop_var: node
