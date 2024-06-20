@@ -158,6 +158,8 @@ nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unsta
 # Open Ports -------------------------------------------------------------------
 open_ports_default_chain: 'VPN'
 open_ports_list:
+  - { port: '80',          chain: 'SERVICES',    comment: 'Nginx' }
+  - { port: '443',         chain: 'SERVICES',    comment: 'Nginx' }
   - { port: '6060:6070',   ipset: 'metrics.hq',  comment: 'EL Metrics' }
   - { port: '9400:9404',   ipset: 'metrics.hq',  comment: 'Geth Exporter' }
   - { port: '9300:9310',   ipset: '{{ env }}.{{ stage }}', comment: 'Nimbus REST API' }

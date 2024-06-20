@@ -100,7 +100,9 @@ nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unsta
 # Open Ports
 open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',  comment: 'SMART Metrics' }
+  - { port: '80',                              chain: 'SERVICES',      comment: 'Nginx' }
+  - { port: '443',                             chain: 'SERVICES',      comment: 'Nginx' }
+  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',    comment: 'SMART Metrics' }
   # https://github.com/status-im/infra-nim-waku/issues/59
   - { port: '8556:8559',                       ipset: 'waku-nmon.misc', comment: 'HTTP RCP for WakuNetwork Monitor' }
   - { port: '8556:8559',                       ipset: 'waku.test',      comment: 'HTTP RCP for Waku' }
