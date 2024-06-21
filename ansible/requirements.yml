@@ -62,7 +62,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: ab6834c7d291c9bf115a8e106afc83246bf803ae
+  version: 5af21f2dec46cdfa9b1a5d7e26c56300088ae2d7
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -90,7 +90,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: cd4fd6403549673e86047c10e2289cb6d34a4e20
+  version: 41796f308e50f2c7f8d45a102aa6c413823364cb
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -98,7 +98,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 8568c7c0b8fefe85bad9a704d0e4d56f9c628631
+  version: 0c8031a1bff5c9eedbf688c603e1ff4d021569f1
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
