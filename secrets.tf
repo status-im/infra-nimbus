@@ -22,8 +22,3 @@ data "pass_password" "aws_secret_key" {
 data "pass_password" "google_cloud_cred_json" {
   path = "cloud/GoogleCloud/json"
 }
-
-/* Windows user bootstrap password */
-data "pass_password" "windows_user_pass" {
-  path = "hosts/windows-pass"
-}
