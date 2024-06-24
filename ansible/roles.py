@@ -216,7 +216,10 @@ class Role:
     def pull(self):
         self._git('remote', 'update')
         status = self._git('status', '--untracked-files=no')
-        if 'branch is behind' not in status:
+
+        if 'branch is up to date' in status:
+            return True
+        elif 'branch is behind' not in status:
             return None
 
         rval = self._git('pull')
