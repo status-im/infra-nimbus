@@ -56,6 +56,10 @@
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
   version: 164cd9b1f8bf18cdcc3cce7be43e73743394adaf
 
+- name: infra-role-portal-bridge
+  src: git@github.com:status-im/infra-role-portal-bridge.git
+  version: d1772970de2288e9c8359deb641ee1e697302af5
+
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
   version: 95a5de787aef58712121d2ac6c0bd97b6948baec
