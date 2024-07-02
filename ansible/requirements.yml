@@ -58,7 +58,7 @@
 
 - name: infra-role-portal-bridge
   src: git@github.com:status-im/infra-role-portal-bridge.git
-  version: 4fbac9de9d5b9ae54ceb0009a54d1117a02c54df
+  version: ffd7e6b78003a81512200bea012b20e33f15ab22
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
