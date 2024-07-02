@@ -8,4 +8,4 @@ portal_bridge_latest: true
 portal_bridge_backfill: true
 portal_bridge_audit: true
 portal_bridge_era1_dir: '/era'
-portal_bridge_web3_url: 'https://linux-02.ih-eu-mda1.nimbus.mainnet.wg:8545'
+portal_bridge_web3_url: 'http://linux-02.ih-eu-mda1.nimbus.mainnet.wg:8545'
