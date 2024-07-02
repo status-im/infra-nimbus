@@ -15,5 +15,6 @@
   hosts:
     - metal-01.ih-eu-mda1.nimbus.fluffy
   roles:
+    - { role: infra-role-open-ports,    tags: open-ports    }
     - { role: infra-role-nimbus-fluffy, tags: nimbus-fluffy }
     - { role: infra-role-portal-bridge, tags: portal-bridge }

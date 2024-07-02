@@ -17,3 +17,9 @@ nimbus_fluffy_repo_branch: 'master'
 nimbus_fluffy_storage_capacity: 0
 nimbus_fluffy_rpc_port: 19900
 nimbus_fluffy_metrics_port: 19200
+
+# Open Ports
+open_ports_default_comment: 'Nimbus Portal Fluffy'
+open_ports_default_chain: 'VPN'
+open_ports_list:
+  - { port: '{{ nimbus_fluffy_metrics_port }}', ipset: 'metrics.hq' }
