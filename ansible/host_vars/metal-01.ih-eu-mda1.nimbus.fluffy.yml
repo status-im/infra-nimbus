@@ -2,14 +2,3 @@
 bootstrap__extra_volume_bind_paths:
   DATA_VOLUME1: ['/data']
   DATA_VOLUME2: ['/era']
-
-# Portal Bridge
-portal_bridge_service_name: 'nimbus-portal-bridge'
-portal_bridge_rpc_address: '127.0.0.1'
-portal_bridge_rpc_port: 8545
-portal_bridge_command: 'history'
-portal_bridge_latest: true
-portal_bridge_backfill: true
-portal_bridge_audit: true
-portal_bridge_era1_dir: '/era'
-portal_bridge_web3_url: 'https://linux-02.ih-eu-mda1.nimbus.mainnet.wg:8545'
