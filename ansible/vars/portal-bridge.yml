@@ -1,11 +1,19 @@
 ---
 # Portal Bridge
-portal_bridge_service_name: 'nimbus-portal-bridge'
-portal_bridge_rpc_address: '127.0.0.1'
-portal_bridge_rpc_port: 8545
+portal_bridge_service_name: 'nimbus-portal-bridge-history'
 portal_bridge_command: 'history'
 portal_bridge_latest: true
 portal_bridge_backfill: true
 portal_bridge_audit: true
 portal_bridge_era1_dir: '/era'
 portal_bridge_web3_url: 'http://linux-02.ih-eu-mda1.nimbus.mainnet.wg:8545'
+portal_bridge_rpc_address: '127.0.0.1' # Dedicated Fluffy node
+portal_bridge_rpc_port: '{{ nimbus_fluffy_rpc_port }}'
+
+# Fluffy Node
+nimbus_fluffy_service_name: 'nimbus-portal-bridge-fluffy'
+nimbus_fluffy_network: 'mainnet'
+nimbus_fluffy_repo_branch: 'master'
+nimbus_fluffy_storage_capacity: 0
+nimbus_fluffy_rpc_port: 19900
+nimbus_fluffy_metrics_port: 19200
