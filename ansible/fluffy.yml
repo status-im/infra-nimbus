@@ -14,8 +14,9 @@
   hosts:
     - nimbus.fluffy
   roles:
-    - { role: infra-role-open-ports,    tags: open-ports    }
-    - { role: infra-role-smart-metrics, tags: smart-metrics }
+    - { role: update-netplan,           tags: update-netplan }
+    - { role: infra-role-open-ports,    tags: open-ports     }
+    - { role: infra-role-smart-metrics, tags: smart-metrics  }
   tasks:
     - include_role: name=infra-role-nimbus-fluffy
       tags: [ beacon-node, infra-role-nimbus-fluffy ]
