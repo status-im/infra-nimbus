@@ -8,9 +8,9 @@ nimbus_fluffy_log_level: 'INFO'
 nimbus_fluffy_host_index: '{{ groups["nimbus.fluffy"].index(inventory_hostname) }}'
 nimbus_fluffy_listening_addr: '194.33.43.{{ (32 * (nimbus_fluffy_host_index|int + 1)) + index|int }}'
 nimbus_fluffy_public_address: '{{ nimbus_fluffy_listening_addr }}'
-nimbus_fluffy_listening_port: '{{ 9100 + index|int }}'
+nimbus_fluffy_listening_port:   9100
 nimbus_fluffy_metrics_port: '{{ 9200 + index|int }}'
-nimbus_fluffy_rpc_port: '{{ 9900 + index|int }}'
+nimbus_fluffy_rpc_port:     '{{ 9900 + index|int }}'
 # One build for all nodes
 nimbus_fluffy_repo_path: '/data/nimbus-fluffy/repo'
 nimbus_fluffy_build_service_name: 'build-nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}'
