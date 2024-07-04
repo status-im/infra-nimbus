@@ -14,6 +14,7 @@
   hosts:
     - nimbus.fluffy
   roles:
+    # Extra 32 IPv4 addresses for each of the nodes on the host.
     - { role: update-netplan,           tags: update-netplan }
     - { role: infra-role-open-ports,    tags: open-ports     }
     - { role: infra-role-smart-metrics, tags: smart-metrics  }
