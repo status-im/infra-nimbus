@@ -6,7 +6,8 @@ import argparse
 import subprocess
 import functools
 from enum import Enum
-from os import path, getenv, symlink, readlink
+from pathlib import Path
+from os import environ, path, getenv, symlink, readlink, makedirs
 from packaging.version import parse as version_parse
 from concurrent import futures
 
@@ -66,9 +67,9 @@ class State(Enum):
     CLONE_FAILURE = 7
     MISSING       = 8
     CLONED        = 9
-    UPDATED       = 10
+    SKIPPED       = 10
     VALID         = 11
-    SKIPPED       = 12
+    UPDATED       = 12
 
     def __str__(self):
         match self:
@@ -144,11 +145,16 @@ class Role:
 
     def _git(self, *args, cwd=None):
         cmd = ['git'] + list(args)
+        env = dict(
+            environ,
+            GIT_SSH_COMMAND='ssh -o "StrictHostKeyChecking=accept-new"'
+        )
         LOG.debug('[%-27s]: COMMAND: %s', self.name, ' '.join(cmd))
         rval = subprocess.run(
             cmd,
             capture_output=True,
-            cwd=cwd or self.path
+            cwd=cwd or self.path,
+            env=env,
         )
         LOG.debug('[%-27s]: RETURN: %d', self.name, rval.returncode)
         if rval.stdout:
@@ -162,9 +168,9 @@ class Role:
         try:
             self._git(*args, cwd=cwd)
         except:
-            return True
-        else:
             return False
+        else:
+            return True
 
     @property
     def repo_parent_dir(self):
@@ -180,19 +186,23 @@ class Role:
             return '........'
         return self._git('rev-parse', 'HEAD')
 
+    @State.update(failure=State.DIRTY)
+    def has_upstream(self):
+        return self._git_fail_is_false('rev-parse', '--symbolic-full-name', '@{u}')
+
     @State.update(success=State.DIRTY)
     def is_dirty(self):
-        return self._git_fail_is_false('diff-files', '--quiet')
+        return not self._git_fail_is_false('diff-files', '--quiet')
 
     @State.update(success=State.DETACHED)
     def is_detached(self):
-        return self._git_fail_is_false('symbolic-ref', 'HEAD')
+        return not self._git_fail_is_false('symbolic-ref', 'HEAD')
 
     @State.update(success=State.NEWER_VERSION)
     def is_ancestor(self):
         if self.required is None or self.required == self.current_commit:
             return False
-        return not self._git_fail_is_false(
+        return self._git_fail_is_false(
             'merge-base', self.required, '--is-ancestor', self.current_commit
         )
 
@@ -212,18 +222,20 @@ class Role:
     def valid_version(self):
         return self.required == self.current_commit
 
-    @State.update(success=State.VALID, failure=State.WRONG_VERSION)
+    @State.update(success=State.UPDATED, failure=State.WRONG_VERSION)
     def pull(self):
         self._git('remote', 'update')
         status = self._git('status', '--untracked-files=no')
 
         if 'branch is up to date' in status:
-            return True
+            return self.version
         elif 'branch is behind' not in status:
             return None
 
         rval = self._git('pull')
-        return self.valid_version()
+
+        self.version = self.current_commit
+        return self.current_commit
 
     @State.update(success=State.CLONED, failure=State.CLONE_FAILURE)
     def clone(self):
@@ -274,7 +286,7 @@ def handle_role(role, check=False, update=False, install=False):
     # Update config version or pull new changes.
     if update:
         role.version = role.current_commit
-    elif install:
+    elif install and role.has_upstream():
         # If version is not specified we just want the newest.
         role.pull()
     return role
@@ -291,6 +303,9 @@ def roles_to_yaml(old_reqs, processed_roles):
 def commit_or_any(commit):
     return '*' if commit is None else commit[:8]
 
+def parent_path(str_path):
+    return Path(*Path(str_path).parts[:-1])
+
 # Symlink only if folder or link doesn't exist.
 def symlink_roles_dir(roles_symlink):
     if path.islink(ROLES_PATH):
@@ -304,6 +319,7 @@ def symlink_roles_dir(roles_symlink):
         LOG.error('Roles path is a directory, cannot symlink!')
         exit(1)
 
+    makedirs(parent_path(ROLES_PATH))
     symlink(roles_symlink, ROLES_PATH)
 
 def parse_args():
