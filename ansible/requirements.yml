@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 41796f308e50f2c7f8d45a102aa6c413823364cb
+  version: e26684090210283948b21987f6a665ca345269fc
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,11 +102,11 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 69d0313838ceb79b2c43effa61ed3f8850ac2e08
+  version: 3130bd7acf6d12188a2d50b17fc2d9572644c877
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: c014302215821b0b7df07947a1259027b60a614e
+  version: 9750eece6c55b47421cc6fa6ed5d8664a7cf2ef0
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
