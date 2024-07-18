@@ -84,7 +84,6 @@ node_name_to_branch_map:
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
-beacon_node_nim_commit: '{{ node.get("nim_commit", "") }}'
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: >-
@@ -134,7 +133,6 @@ validator_client_beacon_node_url: 'http://127.0.0.1:{{ beacon_node_rest_port }}'
 # Builds
 validator_client_build_repo_branch: '{{ beacon_node_repo_branch }}'
 validator_client_build_frequency: 'daily'
-validator_client_build_nim_commit: '{{ beacon_node_nim_commit }}'
 # Ports
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
 validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
