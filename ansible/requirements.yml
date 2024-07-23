@@ -26,7 +26,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 9119f7af1feb809b28fcf68ce044795affe1aa76
+  version: 6e9a3bc34cb3551509f04aaf232f31a59d2631a1
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
@@ -34,7 +34,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: c2ba324a5b442b6e46e2bdf4746320e8e8a24579
+  version: 8f203401030e5a13153600d4275e40e364142ae7
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
@@ -86,7 +86,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 9bbb72fe9df7379c5c63cfe9f144efa30ed828d9
+  version: 5934942e206c1b64036f60b0441493917db90b1c
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
