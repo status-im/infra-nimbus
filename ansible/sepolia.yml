@@ -17,10 +17,10 @@
     - nimbus-sepolia-linux
   roles:
     - { role: update-netplan,           tags: [ update-netplan ], when: ansible_system == 'Linux' }
-    - { role: infra-role-open-ports,    tags: [ open-ports ]        }
-    - { role: infra-role-smart-metrics, tags: [ smart-metrics ]     }
-    - { role: redirect-ports,           tags: [ redirect-ports ]    }
-    - { role: nimbus-era-files,         tags: [ nimbus-era-files ]  }
+    - { role: infra-role-open-ports,    tags: [ open-ports ]                                      }
+    - { role: infra-role-smart-metrics, tags: [ smart-metrics ]                                   }
+    - { role: redirect-ports,           tags: [ redirect-ports ]                                  }
+    - { role: nimbus-era-files,         tags: [ nimbus-era-files ]                                }
   tasks:
     - include_role:
         name: infra-role-geth
@@ -52,3 +52,11 @@
       loop_control:
         loop_var: node
         index_var: idx
+
+    - include_role:
+        name: infra-role-geth-exporter
+        apply:
+          tags: always
+      tags: [ infra-role-geth-exporter ]
+      with_items: '{{ nodes_layout[hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
