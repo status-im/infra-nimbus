@@ -1,5 +1,5 @@
 ---
-# Communityu test REST API endpoint.
+# Community test REST API endpoint.
 beacon_node_rest_address: '0.0.0.0'
 
 # Extract dynamically port form layout.
