@@ -21,6 +21,10 @@ redirect_ports:
 era_files_domain: 'sepolia.era.nimbus.team'
 era_files_path: '/data/era'
 
+# Era1 files hosting
+era1_files_domain: 'sepolia.era1.nimbus.team'
+era1_files_path: '/data/era1'
+
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'nimbus.team'
@@ -29,7 +33,7 @@ origin_certs:
 
 nginx_sites:
   era_files:
-    - listen 80 default_server
+    - listen 80
     - listen 443 ssl
 
     - server_name {{ era_files_domain }}
@@ -39,6 +43,21 @@ nginx_sites:
 
     - location / {
         root {{ era_files_path }};
+        autoindex on;
+        autoindex_format html;
+      }
+
+  era1_files:
+    - listen 80
+    - listen 443 ssl
+
+    - server_name {{ era1_files_domain }}
+
+    - ssl_certificate     /certs/nimbus.team/origin.crt
+    - ssl_certificate_key /certs/nimbus.team/origin.key
+
+    - location / {
+        root {{ era1_files_path }};
         autoindex on;
         autoindex_format html;
       }

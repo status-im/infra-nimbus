@@ -15,10 +15,6 @@
     - linux-03.ih-eu-mda1.nimbus.mainnet
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - geth-01.ih-eu-mda1.nimbus.holesky
-  vars:
-    open_ports_default_comment: 'Nginx'
-    open_ports_default_chain: 'SERVICES'
-    open_ports_list: [ { port: 80 }, { port: 443 } ]
   roles:
     - { role: infra-role-open-ports,   tags: open-ports   }
     - { role: infra-role-origin-certs, tags: origin-certs }
