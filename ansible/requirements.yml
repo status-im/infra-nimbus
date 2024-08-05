@@ -18,7 +18,7 @@
 
 - name: infra-role-nginx
   src: git@github.com:status-im/infra-role-nginx.git
-  version: 3043c998cbc92a634a71dc48363b3e2525696d26
+  version: 4bcf93e5c154e6194e68e2c7f73aeba30997b3c7
 
 - name: infra-role-origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
@@ -26,7 +26,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 6e9a3bc34cb3551509f04aaf232f31a59d2631a1
+  version: 2e2a95fcd5e629193592151a546c34fa47a4abe3
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
@@ -42,7 +42,7 @@
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: f1411a2f0dfc3f2b35cdcda618cd81766a22e4e7
+  version: 4fb5a167491238725adbd97a657cec3f0c1dc8c0
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: f4dfbb31eea9a1fa1fed575749723f9576844c84
+  version: a9e82b5193d4930962f6a62e79d3b431a4030823
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
@@ -74,7 +74,7 @@
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: ccc1c3a41d2ea2f125db9a3418e447958c72bfce
+  version: e5faf7bab0c4570ad5d0c0d15cdb0e1840cedd13
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
@@ -98,7 +98,7 @@
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
-  version: c129dc06a407b153371c1467e5293b7ebaca04ab
+  version: 0859bd5b4a5010a7377c01ea3b4bb26195a594f4
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
