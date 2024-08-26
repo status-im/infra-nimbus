@@ -1,6 +1,6 @@
 ---
 beacon_node_payload_builder_enabled: true
-beacon_node_payload_builder_url: 'http://localhost:18550'
+beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
 validator_client_payload_builder_enabled: true
 
 mev_boost_enabled: true
