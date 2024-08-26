@@ -79,12 +79,6 @@ beacon_node_light_client_data_import_mode: 'full'
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
 beacon_node_exec_layer_urls_local_geth: ['http://localhost:{{ geth_authrpc_port|string }}']
 beacon_node_exec_layer_urls_all: '{{ beacon_node_exec_layer_urls_discovered_geth + beacon_node_exec_layer_urls_local_geth }}'
-beacon_node_exec_layer_urls_auto: |-
-  {{ (data_center in ["he-eu-hel1", "ih-eu-mda1"])
-    | ternary(
-        beacon_node_exec_layer_urls_local_geth,
-        beacon_node_exec_layer_urls_discovered_geth
-    ) }}
 beacon_node_exec_layer_urls: |-
   {{ beacon_node_exec_layer_urls_all if inventory_hostname_short == "linux-01"
     else (idx % 2 == 0) | ternary(beacon_node_exec_layer_urls_all, []) }}
