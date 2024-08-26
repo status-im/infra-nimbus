@@ -1,4 +1,6 @@
 ---
+mev_boost_enabled: false
+
 # Root password
 bootstrap__root_pass: '{{lookup("bitwarden", "root-pass")}}'
 bootstrap__admin_pass: '{{lookup("bitwarden", "macos/admin", field="password")}}'

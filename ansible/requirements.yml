@@ -111,3 +111,7 @@
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
   version: 76aba3c459e6c5e8afc6979dd9532c8cea0fbeea
+
+- name: infra-role-mev-boost
+  src: git@github.com:status-im/infra-role-mev-boost.git
+  version: 2c9fa57c55d692404392ab0fd4fddb007881b228
