@@ -52,7 +52,7 @@ module "nimbus_nodes_mainnet_stable_small" {
   /* Scaling */
   type          = "t3a.large"
   root_vol_size = 30
-  data_vol_size = 1000
+  data_vol_size = 1300
   data_vol_type = "gp2"
   host_count    = 2
 
