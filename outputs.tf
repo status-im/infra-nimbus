@@ -2,6 +2,7 @@ output "hosts" {
   value = merge(
     module.nimbus_dashboard.hosts,
     module.nimbus_eth1_node_innova.hosts,
+    module.nimbus_eth1_node_benchmark,
     module.nimbus_geth_holesky.hosts,
     module.nimbus_geth_mainnet.hosts,
     module.nimbus_log_store.hosts,
