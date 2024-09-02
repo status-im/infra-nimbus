@@ -18,7 +18,7 @@
 
 - name: infra-role-nginx
   src: git@github.com:status-im/infra-role-nginx.git
-  version: 4bcf93e5c154e6194e68e2c7f73aeba30997b3c7
+  version: 285cc7aba6144571a2084d9eb06745700e065e18
 
 - name: infra-role-origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
@@ -26,7 +26,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 2e2a95fcd5e629193592151a546c34fa47a4abe3
+  version: 775e88ae376b9873cab55a59c7b1294de082d935
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
@@ -86,7 +86,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 5934942e206c1b64036f60b0441493917db90b1c
+  version: 9bbb72fe9df7379c5c63cfe9f144efa30ed828d9
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
@@ -98,7 +98,7 @@
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
-  version: 0859bd5b4a5010a7377c01ea3b4bb26195a594f4
+  version: 3ef3b7e7b60c6eadf9e902915fc2c1d150c3629a
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
