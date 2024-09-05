@@ -43,8 +43,16 @@ secrets:
 	pass services/consul/ca-crt > ansible/files/consul-ca.crt
 	pass services/consul/client-crt > ansible/files/consul-client.crt
 	pass services/consul/client-key > ansible/files/consul-client.key
+	pass services/vault/certs/root-ca/cert > ansible/files/vault-ca.crt
+	pass services/vault/certs/client-user/cert > ansible/files/vault-client-user.crt
+	pass services/vault/certs/client-user/privkey > ansible/files/vault-client-user.key
 
-init-terraform:
+consul-token-check:
+ifndef CONSUL_HTTP_TOKEN
+	$(error No CONSUL_HTTP_TOKEN env variable set!)
+endif
+
+init-terraform: consul-token-check
 	terraform init -upgrade=true
 
 cleanup:

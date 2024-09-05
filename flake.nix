@@ -15,22 +15,23 @@
         pkgs = pkgsFor.${system};
       in {
         default = let
-          pythonPkgs = pkgs.python310.withPackages (
-            _: with (pkgs.python310Packages); [
+          pythonPkgs = pkgs.python311.withPackages (
+            _: with (pkgs.python311Packages); [
               ipython pyyaml jinja2 PyGithub
               pyopenssl cryptography
+              hvac
             ]
           );
         in pkgs.mkShellNoCC {
           packages = with pkgs.buildPackages; [
             # misc
-            git openssh jq fzf silver-searcher
+            git openssh jq fzf silver-searcher direnv
             # networking
             curl nmap nettools dnsutils
             # infra
             terraform ansible_2_16 pythonPkgs
             # security
-            pass bitwarden-cli yubikey-manager pwgen
+            pass vault bitwarden-cli yubikey-manager pwgen
             # cloud
             aliyun-cli awscli doctl google-cloud-sdk
             hcloud s3cmd scaleway-cli
@@ -39,6 +40,8 @@
           shellHook = ''
             ./ansible/roles.py --check || \
               echo -e '\nWARNING: Your role versions appear to be incorrect!' >&2
+            eval "$(direnv hook bash)"
+            direnv allow .
           '';
         };
       });
