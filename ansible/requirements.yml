@@ -34,7 +34,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 8f203401030e5a13153600d4275e40e364142ae7
+  version: 934c4482a9dc23ccac14db1671023176518fd29e
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
@@ -78,15 +78,15 @@
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 1e86928b7848ab5520ead99a5f1432770af4fc22
+  version: 30efbecb1362da25ca5cf927e641d7c27df1c94a
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 5ff5e5d526e38a7faf1ff7dfb809c6b6e5bdc17a
+  version: d2475ab1975a3a28e24d8ea44716b6dc5770456e
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 9bbb72fe9df7379c5c63cfe9f144efa30ed828d9
+  version: 5934942e206c1b64036f60b0441493917db90b1c
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
@@ -98,7 +98,7 @@
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
-  version: 3ef3b7e7b60c6eadf9e902915fc2c1d150c3629a
+  version: 0859bd5b4a5010a7377c01ea3b4bb26195a594f4
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
