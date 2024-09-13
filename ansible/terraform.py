@@ -414,12 +414,9 @@ def _backup_ansible(inventory):
     text += '# For emergency use when Consul fails\n'
     text += '[all]\n'
     for hostname, host in sorted(inventory.hosts.items()):
-        text += (
-            '{0} hostname={0} ansible_host={1} '
-        ).format(hostname, host.host_vars['ansible_host']) + (
-            'env={env} stage={stage} data_center={data_center} '+
-            'region={region} dns_entry={dns_entry}\n'
-        ).format(**host.host_vars)
+        host_vars = {k: v for k, v in host.host_vars.items() if k != 'hostname'}
+        vars_text = " ".join(f"{k}={v}" for k,v in host_vars.items())
+        text += f"{hostname} {vars_text}\n"
     text += '\n'
     for name, hosts in sorted(inventory.groups.items()):
         if name in ['_meta', 'all']:
