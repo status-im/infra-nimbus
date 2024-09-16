@@ -25,7 +25,7 @@ es_master_nodes: |
    | list
    | json_query(
    '[].{
-     name: hostname,
+     name: inventory_hostname,
      addr: ansible_local.wireguard.vpn_ip,
      port: to_string(es_node_port)
    }') }}

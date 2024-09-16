@@ -30,7 +30,7 @@
         # we also need to remove our own node from the list
         es_lb_master_nodes: |
           {{ es_services.json
-            | rejectattr("Node", "equalto", hostname)
+            | rejectattr("Node", "equalto", inventory_hostname)
             | list
             | json_query(
             '[].{

@@ -27,7 +27,7 @@
         apply:
           tags: always
       tags: [ geth ]
-      with_items: '{{ nodes_layout[hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
@@ -37,7 +37,7 @@
         apply:
           tags: always
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
@@ -47,7 +47,7 @@
         apply:
           tags: always
       tags: [ validator-client ]
-      with_items: '{{ nodes_layout[hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
       when: validator_client_service_enabled
       loop_control:
         loop_var: node
@@ -58,5 +58,5 @@
         apply:
           tags: always
       tags: [ infra-role-geth-exporter ]
-      with_items: '{{ nodes_layout[hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control: { loop_var: node, index_var: idx }

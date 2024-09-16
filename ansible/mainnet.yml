@@ -26,7 +26,7 @@
         name: infra-role-beacon-node-linux
         apply: { tags: always }
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
@@ -54,7 +54,7 @@
         name: infra-role-beacon-node-linux
         apply: { tags: always }
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx

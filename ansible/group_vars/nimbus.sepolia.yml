@@ -101,7 +101,7 @@ validator_client_dist_validators_start: '{{ (not node.vc) | ternary(0, node.star
 validator_client_dist_validators_end:   '{{ (not node.vc) | ternary(0, node.end)   | mandatory }}'
 
 # ERA files geneartion.
-nimbus_era_files_timer_enabled: '{{ (nodes_layout[hostname]|length) > 1 }}'
+nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'

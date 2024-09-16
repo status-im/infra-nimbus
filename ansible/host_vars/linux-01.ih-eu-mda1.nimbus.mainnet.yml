@@ -4,12 +4,12 @@ beacon_node_rest_address: '0.0.0.0'
 
 # Extract dynamically port form layout.
 test_api_beacon_node_rest_index: |-
-  {{ nodes_layout[hostname]
+  {{ nodes_layout[inventory_hostname]
   | ansible.utils.index_of(test='eq', key='public_api', value=True) }}
 test_api_beacon_node_rest_port: |-
   {{ beacon_node_rest_port_base + test_api_beacon_node_rest_index|int }}
 test_api_beacon_node_branch: |-
-  {{ nodes_layout[hostname][test_api_beacon_node_rest_index|int].branch }}
+  {{ nodes_layout[inventory_hostname][test_api_beacon_node_rest_index|int].branch }}
 
 redirect_ports:
   - src: 80
