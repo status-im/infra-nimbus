@@ -25,6 +25,8 @@ geth_metrics_port:   '{{ 6060  + idx|int + 11 }}'
 geth_rpc_port:       '{{ 8545  + idx|int + 11 }}'
 geth_authrpc_port:   '{{ 8551  + idx|int + 11 }}'
 geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
+# Parameter for waku RLN keystore generation
+geth_extra_flags: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 }}'
 
 # We map short names to branches to avoid too long service names.
 node_name_to_branch_map:
@@ -35,7 +37,7 @@ beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch 
 beacon_node_network: 'sepolia'
 beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
 beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
-beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
+beacon_node_xtra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'https://boost-relay-sepolia.flashbots.net/ '
 # Updates
