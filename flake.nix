@@ -40,8 +40,6 @@
           shellHook = ''
             ./ansible/roles.py --check || \
               echo -e '\nWARNING: Your role versions appear to be incorrect!' >&2
-            eval "$(direnv hook bash)"
-            direnv allow .
           '';
         };
       });
