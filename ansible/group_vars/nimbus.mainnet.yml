@@ -15,7 +15,7 @@ geth_cont_vol: '{{ geth_service_path }}/node'
 geth_sync_mode: 'snap'
 geth_log_level_name: 'info'
 geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
-geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+geth_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 # Memory settings¬
 geth_cont_mem_ratio: 0.15
 geth_cache_size: '{{ (ansible_memtotal_mb * 0.05|float) | int }}'
@@ -76,9 +76,15 @@ beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
 # Execution layer Enginer API
-beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret }}'
+beacon_node_exec_layer_jwt_secret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
 beacon_node_exec_layer_urls_local_geth: ['http://localhost:{{ geth_authrpc_port|string }}']
-beacon_node_exec_layer_urls_all: '{{ beacon_node_exec_layer_urls_discovered_geth + beacon_node_exec_layer_urls_local_geth }}'
+beacon_node_exec_layer_urls_local_nimbus_eth1: ['http://localhost:{{ nimbus_eth1_engine_http_port|string }}']
+beacon_node_exec_layer_urls_all: >-
+  {{
+    beacon_node_exec_layer_urls_discovered_geth +
+    beacon_node_exec_layer_urls_local_geth +
+    beacon_node_exec_layer_urls_local_nimbus_eth1
+  }}
 beacon_node_exec_layer_urls: |-
   {{ beacon_node_exec_layer_urls_all if inventory_hostname_short == "linux-01"
     else (idx % 2 == 0) | ternary(beacon_node_exec_layer_urls_all, []) }}
@@ -107,6 +113,25 @@ nimbus_era_files_network: '{{ beacon_node_network }}'
 # FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01/data/db'
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01/repo/build/ncli_db'
+
+# Nimbus Eth1 node
+nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_network: 'mainnet'
+nimbus_eth1_max_peers: 160
+nimbus_eth1_log_level: 'DEBUG'
+nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
+nimbus_eth1_engine_http_enabled: true
+nimbus_eth1_engine_ws_enabled: true
+nimbus_eth1_era_dir: '{{ nimbus_era_files_timer_path }}'
+nimbus_eth1_era1_dir: '/docker/era1'
+# Ports
+nimbus_eth1_listening_port: '{{ geth_port + 1 }}'
+nimbus_eth1_discovery_port: '{{ geth_port + 1 }}'
+nimbus_eth1_http_port: '{{ geth_rpc_port + 1 }}'
+nimbus_eth1_metrics_port: '{{ geth_expo_cont_port + 1 }}'
+nimbus_eth1_metrics_address: '0.0.0.0'
+# API secert
+nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # Open Ports
 open_ports_default_comment: 'Nimbus REST API'

@@ -49,6 +49,7 @@
     - { role: infra-role-geth-exporter,     tags: [ infra-role-geth-exporter ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
     - { role: nimbus-era-files,             tags: [ nimbus-era-files ] }
+    - { role: infra-role-nimbus-eth1,       tags: [ nimbus-eth1 ] }
   tasks:
     - include_role:
         name: infra-role-beacon-node-linux
