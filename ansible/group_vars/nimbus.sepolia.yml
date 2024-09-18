@@ -109,16 +109,33 @@ nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/repo/build/ncli_db'
 
+# Migrated to NFTables from IPTables.
+# https://github.com/status-im/infra-misc/issues/301
+bootstrap__firewall_nftables: true
+
 # Open Ports
-open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '80',                              chain: 'SERVICES',      comment: 'Nginx' }
-  - { port: '443',                             chain: 'SERVICES',      comment: 'Nginx' }
-  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',    comment: 'SMART Metrics' }
-  # https://github.com/status-im/infra-nim-waku/issues/59
-  - { port: '8556:8559',                       ipset: 'waku-nmon.misc', comment: 'HTTP RCP for WakuNetwork Monitor' }
-  - { port: '8556:8559',                       ipset: 'waku.test',      comment: 'HTTP RCP for Waku' }
-  - { port: '9557:9560',                       ipset: 'waku.test',      comment: 'Websocket for Waku' }
-  - { port: '8556:8559',                       ipset: 'waku.sandbox',   comment: 'HTTP RCP for Waku' }
-  - { port: '9557:9560',                       ipset: 'waku.sandbox',   comment: 'Websocket for Waku' }
-  - { port: '9400:9404',                       ipset: 'metrics.hq',     comment: 'Geth Exporter' }
+    nginx:
+      - { port: ['80','443'],                      comment: 'Nginx' }
+    smart-metrics:
+      - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'metrics.hq', iifname: 'wg0', }
+    waku-fleets:
+      # https://github.com/status-im/infra-nim-waku/issues/59
+      - { port: '8556-8559',                       comment: 'HTTP RCP for WakuNetwork Monitor', ipset: 'waku-nmon.misc', iifname: 'wg0'}
+      - { port: '8556-8559',                       comment: 'HTTP RCP for Waku', ipset: 'waku.test', iifname: 'wg0'}
+      - { port: '9557-9560',                       comment: 'Websocket for Waku', ipset: 'waku.test', iifname: 'wg0'}
+      - { port: '8556-8559',                       comment: 'HTTP RCP for Waku', ipset: 'waku.sandbox', iifname: 'wg0'}
+      - { port: '9557-9560',                       comment: 'Websocket for Waku', ipset: 'waku.sandbox', iifname: 'wg0'}
+    beacon-node:
+      - { port: '9011-9014',                       comment: 'Beacon node libp2p', protocol: 'tcp'}
+      - { port: '9011-9014',                       comment: 'Beacon node discovery', protocol: 'udp'}
+      - { port: '9211-9214',                       comment: 'Beacon Node Metrics', ipset: 'metrics.hq', iifname: 'wg0'}
+      - { port: '9311-9314',                       comment: 'Beacon Node REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0'}
+    geth-node:
+      - { port: '30314-30317',                     comment: 'Beacon node libp2p', protocol: 'tcp'}
+      - { port: '30314-30317',                     comment: 'Beacon node discovery', protocol: 'udp'}
+      - { port: '9400-9404',                       comment: 'Geth Exporter', ipset: 'metrics.hq',iifname: 'wg0'}
+    validator-client:
+      - { port: '5053-5057',                       comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0'}
+      - { port: '8109-8113',                       comment: 'Validtor Client Metrics',ipset: 'metrics.hq', iifname: 'wg0'}
+
