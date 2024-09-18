@@ -1,28 +1,27 @@
 ---
-- name: 'Enable redirected {{ item.dst }} port'
-  iptables:
-    comment: '{{ item.comment | default("Open {{ item.dst }}") }}'
-    chain: 'SERVICES'
-    jump: 'ACCEPT'
-    source: '0.0.0.0/0'
-    protocol: '{{ item.protocol | default("tcp") }}'
-    destination_port: '{{ item.dst | string | mandatory }}'
-  with_items: '{{ redirect_ports }}'
+- name: 'Redirect {{ rule.value.src }} to {{ rule.value.dst }}'
+  copy:
+    dest: '/etc/nft.conf.d/services/{{ rule.key }}.nft'
+    content: |
+      #!/usr/sbin/nft -f
+      # Managed with Ansible: redirect-ports
+      tcp dport { {{ rule.value.src | mandatory }}, {{ rule.value.dst | mandatory }} } accept comment "{{ rule.value.comment }}"
+  with_dict: '{{ redirect_ports | mandatory }}'
+  loop_control:
+    loop_var: 'rule'
+    label: '{{ rule.key }}'
   notify:
-    - Save iptables rules
+    - Reload nftables
 
-- name: 'Redirect {{ item.src }} to {{ item.dst }}'
-  iptables:
-    comment: '{{ item.comment | default("Redirect {{ item.src }} to {{ item.dst }}") }}'
-    table: 'nat'
-    chain: 'PREROUTING'
-    jump: 'REDIRECT'
-    action: insert
-    protocol: '{{ item.protocol | default("tcp") }}'
-    match: '{{ item.protocol | default("tcp") }}'
-    destination_port: '{{ item.src | string | mandatory }}'
-    to_ports: '{{ item.dst | string | mandatory }}'
-    in_interface: '{{ ansible_default_ipv4.interface }}'
-  with_items: '{{ redirect_ports }}'
+- name: 'Redirect {{ rule.value.src }} to {{ rule.value.dst }}'
+  copy:
+    dest: '/etc/nft.conf.d/prerouting/{{ rule.key }}.nft'
+    content: |
+      #!/usr/sbin/nft -f
+      iifname {{ redirect_interface }} tcp dport {{ rule.value.src | mandatory }} redirect to {{ rule.value.dst | mandatory }} comment "{{ rule.value.comment }}"
+  with_dict: '{{ redirect_ports | mandatory }}'
+  loop_control:
+    loop_var: 'rule'
+    label: '{{ rule.key }}'
   notify:
-    - Save iptables rules
+    - Reload nftables

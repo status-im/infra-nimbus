@@ -1,3 +1,5 @@
 ---
-- name: Save iptables rules
-  shell: iptables-save > /etc/iptables/rules.v4
+- name: Reload nftables
+  service:
+    name:  'nftables'
+    state: 'reloaded'

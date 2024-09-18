@@ -116,7 +116,7 @@ bootstrap__firewall_nftables: true
 # Open Ports
 open_ports_list:
     nginx:
-      - { port: ['80','443'],  comment: 'Nginx' }
+      - { port: 443,           comment: 'Nginx' }
     smart-metrics:
       - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'metrics.hq',    iifname: 'wg0' }
     geth-node:
