@@ -4,8 +4,7 @@
 *.tfstate.d/
 *.tfstate.backup
 *.retry
+.direnv/
 
 ansible/files/*
 __pycache__
-
-.direnv/
