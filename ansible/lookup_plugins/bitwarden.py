@@ -143,6 +143,7 @@ class Bitwarden(object):
         return json.loads(self.get_entry(key, 'item'))
 
     def get_notes(self, key):
+        print(f"{self._run(['get', key])}")
         return self.get_item(key).get('notes')
 
     def get_custom_field(self, key, field):
@@ -188,6 +189,8 @@ class LookupModule(LookupBase):
         return values
 
     def lookup(self, term, kwargs):
+        if "Migrated to Vault" in self.bw.get_notes(term):
+            raise AnsibleError("Secret Migrated to Vault, please update Secret Source")
         if 'file' in kwargs:
             # Try attachments first
             itemid = self.bw.get_itemid(term)
