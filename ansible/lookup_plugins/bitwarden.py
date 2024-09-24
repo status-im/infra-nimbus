@@ -101,13 +101,15 @@ class Bitwarden(object):
             my_env["BW_SESSION"] = self.session
         p = Popen([self.cli_path] + args, stdin=PIPE,
                   stdout=PIPE, stderr=PIPE, env=my_env)
-        out, _ = p.communicate()
-        out = out.decode()
+        out, err = p.communicate()
+        out, err = out.decode(), err.decode()
         rc = p.wait()
         if rc != 0:
             display.debug("Received error when running '{0} {1}': {2}"
                           .format(self.cli_path, args, out))
-            if out.startswith("Vault is locked."):
+            if err != "":
+                raise AnsibleError(err)
+            elif out.startswith("Vault is locked."):
                 raise AnsibleError("Error accessing Bitwarden vault. "
                                    "Run 'bw unlock' to unlock the vault.")
             elif out.startswith("You are not logged in."):
@@ -122,8 +124,7 @@ class Bitwarden(object):
                 raise AnsibleError("Error accessing Bitwarden vault. "
                                    "Specified item not found: {}".format(args[-1]))
             else:
-                print("Unknown failure in 'bw' command: \n%s" % out)
-                return None
+                raise AnsibleError("Unknown failure in 'bw' command: \n{}\n{}".format(out, err))
         return out.strip()
 
     def sync(self):
@@ -143,8 +144,7 @@ class Bitwarden(object):
         return json.loads(self.get_entry(key, 'item'))
 
     def get_notes(self, key):
-        print(f"{self._run(['get', key])}")
-        return self.get_item(key).get('notes')
+        return self.get_item(key).get('notes') or ""
 
     def get_custom_field(self, key, field):
         rval = self.get_entry(key, 'item')
