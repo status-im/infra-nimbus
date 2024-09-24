@@ -29,7 +29,6 @@ origin_certs:
 
 nginx_sites:
   era_files:
-    - listen 80 default_server
     - listen 443 ssl
 
     - server_name {{ era_files_domain }}

@@ -34,7 +34,6 @@ origin_certs:
 
 nginx_sites:
   era_files:
-    - listen 80
     - listen 443 ssl
 
     - server_name {{ era_files_domain }}
@@ -49,7 +48,6 @@ nginx_sites:
       }
 
   era1_files:
-    - listen 80
     - listen 443 ssl
 
     - server_name {{ era1_files_domain }}
