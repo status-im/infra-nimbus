@@ -108,16 +108,27 @@ nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01/data/db'
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-stable-01/repo/build/ncli_db'
 
+# Migrated to NFTables from IPTables.
+# https://github.com/status-im/infra-misc/issues/301
+bootstrap__firewall_nftables: true
+
 # Open Ports
-open_ports_default_comment: 'Nimbus REST API'
-open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '80',                              chain: 'SERVICES',       comment: 'Nginx' }
-  - { port: '443',                             chain: 'SERVICES',       comment: 'Nginx' }
-  - { port: '9300:9310',                       ipset: '{{ env }}.{{ stage }}' }
-  - { port: '9400',                            ipset: 'metrics.hq',     comment: 'Geth Exporter' }
-  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq',     comment: 'SMART Metrics' }
-  - { port: '{{ geth_authrpc_port }}',         ipset: 'nimbus.mainnet', comment: 'Geth RPC'      }
-  - { port: '{{ geth_rpc_port }}',             ipset: 'nimbus.fluffy',  comment: 'Portal Bridge' }
+  nginx:
+      - { port: '443',  comment: 'Nginx' }
+  smart-metrics:
+      - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'metrics.hq', iifname: 'wg0' }
+  geth-node:
+      - { port: '{{ geth_port }}',           comment: 'Go-Ethereum libp2p',    protocol: 'tcp'                                }
+      - { port: '{{ geth_port }}',           comment: 'Go-Ethereum discovery', protocol: 'udp'                                } 
+      - { port: '{{ geth_expo_cont_port }}', comment: 'Go-Ethereum Exporter',  ipset: 'metrics.hq',            iifname: 'wg0' } 
+      - { port: '{{ geth_authrpc_port }}',   comment: 'Go-Ethereum AuthRPC',   ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' } 
+      - { port: '{{ geth_rpc_port }}',       comment: 'RPC for Portal Bridge', ipset: 'nimbus.fluffy',         iifname: 'wg0' } 
+  beacon-node:
+      - { port: '9000-9005', comment: 'Beacon Node libp2p',    protocol: 'tcp'                                    }
+      - { port: '9000-9005', comment: 'Beacon Node discovery', protocol: 'udp'                                    }
+      - { port: '9200-9205', comment: 'Beacon Node Metrics',   ipset: 'metrics.hq',                iifname: 'wg0' }
+      - { port: '9300-9305', comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}',     iifname: 'wg0' }
+  
 
 # Fleet layout can be found in: ansible/vars/layout/mainnet.yml

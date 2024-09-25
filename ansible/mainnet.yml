@@ -19,6 +19,7 @@
     beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
   roles:
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
+    - { role: infra-role-open-ports,        tags: [ open-ports ] }    
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
   tasks:
