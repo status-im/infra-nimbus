@@ -78,7 +78,7 @@
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 30efbecb1362da25ca5cf927e641d7c27df1c94a
+  version: d9dc779dccd879b429a4e808b463fb403ba5753f
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git

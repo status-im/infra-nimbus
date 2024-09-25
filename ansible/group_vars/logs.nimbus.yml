@@ -38,6 +38,9 @@ es_number_of_replicas: 0
 # Bump due to large number of fields in JSON logs.
 es_mapping_total_fields_limit: 1500
 
+# Query optimization to not search throguh all fields. Can be a list.
+es_default_query_default_field: ['json.msg']
+
 # JVM Memory settings
 es_jvm_g1gc_enabled: true
 es_jvm_heap_auto: false
