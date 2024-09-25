@@ -12,6 +12,7 @@ test_api_beacon_node_branch: |-
   {{ nodes_layout[inventory_hostname][test_api_beacon_node_rest_index|int].branch }}
 
 redirect_ports:
-  - src: 80
+  public-beacon-api:
+    src: 80
     dst: '{{ test_api_beacon_node_rest_port }}'
-    comment: 'Public Beacon API ({{ test_api_beacon_node_branch }})'
+    comment: 'Public Beacon API ({{ test_api_beacon_node_branch }}-0{{ test_api_beacon_node_rest_index|int - 1 }})'
