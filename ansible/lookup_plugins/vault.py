@@ -4,15 +4,7 @@ import json
 import sys
 import os
 import hvac
-import tempfile
 
-<<<<<<< Updated upstream
-||||||| Stash base
-
-=======
-from subprocess import Popen, PIPE, STDOUT, check_output, run
-
->>>>>>> Stashed changes
 from ansible.errors import AnsibleError
 from ansible.plugins.lookup import LookupBase
 from ansible.utils.display import Display
@@ -80,58 +72,10 @@ VAULT_CACERT      = os.environ.get('VAULT_CACERT',      './ansible/files/vault-c
 VAULT_CLIENT_CERT = os.environ.get('VAULT_CLIENT_CERT', './ansible/files/vault-client-user.crt')
 VAULT_CLIENT_KEY  = os.environ.get('VAULT_CLIENT_KEY',  './ansible/files/vault-client-user.key')
 
-PASS_CLIENT_CERT_PATH = "services/vault/certs/client-cluster/cert"
-PASS_CLIENT_KEY_PATH = "services/vault/certs/client-cluster/privkey"
-PASS_CACERT_PATH = "services/vault/certs/root-ca/cert"
-
-def write_temp_file(pass_path, prefix):
-    content = run(['pass', pass_path], stdin=PIPE, stdout=PIPE, stderr=PIPE)
-    tmp = tempfile.NamedTemporaryFile(prefix=prefix, dir="/tmp/test", mode='w+b', delete=False)
-    tmp.write(content.stdout)
-    print(tmp.name)
-    return tmp
-
-def debug_file(path):
-    print(f"debug - {path.name}")
-    print(f"{path.read()}", end="")
-
-class Vault():
-    def __init__(self):
-        self.client_cert = write_temp_file(PASS_CLIENT_CERT_PATH, "client_cert")
-        self.client_key = write_temp_file(PASS_CLIENT_KEY_PATH, "client_key")
-        self.cacert = write_temp_file(PASS_CACERT_PATH, "root_ca")
-        self.client = hvac.Client(cert=(self.client_cert.name, self.client_key.name),verify=self.cacert.name)
-        debug_file(self.cacert)
-        debug_file(self.cacert)
-
-
-    def read_secret(self, path, field):
-        debug_file(self.cacert)
-        var = self.client.secrets.kv.read_secret_version(path)
-        if val:
-            return str(val['data']['data'][field])
-
 class LookupModule(LookupBase):
 
-<<<<<<< Updated upstream
     def run(self, terms, field: str, variables=None, override: str = False, **kwargs):
         self.vault = hvac.Client(cert=(VAULT_CLIENT_CERT, VAULT_CLIENT_KEY),verify=VAULT_CACERT)
-||||||| Stash base
-    def run(self, terms, **kwargs):
-        VAULT_CACERT      = os.environ.get('VAULT_CACERT',      './ansible/files/vault-ca.crt')
-        VAULT_CLIENT_CERT = os.environ.get('VAULT_CLIENT_CERT', './ansible/files/vault-client-user.crt')
-        VAULT_CLIENT_KEY  = os.environ.get('VAULT_CLIENT_KEY',  './ansible/files/vault-client-user.key')
-
-        self.vault = hvac.Client(cert=(VAULT_CLIENT_CERT, VAULT_CLIENT_KEY),verify=VAULT_CACERT)
-=======
-    def run(self, terms, **kwargs):
-        self.vault = Vault()
-#        VAULT_CACERT      = os.environ.get('VAULT_CACERT',      './ansible/files/vault-ca.crt')
-#        VAULT_CLIENT_CERT = os.environ.get('VAULT_CLIENT_CERT', './ansible/files/vault-client-user.crt')
-#        VAULT_CLIENT_KEY  = os.environ.get('VAULT_CLIENT_KEY',  './ansible/files/vault-client-user.key')
-
-#        self.vault = hvac.Client(cert=(VAULT_CLIENT_CERT, VAULT_CLIENT_KEY),verify=VAULT_CACERT)
->>>>>>> Stashed changes
         values = []
         env = kwargs.get("env", variables["env"])
         stage = kwargs.get("stage", variables["stage"])
@@ -151,41 +95,8 @@ class LookupModule(LookupBase):
 
     def lookup(self, term, **kwargs):
         field  = kwargs.get('field')
-<<<<<<< Updated upstream
         display.v("Querying Vault field %s at path %s" % (field,term))
         val = self.vault.secrets.kv.read_secret_version(term)
         if val:
             return str(val['data']['data'][field])
 
-||||||| Stash base
-        val = self.vault.secrets.kv.read_secret_version(term)
-        if val:
-            return str(val['data']['data'][field])
-
-
-def main():
-    if len(sys.argv) < 3:
-        print("Usage: %s <path> <field>" % os.path.basename(__file__))
-        return -1
-    print(LookupModule().run(sys.argv[1], field=sys.argv[2]))
-
-    return 0
-
-if __name__ == "__main__":
-    sys.exit(main())
-=======
-        return self.vault.read_secret(term, field)
-
-def main():
-    if len(sys.argv) < 3:
-        print("Usage: %s <path> <field>" % os.path.basename(__file__))
-        return -1
-
-    
-    print(LookupModule().run(sys.argv[1], field=sys.argv[2]))
-
-    return 0
-
-if __name__ == "__main__":
-    sys.exit(main())
->>>>>>> Stashed changes
