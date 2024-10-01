@@ -1,9 +1,9 @@
 ---
 # Ports used for all 3 EL nodes as they are mutually exclusive.
-exec_layer_p2p_port:     '{{ 30303 + 10*idx|int + 1 }}'
-exec_layer_rpc_port:     '{{ 8545  +    idx|int + 1 }}'
-exec_layer_authrpc_port: '{{ 8551  +    idx|int + 1 }}'
-exec_layer_metrics_port: '{{ 6060  +    idx|int + 1 }}'
+exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
+exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
+exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
+exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
 
 # Go-Ethereum ------------------------------------------------------------------
 
@@ -153,13 +153,27 @@ nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/repo/build/ncli_db'
 
+# Migrated to NFTables from IPTables.
+# https://github.com/status-im/infra-misc/issues/301
+bootstrap__firewall_nftables: true
+
 # Open Ports -------------------------------------------------------------------
-open_ports_default_chain: 'VPN'
+host_el_type: '{{ ansible_hostname|split("-")|first }}'
 open_ports_list:
-  - { port: '80',          chain: 'SERVICES',    comment: 'Nginx' }
-  - { port: '443',         chain: 'SERVICES',    comment: 'Nginx' }
-  - { port: '6060:6070',   ipset: 'metrics.hq',  comment: 'EL Metrics' }
-  - { port: '9400:9404',   ipset: 'metrics.hq',  comment: 'Geth Exporter' }
-  - { port: '9300:9310',   ipset: '{{ env }}.{{ stage }}', comment: 'Nimbus REST API' }
+  nginx:
+    - { port: 443, comment: 'Nginx' }
+  exec-node:
+    - { port: '30304-30314', comment: '{{ host_el_type }} LibP2P',    protocol: 'tcp'                     }
+    - { port: '30304-30314', comment: '{{ host_el_type }} Discovery', protocol: 'udp'                     }
+    - { port: '6061-6064',   comment: '{{ host_el_type }} Metrics',   ipset: 'metrics.hq', iifname: 'wg0' }
+    - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'metrics.hq', iifname: 'wg0' }
+  beacon-node:
+    - { port: '9001-9004', comment: 'Beacon Node LibP2P',    protocol: 'tcp'                                }
+    - { port: '9001-9004', comment: 'Beacon Node Discovery', protocol: 'udp'                                }
+    - { port: '9201-9204', comment: 'Beacon Node Metrics',   ipset: 'metrics.hq',            iifname: 'wg0' }
+    - { port: '9301-9304', comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
+  validator-client:
+    - { port: '5053-5056', comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
+    - { port: '8109-8112', comment: 'Validator Client Metrics',  ipset: 'metrics.hq',            iifname: 'wg0' }
 
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml
