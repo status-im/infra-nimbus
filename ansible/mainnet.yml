@@ -19,7 +19,7 @@
     beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
   roles:
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
-    - { role: infra-role-open-ports,        tags: [ open-ports ] }    
+    - { role: infra-role-open-ports,        tags: [ open-ports ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
   tasks:
@@ -35,7 +35,10 @@
 - name: Deploy mainnet linux beacon nodes
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus-mainnet-metal
+  hosts:
+    - nimbus-mainnet-geth
+    - nimbus-mainnet-erigon
+    - nimbus-mainnet-nel
   vars_files: layout/mainnet.yml
   vars:
     # FIXME: Use all Geth nodes available in the fleet until we resync.
@@ -46,8 +49,6 @@
     - { role: infra-role-open-ports,        tags: [ open-ports ] }
     - { role: infra-role-smart-metrics,     tags: [ smart-metrics ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
-    - { role: infra-role-geth,              tags: [ infra-role-geth ] }
-    - { role: infra-role-geth-exporter,     tags: [ infra-role-geth-exporter ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
     - { role: nimbus-era-files,             tags: [ nimbus-era-files ] }
   tasks:
@@ -59,3 +60,65 @@
       loop_control:
         loop_var: node
         index_var: idx
+
+- name: Deploy Mainnet Geth Nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts: nimbus-mainnet-geth
+  vars_files: layout/mainnet.yml
+  tasks:
+    - include_role:
+        name: infra-role-geth
+        apply:
+          tags: always
+      tags: [ geth ]
+      when:
+        - "'el' in node"
+        - node.el == "geth"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+    - include_role:
+        name: infra-role-geth-exporter
+        apply:
+          tags: always
+      tags: [ geth-exporter ]
+      when:
+        - "'el' in node"
+        - node.el == "geth"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Mainnet Erigon Nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts: nimbus-mainnet-erigon
+  vars_files: layout/mainnet.yml
+  tasks:
+    - include_role:
+        name: infra-role-erigon
+        apply:
+          tags: always
+      tags: [ erigon ]
+      when:
+        - "'el' in node"
+        - node.el == "erigon"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Mainnet Nimbus ETH1 Nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts: nimbus-mainnet-nel
+  vars_files: layout/mainnet.yml
+  tasks:
+    - include_role:
+        name: infra-role-nimbus-eth1
+        apply:
+          tags: always
+      tags: [ nimbus-eth1 ]
+      when:
+        - "'el' in node"
+        - node.el == "nel"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }

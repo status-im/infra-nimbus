@@ -50,11 +50,11 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: a9e82b5193d4930962f6a62e79d3b431a4030823
+  version: 53e0f5626298b2bf0cd863e4ab87379f08a50074
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: 164cd9b1f8bf18cdcc3cce7be43e73743394adaf
+  version: 9e6a5a17843b82f566781deaa7e3c92bc7ea5b1c
 
 - name: infra-role-portal-bridge
   src: git@github.com:status-im/infra-role-portal-bridge.git

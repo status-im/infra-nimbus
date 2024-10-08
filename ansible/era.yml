@@ -12,7 +12,7 @@
 - name: Configure ERA files hosting
   become: true
   hosts:
-    - linux-03.ih-eu-mda1.nimbus.mainnet
+    - erigon-01.ih-eu-mda1.nimbus.mainnet
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - geth-01.ih-eu-mda1.nimbus.holesky
   roles:

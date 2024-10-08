@@ -9,45 +9,44 @@ nodes_layout:
     - { branch: 'stable', history: 'archive' }
 
   # Innova Hosting ---------------------------------------------------
-  'linux-01.ih-eu-mda1.nimbus.mainnet': # Frankenstein host, all nodes use one Geth.
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'testing',  num: 1, open_libp2p_ports: false }
-    - { branch: 'unstable', num: 1, public_api: true }
-    - { branch: 'unstable', num: 2 }
+  'nel-01.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'nel' }
+    - { branch: 'testing'             }
+    - { branch: 'unstable', el: 'nel' }
+    - { branch: 'libp2p'              }
 
-  'linux-02.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'testing',  num: 1, public_api: true }
-    - { branch: 'unstable', num: 1, open_libp2p_ports: false }
-    - { branch: 'unstable', num: 2 }
+  'nel-02.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'nel' }
+    - { branch: 'testing',            }
+    - { branch: 'unstable', el: 'nel' }
+    - { branch: 'libp2p'              }
 
-  'linux-03.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1, max_peers: 10000 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
+  'nel-03.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'nel' }
+    - { branch: 'testing'             }
+    - { branch: 'unstable', el: 'nel' }
+    - { branch: 'libp2p'              }
 
-  'linux-04.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
+  'erigon-01.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'erigon' }
+    - { branch: 'testing'                }
+    - { branch: 'unstable', el: 'erigon' }
+    - { branch: 'libp2p'                 }
 
-  'linux-05.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
+  'erigon-02.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'erigon' }
+    - { branch: 'testing'                }
+    - { branch: 'unstable', el: 'erigon' }
+    - { branch: 'libp2p'                 }
 
-  'linux-06.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'testing',  num: 1 }
-    - { branch: 'unstable', num: 1 }
-    - { branch: 'unstable', num: 2 }
+  'geth-01.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'geth', max_peers: 10000 }
+    - { branch: 'testing'                                }
+    - { branch: 'unstable', el: 'geth', public_api: true }
+    - { branch: 'libp2p'                                 }
 
-  'linux-07.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   num: 1 }
-    - { branch: 'libp2p',   num: 1 }
-    - { branch: 'libp2p',   num: 2 }
-    - { branch: 'libp2p',   num: 3, extra_flags: {'debug-enable-yamux': true} }
-    - { branch: 'libp2p',   num: 4, extra_flags: {'debug-enable-yamux': true} }
+  'geth-02.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable'                                 }
+    - { branch: 'testing',  el: 'geth', public_api: true } # we need one testing node with EL for public_api
+    - { branch: 'unstable', el: 'geth'                   }
+    - { branch: 'libp2p'                                 }

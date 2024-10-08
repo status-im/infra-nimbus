@@ -8,8 +8,8 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 
 | Endpoint                                        | Host                                 |
 |-------------------------------------------------|--------------------------------------|
-| http://unstable.mainnet.beacon-api.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.mainnet` |
-| http://testing.mainnet.beacon-api.nimbus.team/  | `linux-02.ih-eu-mda1.nimbus.mainnet` |
+| http://unstable.mainnet.beacon-api.nimbus.team/ | `geth-01.ih-eu-mda1.nimbus.mainnet`  |
+| http://testing.mainnet.beacon-api.nimbus.team/  | `geth-02.ih-eu-mda1.nimbus.mainnet`  |
 | http://unstable.sepolia.beacon-api.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia` |
 | http://unstable.holesky.beacon-api.nimbus.team/ | `geth-01.ih-eu-mda1.nimbus.holesky`  |
 | http://testing.holesky.beacon-api.nimbus.team/  | `geth-02.ih-eu-mda1.nimbus.holesky`  |
@@ -18,12 +18,12 @@ These nodes have no validators attached.
 
 There are also archives of ERA files:
 
-| Endpoint                          | Host                                 |
-|-----------------------------------|--------------------------------------|
-| https://mainnet.era.nimbus.team/  | `linux-03.ih-eu-mda1.nimbus.mainnet` |
-| https://sepolia.era.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.sepolia` |
-| https://sepolia.era1.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia` |
-| https://holesky.era.nimbus.team/  | `geth-01.ih-eu-mda1.nimbus.holesky`  |
+| Endpoint                          | Host                                  |
+|-----------------------------------|---------------------------------------|
+| https://mainnet.era.nimbus.team/  | `erigon-01.ih-eu-mda1.nimbus.mainnet` |
+| https://sepolia.era.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.sepolia`  |
+| https://sepolia.era1.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia`  |
+| https://holesky.era.nimbus.team/  | `geth-01.ih-eu-mda1.nimbus.holesky`   |
 
 # Dashboards
 
