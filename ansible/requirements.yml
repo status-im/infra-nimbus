@@ -26,7 +26,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 775e88ae376b9873cab55a59c7b1294de082d935
+  version: fcddc3c2d10d0c53e3046f6c0ad81073c6f49753
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
+  version: 7750aed23197d8d931bd2a28af6a0673130fe97f
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -74,15 +74,15 @@
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: e5faf7bab0c4570ad5d0c0d15cdb0e1840cedd13
+  version: b2b172ca6dbf3badbf5f8f77d48173a40cf04e7a
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: d9dc779dccd879b429a4e808b463fb403ba5753f
+  version: aedab4dae99971d1c1add9ac6b192c26b7216210
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: d2475ab1975a3a28e24d8ea44716b6dc5770456e
+  version: 961322d10738610d932cc2ab761e55a5741078f7
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: e26684090210283948b21987f6a665ca345269fc
+  version: 70f064030e01003aaab080692c3aa077ae604221
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,11 +102,11 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 3130bd7acf6d12188a2d50b17fc2d9572644c877
+  version: 6df4916cd88f5a5f9f65f8d648eb4341694e47b9
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 9750eece6c55b47421cc6fa6ed5d8664a7cf2ef0
+  version: c791097a0fcae46e21e4702454919ae25a5da832
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
