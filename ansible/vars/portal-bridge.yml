@@ -1,26 +1,15 @@
 ---
-# Portal Bridge
-portal_bridge_service_name: 'nimbus-portal-bridge-history'
-portal_bridge_command: 'history'
-portal_bridge_latest: true
-portal_bridge_backfill: true
-portal_bridge_audit: true
-portal_bridge_era1_dir: '/era'
-portal_bridge_web3_url: 'http://linux-02.ih-eu-mda1.nimbus.mainnet.wg:8545'
-portal_bridge_portal_rpc_url: 'http://127.0.0.1:{{ nimbus_fluffy_rpc_port }}'
-
 # Fluffy Node
-nimbus_fluffy_service_name: 'nimbus-portal-bridge-fluffy'
-nimbus_fluffy_network: 'mainnet'
-nimbus_fluffy_repo_branch: 'master'
+nimbus_fluffy_service_name:     'nimbus-portal-bridge-fluffy'
+nimbus_fluffy_network:          'mainnet'
+nimbus_fluffy_repo_branch:      'master'
 nimbus_fluffy_storage_capacity: 0
-nimbus_fluffy_rpc_port: 19900
-nimbus_fluffy_metrics_port: 19200
-nimbus_fluffy_listening_port: 19100
+nimbus_fluffy_rpc_port:         '{{ portal_bridge_fluffy_rpc_port }}'
+nimbus_fluffy_metrics_port:     '{{ portal_bridge_fluffy_metrics_port }}'
+nimbus_fluffy_listening_port:   '{{ portal_bridge_fluffy_listening_port }}'
 
-# Open Ports
-open_ports_default_comment: 'Nimbus Portal Fluffy'
-open_ports_default_chain: 'VPN'
+# Open Ports -------------------------------------------------------------------
 open_ports_list:
-  - { port: '{{ nimbus_fluffy_metrics_port }}',   ipset: 'metrics.hq' }
-  - { port: '{{ nimbus_fluffy_listening_port }}', chain: 'SERVICES'   }
+  nimbus-portal:
+    - { comment: 'Nimbus Portal',          port: '{{ portal_bridge_fluffy_listening_port }}',                                      protocol: 'udp' }
+    - { comment: 'Nimbus Portal Metrics',  port: '{{ portal_bridge_fluffy_metrics_port }}',   ipset: 'metrics.hq', iifname: 'wg0', protocol: 'tcp' }
