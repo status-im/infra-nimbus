@@ -31,10 +31,14 @@ geth_expo_source_cont_name: '{{ geth_cont_name }}'
 geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_expo_cont_port: '{{ 9400 + (idx|int) + 1 }}'
 
+# Migrated to NFTables from IPTables.
+# https://github.com/status-im/infra-misc/issues/301
+bootstrap__firewall_nftables: true
+
 # Open Ports
-open_ports_default_comment: 'Geth API'
-open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '9400:9404', ipset: 'metrics.hq', comment: 'Geth Metrics' }
-  - { port: '8551:8554', ipset: 'nimbus.holesky', comment: Geth }
-  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq', comment: 'SMART Metrics' }
+  geth-node:
+    - { port: '9401-9404', comment: 'Geth Exporter', ipset: 'metrics.hq',     iifname: 'wg0' }
+    - { port: '8552-8555', comment: 'Geth',          ipset: 'nimbus.holesky', iifname: 'wg0' }
+  smart-metrics:
+    - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'metrics.hq', iifname: 'wg0' }
