@@ -31,7 +31,25 @@ nimbus_eth1_network: 'holesky'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'
 # Ports
+nimbus_eth1_listening_port: 30303
+nimbus_eth1_discovery_port: 30303
 nimbus_eth1_metrics_port: 9093
 nimbus_eth1_metrics_address: '0.0.0.0'
 # API secert
 nimbus_eth1_jwt_secret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+
+# Migrated to NFTables from IPTables.
+# https://github.com/status-im/infra-misc/issues/301
+bootstrap__firewall_nftables: true
+
+# Open Ports -------------------------------------------------------------------
+open_ports_list:
+  el-node:
+    - { comment: 'Nimbus node listening port',     port: '{{ nimbus_eth1_listening_port }}',     protocol: 'tcp'                      }
+    - { comment: 'Nimbus node discovery port',     port: '{{ nimbus_eth1_discovery_port }}',     protocol: 'udp'                      }
+    - { comment: 'Nimbus node metrics port',       port: '{{ nimbus_eth1_metrics_port }}',       ipset: 'metrics.hq',  iifname: 'wg0' }
+  beacon-node:
+    - { comment: 'Rocketpool node libp2p port',    port: '{{ rocketpool_eth2_libp2p_port }}',    protocol: 'tcp'                      }
+    - { comment: 'Rocketpool node discovery port', port: '{{ rocketpool_eth2_discovery_port }}', protocol: 'udp'                      }
+    - { comment: 'Rocketpool node REST port',      port: '{{ rocketpool_eth2_rest_port }}',      ipset: 'nimbus.eth1', iifname: 'wg0' }
+    - { comment: 'Rocketpool node metrics port',   port: '{{ rocketpool_eth2_metrics_port }}',   ipset: 'metrics.hq',  iifname: 'wg0' }
