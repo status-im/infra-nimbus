@@ -31,15 +31,19 @@ geth_websocket_addr: '0.0.0.0'
 geth_websocket_port: 8546
 geth_expo_cont_port: 9200
 
+# Migrated to NFTables from IPTables.
+# https://github.com/status-im/infra-misc/issues/301
+bootstrap__firewall_nftables: true
+
 # Open Ports
-open_ports_default_comment: 'Geth API'
-open_ports_default_chain: 'VPN'
 open_ports_list:
-  - { port: '{{ geth_expo_cont_port }}',       ipset: 'metrics.hq', comment: 'Geth Metrics' }
-  - { port: '{{ smart_metrics_listen_port }}', ipset: 'metrics.hq', comment: 'SMART Metrics' }
-  - { port: '{{ geth_rpc_port }}',             ipset: 'nimbus.mainnet' }
-  - { port: '{{ geth_rpc_port }}',             ipset: 'eth2.prod' }
-  - { port: '{{ geth_authrpc_port }}',         ipset: 'nimbus.mainnet' }
-  - { port: '{{ geth_authrpc_port }}',         ipset: 'eth2.prod' }
-  - { port: '{{ geth_websocket_port }}',       ipset: 'nimbus.mainnet' }
-  - { port: '{{ geth_websocket_port }}',       ipset: 'eth2.prod' }
+  geth-node:
+  - { port: '{{ geth_port }}',           comment: 'Geth LibP2P',    protocol: 'tcp'                         }
+  - { port: '{{ geth_port }}',           comment: 'Geth Discovery', protocol: 'udp'                         }
+  - { port: '{{ geth_expo_cont_port }}', comment: 'Geth Exporter',  ipset: 'metrics.hq',     iifname: 'wg0' }
+  - { port: '{{ geth_rpc_port }}',       comment: 'Geth RPC',       ipset: 'nimbus.mainnet', iifname: 'wg0' }
+  - { port: '{{ geth_authrpc_port }}',   comment: 'Geth API',       ipset: 'nimbus.mainnet', iifname: 'wg0' }
+  - { port: '{{ geth_websocket_port }}', comment: 'Geth Websocket', ipset: 'nimbus.mainnet', iifname: 'wg0' }
+  smart-metrics:
+  - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'metrics.hq', iifname: 'wg0' }
+
