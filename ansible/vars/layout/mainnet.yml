@@ -40,13 +40,13 @@ nodes_layout:
     - { branch: 'libp2p'                 }
 
   'geth-01.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'geth'                   }
+    - { branch: 'stable',   el: 'geth', max_peers: 10000 }
     - { branch: 'testing'                                }
     - { branch: 'unstable', el: 'geth', public_api: true }
     - { branch: 'libp2p'                                 }
 
   'geth-02.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'geth' , max_peers: 10000 }
-    - { branch: 'testing'                                 }
-    - { branch: 'unstable', el: 'geth'                    }
-    - { branch: 'libp2p'                                  }
+    - { branch: 'stable'                                 }
+    - { branch: 'testing',  el: 'geth', public_api: true } # we need one testing node with EL for public_api
+    - { branch: 'unstable', el: 'geth'                   }
+    - { branch: 'libp2p'                                 }

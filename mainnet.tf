@@ -55,7 +55,7 @@ module "nimbus_nodes_mainnet_innova_geth" {
 resource "cloudflare_record" "unstable_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "unstable.mainnet.beacon-api"
-  value   = module.nimbus_nodes_mainnet_innova.public_ips[0]
+  value   = module.nimbus_nodes_mainnet_innova_geth.public_ips[0]
   type    = "A"
   proxied = false
 }
@@ -63,7 +63,7 @@ resource "cloudflare_record" "unstable_mainnet_beacon_api" {
 resource "cloudflare_record" "testing_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "testing.mainnet.beacon-api"
-  value   = module.nimbus_nodes_mainnet_innova.public_ips[1]
+  value   = module.nimbus_nodes_mainnet_innova_geth.public_ips[1]
   type    = "A"
   proxied = false
 }
