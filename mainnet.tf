@@ -2,24 +2,52 @@
  * CPU: Intel Xeon E5-2690 v2 @ 3.00GHz
  * MEM: 62 GB DDR3
  * SSD: 1x400 GB, 2x1.6 TB */
-module "nimbus_nodes_mainnet_innova" {
+module "nimbus_nodes_mainnet_innova_nel" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
-  name   = "linux"
+  name   = "nel"
   env    = "nimbus"
   stage  = "mainnet"
-  group  = "nimbus-mainnet-metal"
+  group  = "nimbus-mainnet-nel"
   region = "eu-mda1"
   prefix = "ih"
 
   ips = [
-    "194.33.40.70",   /* linux-01.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.72",   /* linux-02.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.78",   /* linux-03.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.99",   /* linux-04.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.100",  /* linux-05.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.101",  /* linux-06.ih-eu-mda1.nimbus.mainnet */
-    "185.181.229.82", /* linux-07.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.70",   /* nel-01.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.72",   /* nel-02.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.78",   /* nel-03.ih-eu-mda1.nimbus.mainnet */
+  ]
+}
+
+module "nimbus_nodes_mainnet_innova_erigon" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "erigon"
+  env    = "nimbus"
+  stage  = "mainnet"
+  group  = "nimbus-mainnet-erigon"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  ips = [
+    "194.33.40.99",   /* erigon-01.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.100",  /* erigon-02.ih-eu-mda1.nimbus.mainnet */
+  ]
+}
+
+module "nimbus_nodes_mainnet_innova_geth" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "geth"
+  env    = "nimbus"
+  stage  = "mainnet"
+  group  = "nimbus-mainnet-geth"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  ips = [
+    "194.33.40.101",  /* geth-01.ih-eu-mda1.nimbus.mainnet */
+    "185.181.229.82", /* geth-02.ih-eu-mda1.nimbus.mainnet */
   ]
 }
 
@@ -27,7 +55,7 @@ module "nimbus_nodes_mainnet_innova" {
 resource "cloudflare_record" "unstable_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "unstable.mainnet.beacon-api"
-  value   = module.nimbus_nodes_mainnet_innova.public_ips[0]
+  value   = module.nimbus_nodes_mainnet_innova_geth.public_ips[0]
   type    = "A"
   proxied = false
 }
@@ -35,7 +63,7 @@ resource "cloudflare_record" "unstable_mainnet_beacon_api" {
 resource "cloudflare_record" "testing_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]
   name    = "testing.mainnet.beacon-api"
-  value   = module.nimbus_nodes_mainnet_innova.public_ips[1]
+  value   = module.nimbus_nodes_mainnet_innova_geth.public_ips[1]
   type    = "A"
   proxied = false
 }
