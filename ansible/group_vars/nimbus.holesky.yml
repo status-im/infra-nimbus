@@ -165,15 +165,15 @@ open_ports_list:
   exec-node:
     - { port: '30304-30314', comment: '{{ host_el_type }} LibP2P',    protocol: 'tcp'                     }
     - { port: '30304-30314', comment: '{{ host_el_type }} Discovery', protocol: 'udp'                     }
-    - { port: '6061-6064',   comment: '{{ host_el_type }} Metrics',   ipset: 'metrics.hq', iifname: 'wg0' }
-    - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'metrics.hq', iifname: 'wg0' }
+    - { port: '6061-6064',   comment: '{{ host_el_type }} Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
+    - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'hq.metrics', iifname: 'wg0' }
   beacon-node:
     - { port: '9001-9004', comment: 'Beacon Node LibP2P',    protocol: 'tcp'                                }
     - { port: '9001-9004', comment: 'Beacon Node Discovery', protocol: 'udp'                                }
-    - { port: '9201-9204', comment: 'Beacon Node Metrics',   ipset: 'metrics.hq',            iifname: 'wg0' }
+    - { port: '9201-9204', comment: 'Beacon Node Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
     - { port: '9301-9304', comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
   validator-client:
     - { port: '5053-5056', comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
-    - { port: '8109-8112', comment: 'Validator Client Metrics',  ipset: 'metrics.hq',            iifname: 'wg0' }
+    - { port: '8109-8112', comment: 'Validator Client Metrics',  ipset: 'hq.metrics',            iifname: 'wg0' }
 
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml

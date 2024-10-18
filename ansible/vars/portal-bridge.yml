@@ -12,4 +12,4 @@ nimbus_fluffy_listening_port:   '{{ portal_bridge_fluffy_listening_port }}'
 open_ports_list:
   nimbus-portal:
     - { comment: 'Nimbus Portal',          port: '{{ portal_bridge_fluffy_listening_port }}',                                      protocol: 'udp' }
-    - { comment: 'Nimbus Portal Metrics',  port: '{{ portal_bridge_fluffy_metrics_port }}',   ipset: 'metrics.hq', iifname: 'wg0', protocol: 'tcp' }
+    - { comment: 'Nimbus Portal Metrics',  port: '{{ portal_bridge_fluffy_metrics_port }}',   ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }

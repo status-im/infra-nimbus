@@ -19,9 +19,9 @@ open_ports_list:
   nginx:
     - { port: '443', comment: 'Nginx' }
   smart-metrics:
-    - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'metrics.hq', iifname: 'wg0' }
+    - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'hq.metrics', iifname: 'wg0' }
   beacon-node:
     - { port: '{{ beacon_node_discovery_port }}', comment: 'Beacon Node libp2p',    protocol: 'tcp'                                }
     - { port: '{{ beacon_node_discovery_port }}', comment: 'Beacon Node discovery', protocol: 'udp'                                }
-    - { port: '{{ beacon_node_metrics_port }}',   comment: 'Beacon Node Metrics',   ipset: 'metrics.hq',            iifname: 'wg0' }
+    - { port: '{{ beacon_node_metrics_port }}',   comment: 'Beacon Node Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
     - { port: '{{ beacon_node_rest_port }}',      comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }

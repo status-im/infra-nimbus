@@ -43,6 +43,6 @@ bootstrap__firewall_nftables: true
 open_ports_list:
   nimbus-fluffy:
     - { comment: 'Nimbus Fluffy',          port: '{{ nimbus_fluffy_listening_port }}',                                      protocol: 'udp' }
-    - { comment: 'Nimbus Fluffy Metrics',  port: '9201-9232',                          ipset: 'metrics.hq', iifname: 'wg0', protocol: 'tcp' }
+    - { comment: 'Nimbus Fluffy Metrics',  port: '9201-9232',                          ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }
   smart-metrics:
-    - { comment: 'SMART Metrics',          port: '{{ smart_metrics_listen_port }}',    ipset: 'metrics.hq', iifname: 'wg0'                  }
+    - { comment: 'SMART Metrics',          port: '{{ smart_metrics_listen_port }}',    ipset: 'hq.metrics', iifname: 'wg0'                  }
