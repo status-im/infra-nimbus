@@ -1,0 +1,4 @@
+# Fixing macOS issue:
+# objc[33642]: +[__NSPlaceholderDate initialize] may have been in progress in another thread when fork() was called.
+# See: https://github.com/ansible/ansible/issues/49207
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

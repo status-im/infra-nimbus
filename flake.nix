@@ -1,7 +1,11 @@
 {
   description = "infra-shell";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  # bitwarden-cli has a build issue on macOS since 2024.8.0:
+  # this commit fixes nixpkgs right before switching to 2024.8.0
+  # https://github.com/NixOS/nixpkgs/issues/339576
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/c374d94f1536013ca8e92341b540eba4c22f9c62";
+  #inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }:
     let
@@ -15,8 +19,8 @@
         pkgs = pkgsFor.${system};
       in {
         default = let
-          pythonPkgs = pkgs.python311.withPackages (
-            _: with (pkgs.python311Packages); [
+          pythonPkgs = pkgs.python3.withPackages (
+            _: with (pkgs.python3Packages); [
               ipython pyyaml jinja2 PyGithub
               pyopenssl cryptography
               hvac
@@ -38,8 +42,7 @@
           ];
 
           shellHook = ''
-            ./ansible/roles.py --check || \
-              echo -e '\nWARNING: Your role versions appear to be incorrect!' >&2
+            make checks
           '';
         };
       });
