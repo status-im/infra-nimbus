@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 # vim: ft=bash
 set -e
-for ERA_FILE in {{ nimbus_era_files_timer_path }}/*; do
+
+ERA_PATH='{{ nimbus_era_files_timer_path }}'
+LAST_ERA_INDEX=$(ls "${ERA_PATH}" | awk -F- 'END{print $2}')
+EXIT_CODE=0
+
+for ERA_INDEX in $(seq -w 00001 "${LAST_ERA_INDEX}"); do
+  ERA_FILE=$(echo ${ERA_PATH}/mainnet-${ERA_INDEX}-*.era)
   echo "Checking: ${ERA_FILE}"
   {{ nimbus_era_files_nclidb_path }} \
     --network={{ nimbus_era_files_network }} \
-    verifyEra --eraFile="${ERA_FILE}"
+    verifyEra --eraFile="${ERA_FILE}" || EXIT_CODE=1
 done
+
+exit "${EXIT_CODE}"
