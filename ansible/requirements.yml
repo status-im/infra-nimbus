@@ -46,11 +46,11 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
+  version: 7750aed23197d8d931bd2a28af6a0673130fe97f
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 53e0f5626298b2bf0cd863e4ab87379f08a50074
+  version: 63727b1962c8e052d8dd7c23ae592eedcd1892b1
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: c023559501470af1de8b212ec4bd4649fe82892d
+  version: 5af21f2dec46cdfa9b1a5d7e26c56300088ae2d7
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -94,11 +94,11 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 90bb6a160b6b437fb55cc51d9458da98b2d0c6a9
+  version: e26684090210283948b21987f6a665ca345269fc
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
-  version: 0859bd5b4a5010a7377c01ea3b4bb26195a594f4
+  version: 3ef3b7e7b60c6eadf9e902915fc2c1d150c3629a
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
