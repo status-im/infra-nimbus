@@ -1,0 +1,21 @@
+---
+# Nimbus Eth1 node
+nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_network: 'mainnet'
+nimbus_eth1_max_peers: 160
+nimbus_eth1_log_level: 'DEBUG'
+# Ports
+## EL
+nimbus_eth1_listening_port:  30303
+nimbus_eth1_discovery_port:  30303
+nimbus_eth1_metrics_port:    9093
+nimbus_eth1_metrics_address: '0.0.0.0'
+nimbus_eth1_era_dir: '/data/era'
+nimbus_eth1_era1_dir: '/data/era1'
+
+# Open Ports -------------------------------------------------------------------
+open_ports_list:
+  el-node:
+    - { port: '{{ nimbus_eth1_listening_port }}', comment: 'Nimbus node listening port', protocol: 'tcp' }
+    - { port: '{{ nimbus_eth1_discovery_port }}', comment: 'Nimbus node discovery port', protocol: 'udp' }
+    - { port: '{{ nimbus_eth1_metrics_port }}',   comment: 'Nimbus node metrics port', ipset: 'hq.metrics', iifname: 'wg0' }

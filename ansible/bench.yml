@@ -1,0 +1,30 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./roles.py --check
+      changed_when: false
+
+- name: Configure Short Benchmarking Eth1 node
+  become: true
+  vars_files: group_vars/nimbus-bench.eth1.yml
+  tags: short-benchmark
+  hosts:
+    - bench-01.he-eu-hel1.nimbus.eth1
+  roles:
+    - { role: infra-role-open-ports,        tags: open-ports  }
+    - { role: infra-role-nimbus-bench-eth1, tags: nimbus-bench,  vars: { nimbus_eth1_benchmark_type: 'short'} }
+
+- name: Configure Long Benchmarking Eth1 node
+  become: true
+  vars_files: group_vars/nimbus-bench.eth1.yml
+  tags: long-benchmark
+  hosts:
+      - bench-02.he-eu-hel1.nimbus.eth1
+  roles:
+    - { role: infra-role-open-ports,        tags: open-ports  }
+    - { role: infra-role-nimbus-bench-eth1, tags: nimbus-bench,  vars: { nimbus_eth1_benchmark_type: 'long'} }
