@@ -1,0 +1,20 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./roles.py --check
+      changed_when: false
+
+- name: Configure Benchmarking Eth1 nodes
+  become: true
+  vars_files: group_vars/nimbus-bench.eth1.yml
+  hosts:
+    - nimbus-eth1-bench
+  roles:
+    - { role: infra-role-open-ports,        tags: open-ports  }
+    - { role: infra-role-nimbus-eth1,       tags: nimbus-eth1 }
+    - { role: infra-role-beacon-node-linux, tags: beacon-node }
