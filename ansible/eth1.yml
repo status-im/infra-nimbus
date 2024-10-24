@@ -17,3 +17,11 @@
     - { role: infra-role-open-ports,  tags: open-ports  }
     - { role: infra-role-nimbus-eth1, tags: nimbus-eth1 }
     - { role: infra-role-rocketpool,  tags: rocketpool  }
+
+- name: Configure Benchmarking Eth1 nodes
+  become: true
+  hosts:
+    - nimbus-eth1-bench
+  roles:
+    - { role: infra-role-open-ports,  tags: open-ports  }
+    - { role: infra-role-nimbus-eth1, tags: nimbus-eth1 }

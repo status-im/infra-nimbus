@@ -27,7 +27,7 @@ rocketpool_eth2_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", 
 
 # Nimbus Eth1 node
 nimbus_eth1_repo_branch: 'master'
-nimbus_eth1_network: 'holesky'
+nimbus_eth1_network: 'mainnet'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'
 # Ports
