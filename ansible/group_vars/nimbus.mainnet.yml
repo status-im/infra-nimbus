@@ -42,7 +42,7 @@ geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
 
 # Erigon -----------------------------------------------------------------------
 
-erigon_network_name: 'holesky'
+erigon_network_name: 'mainnet'
 erigon_service_name: 'erigon-{{ geth_network_name }}-{{ node.branch | mandatory }}'
 erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
 erigon_log_level: 'info'
@@ -73,10 +73,11 @@ nimbus_eth1_engine_ws_enabled: true
 nimbus_eth1_era_dir: '{{ nimbus_era_files_timer_path }}'
 nimbus_eth1_era1_dir: '/docker/era1'
 # Ports
-nimbus_eth1_listening_port: '{{ exec_layer_p2p_port }}'
-nimbus_eth1_discovery_port: '{{ exec_layer_p2p_port }}'
-nimbus_eth1_http_port:      '{{ exec_layer_rpc_port }}'
-nimbus_eth1_metrics_port:   '{{ exec_layer_metrics_port }}'
+nimbus_eth1_listening_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_discovery_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_http_port:        '{{ exec_layer_rpc_port }}'
+nimbus_eth1_metrics_port:     '{{ exec_layer_metrics_port }}'
+nimbus_eth1_engine_http_port: '{{ exec_layer_authrpc_port }}'
 nimbus_eth1_metrics_address: '0.0.0.0'
 # API secert
 nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
