@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 53e0f5626298b2bf0cd863e4ab87379f08a50074
+  version: 63727b1962c8e052d8dd7c23ae592eedcd1892b1
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: c023559501470af1de8b212ec4bd4649fe82892d
+  version: f19a7e5b7ad8f8b11f9a96fa84c26c66dccd61f7
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
