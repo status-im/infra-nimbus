@@ -61,4 +61,4 @@ open_ports_list:
     - { port: '{{ es_lb_api_port }}',   ipset: 'logs.nimbus', iifname: 'wg0', comment: 'Elasticsearch LB' }
     - { port: '{{ es_lb_node_port }}',  ipset: 'logs.nimbus', iifname: 'wg0', comment: 'Elasticsearch LB' }
   kibana:
-    - { port: '{{ oauth_local_port }}', ipset: 'proxy.sites', iifname: 'wg0', comment: 'Kibana' }
+    - { port: '{{ oauth_local_port }}', ipset: 'sites.proxy', iifname: 'wg0', comment: 'Kibana' }
