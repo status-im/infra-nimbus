@@ -56,7 +56,7 @@ open_ports_default_comment: 'ElasticSearch'
 open_ports_list:
   elasticsearch:
     - { port: '{{ es_api_port  }}',              ipset: 'hq.metrics',  iifname: 'wg0' }
-    - { port: '{{ es_api_port  }}',              ipset: 'logs.hq',     iifname: 'wg0' }
+    - { port: '{{ es_api_port  }}',              ipset: 'hq.logs',     iifname: 'wg0' }
     - { port: '{{ es_api_port }}',               ipset: 'logs.nimbus', iifname: 'wg0' }
     - { port: '{{ es_api_port  }}',              ipset: 'dash.nimbus', iifname: 'wg0' }
     - { port: '{{ es_node_port }}',              ipset: 'logs.nimbus', iifname: 'wg0' }
