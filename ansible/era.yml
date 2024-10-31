@@ -9,10 +9,11 @@
     - local_action: command ./roles.py --check
       changed_when: false
 
-- name: Configure ERA files hosting
+- name: Configure ERA & ERA1 files hosting
   become: true
   hosts:
     - erigon-01.ih-eu-mda1.nimbus.mainnet
+    - nel-01.ih-eu-mda1.nimbus.mainnet
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - geth-01.ih-eu-mda1.nimbus.holesky
   roles:

@@ -1,0 +1,25 @@
+---
+# Era1 files hosting
+era1_files_domain: 'mainnet.era1.nimbus.team'
+era1_files_path: '/docker/era1'
+
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'nimbus.team'
+    crt: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.crt")}}'
+    key: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.key")}}'
+
+nginx_sites:
+  era1_files:
+    - listen 443 ssl
+
+    - server_name {{ era1_files_domain }}
+
+    - ssl_certificate     /certs/nimbus.team/origin.crt
+    - ssl_certificate_key /certs/nimbus.team/origin.key
+
+    - location / {
+        root {{ era1_files_path }};
+        autoindex on;
+        autoindex_format html;
+      }
