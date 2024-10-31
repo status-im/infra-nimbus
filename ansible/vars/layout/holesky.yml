@@ -182,7 +182,7 @@ nodes_layout:
     - { branch: 'stable',   start: 79000, end: 84000,  el: 'nethermind', vc: false, payload_builder: true }
     - { branch: 'testing',  start: 84000, end: 89000,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 89000, end: 94000,  el: 'nethermind', vc: true  }
-    - { branch: 'libp2p',   start: 94000, end: 100000, el: 'nethermind', vc: false }
+    - { branch: 'libp2p',   start: 94000, end: 99993,  el: 'nethermind', vc: false }
 
   # MacOS --------------------------------------------------------------------------
   'macm2-01.ih-eu-mda1.nimbus.holesky': # 0 each
