@@ -2,7 +2,7 @@
 
 terraform {
   backend "consul" {
-    address = "https://consul.statusim.net:8400"
+    address = "https://consul-api.infra.status.im:8400"
     /* Lock to avoid syncing issues */
     lock = true
     /* KV store has a limit of 512KB */
