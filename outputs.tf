@@ -12,7 +12,7 @@ output "hosts" {
     module.nimbus_nodes_holesky_innova_neth.hosts,
     module.nimbus_nodes_holesky_innova_macm2.hosts,
     module.nimbus_nodes_holesky_innova_windows.hosts,
-    module.nimbus_nodes_mainnet_innova_nel.hosts,
+    module.nimbus_nodes_mainnet_innova_nec.hosts,
     module.nimbus_nodes_mainnet_innova_erigon.hosts,
     module.nimbus_nodes_mainnet_innova_geth.hosts,
     module.nimbus_nodes_mainnet_stable_small.hosts,

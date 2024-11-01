@@ -62,7 +62,7 @@ erigon_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # Nimbus ETH1 ------------------------------------------------------------------
 
-nimbus_eth1_service_name: 'nel-{{ geth_network_name }}-{{ node.branch | mandatory }}'
+nimbus_eth1_service_name: 'nimbus-eth1-{{ geth_network_name }}-{{ node.branch | mandatory }}'
 nimbus_eth1_repo_branch: 'master'
 nimbus_eth1_network: 'mainnet'
 nimbus_eth1_max_peers: 160

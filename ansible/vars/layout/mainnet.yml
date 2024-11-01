@@ -9,22 +9,22 @@ nodes_layout:
     - { branch: 'stable', history: 'archive' }
 
   # Innova Hosting ---------------------------------------------------
-  'nel-01.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'nel' }
+  'nec-01.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'nec' }
     - { branch: 'testing'             }
-    - { branch: 'unstable', el: 'nel' }
+    - { branch: 'unstable', el: 'nec' }
     - { branch: 'libp2p'              }
 
-  'nel-02.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'nel' }
+  'nec-02.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'nec' }
     - { branch: 'testing',            }
-    - { branch: 'unstable', el: 'nel' }
+    - { branch: 'unstable', el: 'nec' }
     - { branch: 'libp2p'              }
 
-  'nel-03.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'nel' }
+  'nec-03.ih-eu-mda1.nimbus.mainnet':
+    - { branch: 'stable',   el: 'nec' }
     - { branch: 'testing'             }
-    - { branch: 'unstable', el: 'nel' }
+    - { branch: 'unstable', el: 'nec' }
     - { branch: 'libp2p'              }
 
   'erigon-01.ih-eu-mda1.nimbus.mainnet':

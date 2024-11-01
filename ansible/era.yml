@@ -13,7 +13,7 @@
   become: true
   hosts:
     - erigon-01.ih-eu-mda1.nimbus.mainnet
-    - nel-01.ih-eu-mda1.nimbus.mainnet
+    - nec-01.ih-eu-mda1.nimbus.mainnet
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - geth-01.ih-eu-mda1.nimbus.holesky
   roles:

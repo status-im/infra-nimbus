@@ -2,20 +2,20 @@
  * CPU: Intel Xeon E5-2690 v2 @ 3.00GHz
  * MEM: 62 GB DDR3
  * SSD: 1x400 GB, 2x1.6 TB */
-module "nimbus_nodes_mainnet_innova_nel" {
+module "nimbus_nodes_mainnet_innova_nec" {
   source = "github.com/status-im/infra-tf-dummy-module"
 
-  name   = "nel"
+  name   = "nec"
   env    = "nimbus"
   stage  = "mainnet"
-  group  = "nimbus-mainnet-nel"
+  group  = "nimbus-mainnet-nec"
   region = "eu-mda1"
   prefix = "ih"
 
   ips = [
-    "194.33.40.70",   /* nel-01.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.72",   /* nel-02.ih-eu-mda1.nimbus.mainnet */
-    "194.33.40.78",   /* nel-03.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.70",   /* nec-01.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.72",   /* nec-02.ih-eu-mda1.nimbus.mainnet */
+    "194.33.40.78",   /* nec-03.ih-eu-mda1.nimbus.mainnet */
   ]
 }
 

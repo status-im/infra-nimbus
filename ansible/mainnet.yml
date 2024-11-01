@@ -38,7 +38,7 @@
   hosts:
     - nimbus-mainnet-geth
     - nimbus-mainnet-erigon
-    - nimbus-mainnet-nel
+    - nimbus-mainnet-nec
   vars_files: layout/mainnet.yml
   vars:
     # FIXME: Use all Geth nodes available in the fleet until we resync.
@@ -109,7 +109,7 @@
 - name: Deploy Mainnet Nimbus ETH1 Nodes
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus-mainnet-nel
+  hosts: nimbus-mainnet-nec
   vars_files: layout/mainnet.yml
   tasks:
     - include_role:
@@ -119,6 +119,6 @@
       tags: [ nimbus-eth1 ]
       when:
         - "'el' in node"
-        - node.el == "nel"
+        - node.el == "nec"
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control: { loop_var: node, index_var: idx }

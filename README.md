@@ -21,7 +21,7 @@ There are also archives of ERA files:
 | Endpoint                          | Host                                  |
 |-----------------------------------|---------------------------------------|
 | https://mainnet.era.nimbus.team/  | `erigon-01.ih-eu-mda1.nimbus.mainnet` |
-| https://mainnet.era1.nimbus.team/ | `nel-01.ih-eu-mda1.nimbus.mainnet`    |
+| https://mainnet.era1.nimbus.team/ | `nec-01.ih-eu-mda1.nimbus.mainnet`    |
 | https://sepolia.era.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.sepolia`  |
 | https://sepolia.era1.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia`  |
 | https://holesky.era.nimbus.team/  | `geth-01.ih-eu-mda1.nimbus.holesky`   |

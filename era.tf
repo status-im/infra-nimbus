@@ -37,7 +37,7 @@ resource "cloudflare_record" "era1_sepolia" {
 resource "cloudflare_record" "era1_mainnet" {
   zone_id = local.zones["nimbus.team"]
   name    = "mainnet.era1"
-  value   = module.nimbus_nodes_mainnet_innova_nel.public_ips[0]
+  value   = module.nimbus_nodes_mainnet_innova_nec.public_ips[0]
   type    = "A"
   proxied = true
 }

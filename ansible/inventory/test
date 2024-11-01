@@ -37,9 +37,9 @@ mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 data_center
 metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.status.im env=nimbus region=eu-mda1 stage=eth1
 metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.239 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-02.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
-nel-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nel-01.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
-nel-02.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.72 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nel-02.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
-nel-03.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.78 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nel-03.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
+nec-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-01.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
+nec-02.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.72 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-02.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
+nec-03.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.78 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-03.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
 neth-01.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.247 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 neth-02.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.248 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-02.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 neth-03.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.249 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-03.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
@@ -104,9 +104,9 @@ macm2-01.ih-eu-mda1.nimbus.holesky
 metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
-nel-01.ih-eu-mda1.nimbus.mainnet
-nel-02.ih-eu-mda1.nimbus.mainnet
-nel-03.ih-eu-mda1.nimbus.mainnet
+nec-01.ih-eu-mda1.nimbus.mainnet
+nec-02.ih-eu-mda1.nimbus.mainnet
+nec-03.ih-eu-mda1.nimbus.mainnet
 neth-01.ih-eu-mda1.nimbus.holesky
 neth-02.ih-eu-mda1.nimbus.holesky
 neth-03.ih-eu-mda1.nimbus.holesky
@@ -195,10 +195,10 @@ erigon-02.ih-eu-mda1.nimbus.mainnet
 geth-01.ih-eu-mda1.nimbus.mainnet
 geth-02.ih-eu-mda1.nimbus.mainnet
 
-[nimbus-mainnet-nel]
-nel-01.ih-eu-mda1.nimbus.mainnet
-nel-02.ih-eu-mda1.nimbus.mainnet
-nel-03.ih-eu-mda1.nimbus.mainnet
+[nimbus-mainnet-nec]
+nec-01.ih-eu-mda1.nimbus.mainnet
+nec-02.ih-eu-mda1.nimbus.mainnet
+nec-03.ih-eu-mda1.nimbus.mainnet
 
 [nimbus-mainnet-small]
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet
@@ -262,9 +262,9 @@ erigon-01.ih-eu-mda1.nimbus.mainnet
 erigon-02.ih-eu-mda1.nimbus.mainnet
 geth-01.ih-eu-mda1.nimbus.mainnet
 geth-02.ih-eu-mda1.nimbus.mainnet
-nel-01.ih-eu-mda1.nimbus.mainnet
-nel-02.ih-eu-mda1.nimbus.mainnet
-nel-03.ih-eu-mda1.nimbus.mainnet
+nec-01.ih-eu-mda1.nimbus.mainnet
+nec-02.ih-eu-mda1.nimbus.mainnet
+nec-03.ih-eu-mda1.nimbus.mainnet
 
 [nimbus.sepolia]
 linux-01.ih-eu-mda1.nimbus.sepolia
