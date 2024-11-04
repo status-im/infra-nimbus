@@ -2,18 +2,18 @@
 mev_boost_enabled: false
 
 # Root password
-bootstrap__root_pass: '{{lookup("bitwarden", "root-pass")}}'
-bootstrap__admin_pass: '{{lookup("bitwarden", "macos/admin", field="password")}}'
+bootstrap__root_pass:               '{{lookup("vault", "hosts",             field="root-pass",        stage="all", env="all")}}'
+bootstrap__admin_pass:              '{{lookup("vault", "hosts",             field="macos-admin-pass", stage="all", env="all")}}'
 # Consul
-bootstrap__consul_encryption_key:   '{{lookup("bitwarden", "consul/cluster",    field="encryption-key")}}'
-bootstarp__consul_agent_acl_token:  '{{lookup("bitwarden", "consul/acl-tokens", field="agent-default")}}'
-bootstrap__consul_certs_ca_crt:     '{{lookup("bitwarden", "consul/certs",      file="ca.pem")}}'
-bootstrap__consul_certs_client_crt: '{{lookup("bitwarden", "consul/certs",      file="client.pem")}}'
-bootstrap__consul_certs_client_key: '{{lookup("bitwarden", "consul/certs",      file="client-key.pem")}}'
+bootstrap__consul_encryption_key:   '{{lookup("vault", "consul/config",      field="encryption-key",   stage="all", env="all")}}'
+bootstarp__consul_agent_acl_token:  '{{lookup("vault", "consul/acl-tokens", field="agent-default",    stage="all", env="all")}}'
+bootstrap__consul_certs_ca_crt:     '{{lookup("vault", "consul/certs",      field="ca.pem",           stage="all", env="all")}}'
+bootstrap__consul_certs_client_crt: '{{lookup("vault", "consul/certs",      field="client.pem",       stage="all", env="all")}}'
+bootstrap__consul_certs_client_key: '{{lookup("vault", "consul/certs",      field="client-key.pem",   stage="all", env="all")}}'
 # SSHGuard
-bootstrap__sshguard_whitelist_extra: ['{{lookup("bitwarden", "sshguard/whitelist", field="jakubgs-home")}}']
+bootstrap__sshguard_whitelist_extra: ['{{lookup("vault", "sshguard/whitelist", field="jakubgs-home",  stage="all", env="all")}}']
 # Wireguard
-wireguard_consul_acl_token: '{{lookup("bitwarden", "consul/acl-tokens", field="wireguard")}}'
+wireguard_consul_acl_token:           '{{lookup("vault", "consul/acl-tokens",  field="wireguard",     stage="all", env="all")}}'
 
 # Custom SSH accounts for Nimbus fleet, should start from UID 8000.
 bootstrap__active_extra_users:

@@ -23,7 +23,7 @@ rocketpool_eth1_archive_url: 'http://localhost:{{ nimbus_eth1_http_port }}'
 rocketpool_password: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/pass")}}'
 rocketpool_wallet: '{{lookup("passwordstore", "services/Rocketpool/test/Eth1/wallet")}}'
 # Transaction Fees
-rocketpool_eth2_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
+rocketpool_eth2_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 
 # Nimbus Eth1 node
 nimbus_eth1_repo_branch: 'master'
@@ -36,7 +36,7 @@ nimbus_eth1_discovery_port: 30303
 nimbus_eth1_metrics_port: 9093
 nimbus_eth1_metrics_address: '0.0.0.0'
 # API secert
-nimbus_eth1_jwt_secret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+nimbus_eth1_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 
 # Migrated to NFTables from IPTables.
 # https://github.com/status-im/infra-misc/issues/301

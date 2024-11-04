@@ -2,8 +2,8 @@
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'status.im'
-    crt: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.crt")}}'
-    key: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.key")}}'
+    crt: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.crt", stage="all", env="all")}}'
+    key: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.key", stage="all", env="all")}}'
     default: true
 
 # Syncing can use a lot of memory

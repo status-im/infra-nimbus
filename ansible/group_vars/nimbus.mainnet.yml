@@ -22,7 +22,7 @@ geth_cont_vol: '{{ geth_service_path }}/node'
 geth_sync_mode: 'snap'
 geth_log_level_name: 'info'
 # Geth auth & JWT token
-geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
+geth_account_pass: '{{lookup("vault", "geth", field="password", stage="all")}}'
 geth_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 # Memory settings
 geth_cont_mem_ratio: 0.15
@@ -105,7 +105,7 @@ beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: '{{ node.public_api is not defined or not node.public_api }}'
 # Execution layer Enginer API
-beacon_node_exec_layer_jwt_secret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 beacon_node_exec_layer_urls_local: ['http://localhost:{{ exec_layer_authrpc_port }}']
 beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_local if node.get("el") else [] }}'
 # Light client data

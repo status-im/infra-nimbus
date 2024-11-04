@@ -11,8 +11,8 @@ geth_sync_mode: 'snap'
 geth_log_level_name: info
 geth_websocket_enabled: true
 # Geth auth & JWT token
-geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
-geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
+geth_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Memory settings
 geth_cont_mem_ratio: 0.7
 

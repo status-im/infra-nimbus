@@ -15,8 +15,8 @@ geth_cont_vol: '{{ geth_service_path }}/node'
 geth_sync_mode: 'full'
 geth_log_level_name: 'info'
 # Geth auth & JWT token
-geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
-geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
+geth_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Memory settings
 geth_cont_mem_ratio: 0.2
 # Ports
@@ -43,7 +43,7 @@ erigon_log_level: 'info'
 erigon_cont_mem_ratio: 0.15
 erigon_max_peers: 20
 erigon_miner_enabled: true
-erigon_mining_private_key: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="private-key")}}'
+erigon_mining_private_key: '{{lookup("vault", "testnet-wallet", field="private-key", stage="all")}}'
 # Ports
 erigon_metrics_enabled: true
 erigon_rpc_addr: '0.0.0.0'
@@ -53,15 +53,15 @@ erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
 erigon_rpc_port:          '{{ exec_layer_rpc_port }}'
 erigon_metrics_port:      '{{ exec_layer_metrics_port }}'
 erigon_authrpc_port:      '{{ exec_layer_authrpc_port }}'
-erigon_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+erigon_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 
 # Nethermind -------------------------------------------------------------------
 
 nethermind_network_name: 'holesky'
 nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
-nethermind_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
-nethermind_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
+nethermind_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 nethermind_sync_mode: 'snap'
 nethermind_port:         '{{ exec_layer_p2p_port }}'
 nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
@@ -93,9 +93,9 @@ beacon_node_validator_monitor_details: >-
 beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
 # Suggests it to the Execution Layer client.
-beacon_node_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
+beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 # Windows service user
-beacon_node_service_user_pass: '{{lookup("bitwarden", "nimbus/windows", field="password")}}'
+beacon_node_service_user_pass: '{{lookup("vault", "windows-service-user", field="password", stage="all")}}'
 # MEV Payload Builder
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'https://boost-relay-holesky.flashbots.net/'
@@ -137,10 +137,10 @@ validator_client_build_frequency: 'daily'
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
 validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
 # Suggests it to the Execution Layer client and the builder network.
-validator_client_suggested_fee_recipient: '{{lookup("bitwarden", "nimbus/wallet/testnets", field="address")}}'
+validator_client_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 # Keymanager
 validator_client_keymanager_enabled: true
-validator_client_keymanager_token: '{{lookup("bitwarden", "nimbus/keymanager", field="token")}}'
+validator_client_keymanager_token: '{{lookup("vault", "validator-client", field="keymanager-token", stage="all")}}'
 # Validators Distribution
 validator_client_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternary(0, node.start) | mandatory }}'
