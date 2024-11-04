@@ -16,7 +16,7 @@
   vars_files: layout/mainnet.yml
   vars:
     # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
-    beacon_node_netkey: '{{lookup("bitwarden", "nimbus/netkey", field=hostname)}}'
+    beacon_node_netkey: '{{lookup("vault", "beacon-node/netkey", field=hostname)}}'
   roles:
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
     - { role: infra-role-open-ports,        tags: [ open-ports ] }

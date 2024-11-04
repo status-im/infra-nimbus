@@ -6,8 +6,8 @@ swap_file_size_mb: 2048
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'status.im'
-    crt: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.crt")}}'
-    key: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.key")}}'
+    crt: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.crt", stage="all", env="all")}}'
+    key: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.key", stage="all", env="all")}}'
     default: true
 
 # Kibana Dashboard
@@ -30,9 +30,9 @@ oauth_upstream_addr: '{{ kibana_cont_name }}'
 oauth_upstream_port: '{{ kibana_cont_port }}'
 oauth_local_port: 4180
 oauth_provider: 'keycloak-oidc'
-oauth_id: '{{ lookup("bitwarden", "nimbus/kibana/oauth", field="client-id") }}'
-oauth_secret: '{{ lookup("bitwarden", "nimbus/kibana/oauth", field="secret") }}'
-oauth_cookie_secret: '{{ lookup("bitwarden", "nimbus/kibana/oauth", field="cookie-secret") }}'
+oauth_id:            '{{lookup("vault", "kibana/oauth", field="client-id")}}'
+oauth_secret:        '{{lookup("vault", "kibana/oauth", field="secret")}}'
+oauth_cookie_secret: '{{lookup("vault", "kibana/oauth", field="cookie-secret")}}'
 
 # ElasticSearch Load Balancer
 es_lb_service_name: 'elasticsearch'

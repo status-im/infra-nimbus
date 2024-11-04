@@ -12,8 +12,8 @@ geth_sync_mode: 'full'
 geth_log_level_name: info
 geth_consul_advertised_address: '{{ inventory_hostname }}.wg'
 # Geth auth & JWT token
-geth_account_pass: '{{lookup("bitwarden", "nimbus/geth", field="password")}}'
-geth_authrpc_jwtsecret: '{{lookup("bitwarden", "nimbus/jwt-token")}}'
+geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
+geth_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Memory settings
 geth_cont_mem_ratio: 0.8
 geth_cache_size: '{{ (ansible_memtotal_mb * 0.25|float) | int }}'
