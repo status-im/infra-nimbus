@@ -46,7 +46,7 @@ erigon_network_name: 'mainnet'
 erigon_service_name: 'erigon-{{ geth_network_name }}-{{ node.branch | mandatory }}'
 erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
 erigon_log_level: 'info'
-erigon_cont_mem_ratio: 0.15
+erigon_cont_mem_ratio: 0.2
 erigon_max_peers: 20
 erigon_miner_enabled: true
 # Ports
