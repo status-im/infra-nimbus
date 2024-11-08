@@ -16,8 +16,8 @@
   roles:
     - { role: infra-role-open-ports,    tags: open-ports }
     - { role: infra-role-smart-metrics, tags: smart-metrics }
-    - { role: infra-role-geth,          tags: infra-role-geth }
-    - { role: infra-role-geth-exporter, tags: infra-role-geth-exporter }
+    - { role: infra-role-geth,          tags: geth }
+    - { role: infra-role-geth-exporter, tags: geth-exporter }
 
 - name: Deploy Geth nodes for Windows
   become: true

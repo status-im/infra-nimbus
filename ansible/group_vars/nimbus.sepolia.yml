@@ -123,6 +123,7 @@ open_ports_list:
       - { port: '30314-30317', comment: 'Go-Ethereum libp2p',    protocol: 'tcp'                                    }
       - { port: '30314-30317', comment: 'Go-Ethereum discovery', protocol: 'udp'                                    }
       - { port: '9400-9404',   comment: 'Geth Exporter',         ipset: 'hq.metrics',                iifname: 'wg0' }
+      - { port: '6071-6074',   comment: 'Geth Metrics',          ipset: 'hq.metrics',                iifname: 'wg0' }
     beacon-node:
       - { port: '9011-9014',   comment: 'Beacon Node libp2p',    protocol: 'tcp'                                    }
       - { port: '9011-9014',   comment: 'Beacon Node discovery', protocol: 'udp'                                    }

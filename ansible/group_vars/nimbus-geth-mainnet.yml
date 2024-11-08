@@ -30,6 +30,7 @@ geth_authrpc_port: 8551
 geth_websocket_addr: '0.0.0.0'
 geth_websocket_port: 8546
 geth_expo_cont_port: 9200
+geth_metrics_port: 6060
 
 # Migrated to NFTables from IPTables.
 # https://github.com/status-im/infra-misc/issues/301
@@ -40,6 +41,7 @@ open_ports_list:
   geth-node:
   - { port: '{{ geth_port }}',           comment: 'Geth LibP2P',    protocol: 'tcp'                         }
   - { port: '{{ geth_port }}',           comment: 'Geth Discovery', protocol: 'udp'                         }
+  - { port: '{{ geth_metrics_port }}',   comment: 'Geth Metrics',   ipset: 'hq.metrics',     iifname: 'wg0' }
   - { port: '{{ geth_expo_cont_port }}', comment: 'Geth Exporter',  ipset: 'hq.metrics',     iifname: 'wg0' }
   - { port: '{{ geth_rpc_port }}',       comment: 'Geth RPC',       ipset: 'nimbus.mainnet', iifname: 'wg0' }
   - { port: '{{ geth_authrpc_port }}',   comment: 'Geth API',       ipset: 'nimbus.mainnet', iifname: 'wg0' }

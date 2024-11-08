@@ -38,6 +38,7 @@ bootstrap__firewall_nftables: true
 # Open Ports
 open_ports_list:
   geth-node:
+    - { port: '6061-6064', comment: 'Geth Metrics',  ipset: 'hq.metrics',     iifname: 'wg0' }
     - { port: '9401-9404', comment: 'Geth Exporter', ipset: 'hq.metrics',     iifname: 'wg0' }
     - { port: '8552-8555', comment: 'Geth',          ipset: 'nimbus.holesky', iifname: 'wg0' }
   smart-metrics:
