@@ -26,7 +26,7 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: fcddc3c2d10d0c53e3046f6c0ad81073c6f49753
+  version: 7ce78de798ee8c1e4ecd8c0e6d23d86889d57839
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: aaf86e765ab8024bcc359e26d72f7767dc24ab3d
+  version: 851e41dcf58ef14c33b2bd7f11b985327adbe391
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 4837e003c3ee32adf236e9c0dcaf1b18e054f483
+  version: ab5db3a8ae20109c0664a1324944803a30167cae
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
