@@ -1,0 +1,30 @@
+---
+# Eth1 DB files hosting
+eth1_db_files_domain: 'eth1-db.nimbus.team'
+eth1_db_files_path: '/data/nimbus-eth1-db'
+
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'nimbus.team'
+    crt: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.crt")}}'
+    key: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.key")}}'
+
+# Open Ports
+open_ports_list:
+  nginx:
+    - { port: '443', comment: 'Nginx' }
+
+nginx_sites:
+  eth1_db:
+    - listen 443 ssl
+
+    - server_name {{ eth1_db_files_domain }}
+
+    - ssl_certificate     /certs/nimbus.team/origin.crt
+    - ssl_certificate_key /certs/nimbus.team/origin.key
+
+    - location / {
+        root {{ eth1_db_files_path }};
+        autoindex on;
+        autoindex_format html;
+      }

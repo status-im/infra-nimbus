@@ -1,0 +1,23 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./roles.py --check
+      changed_when: false
+
+- name: Configure ERA, ERA1, and DB files hosting
+  become: true
+  hosts:
+    - erigon-01.ih-eu-mda1.nimbus.mainnet
+    - geth-01.ih-eu-mda1.nimbus.holesky
+    - linux-01.ih-eu-mda1.nimbus.sepolia
+    - metal-01.ih-eu-mda1.nimbus.eth1
+    - nec-01.ih-eu-mda1.nimbus.mainnet
+  roles:
+    - { role: infra-role-open-ports,   tags: open-ports   }
+    - { role: infra-role-origin-certs, tags: origin-certs }
+    - { role: infra-role-nginx,        tags: nginx        }
