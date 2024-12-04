@@ -4,6 +4,9 @@ import json
 import sys
 import os
 import hvac
+import hashlib
+import base64
+from cryptography.fernet import Fernet
 
 from ansible.errors import AnsibleError
 from ansible.plugins.lookup import LookupBase
@@ -72,18 +75,23 @@ VAULT_CACERT      = os.environ.get('VAULT_CACERT',      './ansible/files/vault-c
 VAULT_CLIENT_CERT = os.environ.get('VAULT_CLIENT_CERT', './ansible/files/vault-client-user.crt')
 VAULT_CLIENT_KEY  = os.environ.get('VAULT_CLIENT_KEY',  './ansible/files/vault-client-user.key')
 
+LOG_PREFIX = "[lookup/vault]"
+
 class LookupModule(LookupBase):
 
     def run(self, terms, field: str, variables=None, override: str = False, **kwargs):
         self.vault = hvac.Client(cert=(VAULT_CLIENT_CERT, VAULT_CLIENT_KEY),verify=VAULT_CACERT)
+        parent_pid = os.getppid()
+        self.cache_file = f"./ansible/files/cache/vault/{parent_pid}.cache"
+        self.cache_encryption_key = base64.urlsafe_b64encode(hashlib.sha256(self.vault.token.encode()).digest())
         values = []
         env = kwargs.get("env", variables["env"])
         stage = kwargs.get("stage", variables["stage"])
         prefix = ""
         if override:
-            display.debug("Overriding the env/stage behavior and using only the path provided: %s" % terms)
-        else: 
-            display.debug("Using the env : %s and the stage : %s" % (env, stage))
+            display.debug(f"{LOG_PREFIX} Overriding the env/stage behavior and using only the path provided: {terms}")
+        else:
+            display.debug(f"{LOG_PREFIX} Using the env : {env} and the stage : {stage}")
             prefix=f"{env}/{stage}/"
         for term in terms:
             rval = self.lookup(f"{prefix}{term}", field=field)
@@ -94,9 +102,81 @@ class LookupModule(LookupBase):
         return values
 
     def lookup(self, term, **kwargs):
-        field  = kwargs.get('field')
-        display.v("Querying Vault field %s at path %s" % (field,term))
+        field = kwargs.get('field')
+        cached_data = self.read_cache(field, term)
+        if cached_data:
+            return cached_data
+        display.vvv(f"{LOG_PREFIX} Querying Vault field {field} at path {term}")
         val = self.vault.secrets.kv.read_secret_version(term)
-        if val:
-            return str(val['data']['data'][field])
+        if not val:
+            return None
+        if field not in val['data']['data']:
+            raise AnsibleError(f'No such field in Vault entry: {field}')
+        self.write_cache(term, val['data']['data'])
+        return str(val['data']['data'][field])
 
+    def read_cache(self, field, term):
+        display.vvv(f"{LOG_PREFIX} Checking local cache file.")
+        encrypted_data = self._read_cache_file()
+        cache_data = self._decrypt_cache_data(encrypted_data) if encrypted_data else {}
+        try:
+            return cache_data[term][field]
+        except KeyError:
+            display.v(f"{LOG_PREFIX} Missing value in cache for path {term} and field {field}")
+            return None
+        return None
+
+    def write_cache(self, term, content):
+        encrypted_data = self._read_cache_file()
+        cache_data = self._decrypt_cache_data(encrypted_data) if encrypted_data else {}
+        cache_data[term] = content
+        display.vvv(f"{LOG_PREFIX} Writing to a local cache file.")
+        encrypted_data = self._encrypt_cache_data(cache_data)
+        self._write_cache_file(encrypted_data)
+
+    def _read_cache_file(self):
+        try:
+            with open(self.cache_file, "rb") as f:
+                encrypted_data = f.read()
+            return encrypted_data
+        except FileNotFoundError:
+            display.vvv(f"{LOG_PREFIX} Cache file {self.cache_file} does not exist.")
+            return None
+
+    def _write_cache_file(self, encrypted_data):
+        try:
+            with open(self.cache_file, "wb") as f:
+                f.write(encrypted_data)
+        except Exception as e:
+            display.error(f"{LOG_PREFIX} Failed to write to a cache file: {e}.")
+        display.vvv(f"{LOG_PREFIX} Cache file {self.cache_file} updated successfully.")
+
+    def _decrypt_cache_data(self, encrypted_data):
+        cipher = Fernet(self.cache_encryption_key)
+        decrypted_data = cipher.decrypt(encrypted_data).decode()
+        return json.loads(decrypted_data)
+
+    def _encrypt_cache_data(self, cache_data):
+        cipher = Fernet(self.cache_encryption_key)
+        return cipher.encrypt(json.dumps(cache_data).encode())
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: %s <path> <field>" % os.path.basename(__file__))
+        return 1
+
+    tokens = sys.argv[1].split('/')
+    if len(tokens) < 2:
+        print("Path too short: %s" % sys.argv[1])
+        return 1
+
+    print(LookupModule().run(
+        ['/'.join(tokens[2:])],
+        field=sys.argv[2],
+        variables={'env':tokens[0],'stage':tokens[1]}
+    ))
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
