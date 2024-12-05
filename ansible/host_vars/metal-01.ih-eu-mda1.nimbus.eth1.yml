@@ -28,3 +28,9 @@ nginx_sites:
         autoindex on;
         autoindex_format html;
       }
+
+    - location = /README.md {
+        root /data/nimbus-eth1-db;
+        default_type text/plain;
+        add_header Content-Type text/plain;
+     }
