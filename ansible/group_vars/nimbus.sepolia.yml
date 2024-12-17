@@ -26,7 +26,8 @@ geth_rpc_port:       '{{ 8545  + idx|int + 11 }}'
 geth_authrpc_port:   '{{ 8551  + idx|int + 11 }}'
 geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
 # Parameter for waku RLN keystore generation
-geth_extra_flags: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 }}'
+geth_extra_flags_allow_unprotected_txs: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 else [] }}'
+geth_extra_flags: '{{ [ "--miner.gaslimit 36000000" ] + geth_extra_flags_allow_unprotected_txs }}'
 
 # We map short names to branches to avoid too long service names.
 node_name_to_branch_map:
