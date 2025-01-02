@@ -30,9 +30,9 @@ oauth_upstream_addr: '{{ kibana_cont_name }}'
 oauth_upstream_port: '{{ kibana_cont_port }}'
 oauth_local_port: 4180
 oauth_provider: 'keycloak-oidc'
-oauth_id:            '{{lookup("vault", "kibana/oauth", field="client-id")}}'
-oauth_secret:        '{{lookup("vault", "kibana/oauth", field="secret")}}'
-oauth_cookie_secret: '{{lookup("vault", "kibana/oauth", field="cookie-secret")}}'
+oauth_id:            '{{lookup("vault", "kibana/oauth", field="client-id",     env="nimbus", stage="dash")}}'
+oauth_secret:        '{{lookup("vault", "kibana/oauth", field="secret",        env="nimbus", stage="dash")}}'
+oauth_cookie_secret: '{{lookup("vault", "kibana/oauth", field="cookie-secret", env="nimbus", stage="dash")}}'
 
 # ElasticSearch Load Balancer
 es_lb_service_name: 'elasticsearch'
