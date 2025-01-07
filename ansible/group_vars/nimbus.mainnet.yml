@@ -3,9 +3,6 @@
 bootstrap__extra_volume_path: '/docker'
 bootstrap__extra_volume_bind_path: null
 
-# SWAP
-swap_file_size_mb: 2048
-
 # Ports used for all 3 EL nodes as they are mutually exclusive.
 exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
 exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
