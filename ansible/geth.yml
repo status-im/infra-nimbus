@@ -29,13 +29,19 @@
     - { role: infra-role-open-ports,    tags: open-ports }
     - { role: infra-role-smart-metrics, tags: smart-metrics }
   tasks:
-    - include_role: name=infra-role-geth
+    - include_role:
+        name: infra-role-geth
+        apply:
+          tags: always
       tags: [ geth, infra-role-geth ]
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control:
         loop_var: node
         index_var: idx
-    - include_role: name=infra-role-geth-exporter
+    - include_role:
+        name: infra-role-geth-exporter
+        apply:
+          tags: always
       tags: [ geth-exporter, infra-role-geth-exporter ]
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control:
