@@ -10,7 +10,7 @@ geth_cont_vol: '{{ geth_service_path }}/node'
 geth_network_name: 'holesky'
 geth_sync_mode: 'full'
 geth_log_level_name: info
-geth_consul_advertised_address: '{{ inventory_hostname }}.wg'
+geth_consul_rpc_advertised_address: '{{ inventory_hostname }}.wg'
 # Geth auth & JWT token
 geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
 geth_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
