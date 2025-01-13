@@ -119,3 +119,7 @@
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
   version: ed5059de24c54ab928f390640f9a9a7649753e12
+
+- name: infra-role-nimbus-light-client
+  src: git@github.com:status-im/infra-role-nimbus-light-client.git
+  version: 1d4291545c7ffb4a5b93f04195d32bd7cd052d90
