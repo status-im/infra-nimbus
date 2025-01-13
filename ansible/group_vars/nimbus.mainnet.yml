@@ -109,6 +109,7 @@ beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_local if node.get("
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
+light_client_network: 'mainnet'
 # Mainnet validators run on a separate fleet.
 beacon_node_dist_validators_enabled: false
 # Ports
@@ -166,5 +167,7 @@ open_ports_list:
     - { port: '9001-9004', comment: 'Beacon Node discovery', protocol: 'udp'                                    }
     - { port: '9201-9204', comment: 'Beacon Node Metrics',   ipset: 'hq.metrics',                iifname: 'wg0' }
     - { port: '9301-9304', comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}',     iifname: 'wg0' }
-
+  nimbus-light-client:
+    - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp' }
+    - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp' }
 # Fleet layout can be found in: ansible/vars/layout/mainnet.yml
