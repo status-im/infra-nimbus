@@ -125,6 +125,7 @@ beacon_node_payload_builder_url: 'https://boost-relay-holesky.flashbots.net/'
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
 beacon_node_light_client_data_import_mode: 'full'
+light_client_network: 'holesky'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.get("vc", false) | ternary(0, node.start) | mandatory }}'
@@ -200,5 +201,8 @@ open_ports_list:
   validator-client:
     - { port: '5053-5056', comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
     - { port: '8109-8112', comment: 'Validator Client Metrics',  ipset: 'hq.metrics',            iifname: 'wg0' }
+  nimbus-light-client:
+    - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp' }
+    - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp' }
 
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml

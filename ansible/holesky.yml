@@ -19,12 +19,13 @@
     - nimbus-holesky-neth
   vars_files: layout/holesky.yml
   roles:
-    - { role: update-netplan,        tags: update-netplan,    when: ansible_system == 'Linux' }
-    - { role: infra-role-swap-file,  tags: swap-file        }
-    - { role: infra-role-open-ports, tags: open-ports       }
-    - { role: redirect-ports,        tags: redirect-ports   }
-    - { role: nimbus-era-files,      tags: nimbus-era-files }
-    - { role: infra-role-mev-boost,  tags: mev-boost,    when: mev_boost_enabled == true }
+    - { role: update-netplan,                 tags: update-netplan,    when: ansible_system == 'Linux' }
+    - { role: infra-role-swap-file,           tags: swap-file        }
+    - { role: infra-role-open-ports,          tags: open-ports       }
+    - { role: redirect-ports,                 tags: redirect-ports   }
+    - { role: nimbus-era-files,               tags: nimbus-era-files }
+    - { role: infra-role-mev-boost,           tags: mev-boost,    when: mev_boost_enabled == true }
+    - { role: infra-role-nimbus-light-client, tags: nimbus-light-client }
   tasks:
     - include_role:
         name: infra-role-beacon-node-linux
