@@ -1,7 +1,7 @@
 ---
 # Eth1 DB files hosting
 eth1_db_files_domain: 'eth1-db.nimbus.team'
-eth1_db_files_path: '/data/nimbus-eth1-db'
+eth1_db_files_path: '/nimbus-eth1-db'
 
 # CloudFlare Origin certificates
 origin_certs:
