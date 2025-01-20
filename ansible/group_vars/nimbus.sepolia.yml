@@ -134,7 +134,7 @@ open_ports_list:
       - { port: '5053-5057',   comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
       - { port: '8109-8113',   comment: 'Validator Client Metrics',  ipset: 'hq.metrics',            iifname: 'wg0' }
     waku-fleets: # https://github.com/status-im/infra-nim-waku/issues/59
-      - { port: '8556-8559',   comment: 'RCP for WakuMonitor',   ipset: 'waku-nmon.misc',            iifname: 'wg0' }
+      - { port: '8556-8559',   comment: 'RCP for WakuMonitor',   ipset: 'misc.waku-nmon',            iifname: 'wg0' }
       - { port: '8556-8559',   comment: 'RCP for waku.test',     ipset: 'waku.test',                 iifname: 'wg0' }
       - { port: '8556-8559',   comment: 'RCP for waku.sandbox',  ipset: 'waku.sandbox',              iifname: 'wg0' }
       - { port: '9557-9560',   comment: 'Websocket for Waku',    ipset: 'waku.test',                 iifname: 'wg0' }
