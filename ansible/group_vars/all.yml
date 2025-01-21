@@ -1,19 +1,24 @@
 ---
-mev_boost_enabled: false
-
-# Root password
-bootstrap__root_pass:               '{{lookup("vault", "hosts",             field="root-pass",        stage="all", env="all")}}'
-bootstrap__admin_pass:              '{{lookup("vault", "hosts",             field="macos-admin-pass", stage="all", env="all")}}'
+# Passwords
+ansible_become_password:            '{{lookup("passwordstore", "hosts/admin-pass")}}'
+bootstrap__active_users_passwords:  '{{ bootstrap__active_users | get_user_passwords }}'
+bootstrap__admin_pass:              '{{lookup("vault", "users",             field="admin",              env="all", stage="all")}}'
+bootstrap__root_pass:               '{{lookup("vault", "users",             field="root",               env="all", stage="all")}}'
 # Consul
-bootstrap__consul_encryption_key:   '{{lookup("vault", "consul/config",      field="encryption-key",   stage="all", env="all")}}'
-bootstarp__consul_agent_acl_token:  '{{lookup("vault", "consul/acl-tokens", field="agent-default",    stage="all", env="all")}}'
-bootstrap__consul_certs_ca_crt:     '{{lookup("vault", "consul/certs",      field="ca.pem",           stage="all", env="all")}}'
-bootstrap__consul_certs_client_crt: '{{lookup("vault", "consul/certs",      field="client.pem",       stage="all", env="all")}}'
-bootstrap__consul_certs_client_key: '{{lookup("vault", "consul/certs",      field="client-key.pem",   stage="all", env="all")}}'
+bootstrap__consul_encryption_key:   '{{lookup("vault", "consul/config",     field="encryption-key",     env="all", stage="all")}}'
+bootstarp__consul_agent_acl_token:  '{{lookup("vault", "consul/acl-tokens", field="agent-default",      env="all", stage="all")}}'
+bootstrap__consul_certs_ca_crt:     '{{lookup("vault", "consul/certs",      field="ca.pem",             env="all", stage="all")}}'
+bootstrap__consul_certs_client_crt: '{{lookup("vault", "consul/certs",      field="client.pem",         env="all", stage="all")}}'
+bootstrap__consul_certs_client_key: '{{lookup("vault", "consul/certs",      field="client-key.pem",     env="all", stage="all")}}'
+# Vault certificate
+bootstrap__vault_ca_cert:           '{{ lookup("passwordstore", "services/vault/certs/root-ca/cert returnall=true")}}'
+bootstrap__vault_client_cert:       '{{ lookup("passwordstore", "services/vault/certs/client-host/cert returnall=true")}}'
+bootstrap__vault_client_key:        '{{ lookup("passwordstore", "services/vault/certs/client-host/privkey returnall=true")}}'
 # SSHGuard
-bootstrap__sshguard_whitelist_extra: ['{{lookup("vault", "sshguard/whitelist", field="jakubgs-home",  stage="all", env="all")}}']
+bootstrap__sshguard_whitelist_extra: ['{{lookup("vault", "sshguard/whitelist",    field="jakubgs-home", env="all", stage="all")}}']
+
 # Wireguard
-wireguard_consul_acl_token:           '{{lookup("vault", "consul/acl-tokens",  field="wireguard",     stage="all", env="all")}}'
+wireguard_consul_acl_token:         '{{lookup("vault", "consul/acl-tokens", field="wireguard",          env="all", stage="all")}}'
 
 # Custom SSH accounts for Nimbus fleet, should start from UID 8000.
 bootstrap__active_extra_users:

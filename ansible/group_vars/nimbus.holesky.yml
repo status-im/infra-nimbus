@@ -1,4 +1,5 @@
 ---
+mev_boost_enabled: false
 # Ports used for all 3 EL nodes as they are mutually exclusive.
 exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
 exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
