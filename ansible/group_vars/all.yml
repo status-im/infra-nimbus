@@ -1,6 +1,5 @@
 ---
 # Passwords
-ansible_become_password:            '{{lookup("passwordstore", "hosts/admin-pass")}}'
 bootstrap__active_users_passwords:  '{{ bootstrap__active_users | get_user_passwords }}'
 bootstrap__admin_pass:              '{{lookup("vault", "users",             field="admin",              env="all", stage="all")}}'
 bootstrap__root_pass:               '{{lookup("vault", "users",             field="root",               env="all", stage="all")}}'
