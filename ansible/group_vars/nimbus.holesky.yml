@@ -176,5 +176,8 @@ open_ports_list:
   validator-client:
     - { port: '5053-5056', comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
     - { port: '8109-8112', comment: 'Validator Client Metrics',  ipset: 'hq.metrics',            iifname: 'wg0' }
+  light-client:
+    - { port: '9503', comment: 'Light Client LibP2P',    protocol: 'tcp' }
+    - { port: '9503', comment: 'Light Client Discovery', protocol: 'udp' }
 
 # Fleet layout can be found in: ansible/vars/layout/holesky.yml
