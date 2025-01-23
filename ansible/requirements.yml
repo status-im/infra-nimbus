@@ -119,3 +119,7 @@
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
   version: ed5059de24c54ab928f390640f9a9a7649753e12
+
+- name: infra-role-wazuh-agent
+  src: git@github.com:status-im/infra-role-wazuh-agent.git
+  version: 413e806e8238a4d6f361fab8897bddc1411b0b9b
