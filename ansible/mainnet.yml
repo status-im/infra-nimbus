@@ -22,6 +22,7 @@
     - { role: infra-role-open-ports,        tags: [ open-ports ] }
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
+    - { role: infra-role-wazuh-agent,       tags: wazuh-agent   }
   tasks:
     - include_role:
         name: infra-role-beacon-node-linux
@@ -51,6 +52,7 @@
     - { role: redirect-ports,               tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,            tags: [ get-geth-api-urls, beacon-node ] }
     - { role: nimbus-era-files,             tags: [ nimbus-era-files ] }
+    - { role: infra-role-wazuh-agent,       tags: wazuh-agent   }
   tasks:
     - include_role:
         name: infra-role-beacon-node-linux

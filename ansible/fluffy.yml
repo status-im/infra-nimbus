@@ -18,6 +18,7 @@
     - { role: update-netplan,           tags: update-netplan }
     - { role: infra-role-open-ports,    tags: open-ports     }
     - { role: infra-role-smart-metrics, tags: smart-metrics  }
+    - { role: infra-role-wazuh-agent,   tags: wazuh-agent    }
   tasks:
     - include_role:
         name: infra-role-nimbus-fluffy

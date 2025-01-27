@@ -85,3 +85,7 @@ validator_client_consul_failures_before_critical: '{{ beacon_node_consul_failure
 bootstrap__vault_ca_cert:           '{{ lookup("passwordstore", "services/vault/certs/root-ca/cert returnall=true")}}'
 bootstrap__vault_client_cert:       '{{ lookup("passwordstore", "services/vault/certs/client-host/cert returnall=true")}}'
 bootstrap__vault_client_key:        '{{ lookup("passwordstore", "services/vault/certs/client-host/privkey returnall=true")}}'
+
+# Wazuh Agent
+wazuh_agent_enrollment_key:         '{{ lookup("vault", "wazuh-agent", field="enrollment-key",          env="all", stage="all")}}'
+wazuh_root_ca:                      '{{ lookup("vault", "certs/wazuh-ca", field="certificate",          env="all", stage="all")}}'
