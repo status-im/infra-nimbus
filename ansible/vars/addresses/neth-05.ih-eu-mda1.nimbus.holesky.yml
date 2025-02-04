@@ -5,7 +5,9 @@ network:
       addresses:
         - 185.181.229.103/24
         - 2a0a:d580:801:60::103/64
+        - 2a0a:d580:40:60::11d/64
       gateway4: 185.181.229.1
+      gateway6: 2a0a:d580:40:60::1
       gateway6: 2a0a:d580:801:60::1
       nameservers:
         addresses: [ 194.33.40.10, 1.1.1.1 ]
