@@ -124,61 +124,62 @@ nodes_layout:
     - { branch: 'libp2p',   start: 61000, end: 66000,  el: 'erigon',     vc: false }
 
   # Nethermind ---------------------------------------------------------------------
-  'neth-01.ih-eu-mda1.nimbus.holesky': # 0 each
-    - { branch: 'stable',                              el: 'nethermind', vc: false }
-    - { branch: 'testing',                             el: 'nethermind', vc: false }
-    - { branch: 'unstable',                            el: 'nethermind', vc: true  }
-    - { branch: 'libp2p',                              el: 'nethermind', vc: false }
+  'nec-01.ih-eu-mda1.nimbus.holesky': # 0 each
+    - { branch: 'stable',                              el: 'nec', vc: false }
+    - { branch: 'testing',                             el: 'nec', vc: false }
+    - { branch: 'unstable',                            el: 'nec', vc: true  }
+    - { branch: 'libp2p',                              el: 'nec', vc: false }
 
-  'neth-02.ih-eu-mda1.nimbus.holesky': # 1 each
-    - { branch: 'stable',   start: 66000, end: 66001,  el: 'nethermind', vc: false }
-    - { branch: 'testing',  start: 66001, end: 66002,  el: 'nethermind', vc: false }
-    - { branch: 'unstable', start: 66002, end: 66003,  el: 'nethermind', vc: true  }
-    - { branch: 'libp2p',   start: 66003, end: 66004,  el: 'nethermind', vc: false }
+  'nec-02.ih-eu-mda1.nimbus.holesky': # 1 each
+    - { branch: 'stable',   start: 66000, end: 66001,  el: 'nec', vc: false }
+    - { branch: 'testing',  start: 66001, end: 66002,  el: 'nec', vc: false }
+    - { branch: 'unstable', start: 66002, end: 66003,  el: 'nec', vc: true  }
+    - { branch: 'libp2p',   start: 66003, end: 66004,  el: 'nec', vc: false }
 
-  'neth-03.ih-eu-mda1.nimbus.holesky': # 5 each
-    - { branch: 'stable',   start: 66004, end: 66009,  el: 'nethermind', vc: false }
-    - { branch: 'testing',  start: 66009, end: 66014,  el: 'nethermind', vc: false }
-    - { branch: 'unstable', start: 66014, end: 66019,  el: 'nethermind', vc: true  }
-    - { branch: 'libp2p',   start: 66019, end: 66024,  el: 'nethermind', vc: false }
+  'nec-03.ih-eu-mda1.nimbus.holesky': # 5 each
+    - { branch: 'stable',   start: 66004, end: 66009,  el: 'nec', vc: false }
+    - { branch: 'testing',  start: 66009, end: 66014,  el: 'nec', vc: false }
+    - { branch: 'unstable', start: 66014, end: 66019,  el: 'nec', vc: true  }
+    - { branch: 'libp2p',   start: 66019, end: 66024,  el: 'nec', vc: false }
 
-  'neth-04.ih-eu-mda1.nimbus.holesky': # 14 each
-    - { branch: 'stable',   start: 66024, end: 66038,  el: 'nethermind', vc: false }
-    - { branch: 'testing',  start: 66038, end: 66052,  el: 'nethermind', vc: false }
-    - { branch: 'unstable', start: 66052, end: 66066,  el: 'nethermind', vc: true  }
-    - { branch: 'libp2p',   start: 66066, end: 66080,  el: 'nethermind', vc: false }
+  'nec-04.ih-eu-mda1.nimbus.holesky': # 14 each
+    - { branch: 'stable',   start: 66024, end: 66038,  el: 'nec', vc: false }
+    - { branch: 'testing',  start: 66038, end: 66052,  el: 'nec', vc: false }
+    - { branch: 'unstable', start: 66052, end: 66066,  el: 'nec', vc: true  }
+    - { branch: 'libp2p',   start: 66066, end: 66080,  el: 'nec', vc: false }
 
-  'neth-05.ih-eu-mda1.nimbus.holesky': # 20 each
-    - { branch: 'stable',   start: 66080, end: 66100,  el: 'nethermind', vc: false }
-    - { branch: 'testing',  start: 66100, end: 66120,  el: 'nethermind', vc: false }
-    - { branch: 'unstable', start: 66120, end: 66140,  el: 'nethermind', vc: true  }
-    - { branch: 'libp2p',   start: 66140, end: 66160,  el: 'nethermind', vc: false }
+  'nec-05.ih-eu-mda1.nimbus.holesky': # 20 each
+    - { branch: 'stable',   start: 66080, end: 66100,  el: 'nec', vc: false }
+    - { branch: 'testing',  start: 66100, end: 66120,  el: 'nec', vc: false }
+    - { branch: 'unstable', start: 66120, end: 66140,  el: 'nec', vc: true  }
+    - { branch: 'libp2p',   start: 66140, end: 66160,  el: 'nec', vc: false }
 
-  'neth-06.ih-eu-mda1.nimbus.holesky': # 110 each
+  # Nethermind ---------------------------------------------------------------------
+  'neth-01.ih-eu-mda1.nimbus.holesky': # 110 each
     - { branch: 'stable',   start: 66160, end: 66270,  el: 'nethermind', vc: false }
     - { branch: 'testing',  start: 66270, end: 66380,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 66380, end: 66490,  el: 'nethermind', vc: true  }
     - { branch: 'libp2p',   start: 66490, end: 66600,  el: 'nethermind', vc: false }
 
-  'neth-07.ih-eu-mda1.nimbus.holesky': # 400 each
+  'neth-02.ih-eu-mda1.nimbus.holesky': # 400 each
     - { branch: 'stable',   start: 66600, end: 67000,  el: 'nethermind', vc: true,  payload_builder: true }
     - { branch: 'testing',  start: 67000, end: 67400,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 67400, end: 67800,  el: 'nethermind', vc: false }
     - { branch: 'libp2p',   start: 67800, end: 68200,  el: 'nethermind', vc: false }
 
-  'neth-08.ih-eu-mda1.nimbus.holesky': # 700 each
+  'neth-03.ih-eu-mda1.nimbus.holesky': # 700 each
     - { branch: 'stable',   start: 68200, end: 68900,  el: 'nethermind', vc: true  }
     - { branch: 'testing',  start: 68900, end: 69600,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 69600, end: 70300,  el: 'nethermind', vc: true,  payload_builder: true }
     - { branch: 'libp2p',   start: 70300, end: 71000,  el: 'nethermind', vc: false }
 
-  'neth-09.ih-eu-mda1.nimbus.holesky': # 2000 each
+  'neth-04.ih-eu-mda1.nimbus.holesky': # 2000 each
     - { branch: 'stable',   start: 71000, end: 73000,  el: 'nethermind', vc: false }
     - { branch: 'testing',  start: 73000, end: 75000,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 75000, end: 77000,  el: 'nethermind', vc: true,  payload_builder: true }
     - { branch: 'libp2p',   start: 77000, end: 79000,  el: 'nethermind', vc: false }
 
-  'neth-10.ih-eu-mda1.nimbus.holesky': # 5000 each
+  'neth-05.ih-eu-mda1.nimbus.holesky': # 5000 each
     - { branch: 'stable',   start: 79000, end: 84000,  el: 'nethermind', vc: false, payload_builder: true }
     - { branch: 'testing',  start: 84000, end: 89000,  el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 89000, end: 94000,  el: 'nethermind', vc: true  }

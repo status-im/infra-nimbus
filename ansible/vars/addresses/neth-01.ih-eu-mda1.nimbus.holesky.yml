@@ -3,8 +3,8 @@ network:
   ethernets:
     eno1:
       addresses:
-        - 194.33.40.247/24
-        - 2a0a:d580:40:60::114/64
+        - 194.33.40.252/24
+        - 2a0a:d580:40:60::119/64
       gateway4: 194.33.40.1
       gateway6: 2a0a:d580:40:60::1
       nameservers:
