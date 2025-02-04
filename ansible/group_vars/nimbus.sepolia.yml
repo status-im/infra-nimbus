@@ -1,4 +1,10 @@
 ---
+# Ports used for all 2 EL nodes as they are mutually exclusive.
+exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
+exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
+exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
+exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
+
 # Go-Ethereum
 geth_service_name: 'geth-sepolia-{{ node.branch }}'
 geth_network_name: 'sepolia'
@@ -9,7 +15,7 @@ geth_sync_mode: 'full'
 geth_log_level_name: info
 # Geth auth & JWT token
 geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
-geth_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
+geth_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 # Memory settings
 geth_cont_mem_ratio: 0.3
 # Genesis
@@ -20,14 +26,36 @@ geth_rpc_addr: '0.0.0.0'
 geth_authrpc_addr: '0.0.0.0'
 geth_websocket_enabled: true
 geth_websocket_addr: '0.0.0.0'
-geth_port:           '{{ 30303 + idx|int + 11 }}'
-geth_metrics_port:   '{{ 6060  + idx|int + 11 }}'
-geth_rpc_port:       '{{ 8545  + idx|int + 11 }}'
-geth_authrpc_port:   '{{ 8551  + idx|int + 11 }}'
+geth_port:           '{{ exec_layer_p2p_port }}'
+geth_metrics_port:   '{{ exec_layer_metrics_port }}'
+geth_rpc_port:       '{{ exec_layer_rpc_port }}'
+geth_authrpc_port:   '{{ exec_layer_authrpc_port }}'
 geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
 # Parameter for waku RLN keystore generation
 geth_extra_flags_allow_unprotected_txs: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 else [] }}'
 geth_extra_flags: '{{ [ "--miner.gaslimit 36000000" ] + geth_extra_flags_allow_unprotected_txs }}'
+
+# Nimbus ETH1 ------------------------------------------------------------------
+
+nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch | mandatory }}'
+nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_network: 'sepolia'
+nimbus_eth1_max_peers: 160
+nimbus_eth1_log_level: 'DEBUG'
+nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
+nimbus_eth1_engine_http_enabled: true
+nimbus_eth1_engine_ws_enabled: true
+nimbus_eth1_era_dir:  '{{ nimbus_era_files_timer_path }}'
+nimbus_eth1_era1_dir: '/data/era1'
+# Ports
+nimbus_eth1_listening_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_discovery_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_http_port:        '{{ exec_layer_rpc_port }}'
+nimbus_eth1_metrics_port:     '{{ exec_layer_metrics_port }}'
+nimbus_eth1_engine_http_port: '{{ exec_layer_authrpc_port }}'
+nimbus_eth1_metrics_address: '0.0.0.0'
+# API secert
+nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # We map short names to branches to avoid too long service names.
 node_name_to_branch_map:
@@ -49,8 +77,8 @@ beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: true
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://localhost:{{ geth_authrpc_port }}']
-beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
+beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
+beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Suggests it to the Execution Layer client.
 beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 # Validators from nimbus-private repo¬
@@ -115,16 +143,17 @@ nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unsta
 bootstrap__firewall_nftables: true
 
 # Open Ports
+host_el_type: 'EL node'
 open_ports_list:
     nginx:
       - { port: 443,           comment: 'Nginx' }
     smart-metrics:
       - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'hq.metrics',    iifname: 'wg0' }
-    geth-node:
-      - { port: '30314-30317', comment: 'Go-Ethereum libp2p',    protocol: 'tcp'                                    }
-      - { port: '30314-30317', comment: 'Go-Ethereum discovery', protocol: 'udp'                                    }
-      - { port: '9400-9404',   comment: 'Geth Exporter',         ipset: 'hq.metrics',                iifname: 'wg0' }
-      - { port: '6071-6074',   comment: 'Geth Metrics',          ipset: 'hq.metrics',                iifname: 'wg0' }
+    exec-node:
+      - { port: '30304-30314', comment: '{{ host_el_type }} LibP2P',    protocol: 'tcp'                     }
+      - { port: '30304-30314', comment: '{{ host_el_type }} Discovery', protocol: 'udp'                     }
+      - { port: '6061-6064',   comment: '{{ host_el_type }} Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
+      - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'hq.metrics', iifname: 'wg0' }
     beacon-node:
       - { port: '9011-9014',   comment: 'Beacon Node libp2p',    protocol: 'tcp'                                    }
       - { port: '9011-9014',   comment: 'Beacon Node discovery', protocol: 'udp'                                    }
