@@ -37,19 +37,19 @@ mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 data_center
 metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.status.im env=nimbus region=eu-mda1 stage=eth1
 metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.239 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-02.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
+nec-01.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.247 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 nec-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-01.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
+nec-02.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.248 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-02.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 nec-02.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.72 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-02.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
+nec-03.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.249 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-03.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 nec-03.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.78 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-03.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
-neth-01.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.247 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-02.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.248 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-02.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-03.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.249 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-03.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-04.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.250 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-04.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-05.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.251 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-05.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-06.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.252 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-06.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-07.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.253 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-07.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-08.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.254 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-08.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-09.ih-eu-mda1.nimbus.holesky ansible_host=185.181.229.100 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-09.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
-neth-10.ih-eu-mda1.nimbus.holesky ansible_host=185.181.229.103 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-10.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+nec-04.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.250 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-04.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+nec-05.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.251 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-05.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+neth-01.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.252 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+neth-02.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.253 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-02.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+neth-03.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.254 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-03.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+neth-04.ih-eu-mda1.nimbus.holesky ansible_host=185.181.229.100 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-04.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+neth-05.ih-eu-mda1.nimbus.holesky ansible_host=185.181.229.103 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-05.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 data_center=aws-eu-central-1a dns_domain=status.im dns_entry=node-01.aws-eu-central-1a.dash.nimbus.status.im env=dash region=eu-central-1a stage=nimbus
 store-01.he-eu-hel1.logs.nimbus ansible_host=65.108.226.62 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-01.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
 store-02.he-eu-hel1.logs.nimbus ansible_host=65.109.62.247 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-02.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
@@ -104,19 +104,19 @@ macm2-01.ih-eu-mda1.nimbus.holesky
 metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
+nec-01.ih-eu-mda1.nimbus.holesky
 nec-01.ih-eu-mda1.nimbus.mainnet
+nec-02.ih-eu-mda1.nimbus.holesky
 nec-02.ih-eu-mda1.nimbus.mainnet
+nec-03.ih-eu-mda1.nimbus.holesky
 nec-03.ih-eu-mda1.nimbus.mainnet
+nec-04.ih-eu-mda1.nimbus.holesky
+nec-05.ih-eu-mda1.nimbus.holesky
 neth-01.ih-eu-mda1.nimbus.holesky
 neth-02.ih-eu-mda1.nimbus.holesky
 neth-03.ih-eu-mda1.nimbus.holesky
 neth-04.ih-eu-mda1.nimbus.holesky
 neth-05.ih-eu-mda1.nimbus.holesky
-neth-06.ih-eu-mda1.nimbus.holesky
-neth-07.ih-eu-mda1.nimbus.holesky
-neth-08.ih-eu-mda1.nimbus.holesky
-neth-09.ih-eu-mda1.nimbus.holesky
-neth-10.ih-eu-mda1.nimbus.holesky
 windows-01.ih-eu-mda1.nimbus.holesky
 
 [log-dash]
@@ -172,17 +172,19 @@ geth-10.ih-eu-mda1.nimbus.holesky
 [nimbus-holesky-macm2]
 macm2-01.ih-eu-mda1.nimbus.holesky
 
+[nimbus-holesky-nec]
+nec-01.ih-eu-mda1.nimbus.holesky
+nec-02.ih-eu-mda1.nimbus.holesky
+nec-03.ih-eu-mda1.nimbus.holesky
+nec-04.ih-eu-mda1.nimbus.holesky
+nec-05.ih-eu-mda1.nimbus.holesky
+
 [nimbus-holesky-neth]
 neth-01.ih-eu-mda1.nimbus.holesky
 neth-02.ih-eu-mda1.nimbus.holesky
 neth-03.ih-eu-mda1.nimbus.holesky
 neth-04.ih-eu-mda1.nimbus.holesky
 neth-05.ih-eu-mda1.nimbus.holesky
-neth-06.ih-eu-mda1.nimbus.holesky
-neth-07.ih-eu-mda1.nimbus.holesky
-neth-08.ih-eu-mda1.nimbus.holesky
-neth-09.ih-eu-mda1.nimbus.holesky
-neth-10.ih-eu-mda1.nimbus.holesky
 
 [nimbus-holesky-windows]
 windows-01.ih-eu-mda1.nimbus.holesky
@@ -243,16 +245,16 @@ geth-08.ih-eu-mda1.nimbus.holesky
 geth-09.ih-eu-mda1.nimbus.holesky
 geth-10.ih-eu-mda1.nimbus.holesky
 macm2-01.ih-eu-mda1.nimbus.holesky
+nec-01.ih-eu-mda1.nimbus.holesky
+nec-02.ih-eu-mda1.nimbus.holesky
+nec-03.ih-eu-mda1.nimbus.holesky
+nec-04.ih-eu-mda1.nimbus.holesky
+nec-05.ih-eu-mda1.nimbus.holesky
 neth-01.ih-eu-mda1.nimbus.holesky
 neth-02.ih-eu-mda1.nimbus.holesky
 neth-03.ih-eu-mda1.nimbus.holesky
 neth-04.ih-eu-mda1.nimbus.holesky
 neth-05.ih-eu-mda1.nimbus.holesky
-neth-06.ih-eu-mda1.nimbus.holesky
-neth-07.ih-eu-mda1.nimbus.holesky
-neth-08.ih-eu-mda1.nimbus.holesky
-neth-09.ih-eu-mda1.nimbus.holesky
-neth-10.ih-eu-mda1.nimbus.holesky
 windows-01.ih-eu-mda1.nimbus.holesky
 
 [nimbus.mainnet]

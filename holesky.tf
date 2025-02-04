@@ -57,16 +57,30 @@ module "nimbus_nodes_holesky_innova_neth" {
   prefix = "ih"
 
   ips = [
-    "194.33.40.247",   # neth-01.ih-eu-mda1.nimbus.holesky
-    "194.33.40.248",   # neth-02.ih-eu-mda1.nimbus.holesky
-    "194.33.40.249",   # neth-03.ih-eu-mda1.nimbus.holesky
-    "194.33.40.250",   # neth-04.ih-eu-mda1.nimbus.holesky
-    "194.33.40.251",   # neth-05.ih-eu-mda1.nimbus.holesky
-    "194.33.40.252",   # neth-06.ih-eu-mda1.nimbus.holesky
-    "194.33.40.253",   # neth-07.ih-eu-mda1.nimbus.holesky
-    "194.33.40.254",   # neth-08.ih-eu-mda1.nimbus.holesky
-    "185.181.229.100", # neth-09.ih-eu-mda1.nimbus.holesky
-    "185.181.229.103", # neth-10.ih-eu-mda1.nimbus.holesky
+    "194.33.40.252",   # neth-01.ih-eu-mda1.nimbus.holesky
+    "194.33.40.253",   # neth-02.ih-eu-mda1.nimbus.holesky
+    "194.33.40.254",   # neth-03.ih-eu-mda1.nimbus.holesky
+    "185.181.229.100", # neth-04.ih-eu-mda1.nimbus.holesky
+    "185.181.229.103", # neth-05.ih-eu-mda1.nimbus.holesky
+  ]
+}
+
+module "nimbus_nodes_holesky_innova_nec" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "nec"
+  env    = "nimbus"
+  stage  = "holesky"
+  group  = "nimbus-holesky-nec"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  ips = [
+    "194.33.40.247",   # nec-01.ih-eu-mda1.nimbus.holesky
+    "194.33.40.248",   # nec-02.ih-eu-mda1.nimbus.holesky
+    "194.33.40.249",   # nec-03.ih-eu-mda1.nimbus.holesky
+    "194.33.40.250",   # nec-04.ih-eu-mda1.nimbus.holesky
+    "194.33.40.251",   # nec-05.ih-eu-mda1.nimbus.holesky
   ]
 }
 

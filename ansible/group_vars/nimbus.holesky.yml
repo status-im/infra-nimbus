@@ -1,6 +1,6 @@
 ---
 mev_boost_enabled: false
-# Ports used for all 3 EL nodes as they are mutually exclusive.
+# Ports used for all 4 EL nodes as they are mutually exclusive.
 exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
 exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
 exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
@@ -17,7 +17,7 @@ geth_sync_mode: 'full'
 geth_log_level_name: 'info'
 # Geth auth & JWT token
 geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
-geth_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
+geth_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 # Memory settings
 geth_cont_mem_ratio: 0.2
 # Ports
@@ -54,7 +54,7 @@ erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
 erigon_rpc_port:          '{{ exec_layer_rpc_port }}'
 erigon_metrics_port:      '{{ exec_layer_metrics_port }}'
 erigon_authrpc_port:      '{{ exec_layer_authrpc_port }}'
-erigon_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
+erigon_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # Nethermind -------------------------------------------------------------------
 
@@ -62,12 +62,33 @@ nethermind_network_name: 'holesky'
 nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
 nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
-nethermind_authrpc_jwtsecret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
+nethermind_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 nethermind_sync_mode: 'snap'
 nethermind_port:         '{{ exec_layer_p2p_port }}'
 nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
 nethermind_authrpc_port: '{{ exec_layer_authrpc_port }}'
 nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
+
+# Nimbus ETH1 ------------------------------------------------------------------
+
+nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ "%02d"|format(idx|int+1) }}'
+nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_network: 'holesky'
+nimbus_eth1_max_peers: 160
+nimbus_eth1_log_level: 'DEBUG'
+nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
+nimbus_eth1_engine_http_enabled: true
+nimbus_eth1_engine_ws_enabled: true
+nimbus_eth1_era_dir: '{{ nimbus_era_files_timer_path }}'
+# Ports
+nimbus_eth1_listening_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_discovery_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_http_port:        '{{ exec_layer_rpc_port }}'
+nimbus_eth1_metrics_port:     '{{ exec_layer_metrics_port }}'
+nimbus_eth1_engine_http_port: '{{ exec_layer_authrpc_port }}'
+nimbus_eth1_metrics_address: '0.0.0.0'
+# API secert
+nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # Beacon Nodes -----------------------------------------------------------------
 
@@ -92,7 +113,7 @@ beacon_node_validator_monitor_details: >-
   and (node.end is defined and (node.end - node.start) < 10) }}
 # Execution layer Enginer API
 beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
-beacon_node_exec_layer_jwt_secret: '{{ geth_authrpc_jwtsecret | mandatory }}'
+beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Suggests it to the Execution Layer client.
 beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 # Windows service user

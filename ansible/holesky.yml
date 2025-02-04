@@ -15,6 +15,7 @@
   hosts:
     - nimbus-holesky-geth
     - nimbus-holesky-erigon
+    - nimbus-holesky-nec
     - nimbus-holesky-neth
   vars_files: layout/holesky.yml
   roles:
@@ -92,6 +93,23 @@
           tags: always
       tags: [ nethermind ]
       when: node.el == "nethermind"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Holesky Nimbus ETH1 Nodes
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts: nimbus-holesky-nec
+  vars_files: layout/holesky.yml
+  tasks:
+    - include_role:
+        name: infra-role-nimbus-eth1
+        apply:
+          tags: always
+      tags: [ nimbus-eth1 ]
+      when:
+        - "'el' in node"
+        - node.el == "nec"
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
 
