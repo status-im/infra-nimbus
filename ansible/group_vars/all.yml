@@ -80,8 +80,3 @@ validator_client_consul_check_timeout:            '{{ beacon_node_consul_check_t
 validator_client_consul_success_before_passing:   '{{ beacon_node_consul_success_before_passing }}'
 validator_client_consul_failures_before_warning:  '{{ beacon_node_consul_failures_before_warning }}'
 validator_client_consul_failures_before_critical: '{{ beacon_node_consul_failures_before_critical }}'
-
-# Vault certificate
-bootstrap__vault_ca_cert:           '{{ lookup("passwordstore", "services/vault/certs/root-ca/cert returnall=true")}}'
-bootstrap__vault_client_cert:       '{{ lookup("passwordstore", "services/vault/certs/client-host/cert returnall=true")}}'
-bootstrap__vault_client_key:        '{{ lookup("passwordstore", "services/vault/certs/client-host/privkey returnall=true")}}'
