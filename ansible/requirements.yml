@@ -62,7 +62,7 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: 95a5de787aef58712121d2ac6c0bd97b6948baec
+  version: e3a4c34ebe4f1eeb95ad8d692b1ae25ea454cf99
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git

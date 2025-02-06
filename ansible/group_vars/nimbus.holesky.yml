@@ -168,6 +168,9 @@ validator_client_dist_validators_enabled: '{{ node.start is defined and node.end
 validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.get("vc", false)) | ternary(0, node.end)   | mandatory }}'
 
+# Dist validators
+dist_validators_repo_ssh_key: '{{lookup("vault", "dist-validators/deploy-key", field="private", stage="all")}}'
+
 # ERA files geneartion ---------------------------------------------------------
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
