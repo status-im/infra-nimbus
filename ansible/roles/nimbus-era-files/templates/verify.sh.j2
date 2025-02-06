@@ -7,7 +7,7 @@ LAST_ERA_INDEX=$(ls "${ERA_PATH}" | awk -F- 'END{print $2}')
 EXIT_CODE=0
 
 for ERA_INDEX in $(seq -w 00001 "${LAST_ERA_INDEX}"); do
-  ERA_FILE=$(echo ${ERA_PATH}/mainnet-${ERA_INDEX}-*.era)
+  ERA_FILE=$(echo ${ERA_PATH}/{{ nimbus_era_files_network }}-${ERA_INDEX}-*.era)
   echo "Checking: ${ERA_FILE}"
   {{ nimbus_era_files_nclidb_path }} \
     --network={{ nimbus_era_files_network }} \
