@@ -20,7 +20,7 @@ redirect_ports:
 
 # Era files hosting
 era_files_domain: 'holesky.era.nimbus.team'
-era_files_path: '/data/era'
+era_files_path: '/docker/era'
 
 # CloudFlare Origin certificates
 origin_certs:

@@ -3,7 +3,7 @@ nimbus_era_files_timer_name: 'nimbus-era-files'
 nimbus_era_files_timer_update_name: '{{ nimbus_era_files_timer_name }}-update'
 nimbus_era_files_timer_verify_name: '{{ nimbus_era_files_timer_name }}-verify'
 nimbus_era_files_timer_enabled: true
-nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_timer_path: '/docker/era'
 nimbus_era_files_timer_user: 'nimbus'
 nimbus_era_files_timer_group: 'staff'
 nimbus_era_files_timer_frequency: 'weekly'
