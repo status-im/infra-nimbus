@@ -43,6 +43,10 @@ import os
 import re
 import traceback
 from subprocess import Popen, PIPE
+from cryptography.fernet import Fernet
+import base64
+from pathlib import Path
+import hashlib
 
 TERRAFORM_DIR = os.environ.get('ANSIBLE_TF_DIR', os.getcwd())
 TERRAFORM_ENV = os.path.join(TERRAFORM_DIR, '.terraform/environment')
@@ -383,7 +387,6 @@ class AnsibleGroup(object):
 
 
 def _execute_shell():
-    encoding = 'utf-8'
     tf_workspace = [TERRAFORM_PATH, 'workspace', 'select', TERRAFORM_WS_NAME]
     proc_ws = Popen(tf_workspace, cwd=TERRAFORM_DIR, stdout=PIPE,
                     stderr=PIPE, universal_newlines=True)
@@ -403,10 +406,37 @@ def _execute_shell():
             return json.loads(out_cmd)
 
 
+def _get_encryption_key():
+    """Generate encryption key using CONSUL_HTTP_TOKEN"""
+    key_file = Path(TERRAFORM_DIR) / '.terraform' / '.state_key'
+
+    consul_token = os.environ.get('CONSUL_HTTP_TOKEN')
+    if not consul_token:
+        raise ValueError("CONSUL_HTTP_TOKEN environment variable is required for state encryption")
+
+    # Generate a fixed-length key using SHA256
+    hashed = hashlib.sha256(consul_token.encode()).digest()
+    # Convert to URL-safe base64 encoding as required by Fernet
+    key = base64.urlsafe_b64encode(hashed)
+
+    return key
+
 def _backup_tf(tfstate):
-    # Crates a state backup in case we lose Consul
-    with open(TERRAFORM_BPK, 'w') as f:
-        f.write(json.dumps(tfstate.state_json))
+    """Creates an encrypted state backup"""
+    try:
+        key = _get_encryption_key()
+        cipher = Fernet(key)
+
+        state_data = json.dumps(tfstate.state_json).encode()
+        encrypted_data = cipher.encrypt(state_data)
+
+        backup_path = Path(TERRAFORM_BPK)
+        backup_path.parent.mkdir(parents=True, exist_ok=True)
+        backup_path.write_bytes(encrypted_data)
+        backup_path.chmod(0o600)
+
+    except Exception as e:
+        sys.stderr.write(f"Warning: Failed to create encrypted state backup: {str(e)}\n")
 
 def _backup_ansible(inventory):
     # Crates a state backup in Ansible inventory format
