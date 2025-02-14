@@ -98,7 +98,7 @@
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
-  version: 468d6b531dcd6369f353d53d45599e66ff8d91ce
+  version: 0859bd5b4a5010a7377c01ea3b4bb26195a594f4
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
