@@ -72,7 +72,7 @@ nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 # Nimbus ETH1 ------------------------------------------------------------------
 
 nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ "%02d"|format(idx|int+1) }}'
-nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_repo_branch: 'devnet-6-pectra'
 nimbus_eth1_network: 'holesky'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'

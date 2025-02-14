@@ -38,7 +38,7 @@ geth_extra_flags: '{{ [ "--miner.gaslimit 36000000" ] + geth_extra_flags_allow_u
 # Nimbus ETH1 ------------------------------------------------------------------
 
 nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch | mandatory }}'
-nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_repo_branch: 'devnet-6-pectra'
 nimbus_eth1_network: 'sepolia'
 nimbus_eth1_max_peers: 160
 nimbus_eth1_log_level: 'DEBUG'
