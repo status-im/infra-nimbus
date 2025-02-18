@@ -4,6 +4,12 @@ provider "aws" {
   secret_key = data.pass_password.aws_secret_key.password
 }
 
+provider "digitalocean" {
+  token             = data.pass_password.digitalocean_token.password
+  spaces_access_id  = data.pass_password.digitalocean_spaces_id.password
+  spaces_secret_key = data.pass_password.digitalocean_spaces_key.password
+}
+
 provider "google" {
   credentials = data.pass_password.google_cloud_cred_json.full
   project     = "russia-servers"

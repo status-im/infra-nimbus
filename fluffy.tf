@@ -18,3 +18,12 @@ module "nimbus_nodes_fluffy_innova" {
     "194.33.40.239", # metal-02.ih-eu-mda1.nimbus.fluffy
   ]
 }
+
+/* Testing instance for Fluffy deployment */
+module "fluffy_droplet" {
+  source = "github.com/status-im/infra-tf-digital-ocean"
+  env    = "nimbus"
+  stage  = "fluffy"
+  group  = "nimbus-fluffy-droplet"
+  type   = "s-1vcpu-1gb"
+}

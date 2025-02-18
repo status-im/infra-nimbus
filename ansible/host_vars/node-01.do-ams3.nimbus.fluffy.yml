@@ -1,0 +1,16 @@
+---
+# Necessary in order to build fluffy on the droplet with 1GB RAM
+swap_file_size_mb: 6144
+
+nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}-01'
+nimbus_fluffy_listening_port:   9100
+nimbus_fluffy_metrics_port: '9201'
+nimbus_fluffy_rpc_port:     '9901'
+nimbus_fluffy_build_jobs: '1'
+# Testing how low we can go on the storage capacity
+nimbus_fluffy_storage_capacity: '2000'
+
+open_ports_list:
+  nimbus-fluffy:
+    - { comment: 'Nimbus Fluffy',          port: '{{ nimbus_fluffy_listening_port }}',                                      protocol: 'udp' }
+    - { comment: 'Nimbus Fluffy Metrics',  port: '{{ nimbus_fluffy_metrics_port }}',   ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }

@@ -11,5 +11,8 @@ terraform {
       source  = "camptocamp/pass"
       version = " = 2.1.1"
     }
+    digitalocean = {
+      source  = "digitalocean/digitalocean"
+    }
   }
 }

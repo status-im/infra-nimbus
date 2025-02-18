@@ -51,6 +51,7 @@ neth-03.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.254 data_center=ih-eu-m
 neth-04.ih-eu-mda1.nimbus.holesky ansible_host=185.181.229.100 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-04.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 neth-05.ih-eu-mda1.nimbus.holesky ansible_host=185.181.229.103 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=neth-05.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 data_center=aws-eu-central-1a dns_domain=status.im dns_entry=node-01.aws-eu-central-1a.dash.nimbus.status.im env=dash region=eu-central-1a stage=nimbus
+node-01.do-ams3.nimbus.fluffy ansible_host=143.244.196.233 data_center=do-ams3 dns_domain=status.im dns_entry=node-01.do-ams3.nimbus.fluffy.status.im env=nimbus region=ams3 stage=fluffy
 store-01.he-eu-hel1.logs.nimbus ansible_host=65.108.226.62 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-01.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
 store-02.he-eu-hel1.logs.nimbus ansible_host=65.109.62.247 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-02.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
 store-03.he-eu-hel1.logs.nimbus ansible_host=65.109.49.101 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-03.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
@@ -64,6 +65,9 @@ node-01.aws-eu-central-1a.dash.nimbus
 
 [dash.nimbus]
 node-01.aws-eu-central-1a.dash.nimbus
+
+[do-ams3]
+node-01.do-ams3.nimbus.fluffy
 
 [he-eu-hel1]
 bench-01.he-eu-hel1.nimbus.eth1
@@ -133,6 +137,9 @@ bench-02.he-eu-hel1.nimbus.eth1
 
 [nimbus-eth1-metal]
 metal-01.ih-eu-mda1.nimbus.eth1
+
+[nimbus-fluffy-droplet]
+node-01.do-ams3.nimbus.fluffy
 
 [nimbus-fluffy-metal]
 metal-01.ih-eu-mda1.nimbus.fluffy
@@ -217,6 +224,7 @@ metal-01.ih-eu-mda1.nimbus.eth1
 [nimbus.fluffy]
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
+node-01.do-ams3.nimbus.fluffy
 
 [nimbus.geth]
 holesky-01.ih-eu-mda1.nimbus.geth

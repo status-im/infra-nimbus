@@ -12,7 +12,7 @@
 - name: Configure Nimbus Fluffy nodes
   become: true
   hosts:
-    - nimbus.fluffy
+    - nimbus-fluffy-metal
   roles:
     # Extra 32 IPv4 addresses for each of the nodes on the host.
     - { role: update-netplan,           tags: update-netplan }
@@ -37,3 +37,13 @@
     - { role: infra-role-open-ports,    tags: open-ports    }
     - { role: infra-role-nimbus-fluffy, tags: nimbus-fluffy }
     - { role: infra-role-portal-bridge, tags: portal-bridge }
+
+- name: Configure Nimbus Fluffy droplet
+  become: true
+  hosts:
+    - nimbus-fluffy-droplet
+  roles:
+    - { role: infra-role-swap-file,     tags: swap-file      }
+    - { role: infra-role-open-ports,    tags: open-ports     }
+    - { role: infra-role-smart-metrics, tags: smart-metrics  }
+    - { role: infra-role-nimbus-fluffy, tags: nimbus-fluffy  }
