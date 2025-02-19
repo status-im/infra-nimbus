@@ -6,7 +6,7 @@ nimbus_fluffy_repo_branch: 'master'
 nimbus_fluffy_log_level: 'INFO'
 # Ports
 nimbus_fluffy_host_index: '{{ groups["nimbus.fluffy"].index(inventory_hostname) }}'
-nimbus_fluffy_listening_addr: '194.33.43.{{ (32 * (nimbus_fluffy_host_index|int + 1)) + index|int - 1 }}'
+nimbus_fluffy_listening_addr: '194.33.43.{{ (32 * (nimbus_fluffy_host_index|int + 1)) + index|default(1)|int - 1 }}'
 nimbus_fluffy_public_address: '{{ nimbus_fluffy_listening_addr }}'
 nimbus_fluffy_listening_port:   9100
 nimbus_fluffy_metrics_port: '{{ 9200 + index|int }}'
@@ -32,7 +32,7 @@ portal_bridge_latest: false
 portal_bridge_backfill: true
 portal_bridge_audit: true
 portal_bridge_era1_dir: '/era'
-portal_bridge_web3_url: 'http://linux-02.ih-eu-mda1.nimbus.mainnet.wg:8545'
+portal_bridge_web3_url: 'http://geth-01.ih-eu-mda1.nimbus.mainnet.wg:8545'
 portal_bridge_portal_rpc_url: 'http://127.0.0.1:{{ portal_bridge_fluffy_rpc_port }}'
 
 # Migrated to NFTables from IPTables.
