@@ -28,7 +28,7 @@ portal_bridge_fluffy_listening_port: 19100
 portal_bridge_fluffy_metrics_port: 19200
 portal_bridge_service_name: 'nimbus-portal-bridge-history'
 portal_bridge_command: 'history'
-portal_bridge_latest: true
+portal_bridge_latest: false
 portal_bridge_backfill: true
 portal_bridge_audit: true
 portal_bridge_era1_dir: '/era'
