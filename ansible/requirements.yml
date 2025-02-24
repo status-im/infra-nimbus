@@ -26,11 +26,11 @@
 
 - name: infra-role-oauth-proxy
   src: git@github.com:status-im/infra-role-oauth-proxy.git
-  version: 7ce78de798ee8c1e4ecd8c0e6d23d86889d57839
+  version: 49aeb3918b2c0d058af71d58b6d62118d6eebbaa
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 2ef75e12a6bd0b57e1db95c834d30be45fe17af4
+  version: a8e5415669245c189a7b665720cace76f2e1d014
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 7750aed23197d8d931bd2a28af6a0673130fe97f
+  version: 851e41dcf58ef14c33b2bd7f11b985327adbe391
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -54,7 +54,7 @@
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
-  version: 0b245e8781481fb4e1f6192b0633d97b48acd372
+  version: 4705f3d457d83fc7e9c3e6e25b2471bdec98dd6b
 
 - name: infra-role-portal-bridge
   src: git@github.com:status-im/infra-role-portal-bridge.git
@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 5af21f2dec46cdfa9b1a5d7e26c56300088ae2d7
+  version: 6d68769f42e0aa33c9f69c036ed221e118746dbd
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -74,11 +74,11 @@
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: b2b172ca6dbf3badbf5f8f77d48173a40cf04e7a
+  version: 11438c28906078ff8d47563b169926b5c2a89b96
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: aedab4dae99971d1c1add9ac6b192c26b7216210
+  version: d9dc779dccd879b429a4e808b463fb403ba5753f
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: e1aa94f70601a1fbd200cf46eebd15ab846b2d99
+  version: 5730e87a3a6faf88ed6df8dd5ac82e71b18f69ef
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 092b346c095e07a5a2ad5ba7a69e34ce88663872
+  version: 8346061da49d0d60349511a122e727c0951ffbf2
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
@@ -118,9 +118,8 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: d94f021d3338282c17b7674289e4b876eff650ff
+  version: 04e4b7c3e5bb0acef2b3773020f4ad2bcc27ab27
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
   version: f33cdd51dfb7549ecd2c70d23e11e2ba08be7570
-
