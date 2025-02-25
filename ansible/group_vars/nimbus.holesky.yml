@@ -60,14 +60,13 @@ erigon_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # Nethermind -------------------------------------------------------------------
 
-# FIXME: Temporarily fixed image for Holesky Pektra fork.
-nethermind_cont_image: 'ethpandaops/nethermind:bugfix-depositcontract'
 nethermind_network_name: 'holesky'
 nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
+# FIXME: Switch back to snap sync after Pectra upgrade issue are resolved.
+nethermind_sync_mode:    'full'
 nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
 nethermind_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
-nethermind_sync_mode: 'snap'
 nethermind_port:         '{{ exec_layer_p2p_port }}'
 nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
 nethermind_authrpc_port: '{{ exec_layer_authrpc_port }}'

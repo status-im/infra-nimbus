@@ -106,7 +106,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 379073a4b33866b3d3af26df2c70566f2e18c8a1
+  version: 5b3a301d8b917c990c3ff85ce8ae9be91d26d4f2
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
