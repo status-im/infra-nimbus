@@ -8,6 +8,8 @@ exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
 
 # Go-Ethereum ------------------------------------------------------------------
 
+# FIXME: Temporarily fixed image for Holesky Pektra fork.
+geth_cont_image: 'ethpandaops/geth:rescue-holesky'
 geth_service_name: 'geth-{{ geth_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 geth_service_path: '/docker/{{ geth_service_name }}'
 geth_network_name: 'holesky'
@@ -58,6 +60,8 @@ erigon_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
 # Nethermind -------------------------------------------------------------------
 
+# FIXME: Temporarily fixed image for Holesky Pektra fork.
+nethermind_cont_image: 'ethpandaops/nethermind:bugfix-depositcontract'
 nethermind_network_name: 'holesky'
 nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
