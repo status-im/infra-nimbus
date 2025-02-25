@@ -105,6 +105,7 @@ beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined els
 node_name_to_branch_map:
   libp2p:  'nim-libp2p-auto-bump-unstable'
   chronos: 'nim-chronos-auto-bump-unstable'
+  testing: 'feat/splitview'
 # Builds
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
