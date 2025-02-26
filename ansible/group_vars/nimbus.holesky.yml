@@ -8,8 +8,6 @@ exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
 
 # Go-Ethereum ------------------------------------------------------------------
 
-# FIXME: Temporarily fixed image for Holesky Pektra fork.
-geth_cont_image: 'ethpandaops/geth:rescue-holesky'
 geth_service_name: 'geth-{{ geth_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 geth_service_path: '/docker/{{ geth_service_name }}'
 geth_network_name: 'holesky'
