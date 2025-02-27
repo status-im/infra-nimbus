@@ -121,7 +121,15 @@ beacon_node_metrics_port:   '{{ 9200 + idx|int + 1 }}'
 beacon_node_rest_address:   '0.0.0.0'
 beacon_node_max_peers: '{{ node.get("max_peers", 320) }}'
 # Firewall
-beacon_node_firewall_libp2p_open: '{{ node.get("open_libp2p_ports", true) }}'
+# test mainnet nimbus with closed libp2p port
+beacon_node_closed_libp2p_ports: >-
+  {%- set closed_ports = [] -%}
+  {%- for config in nodes_layout[inventory_hostname] if config.get('close_libp2p_port', false) -%}
+      {%- set port = 9000 + loop.index0 + 1 -%}
+      {%- set _ = closed_ports.append(port|string) -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {{ closed_ports|join(',') }}
 # Excellent stress test and good service to the community.
 beacon_node_subscribe_all: true
 # FIXME: Temporary test to debug REST API timeout issues.
@@ -163,10 +171,12 @@ open_ports_list:
     - { port: '8552-8555',   comment: 'Go-Ethereum AuthRPC',   ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
     - { port: '8446-8449',   comment: 'RPC for Portal Bridge', ipset: 'nimbus.fluffy',         iifname: 'wg0' }
   beacon-node:
-    - { port: '9001-9004', comment: 'Beacon Node libp2p',    protocol: 'tcp'                                    }
-    - { port: '9001-9004', comment: 'Beacon Node discovery', protocol: 'udp'                                    }
-    - { port: '9201-9204', comment: 'Beacon Node Metrics',   ipset: 'hq.metrics',                iifname: 'wg0' }
-    - { port: '9301-9304', comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}',     iifname: 'wg0' }
+    - { port: '{{ beacon_node_closed_libp2p_ports }}', comment: 'Block Beacon Node Libp2p',    protocol: 'tcp', verdict: 'drop', disabled: '{{ beacon_node_closed_libp2p_ports|trim == "" }}' }
+    - { port: '{{ beacon_node_closed_libp2p_ports }}', comment: 'Block Beacon Node Discovery', protocol: 'udp', verdict: 'drop', disabled: '{{ beacon_node_closed_libp2p_ports|trim == "" }}' }
+    - { port: '9001-9004',                             comment: 'Beacon Node libp2p',          protocol: 'tcp'                                }
+    - { port: '9001-9004',                             comment: 'Beacon Node discovery',       protocol: 'udp'                                }
+    - { port: '9201-9204',                             comment: 'Beacon Node Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '9301-9304',                             comment: 'Beacon Node REST API',        ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
   nimbus-light-client:
     - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp' }
     - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp' }
