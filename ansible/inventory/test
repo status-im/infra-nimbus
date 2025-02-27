@@ -37,6 +37,8 @@ mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 data_center
 metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.status.im env=nimbus region=eu-mda1 stage=eth1
 metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.239 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-02.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
+metal-03.ih-eu-mda1.nimbus.fluffy ansible_host=82.25.203.2 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-03.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
+metal-04.ih-eu-mda1.nimbus.fluffy ansible_host=82.25.203.66 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-04.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
 nec-01.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.247 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 nec-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.70 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-01.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
 nec-02.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.248 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=nec-02.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
@@ -108,6 +110,8 @@ macm2-01.ih-eu-mda1.nimbus.holesky
 metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
+metal-03.ih-eu-mda1.nimbus.fluffy
+metal-04.ih-eu-mda1.nimbus.fluffy
 nec-01.ih-eu-mda1.nimbus.holesky
 nec-01.ih-eu-mda1.nimbus.mainnet
 nec-02.ih-eu-mda1.nimbus.holesky
@@ -144,6 +148,8 @@ node-01.do-ams3.nimbus.fluffy
 [nimbus-fluffy-metal]
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
+metal-03.ih-eu-mda1.nimbus.fluffy
+metal-04.ih-eu-mda1.nimbus.fluffy
 
 [nimbus-geth-holesky]
 holesky-01.ih-eu-mda1.nimbus.geth
@@ -224,6 +230,8 @@ metal-01.ih-eu-mda1.nimbus.eth1
 [nimbus.fluffy]
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
+metal-03.ih-eu-mda1.nimbus.fluffy
+metal-04.ih-eu-mda1.nimbus.fluffy
 node-01.do-ams3.nimbus.fluffy
 
 [nimbus.geth]
