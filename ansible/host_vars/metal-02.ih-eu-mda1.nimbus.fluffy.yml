@@ -1,0 +1,3 @@
+---
+nimbus_fluffy_host_number_of_public_ips: 32
+nimbus_fluffy_listening_addr: '194.33.43.{{ (64 + index|default(1)|int - 1 }}'

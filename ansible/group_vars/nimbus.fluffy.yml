@@ -5,8 +5,6 @@ nimbus_fluffy_repo_branch: 'master'
 # General
 nimbus_fluffy_log_level: 'INFO'
 # Ports
-nimbus_fluffy_host_index: '{{ groups["nimbus.fluffy"].index(inventory_hostname) }}'
-nimbus_fluffy_listening_addr: '194.33.43.{{ (32 * (nimbus_fluffy_host_index|int + 1)) + index|default(1)|int - 1 }}'
 nimbus_fluffy_public_address: '{{ nimbus_fluffy_listening_addr }}'
 nimbus_fluffy_listening_port:   9100
 nimbus_fluffy_metrics_port: '{{ 9200 + index|int }}'
@@ -43,6 +41,6 @@ bootstrap__firewall_nftables: true
 open_ports_list:
   nimbus-fluffy:
     - { comment: 'Nimbus Fluffy',          port: '{{ nimbus_fluffy_listening_port }}',                                      protocol: 'udp' }
-    - { comment: 'Nimbus Fluffy Metrics',  port: '9201-9232',                          ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }
+    - { comment: 'Nimbus Fluffy Metrics',  port: '9201-92{{ nimbus_fluffy_host_number_of_public_ips }}',                          ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }
   smart-metrics:
     - { comment: 'SMART Metrics',          port: '{{ smart_metrics_listen_port }}',    ipset: 'hq.metrics', iifname: 'wg0'                  }

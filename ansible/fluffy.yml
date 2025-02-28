@@ -14,7 +14,7 @@
   hosts:
     - nimbus-fluffy-metal
   roles:
-    # Extra 32 IPv4 addresses for each of the nodes on the host.
+    # Extra 32 or 64 IPv4 addresses for each of the nodes on the host.
     - { role: update-netplan,           tags: update-netplan }
     - { role: infra-role-open-ports,    tags: open-ports     }
     - { role: infra-role-smart-metrics, tags: smart-metrics  }
@@ -24,7 +24,7 @@
         apply:
           tags: always
       tags: [ nimbus-fluffy ]
-      with_sequence: start=1 end=32
+      with_sequence: start=1 end={{ nimbus_fluffy_host_number_of_public_ips }}
       loop_control:
         loop_var: index
 

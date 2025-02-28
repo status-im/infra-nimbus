@@ -16,6 +16,8 @@ module "nimbus_nodes_fluffy_innova" {
   ips = [
     "194.33.40.238", # metal-01.ih-eu-mda1.nimbus.fluffy
     "194.33.40.239", # metal-02.ih-eu-mda1.nimbus.fluffy
+    "82.25.203.2",   # metal-03.ih-eu-mda1.nimbus.fluffy
+    "82.25.203.66",  # metal-04.ih-eu-mda1.nimbus.fluffy
   ]
 }
 
