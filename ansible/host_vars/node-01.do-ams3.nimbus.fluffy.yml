@@ -1,6 +1,7 @@
 ---
 # Necessary in order to build fluffy on the droplet with 1GB RAM
 swap_file_size_mb: 6144
+swap_file_path: '/mnt/swap-volume/main.swap'
 
 nimbus_fluffy_service_name: 'nimbus-fluffy-{{ nimbus_fluffy_network }}-{{ nimbus_fluffy_repo_branch }}-01'
 nimbus_fluffy_listening_port:   9100

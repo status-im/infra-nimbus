@@ -28,4 +28,5 @@ module "fluffy_droplet" {
   stage  = "fluffy"
   group  = "nimbus-fluffy-droplet"
   type   = "s-1vcpu-1gb"
+  data_vol_size = 10
 }
