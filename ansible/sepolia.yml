@@ -36,6 +36,28 @@
         index_var: idx
 
     - include_role:
+        name: infra-role-geth-exporter
+        apply:
+          tags: always
+      tags: [ geth-exporter ]
+      when:
+        - "'el' in node"
+        - node.el == "geth"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+    - include_role:
+        name: infra-role-nimbus-eth1
+        apply:
+          tags: always
+      tags: [ nimbus-eth1 ]
+      when:
+        - "'el' in node"
+        - node.el == "nec"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+    - include_role:
         name: infra-role-beacon-node-linux
         apply:
           tags: always
@@ -55,25 +77,3 @@
       loop_control:
         loop_var: node
         index_var: idx
-
-    - include_role:
-        name: infra-role-geth-exporter
-        apply:
-          tags: always
-      tags: [ infra-role-geth-exporter ]
-      when:
-        - "'el' in node"
-        - node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
-      loop_control: { loop_var: node, index_var: idx }
-
-    - include_role:
-        name: infra-role-nimbus-eth1
-        apply:
-          tags: always
-      tags: [ nimbus-eth1 ]
-      when:
-        - "'el' in node"
-        - node.el == "nec"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
-      loop_control: { loop_var: node, index_var: idx }
