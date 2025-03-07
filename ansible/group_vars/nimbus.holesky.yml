@@ -201,7 +201,7 @@ open_ports_list:
     - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'hq.metrics', iifname: 'wg0' }
     - { port: '8551-8555',   comment: '{{ host_el_type }} RPC',       ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
   beacon-node:
-    - { port: '9001-9004', comment: 'Beacon Node LibP2P',    protocol: 'tcp'                                }
+    - { port: '9001-9004', comment: 'Beacon Node LibP2P', protocol: 'tcp'                                   }
     - { port: '9001-9004', comment: 'Beacon Node Discovery', protocol: 'udp'                                }
     - { port: '9201-9204', comment: 'Beacon Node Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
     - { port: '9301-9304', comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
