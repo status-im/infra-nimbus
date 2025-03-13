@@ -60,21 +60,23 @@ class State(Enum):
     UNKNOWN       = 0
     EXISTS        = 1
     WRONG_VERSION = 2
-    NEWER_VERSION = 3
-    DIRTY         = 4
-    DETACHED      = 5
-    NO_VERSION    = 6
-    CLONE_FAILURE = 7
-    MISSING       = 8
-    CLONED        = 9
-    SKIPPED       = 10
-    VALID         = 11
-    UPDATED       = 12
+    NOT_PUSHED    = 3
+    NEWER_VERSION = 4
+    DIRTY         = 5
+    DETACHED      = 6
+    NO_VERSION    = 7
+    CLONE_FAILURE = 8
+    MISSING       = 9
+    CLONED        = 10
+    SKIPPED       = 11
+    VALID         = 12
+    UPDATED       = 13
 
     def __str__(self):
         match self:
             case State.NEWER_VERSION: color = BOLD
             case State.WRONG_VERSION: color = RED
+            case State.NOT_PUSHED:    color = RED
             case State.DIRTY:         color = YELLOW
             case State.DETACHED:      color = YELLOW
             case State.NO_VERSION:    color = PURPLE
@@ -190,6 +192,10 @@ class Role:
     def has_upstream(self):
         return self._git_fail_is_false('rev-parse', '--symbolic-full-name', '@{u}')
 
+    @State.update(failure=State.NOT_PUSHED)
+    def is_pushed(self):
+        return self._git_fail_is_false('merge-base', '--is-ancestor', 'HEAD', '@{u}')
+
     @State.update(success=State.DIRTY)
     def is_dirty(self):
         return not self._git_fail_is_false('diff-files', '--quiet')
@@ -284,7 +290,7 @@ def handle_role(role, check=False, update=False, install=False):
         return role
 
     # Update config version or pull new changes.
-    if update:
+    if update and role.is_pushed():
         role.version = role.current_commit
     elif install and role.has_upstream():
         # If version is not specified we just want the newest.
@@ -408,7 +414,7 @@ def main():
         with open(args.requirements, 'w') as f:
             f.write(roles_to_yaml(requirements, processed_roles))
 
-    fail_states = set([State.MISSING, State.WRONG_VERSION])
+    fail_states = set([State.MISSING, State.WRONG_VERSION, State.NOT_PUSHED])
     if args.fail_dirty:
         fail_states.append(State.DIRTY)
     if args.fail_detached:

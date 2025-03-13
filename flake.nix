@@ -24,7 +24,7 @@
         in pkgs.mkShellNoCC {
           packages = with pkgs.buildPackages; [
             # misc
-            git openssh jq fzf silver-searcher direnv
+            git openssh jq silver-searcher direnv
             # networking
             curl nmap nettools dnsutils
             # infra
