@@ -101,13 +101,7 @@ beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 # We map short names to branches to avoid too long service names.
 node_name_to_branch_map:
-  #chronos: 'nim-chronos-auto-bump-unstable'
-  #libp2p:  'nim-libp2p-auto-bump-unstable'
-  # FIXME: Temporary branch for fixing Holesky testnet after Pectra failure.
-  stable:   'feat/splitview'
-  testing:  'feat/splitview'
-  unstable: 'feat/splitview'
-  libp2p:   'feat/splitview'
+  libp2p: 'nim-libp2p-auto-bump-unstable'
 # Builds
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
