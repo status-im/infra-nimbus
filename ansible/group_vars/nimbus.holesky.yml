@@ -147,6 +147,16 @@ beacon_node_consul_success_before_passing:   '{{  60 if not node.get("public_api
 beacon_node_consul_failures_before_warning:  '{{ 360 if not node.get("public_api") else 1440 }}' # 6h  or 24h for public API
 beacon_node_consul_failures_before_critical: '{{ 720 if not node.get("public_api") else 2880 }}' # 12h or 48h for public API
 
+# Checkpoint Sync
+beacon_node_resync_enabled: true
+beacon_node_resync_timer_enabled: false
+beacon_node_resync_timer_trusted_api_url: '{{ beacon_node_resync_timer_trusted_api_urls[idx] }}'
+beacon_node_resync_timer_trusted_api_urls:
+  - 'https://checkpoint-sync.holesky.ethpandaops.io/'
+  - 'https://holesky-checkpoint-sync.stakely.io/'
+  - 'https://beaconstate-holesky.chainsafe.io/'
+  - 'https://holesky.beaconstate.ethstaker.cc/'
+
 # Validator Client -------------------------------------------------------------
 
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
