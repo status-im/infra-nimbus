@@ -105,7 +105,14 @@ validator_client_service_name: 'validator-client-{{ validator_client_network }}-
 validator_client_service_enabled: '{{ node.vc }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
-validator_client_beacon_node_url: 'http://127.0.0.1:{{ beacon_node_rest_port }}'
+validator_client_beacon_node_urls:
+# TODO: temporary 1x VC - 4x BNs setup
+#- 'http://127.0.0.1:{{ beacon_node_rest_port }}'
+- 'http://127.0.0.1:9311'
+- 'http://127.0.0.1:9312'
+- 'http://127.0.0.1:9313'
+- 'http://127.0.0.1:9314'
+
 # Builds
 validator_client_build_repo_branch: '{{ beacon_node_repo_branch }}'
 validator_client_build_frequency: 'daily'

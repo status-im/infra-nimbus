@@ -9,7 +9,7 @@
     - local_action: command ./roles.py --check
       changed_when: false
 
-- name: Deploy Spolia Testnet nodes
+- name: Deploy Sepolia Testnet nodes
   become: true
   serial: '{{ serial|default(1) }}'
   vars_files: layout/sepolia.yml
