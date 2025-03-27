@@ -35,27 +35,6 @@ geth_expo_source_cont_name: '{{ geth_cont_name }}'
 geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
 
-# Erigon -----------------------------------------------------------------------
-
-erigon_network_name: 'holesky'
-erigon_service_name: 'erigon-{{ erigon_network_name }}-{{ "%02d"|format(idx|int+1) }}'
-erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
-erigon_log_level: 'info'
-erigon_cont_mem_ratio: 0.15
-erigon_max_peers: 20
-erigon_miner_enabled: true
-erigon_mining_private_key: '{{lookup("vault", "testnet-wallet", field="private-key", stage="all")}}'
-# Ports
-erigon_metrics_enabled: true
-erigon_rpc_addr: '0.0.0.0'
-erigon_authrpc_addr: '0.0.0.0'
-erigon_port:              '{{ exec_layer_p2p_port }}'
-erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
-erigon_rpc_port:          '{{ exec_layer_rpc_port }}'
-erigon_metrics_port:      '{{ exec_layer_metrics_port }}'
-erigon_authrpc_port:      '{{ exec_layer_authrpc_port }}'
-erigon_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
-
 # Nethermind -------------------------------------------------------------------
 
 nethermind_network_name: 'holesky'
