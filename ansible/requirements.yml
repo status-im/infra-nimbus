@@ -34,7 +34,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 427e953d95de647d64ac719e0ae9fdde6ff1b2ee
+  version: 5ddf358e132a130b02581c3d7c871f7f83473f14
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: d41bc520a88de61dfe9481eb16de011dcb405646
+  version: e8d7669b8f5a88b07b2c9df6588bed34f37e6fbd
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
@@ -122,4 +122,4 @@
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
-  version: f33cdd51dfb7549ecd2c70d23e11e2ba08be7570
+  version: e1b14d67ddb040e59e004780b6b9cf7d4428a04b
