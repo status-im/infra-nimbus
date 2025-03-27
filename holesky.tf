@@ -14,35 +14,6 @@ module "nimbus_nodes_holesky_innova_geth" {
     "194.33.40.82",    # geth-03.ih-eu-mda1.nimbus.holesky
     "194.33.40.107",   # geth-04.ih-eu-mda1.nimbus.holesky
     "194.33.40.129",   # geth-05.ih-eu-mda1.nimbus.holesky
-    "194.33.40.130",   # geth-06.ih-eu-mda1.nimbus.holesky
-    "194.33.40.131",   # geth-07.ih-eu-mda1.nimbus.holesky
-    "194.33.40.140",   # geth-08.ih-eu-mda1.nimbus.holesky
-    "194.33.40.141",   # geth-09.ih-eu-mda1.nimbus.holesky
-    "194.33.40.147",   # geth-10.ih-eu-mda1.nimbus.holesky
-  ]
-}
-
-module "nimbus_nodes_holesky_innova_erigon" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "erigon"
-  env    = "nimbus"
-  stage  = "holesky"
-  group  = "nimbus-holesky-erigon"
-  region = "eu-mda1"
-  prefix = "ih"
-
-  ips = [
-    "194.33.40.148",   # erigon-01.ih-eu-mda1.nimbus.holesky
-    "194.33.40.149",   # erigon-02.ih-eu-mda1.nimbus.holesky
-    "194.33.40.151",   # erigon-03.ih-eu-mda1.nimbus.holesky
-    "194.33.40.157",   # erigon-04.ih-eu-mda1.nimbus.holesky
-    "194.33.40.241",   # erigon-05.ih-eu-mda1.nimbus.holesky
-    "194.33.40.242",   # erigon-06.ih-eu-mda1.nimbus.holesky
-    "194.33.40.243",   # erigon-07.ih-eu-mda1.nimbus.holesky
-    "194.33.40.244",   # erigon-08.ih-eu-mda1.nimbus.holesky
-    "194.33.40.245",   # erigon-09.ih-eu-mda1.nimbus.holesky
-    "194.33.40.246",   # erigon-10.ih-eu-mda1.nimbus.holesky
   ]
 }
 
