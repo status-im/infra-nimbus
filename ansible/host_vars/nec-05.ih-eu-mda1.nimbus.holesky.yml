@@ -1,0 +1,5 @@
+---
+# nimbus-eth1 had issues and BNs couldn't attest.
+beacon_node_exec_layer_urls:
+  - 'http://geth-01.ih-eu-mda1.nimbus.holesky.wg:{{ exec_layer_authrpc_port }}'
+  - 'http://localhost:{{ exec_layer_authrpc_port }}'
