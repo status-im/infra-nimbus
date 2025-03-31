@@ -35,6 +35,12 @@ geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
 geth_extra_flags_allow_unprotected_txs: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 else [] }}'
 geth_extra_flags: '{{ [ "--miner.gaslimit 36000000" ] + geth_extra_flags_allow_unprotected_txs }}'
 
+# Geth metrics¬
+geth_expo_service_name: '{{ geth_service_name }}'
+geth_expo_source_cont_name: '{{ geth_cont_name }}'
+geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
+geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
+
 # Nimbus ETH1 ------------------------------------------------------------------
 
 nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch | mandatory }}'
@@ -120,13 +126,6 @@ validator_client_build_frequency: 'daily'
 # Ports
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
 validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
-
-# Geth metrics¬
-geth_expo_service_name: '{{ geth_service_name }}'
-geth_expo_source_cont_name: '{{ geth_cont_name }}'
-geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
-geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
-
 # Suggests it to the Execution Layer client and the builder network.
 validator_client_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 # MEV Payload Builder
