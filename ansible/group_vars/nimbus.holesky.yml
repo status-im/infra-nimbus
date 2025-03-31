@@ -142,7 +142,7 @@ validator_client_service_name: 'validator-client-{{ validator_client_network }}-
 validator_client_service_enabled: '{{ node.get("vc", false) }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
-validator_client_doppelganger_detection: false
+validator_client_doppelganger_detection: '{{ beacon_node_doppelganger_detection }}'
 validator_client_beacon_node_urls: ['http://127.0.0.1:{{ beacon_node_rest_port }}']
 # Builds
 validator_client_build_repo_branch: '{{ beacon_node_repo_branch }}'
@@ -156,7 +156,7 @@ validator_client_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", f
 validator_client_keymanager_enabled: true
 validator_client_keymanager_token: '{{lookup("vault", "validator-client", field="keymanager-token", stage="all")}}'
 # Validators Distribution
-validator_client_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
+validator_client_dist_validators_enabled: '{{ beacon_node_dist_validators_enabled }}'
 validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.get("vc", false)) | ternary(0, node.end)   | mandatory }}'
 
