@@ -105,6 +105,7 @@ validator_client_service_name: 'validator-client-{{ validator_client_network }}-
 validator_client_service_enabled: '{{ node.vc }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
+validator_client_doppelganger_detection: '{{ beacon_node_doppelganger_detection }}'
 validator_client_beacon_node_urls:
 # TODO: temporary 1x VC - 4x BNs setup
 #- 'http://127.0.0.1:{{ beacon_node_rest_port }}'
@@ -134,7 +135,7 @@ validator_client_payload_builder_enabled: '{{ node.get("payload_builder", false)
 validator_client_keymanager_enabled: true
 validator_client_keymanager_token: '{{lookup("vault", "validator-client", field="keymanager-token", stage="all")}}'
 # Validators Distribution
-validator_client_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
+validator_client_dist_validators_enabled: '{{ beacon_node_dist_validators_enabled }}'
 validator_client_dist_validators_start: '{{ (not node.vc) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.vc) | ternary(0, node.end)   | mandatory }}'
 
