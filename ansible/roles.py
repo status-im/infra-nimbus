@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+import re
 import yaml
 import logging
 import ansible
+import requests
 import argparse
 import subprocess
 import functools
@@ -59,24 +61,28 @@ class State(Enum):
     # Order is priority. Higher status trumps lower.
     UNKNOWN       = 0
     EXISTS        = 1
-    WRONG_VERSION = 2
-    NOT_PUSHED    = 3
-    NEWER_VERSION = 4
-    DIRTY         = 5
-    DETACHED      = 6
-    NO_VERSION    = 7
-    CLONE_FAILURE = 8
-    MISSING       = 9
-    CLONED        = 10
-    SKIPPED       = 11
-    VALID         = 12
-    UPDATED       = 13
+    OLD_VERSION   = 2
+    WRONG_VERSION = 3
+    NOT_PUSHED    = 4
+    NEWER_VERSION = 5
+    WRONG_BRANCH  = 6
+    DIRTY         = 7
+    DETACHED      = 8
+    NO_VERSION    = 9
+    CLONE_FAILURE = 10
+    MISSING       = 11
+    CLONED        = 12
+    SKIPPED       = 13
+    VALID         = 14
+    UPDATED       = 15
 
     def __str__(self):
         match self:
             case State.NEWER_VERSION: color = BOLD
+            case State.OLD_VERSION:   color = RED
             case State.WRONG_VERSION: color = RED
             case State.NOT_PUSHED:    color = RED
+            case State.WRONG_BRANCH:  color = YELLOW
             case State.DIRTY:         color = YELLOW
             case State.DETACHED:      color = YELLOW
             case State.NO_VERSION:    color = PURPLE
@@ -126,6 +132,7 @@ class Role:
         self.name = name
         self.src = src
         self.required = required
+        self.owner = re.split('[:/]', src)[1]
 
     @classmethod
     def from_requirement(cls, obj):
@@ -188,9 +195,23 @@ class Role:
             return '........'
         return self._git('rev-parse', 'HEAD')
 
+    def upstream_commit(self):
+        return self._git('rev-parse', '@{u}')
+
+    def remote_url(self, remote_name):
+        return self._git('remote', 'get-url', remote_name)
+
     @State.update(failure=State.DIRTY)
     def has_upstream(self):
         return self._git_fail_is_false('rev-parse', '--symbolic-full-name', '@{u}')
+
+    @State.update(failure=State.WRONG_BRANCH)
+    def correct_branch(self):
+        return self.branch == 'master'
+
+    @State.update(success=State.OLD_VERSION)
+    def is_old(self):
+        return not self._git_fail_is_false('merge-base', '--is-ancestor', '@{u}', 'HEAD')
 
     @State.update(failure=State.NOT_PUSHED)
     def is_pushed(self):
@@ -228,9 +249,31 @@ class Role:
     def valid_version(self):
         return self.required == self.current_commit
 
+    def add_https_remote(self, remote_name='https-origin'):
+        origin_url = self.remote_url('origin')
+        https_url = origin_url.replace('git@github.com:', 'https://github.com/')
+        self._git('remote', 'add', remote_name, https_url)
+        return remote_name
+
+    def best_remote(self):
+        if 'https-origin' in self._git('remote'):
+            return 'https-origin'
+        elif not self.is_private():
+            # Using SSH for fetching branches is too slow.
+            return self.add_https_remote()
+        return 'origin'
+
+    def fetch(self, remote_name=None):
+        self._git('fetch', remote_name or self.best_remote())
+
+    def is_private(self):
+        url = 'https://github.com/%s/%s' % (self.owner, self.name)
+        resp = requests.get(url)
+        return resp.status_code == 404
+
     @State.update(success=State.UPDATED, failure=State.WRONG_VERSION)
     def pull(self):
-        self._git('remote', 'update')
+        self._git('remote', 'update', self.best_remote())
         status = self._git('status', '--untracked-files=no')
 
         if 'branch is up to date' in status:
@@ -238,7 +281,7 @@ class Role:
         elif 'branch is behind' not in status:
             return None
 
-        rval = self._git('pull')
+        rval = self._git('pull', self.best_remote(), 'master')
 
         self.version = self.current_commit
         return self.current_commit
@@ -266,16 +309,26 @@ class Role:
         return path.isdir(self.path)
 
 
-def handle_role(role, check=False, update=False, install=False):
+def handle_role(role, check=False, update=False, install=False, fetch=False):
     LOG.debug('[%-27s]: Processing role...', role.name)
     if not role.exists():
         if not check and not update:
             role.clone()
         return role
+    elif fetch and role.required:
+        role.fetch()
+
+    # Check if current branch is master.
+    if not role.correct_branch():
+        return role
 
     # Check if current version is newer.
     if not update and role.is_ancestor():
-            return role
+        return role
+
+    # Check if current version is older.
+    if update and role.is_old():
+        return role
 
     # Check if current version matches required.
     if role.valid_version():
@@ -335,7 +388,7 @@ def parse_args():
         formatter_class=argparse.RawTextHelpFormatter,
     )
 
-    parser.add_argument('-f', '--filter', default='',
+    parser.add_argument('-F', '--filter', default='',
                         help='Filter role repo names.')
     parser.add_argument('-w', '--workers', default=getenv('ROLES_WORKERS', ROLES_WORKERS), type=int,
                         help='Max workers to run in parallel.')
@@ -345,6 +398,8 @@ def parse_args():
                         help='Actual location of installed roles.')
     parser.add_argument('-l', '--log-level', default='INFO',
                         help='Logging level.')
+    parser.add_argument('-f', '--fetch', default=True, action=argparse.BooleanOptionalAction,
+                       help='Fetch changes from remotes.')
     parser.add_argument('-d', '--fail-dirty', action='store_true',
                        help='Fail if repo is dirty.')
     parser.add_argument('-a', '--fail-detached', action='store_true',
@@ -390,7 +445,7 @@ def main():
     # Check if each Ansible role is installed and has correct version.
     with futures.ProcessPoolExecutor(max_workers=args.workers) as executor:
         these_futures = [
-            executor.submit(handle_role, role, args.check, args.update, args.install)
+            executor.submit(handle_role, role, args.check, args.update, args.install, args.fetch)
             for role in requirements
             if args.filter in role.name
         ]
