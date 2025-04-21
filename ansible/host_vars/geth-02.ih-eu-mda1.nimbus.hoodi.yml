@@ -1,0 +1,19 @@
+---
+# Communityu test REST API endpoint.
+beacon_node_rest_address: '0.0.0.0'
+
+# Extract dynamically port form layout.
+test_api_beacon_node_rest_index: |-
+  {{ nodes_layout[inventory_hostname]
+  | ansible.utils.index_of(test='eq', key='public_api', value=True) }}
+test_api_beacon_node_rest_port: |-
+  {{ beacon_node_rest_port_base + test_api_beacon_node_rest_index|int + 1 }}
+test_api_beacon_node_branch: |-
+  {{ nodes_layout[inventory_hostname][test_api_beacon_node_rest_index|int].branch }}
+
+# WARNING: This will change if number of nodes changes.
+redirect_ports:
+  public-beacon-api:
+    src: 80
+    dst: '{{ test_api_beacon_node_rest_port }}'
+    comment: 'Test Beacon API ({{ test_api_beacon_node_branch }})'

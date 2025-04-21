@@ -24,6 +24,14 @@ resource "cloudflare_record" "era_holesky" {
   proxied = true
 }
 
+resource "cloudflare_record" "era_hoodi" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "hoodi.era"
+  value   = module.nimbus_nodes_hoodi_innova_geth.public_ips[0]
+  type    = "A"
+  proxied = true
+}
+
 /* ERA1 Files hosting */
 
 resource "cloudflare_record" "era1_sepolia" {

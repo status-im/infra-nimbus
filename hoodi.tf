@@ -55,19 +55,19 @@ module "nimbus_nodes_hoodi_innova_nec" {
   ]
 }
 
-# /* Community test REST API endpoints. */
-# resource "cloudflare_record" "unstable_hoodi_beacon_api" {
-#   zone_id = local.zones["nimbus.team"]
-#   name    = "unstable.hoodi.beacon-api"
-#   value   = module.nimbus_nodes_hoodi_innova_geth.public_ips[0]
-#   type    = "A"
-#   proxied = false
-# }
+/* Community test REST API endpoints. */
+resource "cloudflare_record" "unstable_hoodi_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "unstable.hoodi.beacon-api"
+  value   = module.nimbus_nodes_hoodi_innova_geth.public_ips[0]
+  type    = "A"
+  proxied = false
+}
 
-# resource "cloudflare_record" "testing_hoodi_beacon_api" {
-#   zone_id = local.zones["nimbus.team"]
-#   name    = "testing.hoodi.beacon-api"
-#   value   = module.nimbus_nodes_hoodi_innova_geth.public_ips[1]
-#   type    = "A"
-#   proxied = false
-# }
+resource "cloudflare_record" "testing_hoodi_beacon_api" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "testing.hoodi.beacon-api"
+  value   = module.nimbus_nodes_hoodi_innova_geth.public_ips[1]
+  type    = "A"
+  proxied = false
+}
