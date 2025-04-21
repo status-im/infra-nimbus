@@ -100,7 +100,7 @@ beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field=
 beacon_node_service_user_pass: '{{lookup("vault", "windows-service-user", field="password", stage="all")}}'
 # MEV Payload Builder
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
-beacon_node_payload_builder_url: 'https://bloxroute.holesky.blxrbdn.com'
+beacon_node_payload_builder_url: 'https://relay-stag.ultrasound.money/'
 # Light client data
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
