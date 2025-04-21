@@ -143,6 +143,7 @@ validator_client_service_enabled: '{{ node.get("vc", false) }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
 validator_client_doppelganger_detection: '{{ beacon_node_doppelganger_detection }}'
+validator_client_payload_builder_enabled: '{{ beacon_node_payload_builder_enabled }}'
 validator_client_beacon_node_urls: ['http://127.0.0.1:{{ beacon_node_rest_port }}']
 # Builds
 validator_client_build_repo_branch: '{{ beacon_node_repo_branch }}'

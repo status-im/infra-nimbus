@@ -113,6 +113,7 @@ validator_client_service_enabled: '{{ node.vc }}'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
 validator_client_doppelganger_detection: '{{ beacon_node_doppelganger_detection }}'
+validator_client_payload_builder_enabled: '{{ beacon_node_payload_builder_enabled }}'
 validator_client_beacon_node_urls:
 # TODO: temporary 1x VC - 4x BNs setup
 #- 'http://127.0.0.1:{{ beacon_node_rest_port }}'
