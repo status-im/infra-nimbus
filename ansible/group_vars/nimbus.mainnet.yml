@@ -144,6 +144,11 @@ beacon_node_consul_success_before_passing: '{{ 5 if node.get("public_api") else 
 beacon_node_consul_failures_before_warning:  120 # 2h
 beacon_node_consul_failures_before_critical: 180 # 3h
 
+# Checkpoint Sync
+beacon_node_resync_enabled: true
+beacon_node_resync_timer_enabled: false
+beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base + 1 }}/' # stable
+
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
