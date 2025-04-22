@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: ad51a2e53d4621079bbeba5442bbfb8270c8eb00
+  version: 4f49b820c7c3f1005886870f2fd34b83bedd5945
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
