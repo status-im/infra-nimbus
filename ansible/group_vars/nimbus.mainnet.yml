@@ -41,7 +41,7 @@ geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
 
 erigon_network_name: 'mainnet'
 erigon_service_name: 'erigon-{{ erigon_network_name }}-{{ node.branch | mandatory }}'
-erigon_prune: 'hrtc' # TODO: Possibly wrong, verify.
+erigon_prune: 'minimal'
 erigon_log_level: 'info'
 erigon_cont_mem_ratio: 0.2
 erigon_max_peers: 20
