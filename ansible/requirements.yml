@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 51ce88d2888547a96ade286c96c6f20a14232439
+  version: 734f55d6e545dd8b58fd879129d8cb67d008d487
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -62,7 +62,7 @@
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
-  version: e3a4c34ebe4f1eeb95ad8d692b1ae25ea454cf99
+  version: 95a5de787aef58712121d2ac6c0bd97b6948baec
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 585a313b171061e2b4f4d2f0c013c310fa78590f
+  version: d3cebf653c1821dee356e72ac7fd5810ffbde856
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -106,7 +106,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 8e4c4d54f8bcacecde190a4d766e2689c0caab4d
+  version: 3cd17049c7f0771f5e2d7febc0a2a96e410cbb61
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
