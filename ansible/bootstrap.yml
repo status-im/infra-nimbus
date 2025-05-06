@@ -22,7 +22,7 @@
 - name: Bootstrap Python support for Ansible
   become: true
   hosts:
-    - all,!nimbus-holesky-macos,!nimbus-holesky-windows
+    - all,!nimbus-hoodi-macos,!nimbus-holesky-windows
   serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux/raw
@@ -40,7 +40,7 @@
 - name: Bootstrap MacOS hosts
   become: true
   hosts:
-    - nimbus-holesky-macm2
+    - nimbus-hoodi-macm2
   roles:
     - role: infra-role-bootstrap-macos
       when: ansible_system == 'Darwin'

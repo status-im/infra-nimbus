@@ -55,21 +55,6 @@ module "nimbus_nodes_holesky_innova_nec" {
   ]
 }
 
-module "nimbus_nodes_holesky_innova_macm2" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "macm2"
-  env    = "nimbus"
-  stage  = "holesky"
-  group  = "nimbus-holesky-macm2"
-  region = "eu-mda1"
-  prefix = "ih"
-
-  ips = [
-    "185.181.230.76" # macm2-01.ih-eu-mda1.nimbus.holesky
-  ]
-}
-
 module "nimbus_nodes_holesky_innova_windows" {
   source = "github.com/status-im/infra-tf-dummy-module"
 

@@ -9,6 +9,24 @@
     - local_action: command ./roles.py --check
       changed_when: false
 
+- name: Deploy Hoodi Linux Misc Services
+  become: true
+  serial: '{{ serial|default(1) }}'
+  hosts:
+    - nimbus-hoodi-geth
+    - nimbus-hoodi-geth-macm2
+    - nimbus-hoodi-nec
+    - nimbus-hoodi-neth
+  vars_files: layout/hoodi.yml
+  roles:
+    - { role: update-netplan,                 tags: update-netplan,     when: ansible_system == 'Linux' }
+    - { role: infra-role-swap-file,           tags: swap-file           }
+    - { role: infra-role-open-ports,          tags: open-ports          }
+    - { role: redirect-ports,                 tags: redirect-ports,     when: redirect_ports is defined }
+    - { role: nimbus-era-files,               tags: nimbus-era-files,   when: era_files_path is defined }
+    - { role: infra-role-mev-boost,           tags: mev-boost,          when: mev_boost_enabled == true }
+    - { role: infra-role-nimbus-light-client, tags: nimbus-light-client }
+
 - name: Deploy Hoodi Linux Beacon Nodes
   become: true
   serial: '{{ serial|default(1) }}'
@@ -17,14 +35,6 @@
     - nimbus-hoodi-nec
     - nimbus-hoodi-neth
   vars_files: layout/hoodi.yml
-  roles:
-    - { role: update-netplan,                 tags: update-netplan,    when: ansible_system == 'Linux' }
-    - { role: infra-role-swap-file,           tags: swap-file        }
-    - { role: infra-role-open-ports,          tags: open-ports       }
-    - { role: redirect-ports,                 tags: redirect-ports   }
-    - { role: nimbus-era-files,               tags: nimbus-era-files }
-    - { role: infra-role-mev-boost,           tags: mev-boost,    when: mev_boost_enabled == true }
-    - { role: infra-role-nimbus-light-client, tags: nimbus-light-client }
   tasks:
     - include_role:
         name: infra-role-beacon-node-linux
@@ -45,7 +55,9 @@
 - name: Deploy Hoodi Geth Nodes
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus-hoodi-geth
+  hosts:
+    - nimbus-hoodi-geth
+    - nimbus-hoodi-geth-macm2
   vars_files: layout/hoodi.yml
   tasks:
     - include_role:
@@ -95,5 +107,19 @@
       when:
         - "'el' in node"
         - node.el == "nec"
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Hoodi MacOS Beacon Nodes
+  become: true
+  hosts:
+    - nimbus-hoodi-macm2
+  vars_files: layout/hoodi.yml
+  tasks:
+    - include_role:
+        name: infra-role-beacon-node-macos
+        apply:
+          tags: always
+      tags: [ beacon-node ]
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control: { loop_var: node, index_var: idx }

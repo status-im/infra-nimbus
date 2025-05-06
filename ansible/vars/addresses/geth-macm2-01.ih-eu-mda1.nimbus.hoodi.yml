@@ -1,0 +1,10 @@
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eno1:
+      addresses:
+        - 194.33.40.233/24
+      gateway4: 194.33.40.1
+      nameservers:
+        addresses: [ 194.33.40.10, 1.1.1.1 ]
+  version: 2

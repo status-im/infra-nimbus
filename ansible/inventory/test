@@ -19,10 +19,10 @@ geth-04.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.107 data_center=ih-eu-m
 geth-04.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.141 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-04.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 geth-05.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.129 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 geth-05.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.147 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
+geth-macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.233 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 holesky-01.ih-eu-mda1.nimbus.geth ansible_host=194.33.40.232 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=holesky-01.ih-eu-mda1.nimbus.geth.status.im env=nimbus region=eu-mda1 stage=geth
-holesky-02.ih-eu-mda1.nimbus.geth ansible_host=194.33.40.233 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=holesky-02.ih-eu-mda1.nimbus.geth.status.im env=nimbus region=eu-mda1 stage=geth
 linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im env=nimbus region=eu-mda1 stage=sepolia
-macm2-01.ih-eu-mda1.nimbus.holesky ansible_host=185.181.230.76 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=macm2-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=185.181.230.76 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 mainnet-01.aws-eu-central-1a.nimbus.geth ansible_host=18.196.208.138 data_center=aws-eu-central-1a dns_domain=status.im dns_entry=mainnet-01.aws-eu-central-1a.nimbus.geth.status.im env=nimbus region=eu-central-1a stage=geth
 metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.status.im env=nimbus region=eu-mda1 stage=eth1
 metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
@@ -93,10 +93,10 @@ geth-04.ih-eu-mda1.nimbus.holesky
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.holesky
 geth-05.ih-eu-mda1.nimbus.hoodi
+geth-macm2-01.ih-eu-mda1.nimbus.hoodi
 holesky-01.ih-eu-mda1.nimbus.geth
-holesky-02.ih-eu-mda1.nimbus.geth
 linux-01.ih-eu-mda1.nimbus.sepolia
-macm2-01.ih-eu-mda1.nimbus.holesky
+macm2-01.ih-eu-mda1.nimbus.hoodi
 metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
 metal-02.ih-eu-mda1.nimbus.fluffy
@@ -153,7 +153,6 @@ metal-04.ih-eu-mda1.nimbus.fluffy
 
 [nimbus-geth-holesky]
 holesky-01.ih-eu-mda1.nimbus.geth
-holesky-02.ih-eu-mda1.nimbus.geth
 
 [nimbus-geth-mainnet]
 mainnet-01.aws-eu-central-1a.nimbus.geth
@@ -164,9 +163,6 @@ geth-02.ih-eu-mda1.nimbus.holesky
 geth-03.ih-eu-mda1.nimbus.holesky
 geth-04.ih-eu-mda1.nimbus.holesky
 geth-05.ih-eu-mda1.nimbus.holesky
-
-[nimbus-holesky-macm2]
-macm2-01.ih-eu-mda1.nimbus.holesky
 
 [nimbus-holesky-nec]
 nec-01.ih-eu-mda1.nimbus.holesky
@@ -191,6 +187,12 @@ geth-02.ih-eu-mda1.nimbus.hoodi
 geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
+
+[nimbus-hoodi-geth-macm2]
+geth-macm2-01.ih-eu-mda1.nimbus.hoodi
+
+[nimbus-hoodi-macm2]
+macm2-01.ih-eu-mda1.nimbus.hoodi
 
 [nimbus-hoodi-nec]
 nec-01.ih-eu-mda1.nimbus.hoodi
@@ -240,7 +242,6 @@ node-01.do-ams3.nimbus.fluffy
 
 [nimbus.geth]
 holesky-01.ih-eu-mda1.nimbus.geth
-holesky-02.ih-eu-mda1.nimbus.geth
 mainnet-01.aws-eu-central-1a.nimbus.geth
 
 [nimbus.holesky]
@@ -249,7 +250,6 @@ geth-02.ih-eu-mda1.nimbus.holesky
 geth-03.ih-eu-mda1.nimbus.holesky
 geth-04.ih-eu-mda1.nimbus.holesky
 geth-05.ih-eu-mda1.nimbus.holesky
-macm2-01.ih-eu-mda1.nimbus.holesky
 nec-01.ih-eu-mda1.nimbus.holesky
 nec-02.ih-eu-mda1.nimbus.holesky
 nec-03.ih-eu-mda1.nimbus.holesky
@@ -268,6 +268,8 @@ geth-02.ih-eu-mda1.nimbus.hoodi
 geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
+geth-macm2-01.ih-eu-mda1.nimbus.hoodi
+macm2-01.ih-eu-mda1.nimbus.hoodi
 nec-01.ih-eu-mda1.nimbus.hoodi
 nec-02.ih-eu-mda1.nimbus.hoodi
 nec-03.ih-eu-mda1.nimbus.hoodi

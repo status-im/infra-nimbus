@@ -36,6 +36,5 @@ module "nimbus_geth_holesky" {
 
   ips = [
     "194.33.40.232", # holesky-01.ih-eu-mda1.nimbus.geth
-    "194.33.40.233", # holesky-02.ih-eu-mda1.nimbus.geth
   ]
 }

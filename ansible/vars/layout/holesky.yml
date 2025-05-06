@@ -108,5 +108,4 @@ nodes_layout:
     - { branch: 'libp2p',                                  build_start: '19:00:00' }
 
   # Geth ---------------------------------------------------------------------------
-  'holesky-01.ih-eu-mda1.nimbus.geth': [{}, {}, {}]     # For MacOS nodes.
-  'holesky-02.ih-eu-mda1.nimbus.geth': [{}, {}, {}, {}] # For Windows nodes. (TODO)
+  'holesky-01.ih-eu-mda1.nimbus.geth': [{}, {}, {}, {}] # For Windows nodes. (TODO)

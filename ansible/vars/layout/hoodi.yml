@@ -93,3 +93,14 @@ nodes_layout:
     - { branch: 'testing',  start: 38000, end: 42000, el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 42000, end: 46000, el: 'nethermind', vc: true  }
     - { branch: 'libp2p',   start: 46000, end: 50000, el: 'nethermind', vc: false }
+
+  # MacOS --------------------------------------------------------------------------
+  'macm2-01.ih-eu-mda1.nimbus.hoodi':
+    - { branch: 'stable',   build_start: '13:00:00' }
+    - { branch: 'testing',  build_start: '15:00:00' }
+    - { branch: 'unstable', build_start: '17:00:00' }
+
+  'geth-macm2-01.ih-eu-mda1.nimbus.hoodi':
+    - { el: 'geth' }
+    - { el: 'geth' }
+    - { el: 'geth' }

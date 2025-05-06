@@ -55,6 +55,36 @@ module "nimbus_nodes_hoodi_innova_nec" {
   ]
 }
 
+module "nimbus_nodes_hoodi_innova_macm2" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "macm2"
+  env    = "nimbus"
+  stage  = "hoodi"
+  group  = "nimbus-hoodi-macm2"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  ips = [
+    "185.181.230.76" # macm2-01.ih-eu-mda1.nimbus.hoodi
+  ]
+}
+
+module "nimbus_nodes_hoodi_innova_geth_macm2" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "geth-macm2"
+  env    = "nimbus"
+  stage  = "hoodi"
+  group  = "nimbus-hoodi-geth-macm2"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  ips = [
+    "194.33.40.233", # geth-macm2-01.ih-eu-mda1.nimbus.hoodi
+  ]
+}
+
 /* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_hoodi_beacon_api" {
   zone_id = local.zones["nimbus.team"]
