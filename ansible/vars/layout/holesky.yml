@@ -11,7 +11,7 @@ nodes_layout:
   'geth-02.ih-eu-mda1.nimbus.holesky': # 1 each
     - { branch: 'stable',   start:     0, end:     1,  el: 'geth',      vc: true  }
     - { branch: 'testing',  start:     1, end:     2,  el: 'geth',      vc: false, public_api: true }
-    - { branch: 'unstable', start:     2, end:     3,  el: 'geth',      vc: false }
+    - { branch: 'unstable', start:     2, end:     3,  el: 'geth',      vc: false, rpc_snooper: true }
     - { branch: 'libp2p',   start:     3, end:     4,  el: 'geth',      vc: false }
 
   'geth-03.ih-eu-mda1.nimbus.holesky': # 4 each
@@ -22,12 +22,12 @@ nodes_layout:
 
   'geth-04.ih-eu-mda1.nimbus.holesky': # 3245 each
     - { branch: 'stable',   start:  20,   end:  3265,  el: 'geth',      vc: true  }
-    - { branch: 'testing',  start:  3265, end:  6510,  el: 'geth',      vc: false }
+    - { branch: 'testing',  start:  3265, end:  6510,  el: 'geth',      vc: false, rpc_snooper: true }
     - { branch: 'unstable', start:  6510, end:  9755,  el: 'geth',      vc: false }
     - { branch: 'libp2p',   start:  9755, end:  13000, el: 'geth',      vc: false }
 
   'geth-05.ih-eu-mda1.nimbus.holesky': # 5000 each
-    - { branch: 'stable',   start: 13000, end: 18000,  el: 'geth',      vc: true,  payload_builder: true }
+    - { branch: 'stable',   start: 13000, end: 18000,  el: 'geth',      vc: true, payload_builder: true }
     - { branch: 'testing',  start: 18000, end: 23000,  el: 'geth',      vc: false }
     - { branch: 'unstable', start: 23000, end: 28000,  el: 'geth',      vc: false }
     - { branch: 'libp2p',   start: 28000, end: 33000,  el: 'geth',      vc: false }
@@ -43,7 +43,7 @@ nodes_layout:
     - { branch: 'stable',   start: 33000, end: 33001,  el: 'nec', vc: false }
     - { branch: 'testing',  start: 33001, end: 33002,  el: 'nec', vc: false }
     - { branch: 'unstable', start: 33002, end: 33003,  el: 'nec', vc: true  }
-    - { branch: 'libp2p',   start: 33003, end: 33004,  el: 'nec', vc: false }
+    - { branch: 'libp2p',   start: 33003, end: 33004,  el: 'nec', vc: false, rpc_snooper: true }
 
   'nec-03.ih-eu-mda1.nimbus.holesky': # 4 each
     - { branch: 'stable',   start: 33004, end: 33008,  el: 'nec', vc: false }
@@ -58,7 +58,7 @@ nodes_layout:
     - { branch: 'libp2p',   start: 42755, end: 46000,  el: 'nec', vc: false }
 
   'nec-05.ih-eu-mda1.nimbus.holesky': # 5000 each
-    - { branch: 'stable',   start: 46000, end: 51000,  el: 'nec', vc: false }
+    - { branch: 'stable',   start: 46000, end: 51000,  el: 'nec', vc: false, rpc_snooper: true }
     - { branch: 'testing',  start: 51000, end: 56000,  el: 'nec', vc: false }
     - { branch: 'unstable', start: 56000, end: 61000,  el: 'nec', vc: true  }
     - { branch: 'libp2p',   start: 61000, end: 66000,  el: 'nec', vc: false }
@@ -91,7 +91,7 @@ nodes_layout:
   'neth-05.ih-eu-mda1.nimbus.holesky': # 5000 each
     - { branch: 'stable',   start: 79000, end: 84000,  el: 'nethermind', vc: false, payload_builder: true }
     - { branch: 'testing',  start: 84000, end: 89000,  el: 'nethermind', vc: false }
-    - { branch: 'unstable', start: 89000, end: 94000,  el: 'nethermind', vc: true  }
+    - { branch: 'unstable', start: 89000, end: 94000,  el: 'nethermind', vc: true, rpc_snooper: true }
     - { branch: 'libp2p',   start: 94000, end: 99993,  el: 'nethermind', vc: false }
 
   # MacOS --------------------------------------------------------------------------

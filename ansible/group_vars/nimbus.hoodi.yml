@@ -5,6 +5,7 @@ exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
 exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
 exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
 exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
+exec_layer_snooper_port: '{{ 8700  +   idx|int + 1 }}'
 
 # Go-Ethereum ------------------------------------------------------------------
 
@@ -96,7 +97,7 @@ beacon_node_validator_monitor_details: >-
   {{  (node.public_api is not defined or not node.public_api)
   and (node.end is defined and (node.end - node.start) < 10) }}
 # Execution layer Enginer API
-beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
+beacon_node_exec_layer_urls: ['http://localhost:{{ rpc_snooper_service_port if node.get("rpc_snooper", false) else exec_layer_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Suggests it to the Execution Layer client.
 beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
@@ -175,6 +176,13 @@ nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/repo/build/ncli_db'
 
+# RPC-snooper
+rpc_snooper_service_name: 'rpc-snooper-{{ beacon_node_network }}-{{ "%02d"|format(idx|int+1) }}'
+rpc_snooper_service_port: '{{ exec_layer_snooper_port }}'
+rpc_snooper_el_port: '{{ exec_layer_authrpc_port }}'
+rpc_snooper_suppress_methods: []
+rpc_snooper_suppress_paths: []
+
 # Migrated to NFTables from IPTables.
 # https://github.com/status-im/infra-misc/issues/301
 bootstrap__firewall_nftables: true
@@ -190,6 +198,8 @@ open_ports_list:
     - { port: '6061-6064',   comment: '{{ host_el_type }} Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
     - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'hq.metrics', iifname: 'wg0' }
     - { port: '8551-8555',   comment: '{{ host_el_type }} RPC',       ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
+    # WARNING: Without this rule rpc snooper can't connect to EL
+    - { port: '8551-8555',   comment: 'RPC Snooper - EL from Docker', source: 172.17.0.0/16               }
   beacon-node:
     - { port: '9001-9004', comment: 'Beacon Node LibP2P',    protocol: 'tcp'                                }
     - { port: '9001-9004', comment: 'Beacon Node Discovery', protocol: 'udp'                                }
