@@ -38,7 +38,7 @@
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 6da5043f6da1da566ff3ffa8ea968d05956a7412
+  version: ebfece8f56ef18ba6dbb413778fbf7f56de06683
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
@@ -123,3 +123,7 @@
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
   version: e1b14d67ddb040e59e004780b6b9cf7d4428a04b
+
+- name: infra-role-rpc-snooper
+  src: git@github.com:status-im/infra-role-rpc-snooper.git
+  version: 70436f5e852538524f1e1f3444854674812731a5 
