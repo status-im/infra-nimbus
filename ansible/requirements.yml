@@ -123,3 +123,7 @@
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
   version: e1b14d67ddb040e59e004780b6b9cf7d4428a04b
+
+- name: infra-role-rpc-snooper
+  src: git@github.com:status-im/infra-role-rpc-snooper.git
+  version: 5db7f795caed71be999433dc0dffd22803051381

@@ -16,7 +16,7 @@ nodes_layout:
 
   'geth-03.ih-eu-mda1.nimbus.hoodi': # 4 each
     - { branch: 'stable',   start:     4, end:    8,  el: 'geth', vc: true  }
-    - { branch: 'testing',  start:     8, end:   12,  el: 'geth', vc: false }
+    - { branch: 'testing',  start:     8, end:   12,  el: 'geth', vc: false, rpc_snooper: true }
     - { branch: 'unstable', start:    12, end:   16,  el: 'geth', vc: false }
     - { branch: 'libp2p',   start:    16, end:   20,  el: 'geth', vc: false }
 
@@ -61,7 +61,7 @@ nodes_layout:
     - { branch: 'stable',   start: 25000, end: 25020, el: 'nec', vc: false }
     - { branch: 'testing',  start: 25020, end: 25040, el: 'nec', vc: false }
     - { branch: 'unstable', start: 25040, end: 25060, el: 'nec', vc: true  }
-    - { branch: 'libp2p',   start: 25060, end: 25080, el: 'nec', vc: false }
+    - { branch: 'libp2p',   start: 25060, end: 25080, el: 'nec', vc: false, rpc_snooper: true }
 
   # Nethermind ---------------------------------------------------------------------
   'neth-01.ih-eu-mda1.nimbus.hoodi': # 0 each
@@ -90,7 +90,7 @@ nodes_layout:
 
   'neth-05.ih-eu-mda1.nimbus.hoodi': # 4000 each
     - { branch: 'stable',   start: 34000, end: 38000, el: 'nethermind', vc: false, payload_builder: true }
-    - { branch: 'testing',  start: 38000, end: 42000, el: 'nethermind', vc: false }
+    - { branch: 'testing',  start: 38000, end: 42000, el: 'nethermind', vc: false, rpc_snooper: true }
     - { branch: 'unstable', start: 42000, end: 46000, el: 'nethermind', vc: true  }
     - { branch: 'libp2p',   start: 46000, end: 50000, el: 'nethermind', vc: false }
 
