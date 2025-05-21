@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: ad51a2e53d4621079bbeba5442bbfb8270c8eb00
+  version: 4f49b820c7c3f1005886870f2fd34b83bedd5945
 
 - name: infra-role-nimbus-fluffy
   src: git@github.com:status-im/infra-role-nimbus-fluffy.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 585a313b171061e2b4f4d2f0c013c310fa78590f
+  version: d3cebf653c1821dee356e72ac7fd5810ffbde856
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 227cf904b0dc691dee83a417ed9bf4c0dc9d47ce
+  version: 9f3440e306be06da99e9890496ec6d3751b7e10f
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
