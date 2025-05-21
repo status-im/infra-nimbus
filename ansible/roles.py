@@ -273,7 +273,7 @@ class Role:
 
     @State.update(success=State.UPDATED, failure=State.WRONG_VERSION)
     def pull(self):
-        self._git('remote', 'update', self.best_remote())
+        self.fetch()
         status = self._git('status', '--untracked-files=no')
 
         if 'branch is up to date' in status:
