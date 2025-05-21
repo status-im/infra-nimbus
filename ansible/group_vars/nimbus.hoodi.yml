@@ -14,6 +14,7 @@ geth_network_name: 'hoodi'
 geth_cont_name: '{{ geth_service_name }}-node'
 geth_cont_vol: '{{ geth_service_path }}/node'
 geth_sync_mode: 'full'
+geth_gas_limit: 60000000
 geth_log_level_name: 'info'
 # Geth auth & JWT token
 geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
@@ -41,7 +42,8 @@ nethermind_network_name: 'hoodi'
 nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
 # FIXME: Switch back to snap sync after Pectra upgrade issue are resolved.
-nethermind_sync_mode:    'full'
+nethermind_sync_mode: 'full'
+nethermind_gas_limit: 60000000
 nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
 nethermind_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 nethermind_port:         '{{ exec_layer_p2p_port }}'
@@ -55,6 +57,7 @@ nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ "%02d"|forma
 nimbus_eth1_repo_branch: 'master'
 nimbus_eth1_network: 'hoodi'
 nimbus_eth1_max_peers: 160
+nimbus_eth1_gas_limit: 60000000
 nimbus_eth1_log_level: 'DEBUG'
 nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
 nimbus_eth1_engine_http_enabled: true
@@ -79,6 +82,7 @@ beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branc
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 beacon_node_doppelganger_detection: true
+beacon_node_suggested_gas_limit: 60000000
 # We map short names to branches to avoid too long service names.
 node_name_to_branch_map:
   libp2p: 'nim-libp2p-auto-bump-unstable'

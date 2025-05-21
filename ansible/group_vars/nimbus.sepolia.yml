@@ -12,6 +12,7 @@ geth_service_path: '/docker/{{ geth_service_name }}'
 geth_cont_name: '{{ geth_service_name }}-node'
 geth_cont_vol: '{{ geth_service_path }}/node'
 geth_sync_mode: 'full'
+geth_gas_limit: 60000000
 geth_log_level_name: info
 # Geth auth & JWT token
 geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
@@ -33,7 +34,7 @@ geth_authrpc_port:   '{{ exec_layer_authrpc_port }}'
 geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
 # Parameter for waku RLN keystore generation
 geth_extra_flags_allow_unprotected_txs: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 else [] }}'
-geth_extra_flags: '{{ [ "--miner.gaslimit 36000000" ] + geth_extra_flags_allow_unprotected_txs }}'
+geth_extra_flags: '{{ geth_extra_flags_allow_unprotected_txs }}'
 
 # Geth metrics¬
 geth_expo_service_name: '{{ geth_service_name }}'
@@ -47,6 +48,7 @@ nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch 
 nimbus_eth1_repo_branch: 'devnet-6-pectra'
 nimbus_eth1_network: 'sepolia'
 nimbus_eth1_max_peers: 160
+nimbus_eth1_gas_limit: 60000000
 nimbus_eth1_log_level: 'DEBUG'
 nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
 nimbus_eth1_engine_http_enabled: true
@@ -74,6 +76,7 @@ beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
 beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 beacon_node_doppelganger_detection: true
+beacon_node_suggested_gas_limit: 60000000
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'https://boost-relay-sepolia.flashbots.net/ '
 # Updates
@@ -130,8 +133,6 @@ validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
 validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
 # Suggests it to the Execution Layer client and the builder network.
 validator_client_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
-# MEV Payload Builder
-validator_client_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 # Keymanager
 validator_client_keymanager_enabled: true
 validator_client_keymanager_token: '{{lookup("vault", "validator-client", field="keymanager-token", stage="all")}}'
