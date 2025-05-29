@@ -39,6 +39,7 @@ bootstrap__rsyslog_docker_format: !unsafe '%msg:2:2048%\n'
 bootstrap__rsyslog_filter_rules:
   - 'Attestation resolved'
   - 'Attestation received'
+  - 'Could not decode handshake auth message'
 # lower local retention to save space
 bootstrap__logrotate_frequency: 'hourly'
 bootstrap__logrotate_count: 48
@@ -86,4 +87,3 @@ validator_client_consul_failures_before_critical: '{{ beacon_node_consul_failure
 # Wazuh Agent config
 wazuh_agent_enrollment_key:         '{{ lookup("vault", "wazuh-agent", field="enrollment-key",          env="all", stage="all")}}'
 wazuh_root_ca:                      '{{ lookup("vault", "certs/wazuh-ca", field="certificate",          env="all", stage="all")}}'
-
