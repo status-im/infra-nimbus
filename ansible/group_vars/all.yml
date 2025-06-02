@@ -42,7 +42,7 @@ bootstrap__rsyslog_filter_rules:
   - 'Could not decode handshake auth message'
 # lower local retention to save space
 bootstrap__logrotate_frequency: 'hourly'
-bootstrap__logrotate_count: 48
+bootstrap__logrotate_count: 72 # 3 days
 bootstrap__logrotate_mbytes: 500
 
 # Extra packages for debugging
