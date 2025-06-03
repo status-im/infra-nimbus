@@ -1,17 +1,29 @@
 #!/usr/bin/env bash
 # vim: ft=bash
-set -e
+set -euo pipefail
 
+NETWORK='{{ nimbus_era_files_network }}'
 ERA_PATH='{{ nimbus_era_files_timer_path }}'
-LAST_ERA_INDEX=$(ls "${ERA_PATH}" | awk -F- 'END{print $2}')
+LAST_ERA_IN_FOLDER=$(ls "${ERA_PATH}" | awk -F- 'END{print $2}')
+FIRST_ERA_INDEX="${1:-00001}"
+LAST_ERA_INDEX="${2:-${LAST_ERA_IN_FOLDER}}"
 EXIT_CODE=0
+declare -a MISSING_ERA_FILES
 
-for ERA_INDEX in $(seq -w 00001 "${LAST_ERA_INDEX}"); do
-  ERA_FILE=$(echo ${ERA_PATH}/{{ nimbus_era_files_network }}-${ERA_INDEX}-*.era)
+for ERA_INDEX in $(seq -w "${FIRST_ERA_INDEX}" "${LAST_ERA_INDEX}"); do
+  ERA_FILE=$(echo ${ERA_PATH}/${NETWORK}-${ERA_INDEX}-*.era)
+  if [[ ! -f "${ERA_FILE}" ]]; then
+    MISSING_ERA_FILES+=("${ERA_FILE}")
+    continue
+  fi
   echo "Checking: ${ERA_FILE}"
   {{ nimbus_era_files_nclidb_path }} \
-    --network={{ nimbus_era_files_network }} \
+    --network="${NETWORK}" \
     verifyEra --eraFile="${ERA_FILE}" || EXIT_CODE=1
 done
 
+if [[ ${#MISSING_ERA_FILES[@]} -ne 0 ]]; then
+    echo "Missing:"
+    printf "%s\n" ${MISSING_ERA_FILES[@]}
+fi
 exit "${EXIT_CODE}"
