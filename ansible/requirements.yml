@@ -126,4 +126,4 @@
 
 - name: infra-role-rpc-snooper
   src: git@github.com:status-im/infra-role-rpc-snooper.git
-  version: f5071af7e79c7ad53c8fb7dead39153ed564940b 
+  version: 1147652034e759439347c2f4a24c8bdbb6f08b5c
