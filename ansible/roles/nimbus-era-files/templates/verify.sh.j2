@@ -22,7 +22,7 @@ for ERA_INDEX in $(seq -w "${FIRST_ERA_INDEX}" "${LAST_ERA_INDEX}"); do
     verifyEra --eraFile="${ERA_FILE}" || EXIT_CODE=1
 done
 
-if [[ ${#MISSING_ERA_FILES[@]} -ne 0 ]]; then
+if [[ {%raw%}${#MISSING_ERA_FILES[@]}{%endraw%} -ne 0 ]]; then
     echo "Missing:"
     printf "%s\n" ${MISSING_ERA_FILES[@]}
 fi
