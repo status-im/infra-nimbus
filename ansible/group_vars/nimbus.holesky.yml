@@ -137,9 +137,9 @@ beacon_node_resync_timer_enabled: false
 beacon_node_resync_timer_trusted_api_url: '{{ beacon_node_resync_timer_trusted_api_urls[idx] }}'
 beacon_node_resync_timer_trusted_api_urls:
   - 'https://checkpoint-sync.holesky.ethpandaops.io/'
+  - 'https://checkpoint-sync.holesky.ethpandaops.io/'
   - 'https://holesky-checkpoint-sync.stakely.io/'
   - 'https://beaconstate-holesky.chainsafe.io/'
-  - 'https://holesky.beaconstate.ethstaker.cc/'
 
 # Validator Client -------------------------------------------------------------
 
