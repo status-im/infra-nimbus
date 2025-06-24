@@ -1,0 +1,89 @@
+---
+- name: Rename Hoodi Nimbus EL nodes to not use indices
+  hosts:
+    - nimbus-hoodi-nec
+    - nimbus-hoodi-neth
+    - nimbus-hoodi-geth
+  serial: '{{ serial|default(1) }}'
+  become: true
+  vars:
+    geth_prefix: 'geth-hoodi-'
+    neth_prefix: 'nethermind-hoodi-'
+    nec_prefix: 'nimbus-eth1-hoodi-'
+    branches_map:
+      stable:   '01'
+      testing:  '02'
+      unstable: '03'
+      libp2p:   '04'
+  tasks:
+    - set_fact:
+        prefix: >-
+          {%   if "nimbus-hoodi-neth" in group_names %}{{ neth_prefix -}}
+          {% elif "nimbus-hoodi-nec"  in group_names %}{{ nec_prefix -}}
+          {% elif "nimbus-hoodi-geth" in group_names %}{{ geth_prefix -}}
+          {% else %}{{ NOTHING | mandatory("Unknown fleet group") }}{%- endif -%}
+        service_type: >-
+          {{ "service" if "nimbus-hoodi-nec" in group_names else "docker" }}
+
+    - name: Stop and disable service
+      when: '"nimbus-hoodi-nec" in group_names'
+      systemd:
+        name: '{{ prefix+item.value }}'
+        state: stopped
+        enabled: false
+      with_dict: '{{ branches_map }}'
+
+    # Take into account additional docker-compose.yml files.
+    - name: Find all Docker Compose files
+      when: '"nimbus-hoodi-neth" in group_names or "nimbus-hoodi-geth" in group_names'
+      find:
+        paths: '/docker/{{ prefix+item.value }}'
+        patterns: 'docker-compose*.yml'
+        recurse: false
+      register: el_all_compose
+      with_dict: '{{ branches_map }}'
+
+    - name: Stop and disable containers
+      when: '"nimbus-hoodi-neth" in group_names or "nimbus-hoodi-geth" in group_names'
+      community.docker.docker_compose_v2:
+        project_src: '{{ item.invocation.module_args.paths[0] }}'
+        files: '{{ item.files | map(attribute="path") | list }}'
+        state: 'absent'
+      with_items: '{{ el_all_compose.results }}'
+
+    - shell:
+        mv /docker/{{ prefix+item.value }} /docker/{{ prefix+item.key }}
+      with_dict: '{{ branches_map }}'
+
+    - shell:
+        mv /var/log/{{ service_type }}/{{ prefix+item.value }} /var/log/{{ service_type }}/{{ prefix+item.key }}
+      with_dict: '{{ branches_map }}'
+
+    - shell:
+        mv /etc/systemd/system/{{ prefix+item.value }}.service /etc/systemd/system/{{ prefix+item.key }}.service
+      with_dict: '{{ branches_map }}'
+      when: 'service_type == "service"'
+
+    - shell:
+        mv /etc/systemd/system/build-{{ prefix+item.value }}.service /etc/systemd/system/build-{{ prefix+item.key }}.service
+      with_dict: '{{ branches_map }}'
+      when: 'service_type == "service"'
+
+    - shell:
+        mv /etc/systemd/system/build-{{ prefix+item.value }}.timer /etc/systemd/system/build-{{ prefix+item.key }}.timer
+      with_dict: '{{ branches_map }}'
+      when: 'service_type == "service"'
+
+    - shell:
+        mv /etc/consul/service_{{ (prefix+item.value) | replace("-", "_") }}.json /etc/consul/service_{{ (prefix+item.key) | replace("-", "_") }}.json
+      with_dict: '{{ branches_map }}'
+
+    - shell:
+        mv /etc/consul/service_build_{{ (prefix+item.value) | replace("-", "_") }}_timer.json /etc/consul/service_build_{{ (prefix+item.key) | replace("-", "_") }}_timer.json
+      with_dict: '{{ branches_map }}'
+      when: 'service_type == "service"'
+
+    - name: Reload consul
+      systemd:
+        name: 'consul'
+        state: 'reloaded'
