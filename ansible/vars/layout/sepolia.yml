@@ -3,7 +3,6 @@
 # To search for a validator ID see: ansible/files/layouts/nimbus.sepolia.tsv
 nodes_layout:
   'linux-01.ih-eu-mda1.nimbus.sepolia':
-    - { branch: 'stable',   start:  0, end:  25, el: 'geth', vc: true,  payload_builder: true }
-    - { branch: 'testing',  start: 25, end:  50, el: 'geth', vc: false, payload_builder: true }
-    - { branch: 'unstable', start: 50, end:  75, el: 'geth', vc: false, public_api: true      }
-    - { branch: 'libp2p',   start: 75, end: 100, el: 'geth', vc: false, payload_builder: true }
+    - { branch: 'stable',   start:  0, end:  30, el: 'geth', vc: true,  payload_builder: true }
+    - { branch: 'testing',  start: 30, end:  60, el: 'geth', vc: false, payload_builder: true }
+    - { branch: 'unstable', start: 60, end: 100, el: 'geth', vc: false, public_api: true      }
