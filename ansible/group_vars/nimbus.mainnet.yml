@@ -125,9 +125,8 @@ beacon_node_max_peers: '{{ node.get("max_peers", 320) }}'
 beacon_node_closed_libp2p_ports: >-
   {%- set closed_ports = [] -%}
   {%- for config in nodes_layout[inventory_hostname] if config.get('close_libp2p_port', false) -%}
-      {%- set port = 9000 + loop.index0 + 1 -%}
-      {%- set _ = closed_ports.append(port|string) -%}
-    {%- endif -%}
+    {%- set port = 9000 + loop.index0 + 1 -%}
+    {%- set _ = closed_ports.append(port|string) -%}
   {%- endfor -%}
   {{ closed_ports|join(',') }}
 # Excellent stress test and good service to the community.
