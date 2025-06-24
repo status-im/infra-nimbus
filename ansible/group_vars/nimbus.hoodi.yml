@@ -9,7 +9,7 @@ exec_layer_snooper_port: '{{ 8700  +   idx|int + 1 }}'
 
 # Go-Ethereum ------------------------------------------------------------------
 
-geth_service_name: 'geth-{{ geth_network_name }}-{{ "%02d"|format(idx|int+1) }}'
+geth_service_name: 'geth-{{ geth_network_name }}-{{ node.branch | mandatory }}'
 geth_service_path: '/docker/{{ geth_service_name }}'
 geth_network_name: 'hoodi'
 geth_cont_name: '{{ geth_service_name }}-node'
@@ -40,7 +40,7 @@ geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
 # Nethermind -------------------------------------------------------------------
 
 nethermind_network_name: 'hoodi'
-nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ "%02d"|format(idx|int+1) }}'
+nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ node.branch | mandatory }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
 # FIXME: Switch back to snap sync after Pectra upgrade issue are resolved.
 nethermind_sync_mode: 'full'
@@ -54,7 +54,7 @@ nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 
 # Nimbus ETH1 ------------------------------------------------------------------
 
-nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ "%02d"|format(idx|int+1) }}'
+nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch | mandatory }}'
 nimbus_eth1_repo_branch: 'master'
 nimbus_eth1_network: 'hoodi'
 nimbus_eth1_max_peers: 160
@@ -177,7 +177,7 @@ nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/repo/build/ncli_db'
 
 # RPC-snooper
-rpc_snooper_service_name: 'rpc-snooper-{{ beacon_node_network }}-{{ "%02d"|format(idx|int+1) }}'
+rpc_snooper_service_name: 'rpc-snooper-{{ beacon_node_network }}-{{ node.branch | mandatory }}'
 rpc_snooper_service_port: '{{ exec_layer_snooper_port }}'
 rpc_snooper_el_port: '{{ exec_layer_authrpc_port }}'
 rpc_snooper_suppress_methods: []
