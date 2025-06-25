@@ -19,7 +19,6 @@ geth-04.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.107 data_center=ih-eu-m
 geth-04.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.141 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-04.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 geth-05.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.129 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
 geth-05.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.147 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
-geth-macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.233 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im env=nimbus region=eu-mda1 stage=sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=185.181.230.76 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.status.im env=nimbus region=eu-mda1 stage=eth1
@@ -90,7 +89,6 @@ geth-04.ih-eu-mda1.nimbus.holesky
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.holesky
 geth-05.ih-eu-mda1.nimbus.hoodi
-geth-macm2-01.ih-eu-mda1.nimbus.hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi
 metal-01.ih-eu-mda1.nimbus.eth1
@@ -178,9 +176,6 @@ geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
 
-[nimbus-hoodi-geth-macm2]
-geth-macm2-01.ih-eu-mda1.nimbus.hoodi
-
 [nimbus-hoodi-macm2]
 macm2-01.ih-eu-mda1.nimbus.hoodi
 
@@ -254,7 +249,6 @@ geth-02.ih-eu-mda1.nimbus.hoodi
 geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
-geth-macm2-01.ih-eu-mda1.nimbus.hoodi
 macm2-01.ih-eu-mda1.nimbus.hoodi
 nec-01.ih-eu-mda1.nimbus.hoodi
 nec-02.ih-eu-mda1.nimbus.hoodi
