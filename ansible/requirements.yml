@@ -78,7 +78,7 @@
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: d9dc779dccd879b429a4e808b463fb403ba5753f
+  version: c76be2909a292ce988312803b893959b700bd826
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
@@ -86,7 +86,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 5934942e206c1b64036f60b0441493917db90b1c
+  version: c69efc1765ea8da664494feda207d57a63687f9a
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
@@ -106,7 +106,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: c2d773ad9f55a5174403247583019d10bf7adac9
+  version: 920e3e7afdc91e17693fb710f8684bda5885c641
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
