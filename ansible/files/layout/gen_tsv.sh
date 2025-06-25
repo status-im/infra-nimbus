@@ -10,7 +10,7 @@ LAYOUT_FILE="${GIT_ROOT}/ansible/files/layout/${FLEET}.tsv"
 echo -e 'Hostname\tNode Name\tValidator ID' > "${LAYOUT_FILE}"
 
 # Find validator files and convert into a TSV.
-ansible "${FLEET},!nimbus-holesky-windows,!nimbus-holesky-macm2" --become \
+ansible "${FLEET},!nimbus-holesky-windows,!nimbus-hoodi-macm2" --become \
     -a 'find /data/*/data/secrets -type f -printf "$(hostname)%p\n"' \
     | awk -F'/' '!/CHANGED/&&!/^$/{printf "%s\t%s\t%s\n", $1, $3, $6}' \
     | sort >> "${LAYOUT_FILE}"
