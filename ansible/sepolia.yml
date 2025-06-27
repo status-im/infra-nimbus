@@ -15,11 +15,19 @@
   vars_files: layout/sepolia.yml
   hosts:
     - nimbus-sepolia-linux
+  pre_tasks:
+    - name: Check if mev-boost is needed on this host
+      set_fact:
+        mev_boost_enabled: true
+      when: >
+        nodes_layout[inventory_hostname] is defined and
+        nodes_layout[inventory_hostname] | selectattr('payload_builder', 'defined') | selectattr('payload_builder', 'equalto', true) | list | length > 0
   roles:
     - { role: update-netplan,           tags: [ update-netplan ], when: ansible_system == 'Linux' }
     - { role: infra-role-open-ports,    tags: [ open-ports ]                                      }
     - { role: infra-role-smart-metrics, tags: [ smart-metrics ]                                   }
     - { role: redirect-ports,           tags: [ redirect-ports ]                                  }
+    - { role: infra-role-mev-boost,     tags: mev-boost,          when: mev_boost_enabled == true }
     - { role: nimbus-era-files,         tags: [ nimbus-era-files ]                                }
   tasks:
     - include_role:
