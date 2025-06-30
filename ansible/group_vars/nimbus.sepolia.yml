@@ -1,4 +1,7 @@
 ---
+mev_boost_network: 'sepolia'
+mev_boost_relays:
+  - 'https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-sepolia.flashbots.net'
 # Ports used for all 2 EL nodes as they are mutually exclusive.
 exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
 exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
@@ -78,7 +81,7 @@ beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined els
 beacon_node_doppelganger_detection: true
 beacon_node_suggested_gas_limit: 60000000
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
-beacon_node_payload_builder_url: 'https://boost-relay-sepolia.flashbots.net/ '
+beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
 # Updates
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'

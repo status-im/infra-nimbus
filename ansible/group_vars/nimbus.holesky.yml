@@ -1,5 +1,9 @@
 ---
-mev_boost_enabled: false
+mev_boost_network: 'holesky'
+mev_boost_relays:
+  - 'https://0x821f2a65afb70e7f2e820a925a9b4c80a159620582c1766b1b09729fec178b11ea22abb3a51f07b288be815a1a2ff516@bloxroute.holesky.blxrbdn.com'
+  - 'https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-holesky.flashbots.net'
+  - 'https://0xaa58208899c6105603b74396734a6263cc7d947f444f396a90f7b7d3e65d102aec7e5e5291b27e08d02c50a050825c2f@holesky.titanrelay.xyz'
 # Ports used for all 4 EL nodes as they are mutually exclusive.
 exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
 exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
@@ -105,7 +109,7 @@ beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field=
 beacon_node_service_user_pass: '{{lookup("vault", "windows-service-user", field="password", stage="all")}}'
 # MEV Payload Builder
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
-beacon_node_payload_builder_url: 'https://relay-stag.ultrasound.money/'
+beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
 # Light client data
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true

@@ -20,6 +20,7 @@
     - { role: infra-role-open-ports,    tags: [ open-ports ]                                      }
     - { role: infra-role-smart-metrics, tags: [ smart-metrics ]                                   }
     - { role: redirect-ports,           tags: [ redirect-ports ]                                  }
+    - { role: infra-role-mev-boost,     tags: mev-boost                                           }
     - { role: nimbus-era-files,         tags: [ nimbus-era-files ]                                }
   tasks:
     - include_role:

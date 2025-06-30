@@ -24,7 +24,7 @@
     - { role: infra-role-open-ports,          tags: open-ports       }
     - { role: redirect-ports,                 tags: redirect-ports   }
     - { role: nimbus-era-files,               tags: nimbus-era-files }
-    - { role: infra-role-mev-boost,           tags: mev-boost,    when: mev_boost_enabled == true }
+    - { role: infra-role-mev-boost,           tags: mev-boost        }
     - { role: infra-role-nimbus-light-client, tags: nimbus-light-client }
   tasks:
     - include_role:
