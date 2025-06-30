@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: e49cb6168df3053fb5e53267b5d648cfb5e8441a
+  version: ecbcc058bc9e72818a06825f283e53090b7ffd72
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 25b665f518caddbf1e0ed3f9b0ba9033e864fd83
+  version: 168940f49a8d3d3120defc7cc488bec654b488a1
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
@@ -114,11 +114,11 @@
 
 - name: infra-role-mev-boost
   src: git@github.com:status-im/infra-role-mev-boost.git
-  version: 2c9fa57c55d692404392ab0fd4fddb007881b228
+  version: 55faf5c16b0689df575e03bcb82cb5007156957e
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: 8196436575af997118311693326108cc98629f67
+  version: b98102da912ed647acbacb1b83f21bafefdf4ae9
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
