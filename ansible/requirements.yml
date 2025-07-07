@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: c626d945c56a11b271c00026f63da5b9d559e6a9
+  version: 3f1d127cf14e25f54fc0ae7a7188c99148265c58
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -106,11 +106,11 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 920e3e7afdc91e17693fb710f8684bda5885c641
+  version: c1c1c687d21998c2a58b6c0ce966f97a0c50b96d
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
-  version: 76aba3c459e6c5e8afc6979dd9532c8cea0fbeea
+  version: 419f1163555eea2b8ffc6f487239c446e6890ad7
 
 - name: infra-role-mev-boost
   src: git@github.com:status-im/infra-role-mev-boost.git
@@ -118,7 +118,7 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: b98102da912ed647acbacb1b83f21bafefdf4ae9
+  version: 8196436575af997118311693326108cc98629f67
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
