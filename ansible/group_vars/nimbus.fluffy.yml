@@ -42,5 +42,3 @@ open_ports_list:
   nimbus-fluffy:
     - { comment: 'Nimbus Fluffy',          port: '{{ nimbus_fluffy_listening_port }}',                                      protocol: 'udp' }
     - { comment: 'Nimbus Fluffy Metrics',  port: '9201-92{{ nimbus_fluffy_host_number_of_public_ips }}',                          ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }
-  smart-metrics:
-    - { comment: 'SMART Metrics',          port: '{{ smart_metrics_listen_port }}',    ipset: 'hq.metrics', iifname: 'wg0'                  }

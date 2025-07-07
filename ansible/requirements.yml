@@ -110,7 +110,11 @@
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
+<<<<<<< Updated upstream
   version: 419f1163555eea2b8ffc6f487239c446e6890ad7
+=======
+  version: 34b6e32d493144ef43d7907dc90f418819abe80d
+>>>>>>> Stashed changes
 
 - name: infra-role-mev-boost
   src: git@github.com:status-im/infra-role-mev-boost.git

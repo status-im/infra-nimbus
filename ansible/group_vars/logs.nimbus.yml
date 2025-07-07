@@ -63,4 +63,3 @@ open_ports_list:
     - { port: '{{ es_node_port }}',              ipset: 'dash.nimbus', iifname: 'wg0' }
   elasticsearch_metrics:
     - { port: '{{ es_exp_cont_port }}',          ipset: 'hq.metrics',  iifname: 'wg0' }
-    - { port: '{{ smart_metrics_listen_port }}', ipset: 'hq.metrics',  iifname: 'wg0', comment: 'SMART Metrics' }

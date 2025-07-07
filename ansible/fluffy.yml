@@ -17,7 +17,6 @@
     # Extra 32 or 64 IPv4 addresses for each of the nodes on the host.
     - { role: update-netplan,           tags: update-netplan }
     - { role: infra-role-open-ports,    tags: open-ports     }
-    - { role: infra-role-smart-metrics, tags: smart-metrics  }
   tasks:
     - include_role:
         name: infra-role-nimbus-fluffy
@@ -45,5 +44,4 @@
   roles:
     - { role: infra-role-swap-file,     tags: swap-file      }
     - { role: infra-role-open-ports,    tags: open-ports     }
-    - { role: infra-role-smart-metrics, tags: smart-metrics  }
     - { role: infra-role-nimbus-fluffy, tags: nimbus-fluffy  }

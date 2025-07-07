@@ -47,7 +47,6 @@
     - { role: update-netplan,                 tags: [ update-netplan ], when: ansible_system == 'Linux' }
     - { role: infra-role-swap-file,           tags: [ swap-file ] }
     - { role: infra-role-open-ports,          tags: [ open-ports ] }
-    - { role: infra-role-smart-metrics,       tags: [ smart-metrics ] }
     - { role: redirect-ports,                 tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,              tags: [ get-geth-api-urls, beacon-node ] }
     - { role: nimbus-era-files,               tags: [ nimbus-era-files ] }

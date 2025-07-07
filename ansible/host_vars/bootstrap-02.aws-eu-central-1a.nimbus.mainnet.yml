@@ -18,8 +18,6 @@ beacon_node_rest_port: 9300
 open_ports_list:
   nginx:
     - { port: '443', comment: 'Nginx' }
-  smart-metrics:
-    - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'hq.metrics', iifname: 'wg0' }
   beacon-node:
     - { port: '{{ beacon_node_discovery_port }}', comment: 'Beacon Node libp2p',    protocol: 'tcp'                                }
     - { port: '{{ beacon_node_discovery_port }}', comment: 'Beacon Node discovery', protocol: 'udp'                                }

@@ -163,8 +163,6 @@ host_el_type: 'EL node'
 open_ports_list:
     nginx:
       - { port: 443,           comment: 'Nginx' }
-    smart-metrics:
-      - { port: '{{ smart_metrics_listen_port }}', comment: 'SMART Metrics', ipset: 'hq.metrics',    iifname: 'wg0' }
     exec-node:
       - { port: '30304-30314', comment: '{{ host_el_type }} LibP2P',    protocol: 'tcp'                     }
       - { port: '30304-30314', comment: '{{ host_el_type }} Discovery', protocol: 'udp'                     }

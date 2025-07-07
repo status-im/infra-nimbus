@@ -271,10 +271,18 @@ class Role:
         resp = requests.get(url)
         return resp.status_code == 404
 
+    # git status compares to upstream remote
+    def status(self, remote_name=None):
+        current_upstream = self._git('rev-parse', '--abbrev-ref', '--symbolic-full-name', '@{u}')
+        self._git('branch', f'--set-upstream-to={remote_name or self.best_remote()}/master')
+        status = self._git('status', '--untracked-files=no')
+        self._git('branch', f'--set-upstream-to={current_upstream}')
+        return status
+
     @State.update(success=State.UPDATED, failure=State.WRONG_VERSION)
     def pull(self):
         self.fetch()
-        status = self._git('status', '--untracked-files=no')
+        status = self.status()
 
         if 'branch is up to date' in status:
             return self.version
