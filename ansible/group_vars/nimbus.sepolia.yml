@@ -129,7 +129,7 @@ validator_client_beacon_node_urls:
 - 'http://127.0.0.1:9314'
 
 # Builds
-validator_client_build_repo_branch: '{{ beacon_node_repo_branch }}'
+validator_client_repo_branch: '{{ beacon_node_repo_branch }}'
 validator_client_build_frequency: 'daily'
 # Ports
 validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
