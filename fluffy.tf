@@ -20,13 +20,3 @@ module "nimbus_nodes_fluffy_innova" {
     "82.25.203.66",  # metal-04.ih-eu-mda1.nimbus.fluffy
   ]
 }
-
-/* Testing instance for Fluffy deployment */
-module "fluffy_droplet" {
-  source = "github.com/status-im/infra-tf-digital-ocean"
-  env    = "nimbus"
-  stage  = "fluffy"
-  group  = "nimbus-fluffy-droplet"
-  type   = "s-1vcpu-1gb"
-  data_vol_size = 10
-}
