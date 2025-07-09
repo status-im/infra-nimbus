@@ -8,7 +8,7 @@ LAST_ERA_IN_FOLDER=$(ls "${ERA_PATH}" | awk -F- 'END{print $2}')
 FIRST_ERA_INDEX="${1:-00001}"
 LAST_ERA_INDEX="${2:-${LAST_ERA_IN_FOLDER}}"
 EXIT_CODE=0
-declare -a MISSING_ERA_FILES
+MISSING_ERA_FILES=()
 
 for ERA_INDEX in $(seq -w "${FIRST_ERA_INDEX}" "${LAST_ERA_INDEX}"); do
   ERA_FILE=$(echo ${ERA_PATH}/${NETWORK}-${ERA_INDEX}-*.era)
@@ -23,6 +23,7 @@ for ERA_INDEX in $(seq -w "${FIRST_ERA_INDEX}" "${LAST_ERA_INDEX}"); do
 done
 
 if [[ {%raw%}${#MISSING_ERA_FILES[@]}{%endraw%} -ne 0 ]]; then
+    EXIT_CODE=1
     echo "Missing:"
     printf "%s\n" ${MISSING_ERA_FILES[@]}
 fi
