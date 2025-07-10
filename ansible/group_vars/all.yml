@@ -4,11 +4,12 @@ bootstrap__active_users_passwords:  '{{ bootstrap__active_users | get_user_passw
 bootstrap__admin_pass:              '{{lookup("vault", "users",             field="admin",              env="all", stage="all")}}'
 bootstrap__root_pass:               '{{lookup("vault", "users",             field="root",               env="all", stage="all")}}'
 # Consul
-bootstrap__consul_encryption_key:   '{{lookup("vault", "consul/config",     field="encryption-key",     env="all", stage="all")}}'
-bootstarp__consul_agent_acl_token:  '{{lookup("vault", "consul/acl-tokens", field="agent-default",      env="all", stage="all")}}'
-bootstrap__consul_certs_ca_crt:     '{{lookup("vault", "consul/certs",      field="ca.pem",             env="all", stage="all")}}'
-bootstrap__consul_certs_client_crt: '{{lookup("vault", "consul/certs",      field="client.pem",         env="all", stage="all")}}'
-bootstrap__consul_certs_client_key: '{{lookup("vault", "consul/certs",      field="client-key.pem",     env="all", stage="all")}}'
+bootstrap__consul_encryption_key:             '{{lookup("vault", "consul/config",     field="encryption-key",       env="all", stage="all")}}'
+bootstrap__consul_agent_acl_token:            '{{lookup("vault", "consul/acl-tokens", field="agent-default",        env="all", stage="all")}}'
+bootstrap__consul_service_registration_token: '{{lookup("vault", "consul/acl-tokens", field="service-registration", env="all", stage="all")}}'
+bootstrap__consul_certs_ca_crt:               '{{lookup("vault", "consul/certs",      field="ca.pem",               env="all", stage="all")}}'
+bootstrap__consul_certs_client_crt:           '{{lookup("vault", "consul/certs",      field="client.pem",           env="all", stage="all")}}'
+bootstrap__consul_certs_client_key:           '{{lookup("vault", "consul/certs",      field="client-key.pem",       env="all", stage="all")}}'
 # Vault certificate
 bootstrap__vault_ca_cert:           '{{ lookup("passwordstore", "services/vault/certs/root-ca/cert returnall=true")}}'
 bootstrap__vault_client_cert:       '{{ lookup("passwordstore", "services/vault/certs/client-host/cert returnall=true")}}'
