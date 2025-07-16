@@ -12,6 +12,14 @@
 - name: Configure ElasticSearch servers
   become: true
   hosts: logs.nimbus
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-swap-file,        tags: swap-file }
     - { role: infra-role-open-ports,       tags: open-ports }
@@ -38,6 +46,14 @@
               addr: ServiceAddress,
               port: to_string(ServiceMeta.cluster_port)
             }') }}
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-swap-file,        tags: swap-file }
     - { role: infra-role-open-ports,       tags: open-ports }

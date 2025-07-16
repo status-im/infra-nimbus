@@ -18,6 +18,14 @@
     - nimbus-hoodi-nec
     - nimbus-hoodi-neth
   vars_files: layout/hoodi.yml
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: update-netplan,                 tags: update-netplan,     when: ansible_system == 'Linux' }
     - { role: infra-role-swap-file,           tags: swap-file           }

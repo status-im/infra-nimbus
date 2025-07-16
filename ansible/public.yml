@@ -18,6 +18,14 @@
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - metal-01.ih-eu-mda1.nimbus.eth1
     - nec-01.ih-eu-mda1.nimbus.mainnet
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,   tags: open-ports   }
     - { role: infra-role-origin-certs, tags: origin-certs }

@@ -15,6 +15,14 @@
   tags: short-benchmark
   hosts:
     - bench-01.he-eu-hel1.nimbus.eth1
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,        tags: open-ports  }
     - { role: infra-role-nimbus-bench-eth1, tags: nimbus-bench,  vars: { nimbus_eth1_benchmark_type: 'short'} }
@@ -25,6 +33,14 @@
   tags: long-benchmark
   hosts:
       - bench-02.he-eu-hel1.nimbus.eth1
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,        tags: open-ports  }
     - { role: infra-role-nimbus-bench-eth1, tags: nimbus-bench,  vars: { nimbus_eth1_benchmark_type: 'long'} }

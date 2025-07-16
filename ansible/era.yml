@@ -1,1 +1,32 @@
-public.yml
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./roles.py --check
+      changed_when: false
+
+- name: Configure ERA, ERA1, and DB files hosting
+  become: true
+  hosts:
+    - erigon-01.ih-eu-mda1.nimbus.mainnet
+    - geth-01.ih-eu-mda1.nimbus.holesky
+    - geth-01.ih-eu-mda1.nimbus.hoodi
+    - linux-01.ih-eu-mda1.nimbus.sepolia
+    - metal-01.ih-eu-mda1.nimbus.eth1
+    - nec-01.ih-eu-mda1.nimbus.mainnet
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
+  roles:
+    - { role: infra-role-open-ports,   tags: open-ports   }
+    - { role: infra-role-origin-certs, tags: origin-certs }
+    - { role: infra-role-nginx,        tags: nginx        }

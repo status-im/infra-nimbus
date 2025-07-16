@@ -15,6 +15,14 @@
   vars_files: layout/sepolia.yml
   hosts:
     - nimbus-sepolia-linux
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: update-netplan,           tags: [ update-netplan ], when: ansible_system == 'Linux' }
     - { role: infra-role-open-ports,    tags: [ open-ports ]                                      }

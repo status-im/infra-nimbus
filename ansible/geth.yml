@@ -13,6 +13,14 @@
   become: true
   hosts:
     - nimbus-geth-mainnet
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,    tags: open-ports }
     - { role: infra-role-geth,          tags: geth }
@@ -24,6 +32,14 @@
   vars_files: layout/holesky.yml
   hosts:
     - nimbus-geth-holesky
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,    tags: open-ports }
   tasks:

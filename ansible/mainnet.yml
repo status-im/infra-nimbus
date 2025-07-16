@@ -17,6 +17,14 @@
   vars:
     # WARNING: Since these are Eth 2 bootnodes we need to keep the keys and IPs unchanged.
     beacon_node_netkey: '{{lookup("vault", "beacon-node/netkey", field=hostname)}}'
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-swap-file,         tags: [ swap-file ] }
     - { role: infra-role-open-ports,        tags: [ open-ports ] }
@@ -43,6 +51,14 @@
   vars:
     # FIXME: Use all Geth nodes available in the fleet until we resync.
     geth_node_api_fleet_names: ['nimbus.geth']
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: update-netplan,                 tags: [ update-netplan ], when: ansible_system == 'Linux' }
     - { role: infra-role-swap-file,           tags: [ swap-file ] }
