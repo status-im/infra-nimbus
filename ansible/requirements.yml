@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: f45c0b6397ea3db7a0520a528fb07b8830eca524
+  version: a28a9ada350e540f01dd158fbf7fb711549dab82
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
