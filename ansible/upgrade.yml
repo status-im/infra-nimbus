@@ -4,6 +4,14 @@
   become: true
   hosts: all
   serial: 1
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   tasks:
     - name: Upgrade packages
       apt:
