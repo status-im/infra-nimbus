@@ -15,7 +15,7 @@
     - nimbus-fluffy-metal
   pre_tasks:
     - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
       tags: always
   post_tasks:
     - name: Disable Maintenance Mode
@@ -42,7 +42,7 @@
     - metal-01.ih-eu-mda1.nimbus.fluffy
   pre_tasks:
     - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
       tags: always
   post_tasks:
     - name: Disable Maintenance Mode
@@ -59,7 +59,7 @@
     - nimbus-fluffy-droplet
   pre_tasks:
     - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
       tags: always
   post_tasks:
     - name: Disable Maintenance Mode

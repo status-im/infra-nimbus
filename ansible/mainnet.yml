@@ -19,7 +19,7 @@
     beacon_node_netkey: '{{lookup("vault", "beacon-node/netkey", field=hostname)}}'
   pre_tasks:
     - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
       tags: always
   post_tasks:
     - name: Disable Maintenance Mode
@@ -53,7 +53,7 @@
     geth_node_api_fleet_names: ['nimbus.geth']
   pre_tasks:
     - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
       tags: always
   post_tasks:
     - name: Disable Maintenance Mode
