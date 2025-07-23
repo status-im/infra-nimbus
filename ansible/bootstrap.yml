@@ -69,12 +69,12 @@
     - nimbus-holesky-windows
   pre_tasks:
     - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
+      win_command: 'bash C:\consul\maintenance Ansible run by {{ lookup("env", "USER") }}'
       tags: always
       ignore_errors: true
   post_tasks:
     - name: Disable Maintenance Mode
-      command: 'maintenance disable'
+      win_command: 'bash C:\consul\maintenance disable'
       tags: always
   roles:
     - role: infra-role-bootstrap-windows
