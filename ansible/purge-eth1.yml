@@ -1,0 +1,32 @@
+---
+- name: Purge Nimbus-Eth1 node DBs
+  become: true
+  hosts:
+    - nimbus-hoodi-nec
+  vars_files: layout/hoodi.yml
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+  tasks:
+    - name: Stopping Nimbus-Eth1 nodes
+      systemd:
+        name: '{{ nimbus_eth1_service_name }}.service'
+        state: 'stopped'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+    - name: Purge Nimbus-Eth1 node data
+      command: |
+        rm -fr '{{ nimbus_eth1_service_path }}/data/shared_hoodi_0/nimbus/aristo'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
+
+    - name: Starting Nimbus-Eth1 nodes
+      systemd:
+        name: '{{ nimbus_eth1_service_name }}.service'
+        state: 'started'
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }
