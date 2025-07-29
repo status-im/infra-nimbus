@@ -16,10 +16,10 @@ nodes_layout:
     - { branch: 'libp2p'              }
 
   'nec-02.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'nec' }
-    - { branch: 'testing',            }
-    - { branch: 'unstable', el: 'nec' }
-    - { branch: 'libp2p'              }
+    - { branch: 'stable',   el: 'nec'              }
+    - { branch: 'testing', close_libp2p_port: true }
+    - { branch: 'unstable', el: 'nec'              }
+    - { branch: 'libp2p'                           }
 
   'nec-03.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   el: 'nec' }
@@ -28,10 +28,10 @@ nodes_layout:
     - { branch: 'libp2p'              }
 
   'erigon-01.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable',   el: 'erigon' }
-    - { branch: 'testing'                }
-    - { branch: 'unstable', el: 'erigon' }
-    - { branch: 'libp2p'                 }
+    - { branch: 'stable',   el: 'erigon'            }
+    - { branch: 'testing',  close_libp2p_port: true }
+    - { branch: 'unstable', el: 'erigon'            }
+    - { branch: 'libp2p'                            }
 
   'erigon-02.ih-eu-mda1.nimbus.mainnet':
     - { branch: 'stable',   el: 'erigon' }
