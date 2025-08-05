@@ -1,7 +1,6 @@
 output "hosts" {
   value = merge(
     module.nimbus_dashboard.hosts,
-    module.nimbus_eth1_node_innova.hosts,
     module.nimbus_eth1_node_benchmark.hosts,
     module.nimbus_log_store.hosts,
     module.nimbus_nodes_fluffy_innova.hosts,
@@ -18,5 +17,6 @@ output "hosts" {
     module.nimbus_nodes_mainnet_innova_nec.hosts,
     module.nimbus_nodes_mainnet_stable_small.hosts,
     module.nimbus_nodes_sepolia_innova.hosts,
+    module.obol_hoodi_innova.hosts,
   )
 }

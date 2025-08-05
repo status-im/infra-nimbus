@@ -21,8 +21,8 @@ geth-05.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.129 data_center=ih-eu-m
 geth-05.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.147 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im env=nimbus region=eu-mda1 stage=sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=185.181.230.76 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
-metal-01.ih-eu-mda1.nimbus.eth1 ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.eth1.status.im env=nimbus region=eu-mda1 stage=eth1
 metal-01.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
+metal-01.ih-eu-mda1.obol.hoodi ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.obol.hoodi.status.im env=obol region=eu-mda1 stage=hoodi
 metal-02.ih-eu-mda1.nimbus.fluffy ansible_host=194.33.40.239 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-02.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
 metal-03.ih-eu-mda1.nimbus.fluffy ansible_host=82.25.203.2 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-03.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
 metal-04.ih-eu-mda1.nimbus.fluffy ansible_host=82.25.203.66 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-04.ih-eu-mda1.nimbus.fluffy.status.im env=nimbus region=eu-mda1 stage=fluffy
@@ -87,8 +87,8 @@ geth-05.ih-eu-mda1.nimbus.holesky
 geth-05.ih-eu-mda1.nimbus.hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi
-metal-01.ih-eu-mda1.nimbus.eth1
 metal-01.ih-eu-mda1.nimbus.fluffy
+metal-01.ih-eu-mda1.obol.hoodi
 metal-02.ih-eu-mda1.nimbus.fluffy
 metal-03.ih-eu-mda1.nimbus.fluffy
 metal-04.ih-eu-mda1.nimbus.fluffy
@@ -128,9 +128,6 @@ store-03.he-eu-hel1.logs.nimbus
 [nimbus-eth1-bench]
 bench-01.he-eu-hel1.nimbus.eth1
 bench-02.he-eu-hel1.nimbus.eth1
-
-[nimbus-eth1-metal]
-metal-01.ih-eu-mda1.nimbus.eth1
 
 [nimbus-fluffy-metal]
 metal-01.ih-eu-mda1.nimbus.fluffy
@@ -209,7 +206,6 @@ linux-01.ih-eu-mda1.nimbus.sepolia
 [nimbus.eth1]
 bench-01.he-eu-hel1.nimbus.eth1
 bench-02.he-eu-hel1.nimbus.eth1
-metal-01.ih-eu-mda1.nimbus.eth1
 
 [nimbus.fluffy]
 metal-01.ih-eu-mda1.nimbus.fluffy
@@ -266,4 +262,10 @@ nec-03.ih-eu-mda1.nimbus.mainnet
 
 [nimbus.sepolia]
 linux-01.ih-eu-mda1.nimbus.sepolia
+
+[obol-hoodi-metal]
+metal-01.ih-eu-mda1.obol.hoodi
+
+[obol.hoodi]
+metal-01.ih-eu-mda1.obol.hoodi
 
