@@ -92,5 +92,4 @@ module "nimbus_nodes_mainnet_stable_small" {
   vpc_id       = module.nimbus_network.vpc.id
   subnet_id    = module.nimbus_network.subnets[0].id
   secgroup_id  = module.nimbus_network.secgroup.id
-  keypair_name = aws_key_pair.jakubgs.key_name
 }
