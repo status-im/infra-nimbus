@@ -1,0 +1,61 @@
+---
+# Go-Ethereum
+geth_service_name: 'geth-{{ geth_network_name }}-obol'
+geth_cont_name: '{{ geth_service_name }}-node'
+geth_cont_mem_ratio: 0.3
+geth_network_name: 'hoodi'
+geth_sync_mode: 'snap'
+geth_init_enabled: false
+# Geth auth & JWT token
+geth_account_pass:      '{{lookup("vault", "geth",       field="password",  env="nimbus", stage="all")}}'
+geth_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
+# Ports
+geth_rpc_enabled: true
+geth_port:           30303
+geth_metrics_port:   6060
+geth_rpc_port:       8545
+geth_authrpc_port:   8551
+# Geth metrics¬
+geth_expo_service_name: '{{ geth_service_name }}'
+geth_expo_source_cont_name: '{{ geth_cont_name }}'
+geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
+geth_expo_cont_port: 9400
+
+# Beacon Nodes
+beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}'
+beacon_node_network: 'hoodi'
+beacon_node_update_build_targets: ['nimbus_beacon_node']
+# Execution layer Enginer API
+beacon_node_exec_layer_urls: ['http://localhost:{{ geth_authrpc_port }}']
+beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", env="nimbus", stage="all")}}'
+# Suggests it to the Execution Layer client.
+beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", env="nimbus", stage="all")}}'
+# Ports
+beacon_node_discovery_port: 9000
+beacon_node_listening_port: 9000
+beacon_node_metrics_port:   9200
+beacon_node_rest_port:      9300
+
+# Validator Client
+validator_client_service_name: 'validator-client-{{ validator_client_network }}-obol'
+validator_client_network: '{{ beacon_node_network }}'
+validator_client_beacon_node_urls: ['http://127.0.0.1:{{ beacon_node_rest_port }}']
+#validator_client_suggested_fee_recipient: 'TODO'
+# Keymanager
+validator_client_keymanager_enabled: true
+validator_client_keymanager_token: '{{lookup("vault", "validator-client", field="keymanager-token", env="nimbus", stage="all")}}'
+# Ports
+validator_client_metrics_port:    8108
+validator_client_keymanager_port: 5052
+
+# Open Ports
+open_ports_list:
+  geth-node:
+    - { port: '{{ geth_port }}',                  comment: 'Geth LibP2P',                  protocol: 'tcp'                                }
+    - { port: '{{ geth_port }}',                  comment: 'Geth Discovery',               protocol: 'udp'                                }
+    - { port: '{{ geth_metrics_port }}',          comment: 'Geth Metrics',                 ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '{{ geth_expo_cont_port }}',        comment: 'Geth Exporter',                ipset: 'hq.metrics',            iifname: 'wg0' }
+  beacon-node:
+    - { port: '{{ beacon_node_listening_port }}', comment: 'Beacon Node libp2p',           protocol: 'tcp'                                }
+    - { port: '{{ beacon_node_discovery_port }}', comment: 'Beacon Node discovery',        protocol: 'udp'                                }
+    - { port: '{{ beacon_node_metrics_port }}',   comment: 'Beacon Node Metrics',          ipset: 'hq.metrics',            iifname: 'wg0' }

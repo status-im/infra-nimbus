@@ -1,0 +1,30 @@
+---
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./roles.py --check
+      changed_when: false
+
+- name: Deploy Obol Hoodi Nodes
+  become: true
+  hosts:
+    - obol.hoodi
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
+  roles:
+    - { role: infra-role-open-ports,        tags: [ open-ports ]       }
+    - { role: redirect-ports,               tags: [ redirect-ports ]   }
+    - { role: infra-role-geth,              tags: [ geth ]             }
+    - { role: infra-role-geth-exporter,     tags: [ geth-exporter ]    }
+    - { role: infra-role-beacon-node-linux, tags: [ beacon-node ]      }
+    - { role: infra-role-validator-client,  tags: [ validator-client ] }
