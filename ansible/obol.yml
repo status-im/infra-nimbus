@@ -23,7 +23,6 @@
       tags: always
   roles:
     - { role: infra-role-open-ports,        tags: [ open-ports ]       }
-    - { role: redirect-ports,               tags: [ redirect-ports ]   }
     - { role: infra-role-geth,              tags: [ geth ]             }
     - { role: infra-role-geth-exporter,     tags: [ geth-exporter ]    }
     - { role: infra-role-beacon-node-linux, tags: [ beacon-node ]      }
