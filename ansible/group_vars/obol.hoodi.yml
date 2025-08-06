@@ -22,7 +22,7 @@ geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_expo_cont_port: 9400
 
 # Beacon Nodes
-beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}'
+beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-obol'
 beacon_node_network: 'hoodi'
 beacon_node_update_build_targets: ['nimbus_beacon_node']
 # Execution layer Enginer API
