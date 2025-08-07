@@ -111,6 +111,7 @@ beacon_node_service_user_pass: '{{lookup("vault", "windows-service-user", field=
 # MEV Payload Builder
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
+mev_boost_cont_port: 18550
 # Light client data
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
