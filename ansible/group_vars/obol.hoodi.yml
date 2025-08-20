@@ -39,7 +39,7 @@ beacon_node_rest_port:      9300
 # Validator Client
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-obol'
 validator_client_network: '{{ beacon_node_network }}'
-validator_client_beacon_node_urls: ['http://127.0.0.1:{{ beacon_node_rest_port }}']
+validator_client_beacon_node_urls: ['http://127.0.0.1:{{ obol_charon_validator_api_port }}']
 #validator_client_suggested_fee_recipient: 'TODO'
 # Keymanager
 validator_client_keymanager_enabled: true
@@ -47,6 +47,11 @@ validator_client_keymanager_token: '{{lookup("vault", "validator-client", field=
 # Ports
 validator_client_metrics_port:    8108
 validator_client_keymanager_port: 5052
+
+# Obol Charon DVT
+obol_charon_beacon_node_urls: ['http://localhost:{{ beacon_node_rest_port }}']
+obol_charon_execution_client_rpc_url: ['http://localhost:{{ geth_rpc_port }}']
+obol_charon_validator_api_port: 3600
 
 # Open Ports
 open_ports_list:

@@ -22,8 +22,9 @@
       command: 'maintenance disable'
       tags: always
   roles:
-    - { role: infra-role-open-ports,        tags: [ open-ports ]       }
-    - { role: infra-role-geth,              tags: [ geth ]             }
-    - { role: infra-role-geth-exporter,     tags: [ geth-exporter ]    }
-    - { role: infra-role-beacon-node-linux, tags: [ beacon-node ]      }
-    - { role: infra-role-validator-client,  tags: [ validator-client ] }
+    - { role: infra-role-open-ports,        tags: open-ports       }
+    - { role: infra-role-geth,              tags: geth             }
+    - { role: infra-role-geth-exporter,     tags: geth-exporter    }
+    - { role: infra-role-beacon-node-linux, tags: beacon-node      }
+    - { role: infra-role-validator-client,  tags: validator-client }
+    - { role: infra-role-obol-charon,       tags: obol-charon      }
