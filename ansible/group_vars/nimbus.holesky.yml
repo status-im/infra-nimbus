@@ -131,7 +131,7 @@ beacon_node_rest_address:   '0.0.0.0'
 beacon_node_consul_check_disabled: '{{ node.get("public_api", false) }}'
 beacon_node_consul_check_interval: '60s'
 beacon_node_consul_check_timeout: '10s'
-beacon_node_consul_monitor_start_delay_sec: '{{ ((node.get("end", 0) - node.get("start", 0)) / 3) | int }}' # 3 vals per second
+beacon_node_consul_monitor_start_delay_sec: '{{ 60 + ((node.get("end", 0) - node.get("start", 0)) / 3) | int }}' # 3 vals per second
 beacon_node_consul_success_before_passing:   '{{  60 if not node.get("public_api") else    1 }}' # 1h  or 60s for public API
 beacon_node_consul_failures_before_warning:  '{{ 360 if not node.get("public_api") else 1440 }}' # 6h  or 24h for public API
 beacon_node_consul_failures_before_critical: '{{ 720 if not node.get("public_api") else 2880 }}' # 12h or 48h for public API
