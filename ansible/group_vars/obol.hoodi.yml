@@ -49,6 +49,7 @@ validator_client_metrics_port:    8108
 validator_client_keymanager_port: 5052
 
 # Obol Charon DVT
+obol_charon_nickname: 'Develp'
 obol_charon_beacon_node_urls: ['http://localhost:{{ beacon_node_rest_port }}']
 obol_charon_execution_client_rpc_url: ['http://localhost:{{ geth_rpc_port }}']
 obol_charon_validator_api_port: 3600

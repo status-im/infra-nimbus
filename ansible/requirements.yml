@@ -130,4 +130,4 @@
 
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
-  version: 309b6cdd39a85a1d149968e66e6584753c74c8b9
+  version: e56e623ab10244c385112f976ff38ca3efb8fb27
