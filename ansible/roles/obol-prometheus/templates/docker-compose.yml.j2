@@ -1,0 +1,43 @@
+---
+services:
+  app:
+    container_name: '{{ prometheus_cont_name }}'
+    image: '{{ prometheus_cont_image }}'
+    restart: always
+    extra_hosts:
+      host-gateway: 'host-gateway'
+      consul: '{{ "host-gateway" if prometheus_consul_host == "localhost" else prometheus_consul_host }}'
+    ports:
+      - '0.0.0.0:{{ prometheus_port }}:{{ prometheus_port }}'
+    volumes:
+      - '{{ prometheus_cont_vol }}/conf:/etc/prometheus:ro'
+      - '{{ prometheus_cont_vol }}/data:/prometheus'
+{% if prometheus_cont_networks %}
+    networks: {{ prometheus_cont_networks | to_json }}
+{% endif %}
+    command: |
+      --log.level={{ prometheus_log_level }}
+      --web.enable-lifecycle
+      --web.enable-admin-api
+      --web.listen-address=0.0.0.0:{{ prometheus_port }}
+{% if prometheus_web_external_url is defined %}
+      --web.external-url={{ prometheus_web_external_url }}
+{% endif %}
+{% if prometheus_web_route_prefix is defined %}
+      --web.route-prefix={{ prometheus_web_route_prefix }}
+{% endif %}
+      --config.file=/etc/prometheus/prometheus.yml
+      --storage.tsdb.path=/prometheus
+      --storage.tsdb.retention.time={{ prometheus_retention }}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:{{ prometheus_port }}/api/v1/status/flags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+{% for network in prometheus_cont_networks %}
+  {{network}}:
+    name: '{{ network }}'
+    external: true
+{% endfor %}

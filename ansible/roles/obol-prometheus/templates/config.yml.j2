@@ -1,0 +1,24 @@
+global:
+  scrape_interval:     {{ prometheus_scrape_interval }}
+  scrape_timeout:      {{ prometheus_scrape_timeout }}
+  evaluation_interval: {{ prometheus_evaluation_interval }}
+  external_labels:
+    source: {{ inventory_hostname }}
+
+# Obol Metrics Backend
+remote_write:
+{{ prometheus_remote_write_backends | to_nice_yaml | indent(2, true, true) }}
+
+# scrape job definitions
+scrape_config_files:
+  - /etc/prometheus/jobs/*.yml
+
+# scrape metrics for itself
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:{{ prometheus_port }}']
+        labels:
+          instance: '{{ inventory_hostname }}'
+          fleet: '{{ env }}.{{ stage }}'
+          dc: '{{ data_center }}'

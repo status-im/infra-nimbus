@@ -1,0 +1,45 @@
+---
+prometheus_service_name: 'obol-prometheus'
+prometheus_service_path: '/docker/{{ prometheus_service_name }}'
+prometheus_compose_file: '{{ prometheus_service_path }}/docker-compose.yml'
+
+prometheus_cont_tag: 'v3.5.0'
+prometheus_cont_image: 'prom/prometheus:{{ prometheus_cont_tag }}'
+prometheus_cont_name: '{{ prometheus_service_name }}'
+prometheus_cont_vol: '{{ prometheus_service_path }}'
+prometheus_cont_networks: ['{{ prometheus_service_name }}']
+
+# prometheus container runs as user "nobody"
+prometheus_cont_uid: 65534
+prometheus_host_uid: '{{ 100000 + prometheus_cont_uid | int }}'
+
+prometheus_log_level: 'info'
+prometheus_port: 9090
+prometheus_retention: '120h'
+prometheus_scrape_interval: '30s'
+prometheus_scrape_timeout: '2s'
+prometheus_evaluation_interval: '30s'
+#prometheus_web_external_url: ~
+#prometheus_web_route_prefix: ~
+
+# Remote Write
+prometheus_remote_write_backends: []
+
+# Definition of scrape jobs
+prometheus_jobs: []
+#  - { name: 'service-ab' }
+#  - { name: 'service-cd', interval: '12s' }
+#  - { name: 'service-ef', path: '/debug/metrics/prometheus' }
+#  - { name: 'service-gh', metric_relabel_configs: [{ source_labels: [ '__name__' ], regex: '^attached_validator_balance.*$', action: 'drop' }] }
+#  - { name: 'service-ij', params: { 'format': ['prometheus'] } }
+
+# Consul discovery
+prometheus_consul_port: 8500
+prometheus_consul_host: 'localhost'
+prometheus_consul_addr: '{{ prometheus_consul_host }}:{{ prometheus_consul_port }}'
+#prometheus_consul_token: ~
+
+# general container management
+compose_recreate: 'auto'
+compose_state: 'present'
+compose_pull: 'always'

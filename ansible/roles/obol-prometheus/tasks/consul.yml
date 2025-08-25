@@ -1,0 +1,16 @@
+---
+- name: Create Consul service definition
+  include_role: name=infra-role-consul-service
+  vars:
+    consul_config_name: '{{ prometheus_service_name }}'
+    consul_services:
+      - name: '{{ prometheus_service_name }}'
+        tags: ['metrics', 'slave', 'prometheus']
+        # we advertise the port with basic auth
+        port: '{{ prometheus_port }}'
+        address: '{{ ansible_local.wireguard.address }}'
+        checks:
+          - id: '{{ prometheus_service_name }}-health'
+            name: 'Prometheus Healthcheck'
+            type: 'http'
+            http: 'http://localhost:{{ prometheus_port }}/api/v1/status/flags'

@@ -1,0 +1,16 @@
+# {{ item.comment | default("Managed by Ansible") }}
+scrape_configs:
+  - job_name: '{{ item.name | mandatory }}'
+    metrics_path: '{{ item.path | default("/metrics") }}'
+    scrape_interval: '{{ item.interval | default(prometheus_scrape_interval) }}'
+    scrape_timeout: '{{ item.timeout | default(prometheus_scrape_timeout) }}'
+    params: {{ item.params | default({}) }}
+    honor_labels: true
+{% if item.static_configs is defined %}
+    static_configs:
+{{ item.static_configs | to_nice_yaml | indent(6, true) }}
+{% endif %}
+{% if item.metric_relabel_configs is defined %}
+    metric_relabel_configs:
+{{ item.metric_relabel_configs | to_nice_yaml(sort_keys=False) | indent(6, first=True) }}
+{% endif %}

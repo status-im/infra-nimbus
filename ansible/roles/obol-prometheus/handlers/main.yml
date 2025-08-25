@@ -1,0 +1,5 @@
+---
+- name: Reload Prometheus Config
+  uri:
+    url: 'http://localhost:{{ prometheus_port }}/-/reload'
+    method: 'POST'

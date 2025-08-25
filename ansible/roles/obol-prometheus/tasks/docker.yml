@@ -1,0 +1,19 @@
+---
+- name: Create compose file
+  template:
+    src: 'docker-compose.yml.j2'
+    dest: '{{ prometheus_compose_file }}'
+    owner: 'dockremap'
+    group: 'docker'
+    mode: 0640
+
+- name: Create containers
+  community.docker.docker_compose_v2:
+    project_src: '{{ prometheus_service_path }}'
+    recreate: '{{ compose_recreate }}'
+    pull: '{{ compose_pull }}'
+    state: |-
+      {{ "restarted" if (
+        cont_conf.changed
+        or jobs_conf.changed
+      ) else compose_state }}

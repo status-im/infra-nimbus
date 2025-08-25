@@ -1,0 +1,53 @@
+---
+- name: Create directory for config files
+  file:
+    path:  '{{ prometheus_cont_vol }}/{{ item }}'
+    owner: '{{ prometheus_host_uid }}'
+    group: 'docker'
+    state: 'directory'
+    recurse: true
+  with_items:
+    - data
+    - conf
+    - conf/rules
+    - conf/jobs
+
+- name: Create config file
+  template:
+    src:   'config.yml.j2'
+    dest:  '{{ prometheus_cont_vol }}/conf/prometheus.yml'
+    owner: '{{ prometheus_host_uid }}'
+    group: 'docker'
+    mode:  0640
+  register: cont_conf
+
+- name: Create scrape job config files
+  template:
+    src:   'job.yml.j2'
+    dest:  '{{ prometheus_cont_vol }}/conf/jobs/{{ item.name }}.yml'
+    owner: '{{ prometheus_host_uid }}'
+    group: 'docker'
+    mode:  0640
+  with_items: '{{ prometheus_jobs }}'
+  loop_control:
+    label: '{{ item.name }}'
+  register: jobs_conf
+  notify:
+    - Reload Prometheus Config
+
+- name: Find all existing jobs files
+  find:
+    path: '{{ prometheus_cont_vol }}/conf/jobs'
+  register: jobs_found
+
+- name: Delete old jobs config files
+  file:
+    path: '{{ prometheus_cont_vol }}/conf/jobs/{{ item }}.yml'
+    state: 'absent'
+  with_items: |
+    {{ (
+        jobs_found.files|map(attribute="path")
+        |map("basename")|map("regex_replace", ".yml", "")
+      ) | difference(prometheus_jobs|map(attribute="name")) }}
+  notify:
+    - Reload Prometheus Config
