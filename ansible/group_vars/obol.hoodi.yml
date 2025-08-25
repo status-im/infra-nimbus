@@ -1,4 +1,10 @@
 ---
+bootstrap__netdata_port: 8001
+# Docker
+bootstrap__docker_default_addr_pool_base: '172.17.0.0'
+bootstrap__docker_default_addr_pool_mask: '16'
+bootstrap__docker_default_addr_network: '{{ bootstrap__docker_default_addr_pool_base }}/{{ bootstrap__docker_default_addr_pool_mask }}'
+
 # Go-Ethereum
 geth_service_name: 'geth-{{ geth_network_name }}-obol'
 geth_cont_name: '{{ geth_service_name }}-node'
@@ -53,12 +59,38 @@ obol_charon_nickname: 'Develp'
 obol_charon_beacon_node_urls: ['http://localhost:{{ beacon_node_rest_port }}']
 obol_charon_execution_client_rpc_url: ['http://localhost:{{ geth_rpc_port }}']
 obol_charon_validator_api_port: 3600
+obol_charon_monitoring_host: '0.0.0.0'
 obol_charon_monitoring_port: 3620
 
+# Prometheus
+prometheus_service_name: 'obol-prometheus'
+prometheus_cont_networks: ['{{ geth_service_name }}_default']
+prometheus_port: 9090
+prometheus_scrape_interval: '30s'
+prometheus_evaluation_interval: '30s'
+prometheus_consul_token: '{{ lookup("vault", "prometheus/consul", field="token") }}'
+prometheus_retention: '1y'
+prometheus_remote_write_backends:
+  - url: 'https://vm.monitoring.gcp.obol.tech/write'
+    authorization: { credentials: '{{ lookup("vault", "prometheus/backend", field="obol-token") }}' }
+    write_relabel_configs: [ { target_label: 'team', replacement: 'Develp' } ]
+prometheus_jobs:
+  - { name: 'netdata',             static_configs: [ { targets: ['{{ ansible_local.wireguard.address }}:{{ bootstrap__netdata_port }}'] } ],  path: '/api/v1/allmetrics', params: { format: ['prometheus'] } }
+  - { name: 'beacon-node-metrics', static_configs: [ { targets: ['{{ ansible_local.wireguard.address }}:{{ beacon_node_metrics_port }}'] } ] }
+  - { name: 'geth-metrics',        static_configs: [ { targets: ['{{ ansible_local.wireguard.address }}:{{ geth_metrics_port }}'] } ],        path: '/debug/metrics/prometheus' }
+  - { name: 'obol-charon-metrics', static_configs: [ { targets: ['{{ ansible_local.wireguard.address }}:{{ obol_charon_monitoring_port }}'] } ] }
+
+# Hard-coded in Bootstrap role.
+docker_net_addr: '{{ bootstrap__docker_default_addr_network }}'
 # Open Ports
 open_ports_list:
   obol-charon:
     - { port: '{{ obol_charon_monitoring_port }}', comment: 'Charon Obol Metrics',          ipset: 'hq.metrics',            iifname: 'wg0' }
+  prometheus: # WARNING: Without this rule Prometheus won't be able to query Consul.
+    - { port: '{{ bootstrap__netdata_port }}',     comment: 'Netdata from Docker',          source: '{{ docker_net_addr }}' }
+    - { port: '{{ beacon_node_metrics_port }}',    comment: 'Beacon Node from Docker',      source: '{{ docker_net_addr }}' }
+    - { port: '{{ geth_metrics_port }}',           comment: 'Geth node from Docker',        source: '{{ docker_net_addr }}' }
+    - { port: '{{ obol_charon_monitoring_port }}', comment: 'Obol Charon from Docker',      source: '{{ docker_net_addr }}' }
   geth-node:
     - { port: '{{ geth_port }}',                   comment: 'Geth LibP2P',                  protocol: 'tcp'                                }
     - { port: '{{ geth_port }}',                   comment: 'Geth Discovery',               protocol: 'udp'                                }

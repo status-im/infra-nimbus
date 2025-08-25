@@ -28,3 +28,4 @@
     - { role: infra-role-beacon-node-linux, tags: beacon-node      }
     - { role: infra-role-validator-client,  tags: validator-client }
     - { role: infra-role-obol-charon,       tags: obol-charon      }
+    - { role: obol-prometheus,              tags: obol-prometheus  }
