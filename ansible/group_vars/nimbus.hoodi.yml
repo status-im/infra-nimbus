@@ -86,7 +86,7 @@ beacon_node_network: 'hoodi'
 beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
 # Tuning
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
-beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
+beacon_node_extra_flags: '{{ {"local-block-value-boost": 0} if node.get("payload_builder", false) else {} }}'
 beacon_node_doppelganger_detection: true
 beacon_node_suggested_gas_limit: 60000000
 # We map short names to branches to avoid too long service names.
