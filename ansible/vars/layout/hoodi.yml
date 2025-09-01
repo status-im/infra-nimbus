@@ -53,7 +53,7 @@ nodes_layout:
 
   'nec-04.ih-eu-mda1.nimbus.hoodi': # 1500 each
     - { branch: 'stable',   start: 16680, end: 18180, el: 'nec', vc: false }
-    - { branch: 'testing',  start: 18180, end: 19680, el: 'nec', vc: false }
+    - { branch: 'testing',  start: 18180, end: 19680, el: 'nec', vc: false, payload_builder: true }
     - { branch: 'unstable', start: 19680, end: 21180, el: 'nec', vc: true  }
     - { branch: 'libp2p',   start: 21180, end: 22680, el: 'nec', vc: false }
 
