@@ -133,9 +133,7 @@ beacon_node_closed_libp2p_ports: >-
   {{ closed_ports|join(',') }}
 # Excellent stress test and good service to the community.
 beacon_node_subscribe_all: true
-# FIXME: Temporary test to debug REST API timeout issues.
-# https://github.com/status-im/nimbus-eth2/issues/5838
-#beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
+beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
 
 # Reduce Consul alerts sensitivity
 beacon_node_consul_check_disabled: '{{ node.get("public_api", false) }}'
