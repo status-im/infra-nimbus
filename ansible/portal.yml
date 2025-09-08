@@ -9,10 +9,10 @@
     - local_action: command ./roles.py --check
       changed_when: false
 
-- name: Configure Nimbus Fluffy nodes
+- name: Configure Nimbus Portal Network nodes
   become: true
   hosts:
-    - nimbus-fluffy-metal
+    - nimbus-portal-metal
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -27,11 +27,11 @@
     - { role: infra-role-open-ports,    tags: open-ports     }
   tasks:
     - include_role:
-        name: infra-role-nimbus-fluffy
+        name: infra-role-nimbus-portal-client
         apply:
           tags: always
-      tags: [ nimbus-fluffy ]
-      with_sequence: start=1 end={{ nimbus_fluffy_host_number_of_public_ips }}
+      tags: [ nimbus-portal-client ]
+      with_sequence: start=1 end={{ nimbus_portal_client_host_number_of_public_ips }}
       loop_control:
         loop_var: index
 
@@ -39,7 +39,7 @@
   become: true
   vars_files: portal-bridge.yml
   hosts:
-    - metal-01.ih-eu-mda1.nimbus.fluffy
+    - metal-01.ih-eu-mda1.nimbus.portal
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -49,23 +49,6 @@
       command: 'maintenance disable'
       tags: always
   roles:
-    - { role: infra-role-open-ports,    tags: open-ports    }
-    - { role: infra-role-nimbus-fluffy, tags: nimbus-fluffy }
-    - { role: infra-role-portal-bridge, tags: portal-bridge }
-
-- name: Configure Nimbus Fluffy droplet
-  become: true
-  hosts:
-    - nimbus-fluffy-droplet
-  pre_tasks:
-    - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
-      tags: always
-  post_tasks:
-    - name: Disable Maintenance Mode
-      command: 'maintenance disable'
-      tags: always
-  roles:
-    - { role: infra-role-swap-file,     tags: swap-file      }
-    - { role: infra-role-open-ports,    tags: open-ports     }
-    - { role: infra-role-nimbus-fluffy, tags: nimbus-fluffy  }
+    - { role: infra-role-open-ports,           tags: open-ports    }
+    - { role: infra-role-nimbus-portal-client, tags: nimbus-client }
+    - { role: infra-role-portal-bridge,        tags: portal-bridge }

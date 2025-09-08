@@ -1,5 +1,0 @@
----
-nimbus_fluffy_host_number_of_public_ips: 64
-nimbus_fluffy_listening_addr: '82.25.203.{{ (66 + index|default(1)|int - 1) }}'
-
-nimbus_fluffy_storage_capacity: '2000'

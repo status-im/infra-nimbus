@@ -1,15 +1,15 @@
 ---
-# Fluffy Node
-nimbus_fluffy_service_name:     'nimbus-portal-bridge-fluffy'
-nimbus_fluffy_network:          'mainnet'
-nimbus_fluffy_repo_branch:      'master'
-nimbus_fluffy_storage_capacity: 0
-nimbus_fluffy_rpc_port:         '{{ portal_bridge_fluffy_rpc_port }}'
-nimbus_fluffy_metrics_port:     '{{ portal_bridge_fluffy_metrics_port }}'
-nimbus_fluffy_listening_port:   '{{ portal_bridge_fluffy_listening_port }}'
+# Portal Bridge client node
+nimbus_portal_client_service_name:     'nimbus-portal-bridge-client'
+nimbus_portal_client_network:          'mainnet'
+nimbus_portal_client_repo_branch:      'master'
+nimbus_portal_client_storage_capacity: 0
+nimbus_portal_client_rpc_port:         '{{ portal_bridge_portal_client_rpc_port }}'
+nimbus_portal_client_metrics_port:     '{{ portal_bridge_portal_client_metrics_port }}'
+nimbus_portal_client_listening_port:   '{{ portal_bridge_portal_client_listening_port }}'
 
 # Open Ports -------------------------------------------------------------------
 open_ports_list:
   nimbus-portal:
-    - { comment: 'Nimbus Portal',          port: '{{ portal_bridge_fluffy_listening_port }}',                                      protocol: 'udp' }
-    - { comment: 'Nimbus Portal Metrics',  port: '{{ portal_bridge_fluffy_metrics_port }}',   ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }
+    - { comment: 'Nimbus Portal',          port: '{{ portal_bridge_portal_client_listening_port }}',                                      protocol: 'udp' }
+    - { comment: 'Nimbus Portal Metrics',  port: '{{ portal_bridge_portal_client_metrics_port }}',   ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }

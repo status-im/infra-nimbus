@@ -3,7 +3,7 @@ output "hosts" {
     module.nimbus_dashboard.hosts,
     module.nimbus_eth1_node_benchmark.hosts,
     module.nimbus_log_store.hosts,
-    module.nimbus_nodes_fluffy_innova.hosts,
+    module.nimbus_nodes_portal_innova.hosts,
     module.nimbus_nodes_holesky_innova_geth.hosts,
     module.nimbus_nodes_holesky_innova_nec.hosts,
     module.nimbus_nodes_holesky_innova_neth.hosts,

@@ -1,0 +1,5 @@
+---
+nimbus_portal_client_host_number_of_public_ips: 64
+nimbus_portal_client_listening_addr: '82.25.203.{{ (2 + index|default(1)|int - 1) }}'
+
+nimbus_portal_client_storage_capacity: '2000'
