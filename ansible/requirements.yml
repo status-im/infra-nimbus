@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: ecbcc058bc9e72818a06825f283e53090b7ffd72
+  version: 6ea837b625093059d9a9e2aa92465f7c6e7b8f42
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -82,7 +82,7 @@
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 961322d10738610d932cc2ab761e55a5741078f7
+  version: 6297f24c6fc59aa09e1b8bf58c8391f9a792c7e1
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
@@ -106,7 +106,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: c1c1c687d21998c2a58b6c0ce966f97a0c50b96d
+  version: f5b45ecdbc7315e84bda940f23cffcdc4f824ab5
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
@@ -118,7 +118,7 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: 104fd1a5577522b368a109fcd73560b773b845cc
+  version: 20b617719ede717beefa5bcf3829fef7144bd74d
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
