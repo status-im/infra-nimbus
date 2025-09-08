@@ -108,6 +108,8 @@ beacon_node_validator_monitor_details: '{{ node.public_api is not defined or not
 beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 beacon_node_exec_layer_urls_local: ['http://localhost:{{ exec_layer_authrpc_port }}']
 beacon_node_exec_layer_urls: '{{ beacon_node_exec_layer_urls_local if node.get("el") else [] }}'
+# Allow cross-origin request for public API endpoints.
+beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
 # Light client data
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
@@ -136,9 +138,6 @@ beacon_node_closed_libp2p_ports: >-
   {{ closed_ports|join(',') }}
 # Excellent stress test and good service to the community.
 beacon_node_subscribe_all: true
-# FIXME: Temporary test to debug REST API timeout issues.
-# https://github.com/status-im/nimbus-eth2/issues/5838
-#beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
 
 # Reduce Consul alerts sensitivity
 beacon_node_consul_check_disabled: '{{ node.get("public_api", false) }}'
