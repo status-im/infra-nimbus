@@ -13,7 +13,7 @@ nimbus_era_files_timer_name: 'nimbus-era-files'
 nimbus_era_files_timer_update_name: '{{ nimbus_era_files_timer_name }}-update'
 nimbus_era_files_timer_verify_name: '{{ nimbus_era_files_timer_name }}-verify'
 nimbus_era_files_timer_path: '/data/era'
-nimbus_era_files_nclidb_path: '/data/nimbus/repo/build/bin/ncli_db'
+nimbus_era_files_nclidb_path: '/data/nimbus/bin/ncli_db'
 nimbus_era_files_db_path: '/data/nimbus/data/db'
 #nimbus_era_files_network: 'holesky'
 ```

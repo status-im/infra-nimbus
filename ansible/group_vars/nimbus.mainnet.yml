@@ -156,7 +156,7 @@ nimbus_era_files_timer_path: '/data/era'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 # FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-testing/data/db'
-nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-testing/repo/build/ncli_db'
+nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-testing/bin/ncli_db'
 
 # Migrated to NFTables from IPTables.
 # https://github.com/status-im/infra-misc/issues/301

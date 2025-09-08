@@ -181,7 +181,7 @@ nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 
 nimbus_era_files_timer_path: '/docker/era'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'
-nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/repo/build/ncli_db'
+nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/bin/ncli_db'
 
 # RPC-snooper
 rpc_snooper_service_name: 'rpc-snooper-{{ beacon_node_network }}-{{ node.branch | mandatory }}'
