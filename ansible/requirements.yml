@@ -34,11 +34,11 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 5bbc7592f8f98419dd7a9843af35c00d3a6bbd03
+  version: 8a30e8098d8a2a39ee2a2695880582d278c00c02
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 6eb4e41656ffa3c6e67c45c5075131090d08239d
+  version: ac74be0a94c5d3759a9bee9d2c25489d8bc423b1
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: a28a9ada350e540f01dd158fbf7fb711549dab82
+  version: 89a89edd1e442247cb2391c309e6750b679f55b1
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 65c58bc70486ec905ea79be26fb3ebeb83508db5
+  version: 2ebc9c94bf927f8436e129eabaab1886fa59e28a
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,11 +102,11 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 168940f49a8d3d3120defc7cc488bec654b488a1
+  version: 598f10be225195e2eaddd899dedcfda1632629bd
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: f5b45ecdbc7315e84bda940f23cffcdc4f824ab5
+  version: e6b10a36f705aabb0c8f3ba3318a1c513828f452
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
@@ -118,7 +118,7 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: 20b617719ede717beefa5bcf3829fef7144bd74d
+  version: df2801d04f167ed19108c8ee6b948918abb0690d
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
