@@ -35,6 +35,7 @@ bootstrap__active_extra_users:
   - { name: mjfh,          uid: 8015, admin: false,                                                        key: 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCO3FzehJJadocFUwiGpl4oTzfwflzHNbuEUGuOj5ZeBsF476ssV8ud4igjmzCrC/CzguYBnZGTaNnO7Ia+BBl4= jordan@dry' }
   - { name: advaita,       uid: 8016, admin: false,                                                        key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3lkR4I8zLbHOa/pQpvj6xAnRsI8Tmg0GRGPU0I4B5i saha.advaita@gmail.com' }
   - { name: jangko,        uid: 8017, admin: false,                                                        key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGOwuxCjPfRP1WO8a1I57kjtyk7S12z49xofOEeKaLsr andri@status.im' }
+  - { name: ahshum,        uid: 8018, admin: false,                                                        key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJQ2SAUZW5NFMT3Qnk65lC/NmEr3GYNree1ZVnIC3nJz sam.shum@status.im' }
 
 # TRACE needs more disk space
 bootstrap__rsyslog_docker_logs_path: '/docker/log'
