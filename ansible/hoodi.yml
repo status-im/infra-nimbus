@@ -14,7 +14,6 @@
   serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus-hoodi-geth
-    - nimbus-hoodi-geth-macm2
     - nimbus-hoodi-nec
     - nimbus-hoodi-neth
   vars_files: layout/hoodi.yml
@@ -72,7 +71,6 @@
   serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus-hoodi-geth
-    - nimbus-hoodi-geth-macm2
   vars_files: layout/hoodi.yml
   tasks:
     - include_role:

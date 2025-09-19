@@ -1,5 +1,5 @@
 ---
 # Can't log in via VNC without password.
 bootstrap__admin_pass: '{{lookup("passwordstore", "hosts/macos/admin/pass")}}'
-
-beacon_node_exec_layer_urls: ['http://geth-macm2-01.ih-eu-mda1.nimbus.hoodi.wg:{{ 8551 + (idx|int) + 1 }}']
+# No ELs available for MacOS right now.
+beacon_node_exec_layer_urls: []
