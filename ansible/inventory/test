@@ -21,6 +21,7 @@ geth-05.ih-eu-mda1.nimbus.holesky ansible_host=194.33.40.129 data_center=ih-eu-m
 geth-05.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.147 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im env=nimbus region=eu-mda1 stage=sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=185.181.230.76 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
+metal-01.he-eu-hel1.aztec.sepolia ansible_host=65.108.13.84 data_center=he-eu-hel1 dns_domain=status.im dns_entry=metal-01.he-eu-hel1.aztec.sepolia.status.im env=aztec region=eu-hel1 stage=sepolia
 metal-01.ih-eu-mda1.nimbus.portal ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.portal.status.im env=nimbus region=eu-mda1 stage=portal
 metal-01.ih-eu-mda1.obol.hoodi ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.obol.hoodi.status.im env=obol region=eu-mda1 stage=hoodi
 metal-02.ih-eu-mda1.nimbus.portal ansible_host=194.33.40.239 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-02.ih-eu-mda1.nimbus.portal.status.im env=nimbus region=eu-mda1 stage=portal
@@ -60,12 +61,19 @@ bootstrap-01.aws-eu-central-1a.nimbus.mainnet
 bootstrap-02.aws-eu-central-1a.nimbus.mainnet
 node-01.aws-eu-central-1a.dash.nimbus
 
+[aztec-sepolia-linux]
+metal-01.he-eu-hel1.aztec.sepolia
+
+[aztec.sepolia]
+metal-01.he-eu-hel1.aztec.sepolia
+
 [dash.nimbus]
 node-01.aws-eu-central-1a.dash.nimbus
 
 [he-eu-hel1]
 bench-01.he-eu-hel1.nimbus.eth1
 bench-02.he-eu-hel1.nimbus.eth1
+metal-01.he-eu-hel1.aztec.sepolia
 store-01.he-eu-hel1.logs.nimbus
 store-02.he-eu-hel1.logs.nimbus
 store-03.he-eu-hel1.logs.nimbus
