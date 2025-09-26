@@ -1,0 +1,2 @@
+---
+bootstrap__extra_volume_devices: ['disk/by-id/nvme-Micron_3400_MTFDKBA2T0TFH_240247AF061C']
