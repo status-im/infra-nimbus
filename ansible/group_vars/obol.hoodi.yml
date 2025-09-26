@@ -46,6 +46,7 @@ beacon_node_rest_port:      9300
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-obol'
 validator_client_network: '{{ beacon_node_network }}'
 validator_client_beacon_node_urls: ['http://127.0.0.1:{{ obol_charon_validator_api_port }}']
+validator_client_doppelganger_detection: false
 #validator_client_suggested_fee_recipient: 'TODO'
 # Keymanager
 validator_client_keymanager_enabled: true
