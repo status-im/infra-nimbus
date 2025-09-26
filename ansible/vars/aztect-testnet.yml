@@ -36,6 +36,14 @@ beacon_node_listening_port: 9001
 beacon_node_metrics_port:   9201
 beacon_node_rest_port:      9301
 
+# Aztec Sequencer
+aztec_ethereum_hosts: ['http://localhost:{{ geth_rpc_port }}/']
+aztec_l1_consensus_host_urls: ['http://localhost:{{ beacon_node_rest_port }}/']
+aztec_attester_private_key: '{{lookup("vault", "aztec/operator", field="key")}}'
+aztec_publisher_private_key: '{{ aztec_attester_private_key }}'
+aztec_fee_recipient_address: '{{lookup("vault", "aztec/operator", field="address")}}'
+aztec_coinbase_address: '{{ aztec_fee_recipient_address }}'
+
 # Open Ports
 open_ports_list:
   aztec-geth:

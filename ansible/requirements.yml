@@ -131,3 +131,7 @@
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
   version: e56e623ab10244c385112f976ff38ca3efb8fb27
+
+- name: infra-role-aztec
+  src: git@github.com:status-im/infra-role-aztec.git
+  version: f99242c97ee6819d112d7eb3553a53e8c6e153a7

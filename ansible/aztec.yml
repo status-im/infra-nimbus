@@ -13,7 +13,7 @@
   become: true
   vars_files: aztect-testnet.yml
   hosts:
-    - obol.hoodi
+    - aztec-sepolia
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -27,3 +27,4 @@
     - { role: infra-role-geth,              tags: geth             }
     - { role: infra-role-geth-exporter,     tags: geth-exporter    }
     - { role: infra-role-beacon-node-linux, tags: beacon-node      }
+    - { role: infra-role-aztec,             tags: aztec            }
