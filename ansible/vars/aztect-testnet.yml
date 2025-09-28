@@ -45,7 +45,7 @@ aztec_l1_consensus_host_urls: ['http://{{ ansible_local.wireguard.address }}:{{ 
 aztec_attester_private_key: '{{lookup("vault", "operator", field="key")}}'
 aztec_publisher_private_key: '{{ aztec_attester_private_key }}'
 aztec_fee_recipient_address: '{{lookup("vault", "operator", field="address")}}'
-aztec_coinbase_address: '{{ aztec_fee_recipient_address }}'
+aztec_coinbase_address: '0x1b2d5831014b0b24a7a6ed1991cb7bb08ec08ad830fb09809623615770c3f28c'
 aztec_cont_networks: ['{{ geth_service_name }}_default']
 
 # Open Ports
