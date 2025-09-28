@@ -1,8 +1,8 @@
 ---
 # Go-Ethereum
 geth_service_name: 'aztec-geth-sepolia'
-geth_network_name: 'sepolia'
 geth_service_path: '/docker/{{ geth_service_name }}'
+geth_network_name: 'sepolia'
 geth_cont_name: '{{ geth_service_name }}-node'
 geth_cont_vol: '{{ geth_service_path }}/node'
 geth_sync_mode: 'snap'
@@ -39,12 +39,13 @@ beacon_node_metrics_port:   9201
 beacon_node_rest_port:      9301
 
 # Aztec Sequencer
-aztec_ethereum_hosts: ['http://localhost:{{ geth_rpc_port }}/']
-aztec_l1_consensus_host_urls: ['http://localhost:{{ beacon_node_rest_port }}/']
+aztec_ethereum_hosts: ['http://{{ geth_cont_name }}:{{ geth_rpc_port }}/']
+aztec_l1_consensus_host_urls: ['http://{{ ansible_local.wireguard.address }}:{{ beacon_node_rest_port }}/']
 aztec_attester_private_key: '{{lookup("vault", "operator", field="key")}}'
 aztec_publisher_private_key: '{{ aztec_attester_private_key }}'
 aztec_fee_recipient_address: '{{lookup("vault", "operator", field="address")}}'
 aztec_coinbase_address: '{{ aztec_fee_recipient_address }}'
+aztec_cont_networks: ['{{ geth_service_name }}_default']
 
 # Open Ports
 open_ports_list:
