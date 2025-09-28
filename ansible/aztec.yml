@@ -13,7 +13,7 @@
   become: true
   vars_files: aztect-testnet.yml
   hosts:
-    - aztec-sepolia
+    - aztec.sepolia
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
