@@ -61,7 +61,10 @@
 - name: Deploy Holesky Geth Nodes
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus-holesky-geth
+  hosts:
+    - nimbus-holesky-geth
+    - nec-04.ih-eu-mda1.nimbus.holesky # Fusaka Fix
+    - nec-05.ih-eu-mda1.nimbus.holesky # Fusaka Fix
   vars_files: layout/holesky.yml
   tasks:
     - include_role:

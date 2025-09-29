@@ -52,16 +52,16 @@ nodes_layout:
     - { branch: 'libp2p',   start: 33016, end: 33020,  el: 'nec', vc: false }
 
   'nec-04.ih-eu-mda1.nimbus.holesky': # 3245 each
-    - { branch: 'stable',   start: 33020, end: 36265,  el: 'nec', vc: false }
-    - { branch: 'testing',  start: 36265, end: 39510,  el: 'nec', vc: false }
-    - { branch: 'unstable', start: 39510, end: 42755,  el: 'nec', vc: true  }
-    - { branch: 'libp2p',   start: 42755, end: 46000,  el: 'nec', vc: false }
+    - { branch: 'stable',   start: 33020, end: 36265,  el: 'geth', vc: false }
+    - { branch: 'testing',  start: 36265, end: 39510,  el: 'geth', vc: false }
+    - { branch: 'unstable', start: 39510, end: 42755,  el: 'geth', vc: true  }
+    - { branch: 'libp2p',   start: 42755, end: 46000,  el: 'geth', vc: false }
 
   'nec-05.ih-eu-mda1.nimbus.holesky': # 5000 each
-    - { branch: 'stable',   start: 46000, end: 51000,  el: 'nec', vc: false, rpc_snooper: true }
-    - { branch: 'testing',  start: 51000, end: 56000,  el: 'nec', vc: false }
-    - { branch: 'unstable', start: 56000, end: 61000,  el: 'nec', vc: true  }
-    - { branch: 'libp2p',   start: 61000, end: 66000,  el: 'nec', vc: false }
+    - { branch: 'stable',   start: 46000, end: 51000,  el: 'geth', vc: false, rpc_snooper: true }
+    - { branch: 'testing',  start: 51000, end: 56000,  el: 'geth', vc: false }
+    - { branch: 'unstable', start: 56000, end: 61000,  el: 'geth', vc: true  }
+    - { branch: 'libp2p',   start: 61000, end: 66000,  el: 'geth', vc: false }
 
   # Nethermind ---------------------------------------------------------------------
   'neth-01.ih-eu-mda1.nimbus.holesky': # 0 each
