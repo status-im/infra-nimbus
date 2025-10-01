@@ -23,8 +23,11 @@
       tags: always
   roles:
     # Extra 32 or 64 IPv4 addresses for each of the nodes on the host.
-    - { role: update-netplan,           tags: update-netplan }
-    - { role: infra-role-open-ports,    tags: open-ports     }
+    - { role: update-netplan,               tags: update-netplan    }
+    - { role: infra-role-swap-file,         tags: swap-file         }
+    - { role: infra-role-open-ports,        tags: open-ports        }
+    - { role: infra-role-beacon-node-linux, tags: beacon-node-linux }
+    - { role: infra-role-nimbus-eth1,       tags: nimbus-eth1       }
   tasks:
     - include_role:
         name: infra-role-nimbus-portal-client
