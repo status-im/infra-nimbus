@@ -3,6 +3,7 @@
 nimbus_portal_client_service_name:     'nimbus-portal-bridge-client'
 nimbus_portal_client_network:          'mainnet'
 nimbus_portal_client_repo_branch:      'master'
+nimbus_portal_client_web3_url: []
 nimbus_portal_client_storage_capacity: 0
 nimbus_portal_client_rpc_port:         '{{ portal_bridge_portal_client_rpc_port }}'
 nimbus_portal_client_metrics_port:     '{{ portal_bridge_portal_client_metrics_port }}'
