@@ -114,7 +114,7 @@
 
 - name: infra-role-mev-boost
   src: git@github.com:status-im/infra-role-mev-boost.git
-  version: 55faf5c16b0689df575e03bcb82cb5007156957e
+  version: bd64d3ec41a35c4d6221a901ea233956255c300d
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
