@@ -55,26 +55,6 @@ module "nimbus_nodes_holesky_innova_nec" {
   ]
 }
 
-module "nimbus_nodes_holesky_innova_windows" {
-  source = "github.com/status-im/infra-tf-dummy-module"
-
-  name   = "windows"
-  env    = "nimbus"
-  stage  = "holesky"
-  group  = "nimbus-holesky-windows"
-  region = "eu-mda1"
-  prefix = "ih"
-
-  /* Windows */
-  become_user   = "admin"
-  become_method = "runas"
-  shell_type    = "powershell"
-
-  ips = [
-    "194.33.40.240" # windows-01.ih-eu-mda1.nimbus.holesky
-  ]
-}
-
 /* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_holesky_beacon_api" {
   zone_id = local.zones["nimbus.team"]

@@ -136,3 +136,18 @@
       tags: [ beacon-node ]
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Hoodi Windows Beacon Nodes
+  become: true
+  hosts:
+    - nimbus-hoodi-windows
+  fact_path: 'C:/ansible/facts.d'
+  vars_files: layout/hoodi.yml
+  tasks:
+    - include_role:
+        name: infra-role-beacon-node-windows
+        apply:
+          tags: always
+      tags: [ beacon-node ]
+      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      loop_control: { loop_var: node, index_var: idx }

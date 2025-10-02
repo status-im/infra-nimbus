@@ -1,7 +1,0 @@
----
-# Can't log in via RDP without password.
-bootstrap__admin_pass: '{{lookup("passwordstore", "hosts/windows/admin/pass")}}'
-
-beacon_node_exec_layer_urls: ['http://holesky-02.ih-eu-mda1.nimbus.geth.wg:{{ 8552 + (idx|int) }}']
-# 3TB SSD HPE RAI0 Logical Volume formatted as ReFS.
-beacon_node_service_path: 'D:\{{ beacon_node_service_name }}'

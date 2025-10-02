@@ -1,0 +1,8 @@
+---
+# Windows receives password as plaintext.
+bootstrap__admin_pass: '{{lookup("vault", "windows/admin", field="pass")}}'
+
+# No ELs available for Windows right now.
+beacon_node_exec_layer_urls: []
+# 3TB SSD HPE RAI0 Logical Volume formatted as ReFS.
+beacon_node_service_path: 'D:\{{ beacon_node_service_name }}'

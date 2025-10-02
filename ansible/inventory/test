@@ -54,7 +54,7 @@ node-01.aws-eu-central-1a.dash.nimbus ansible_host=52.28.100.116 data_center=aws
 store-01.he-eu-hel1.logs.nimbus ansible_host=65.108.226.62 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-01.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
 store-02.he-eu-hel1.logs.nimbus ansible_host=65.109.62.247 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-02.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
 store-03.he-eu-hel1.logs.nimbus ansible_host=65.109.49.101 data_center=he-eu-hel1 dns_domain=status.im dns_entry=store-03.he-eu-hel1.logs.nimbus.status.im env=logs region=eu-hel1 stage=nimbus
-windows-01.ih-eu-mda1.nimbus.holesky ansible_become_method=runas ansible_become_user=admin ansible_host=194.33.40.240 ansible_shell_type=powershell data_center=ih-eu-mda1 dns_domain=status.im dns_entry=windows-01.ih-eu-mda1.nimbus.holesky.status.im env=nimbus region=eu-mda1 stage=holesky
+windows-01.ih-eu-mda1.nimbus.hoodi ansible_become_method=runas ansible_become_user=admin ansible_host=194.33.40.240 ansible_shell_type=powershell data_center=ih-eu-mda1 dns_domain=status.im dns_entry=windows-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
 
 [aws-eu-central-1a]
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet
@@ -123,7 +123,7 @@ neth-04.ih-eu-mda1.nimbus.holesky
 neth-04.ih-eu-mda1.nimbus.hoodi
 neth-05.ih-eu-mda1.nimbus.holesky
 neth-05.ih-eu-mda1.nimbus.hoodi
-windows-01.ih-eu-mda1.nimbus.holesky
+windows-01.ih-eu-mda1.nimbus.hoodi
 
 [log-dash]
 node-01.aws-eu-central-1a.dash.nimbus
@@ -158,9 +158,6 @@ neth-03.ih-eu-mda1.nimbus.holesky
 neth-04.ih-eu-mda1.nimbus.holesky
 neth-05.ih-eu-mda1.nimbus.holesky
 
-[nimbus-holesky-windows]
-windows-01.ih-eu-mda1.nimbus.holesky
-
 [nimbus-hoodi-geth]
 geth-01.ih-eu-mda1.nimbus.hoodi
 geth-02.ih-eu-mda1.nimbus.hoodi
@@ -184,6 +181,9 @@ neth-02.ih-eu-mda1.nimbus.hoodi
 neth-03.ih-eu-mda1.nimbus.hoodi
 neth-04.ih-eu-mda1.nimbus.hoodi
 neth-05.ih-eu-mda1.nimbus.hoodi
+
+[nimbus-hoodi-windows]
+windows-01.ih-eu-mda1.nimbus.hoodi
 
 [nimbus-mainnet-erigon]
 erigon-01.ih-eu-mda1.nimbus.mainnet
@@ -231,7 +231,6 @@ neth-02.ih-eu-mda1.nimbus.holesky
 neth-03.ih-eu-mda1.nimbus.holesky
 neth-04.ih-eu-mda1.nimbus.holesky
 neth-05.ih-eu-mda1.nimbus.holesky
-windows-01.ih-eu-mda1.nimbus.holesky
 
 [nimbus.hoodi]
 geth-01.ih-eu-mda1.nimbus.hoodi
@@ -250,6 +249,7 @@ neth-02.ih-eu-mda1.nimbus.hoodi
 neth-03.ih-eu-mda1.nimbus.hoodi
 neth-04.ih-eu-mda1.nimbus.hoodi
 neth-05.ih-eu-mda1.nimbus.hoodi
+windows-01.ih-eu-mda1.nimbus.hoodi
 
 [nimbus.mainnet]
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet

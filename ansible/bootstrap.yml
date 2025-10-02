@@ -22,7 +22,7 @@
 - name: Bootstrap Python support for Ansible
   become: true
   hosts:
-    - all,!nimbus-hoodi-macos,!nimbus-holesky-windows
+    - all,!nimbus-hoodi-macos,!nimbus-hoodi-windows
   serial: '{{ serial|default(1) }}'
   roles:
     - role: infra-role-bootstrap-linux/raw
@@ -31,7 +31,8 @@
 - name: Bootstrap admin users and Consul
   become: true
   gather_facts: true
-  hosts: all
+  hosts:
+    - all,!nimbus-hoodi-macos,!nimbus-hoodi-windows
   serial: '{{ serial|default(1) }}'
   pre_tasks:
     - name: Enable Maintenance Mode
@@ -66,7 +67,7 @@
 - name: Bootstrap Windows hosts
   become: false
   hosts:
-    - nimbus-holesky-windows
+    - nimbus-hoodi-windows
   pre_tasks:
     - name: Enable Maintenance Mode
       win_command: 'bash C:\consul\maintenance Ansible run by {{ lookup("env", "USER") }}'

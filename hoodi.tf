@@ -70,6 +70,26 @@ module "nimbus_nodes_hoodi_innova_macm2" {
   ]
 }
 
+module "nimbus_nodes_hoodi_innova_windows" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "windows"
+  env    = "nimbus"
+  stage  = "hoodi"
+  group  = "nimbus-hoodi-windows"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  /* Windows */
+  become_user   = "admin"
+  become_method = "runas"
+  shell_type    = "powershell"
+
+  ips = [
+    "194.33.40.240" # windows-01.ih-eu-mda1.nimbus.hoodi
+  ]
+}
+
 /* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_hoodi_beacon_api" {
   zone_id = local.zones["nimbus.team"]

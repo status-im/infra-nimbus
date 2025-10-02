@@ -99,3 +99,9 @@ nodes_layout:
     - { branch: 'stable',   build_start: '13:00:00' }
     - { branch: 'testing',  build_start: '15:00:00' }
     - { branch: 'unstable', build_start: '17:00:00' }
+
+  # Windows ------------------------------------------------------------------------
+  'windows-01.ih-eu-mda1.nimbus.hoodi': # 0 each
+    - { branch: 'stable',   build_start: '13:00:00' }
+    - { branch: 'testing',  build_start: '15:00:00' }
+    - { branch: 'unstable', build_start: '17:00:00' }
