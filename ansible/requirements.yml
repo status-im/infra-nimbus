@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 8f088b9471cdab14c4e18b89b189aff2d9f4a1d0
+  version: 65e556e3920b7a4209b64f1275b970327276c991 
 
 - name: infra-role-nimbus-portal-client
   src: git@github.com:status-im/infra-role-nimbus-portal-client.git
