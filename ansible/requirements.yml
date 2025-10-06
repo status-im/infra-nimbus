@@ -134,4 +134,4 @@
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
-  version: f99242c97ee6819d112d7eb3553a53e8c6e153a7
+  version: cc940e25d5899034beefb0a88bac8af0343f6854

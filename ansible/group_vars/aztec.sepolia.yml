@@ -47,16 +47,19 @@ aztec_attester_private_key: '{{lookup("vault", "operator", field="key")}}'
 aztec_publisher_private_key: '{{ aztec_attester_private_key }}'
 aztec_fee_recipient_address: '0x1b2d5831014b0b24a7a6ed1991cb7bb08ec08ad830fb09809623615770c3f28c'
 aztec_coinbase_address: '{{lookup("vault", "operator", field="address")}}'
-aztec_cont_networks: ['{{ geth_service_name }}_default']
+aztec_node_cont_networks: ['{{ geth_service_name }}_default']
+aztec_exp_cont_metrics_port: 8889
 
 # Open Ports
 open_ports_list:
+  aztec-sequencer:
+    - { port: '{{ aztec_exp_cont_metrics_port }}', comment: 'Aztec Sequencer Metrics', ipset: 'hq.metrics', iifname: 'wg0' }
   aztec-geth:
-    - { port: '{{ geth_port }}',                  comment: 'Geth LibP2P',           protocol: 'tcp'                     }
-    - { port: '{{ geth_port }}',                  comment: 'Geth Discovery',        protocol: 'udp'                     }
-    - { port: '{{ geth_metrics_port }}',          comment: 'Geth Metrics',          ipset: 'hq.metrics', iifname: 'wg0' }
-    - { port: '{{ geth_expo_cont_port }}',        comment: 'Geth Metrics',          ipset: 'hq.metrics', iifname: 'wg0' }
+    - { port: '{{ geth_port }}',                   comment: 'Geth LibP2P',             protocol: 'tcp'                     }
+    - { port: '{{ geth_port }}',                   comment: 'Geth Discovery',          protocol: 'udp'                     }
+    - { port: '{{ geth_metrics_port }}',           comment: 'Geth Metrics',            ipset: 'hq.metrics', iifname: 'wg0' }
+    - { port: '{{ geth_expo_cont_port }}',         comment: 'Geth Metrics',            ipset: 'hq.metrics', iifname: 'wg0' }
   aztec-beacon-node:
-    - { port: '{{ beacon_node_listening_port }}', comment: 'Beacon Node libp2p',    protocol: 'tcp'                     }
-    - { port: '{{ beacon_node_discovery_port }}', comment: 'Beacon Node discovery', protocol: 'udp'                     }
-    - { port: '{{ beacon_node_metrics_port }}',   comment: 'Beacon Node Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
+    - { port: '{{ beacon_node_listening_port }}',  comment: 'Beacon Node libp2p',      protocol: 'tcp'                     }
+    - { port: '{{ beacon_node_discovery_port }}',  comment: 'Beacon Node discovery',   protocol: 'udp'                     }
+    - { port: '{{ beacon_node_metrics_port }}',    comment: 'Beacon Node Metrics',     ipset: 'hq.metrics', iifname: 'wg0' }
