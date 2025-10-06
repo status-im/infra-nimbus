@@ -53,6 +53,8 @@ aztec_exp_cont_metrics_port: 8889
 # Open Ports
 open_ports_list:
   aztec-sequencer:
+    - { port: '{{ aztec_libp2p_port }}',           comment: 'Aztec Sequencer LibP2P',  protocol: 'tcp'                     }
+    - { port: '{{ aztec_libp2p_port }}',           comment: 'Aztec Sequencer LibP2P',  protocol: 'udp'                     }
     - { port: '{{ aztec_exp_cont_metrics_port }}', comment: 'Aztec Sequencer Metrics', ipset: 'hq.metrics', iifname: 'wg0' }
   aztec-geth:
     - { port: '{{ geth_port }}',                   comment: 'Geth LibP2P',             protocol: 'tcp'                     }
