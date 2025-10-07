@@ -1,5 +1,6 @@
 ---
 mev_boost_network: 'sepolia'
+mev_boost_cont_tag: '1.10a5'
 mev_boost_relays:
   - 'https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-sepolia.flashbots.net'
 # Ports used for all 2 EL nodes as they are mutually exclusive.
