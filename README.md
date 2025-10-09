@@ -16,6 +16,8 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 | http://unstable.hoodi.beacon-api.nimbus.team/   | `geth-01.ih-eu-mda1.nimbus.hoodi`    |
 | http://testing.hoodi.beacon-api.nimbus.team/    | `geth-02.ih-eu-mda1.nimbus.hoodi`    |
 
+You can check their health on our [status page](https://canary.infra.status.im/status/nimbus-api-endpoints).
+
 These nodes have no validators attached.
 
 There are also archives of ERA files:
