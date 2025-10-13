@@ -30,7 +30,7 @@
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: a8e5415669245c189a7b665720cace76f2e1d014
+  version: 1c66555b67d4172aa8d2218478464c9dc9be77ab
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 65e556e3920b7a4209b64f1275b970327276c991
+  version: 9122dbe94b36a5f17cd69a13cbd99d4b8ab82015
 
 - name: infra-role-nimbus-portal-client
   src: git@github.com:status-im/infra-role-nimbus-portal-client.git
@@ -134,4 +134,8 @@
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
-  version: a82edf4b62074350d160bc53294ff9d184f88af9
+  version: b6fbd7d7546a55f70891fb7e6231bca3208140e0
+
+- name: infra-role-commit-boost
+  src: git@github.com:status-im/infra-role-commit-boost.git
+  version: 148d92945374cdea2a8c65c291db344780d214a9
