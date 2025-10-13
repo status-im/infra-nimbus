@@ -31,7 +31,8 @@
     - { role: infra-role-open-ports,          tags: open-ports          }
     - { role: redirect-ports,                 tags: redirect-ports,     when: redirect_ports is defined }
     - { role: nimbus-era-files,               tags: nimbus-era-files,   when: era_files_path is defined }
-    - { role: infra-role-mev-boost,           tags: mev-boost,          }
+    - { role: infra-role-mev-boost,           tags: mev-boost,          when: commit_boost_network is not defined }
+    - { role: infra-role-commit-boost,        tags: commit-boost,       when: commit_boost_network is defined     }
     - { role: infra-role-nimbus-light-client, tags: nimbus-light-client }
 
 - name: Deploy Hoodi Linux Beacon Nodes
