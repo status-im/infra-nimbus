@@ -16,14 +16,6 @@ resource "cloudflare_record" "era_mainnet" {
   proxied = true
 }
 
-resource "cloudflare_record" "era_holesky" {
-  zone_id = local.zones["nimbus.team"]
-  name    = "holesky.era"
-  value   = module.nimbus_nodes_holesky_innova_geth.public_ips[0]
-  type    = "A"
-  proxied = true
-}
-
 resource "cloudflare_record" "era_hoodi" {
   zone_id = local.zones["nimbus.team"]
   name    = "hoodi.era"
