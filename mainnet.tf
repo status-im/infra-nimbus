@@ -51,6 +51,21 @@ module "nimbus_nodes_mainnet_innova_geth" {
   ]
 }
 
+module "nimbus_nodes_mainnet_innova_archive" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "archive"
+  env    = "nimbus"
+  stage  = "mainnet"
+  group  = "nimbus-mainnet-archive"
+  region = "eu-mda1"
+  prefix = "ih"
+
+  ips = [
+    "194.33.40.248",   # archive-01.ih-eu-mda1.nimbus.mainnet
+  ]
+}
+
 /* Community test REST API endpoints. */
 resource "cloudflare_record" "unstable_mainnet_beacon_api" {
   zone_id = local.zones["nimbus.team"]

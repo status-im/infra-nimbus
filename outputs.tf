@@ -13,6 +13,7 @@ output "hosts" {
     module.nimbus_nodes_mainnet_innova_geth.hosts,
     module.nimbus_nodes_mainnet_innova_nec.hosts,
     module.nimbus_nodes_mainnet_stable_small.hosts,
+    module.nimbus_nodes_mainnet_innova_archive.hosts,
     module.nimbus_nodes_sepolia_innova.hosts,
     module.obol_hoodi_innova.hosts,
   )
