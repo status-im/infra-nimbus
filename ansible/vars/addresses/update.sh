@@ -13,10 +13,6 @@ function update_yaml() {
     COUNTER=$((COUNTER+1))
 }
 
-for FILE in erigon-*.holesky.yml; do update_yaml "${FILE}"; done
-for FILE in geth-*.holesky.yml;   do update_yaml "${FILE}"; done
-for FILE in nec-*.holesky.yml;    do update_yaml "${FILE}"; done
-for FILE in neth-*.holesky.yml;   do update_yaml "${FILE}"; done
 for FILE in erigon-*.mainnet.yml; do update_yaml "${FILE}"; done
 for FILE in geth-*.mainnet.yml;   do update_yaml "${FILE}"; done
 for FILE in nec-*.mainnet.yml;    do update_yaml "${FILE}"; done

@@ -11,8 +11,6 @@ These are [Beacon API](https://ethereum.github.io/beacon-APIs/) endpoints intend
 | http://unstable.mainnet.beacon-api.nimbus.team/ | `geth-01.ih-eu-mda1.nimbus.mainnet`  |
 | http://testing.mainnet.beacon-api.nimbus.team/  | `geth-02.ih-eu-mda1.nimbus.mainnet`  |
 | http://unstable.sepolia.beacon-api.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia` |
-| http://unstable.holesky.beacon-api.nimbus.team/ | `geth-01.ih-eu-mda1.nimbus.holesky`  |
-| http://testing.holesky.beacon-api.nimbus.team/  | `geth-02.ih-eu-mda1.nimbus.holesky`  |
 | http://unstable.hoodi.beacon-api.nimbus.team/   | `geth-01.ih-eu-mda1.nimbus.hoodi`    |
 | http://testing.hoodi.beacon-api.nimbus.team/    | `geth-02.ih-eu-mda1.nimbus.hoodi`    |
 
@@ -28,7 +26,6 @@ There are also archives of ERA files:
 | https://mainnet.era1.nimbus.team/ | `nec-01.ih-eu-mda1.nimbus.mainnet`    |
 | https://sepolia.era.nimbus.team/  | `linux-01.ih-eu-mda1.nimbus.sepolia`  |
 | https://sepolia.era1.nimbus.team/ | `linux-01.ih-eu-mda1.nimbus.sepolia`  |
-| https://holesky.era.nimbus.team/  | `geth-01.ih-eu-mda1.nimbus.holesky`   |
 | https://hoodi.era.nimbus.team/    | `geth-01.ih-eu-mda1.nimbus.hoodi`     |
 | https://eth1-db.nimbus.team/      | `metal-01.ih-eu-mda1.nimbus.eth1`     |
 
@@ -42,7 +39,7 @@ There are explorers available for various testnets:
 
 * https://mainnet.beaconcha.in/
 * https://sepolia.beaconcha.in/
-* https://holesky.beaconcha.in/
+* https://hoodi.beaconcha.in/
 
 # Fleet Layouts
 

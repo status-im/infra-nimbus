@@ -3,7 +3,7 @@
   hosts:
     - nimbus.mainnet
     - nimbus.sepolia
-    - nimbus.holesky
+    - nimbus.hoodi
   become: false
   tasks:
     - name: Start node rebuilds on Linux
