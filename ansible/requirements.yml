@@ -54,7 +54,7 @@
 
 - name: infra-role-nimbus-portal-client
   src: git@github.com:status-im/infra-role-nimbus-portal-client.git
-  version: d2862a11f33edfe4cac681fb0d666c9db728a600
+  version: ce817d309ac376a993c516fd00bdbca6c3f85b35
 
 - name: infra-role-portal-bridge
   src: git@github.com:status-im/infra-role-portal-bridge.git
