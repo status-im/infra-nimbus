@@ -33,7 +33,7 @@ portal_bridge_service_name: 'nimbus-portal-bridge-history'
 portal_bridge_command: 'history'
 portal_bridge_latest: false
 portal_bridge_backfill_mode: 'sync'
-portal_bridge_era1_dir: '/era'
+portal_bridge_era1_dir: '/docker/era1'
 portal_bridge_web3_url: 'http://geth-01.ih-eu-mda1.nimbus.mainnet.wg:8545'
 portal_bridge_portal_rpc_url: 'http://127.0.0.1:{{ portal_bridge_portal_client_rpc_port }}'
 
