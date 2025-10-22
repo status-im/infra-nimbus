@@ -58,7 +58,7 @@
 
 - name: infra-role-portal-bridge
   src: git@github.com:status-im/infra-role-portal-bridge.git
-  version: ffd7e6b78003a81512200bea012b20e33f15ab22
+  version: e5e29d9fecb4243f46c720ef8810c991d24147a3
 
 - name: infra-role-dist-validators
   src: git@github.com:status-im/infra-role-dist-validators.git
@@ -78,7 +78,7 @@
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: c76be2909a292ce988312803b893959b700bd826
+  version: 32b5b1b7e89d49c52567ad75504b325fed92f6a4
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 3d64349764f5855f1167b5d35a757839752c8bec
+  version: 7e8e332738ef18fb509008917bfe737a61e7412f
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -106,7 +106,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: e4fce68f5e936dfa160490929f58da3fc7ce6e6f
+  version: f0494851f6ba93ec09e242ee5fcf6071ca37e8c7
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
