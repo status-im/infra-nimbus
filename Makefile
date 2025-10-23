@@ -78,7 +78,12 @@ direnv-check:
 				"$(BLD)"'eval "$$(direnv hook zsh)"; direnv allow'"$(RST)"; \
 	fi
 
-checks: roles-check direnv-check consul-check vault-check
+pass-check:
+	@pass git fetch -q
+	@pass git status | grep -q 'Your branch is up to date with' || \
+		echo -e '$(YLW)WARNING: infra-pass is not up to date with its remote.$(RST)'
+
+checks: roles-check direnv-check consul-check vault-check pass-check
 	@echo -e "\n$(GRN)$(BLD)WELCOME BACK, COMMANDER$(RST)"
 
 .PHONY = checks roles-check direnv-check consul-check vault-check
