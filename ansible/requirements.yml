@@ -134,7 +134,7 @@
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
-  version: d8736e79286fc81076d40cffb8ecb406ce6e3856
+  version: 861b61745ac7b989d3d2405e55d7f9a17664dc38
 
 - name: infra-role-commit-boost
   src: git@github.com:status-im/infra-role-commit-boost.git

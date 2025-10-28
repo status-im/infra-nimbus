@@ -49,6 +49,8 @@ aztec_fee_recipient_address: '0x1b2d5831014b0b24a7a6ed1991cb7bb08ec08ad830fb0980
 aztec_coinbase_address: '{{lookup("vault", "operator", field="address")}}'
 aztec_node_cont_networks: ['{{ geth_service_name }}_default']
 aztec_exp_cont_metrics_port: 8889
+aztec_extra_env_vars:
+  GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS: '0xDCd9DdeAbEF70108cE02576df1eB333c4244C666'
 
 # Open Ports
 open_ports_list:
