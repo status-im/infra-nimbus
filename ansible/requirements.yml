@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: 9122dbe94b36a5f17cd69a13cbd99d4b8ab82015
+  version: c80ad65643fd00f4ae46281f0bffcaafdf89122c
 
 - name: infra-role-nimbus-portal-client
   src: git@github.com:status-im/infra-role-nimbus-portal-client.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: fae1dd86bc2b6bbe9e58572aa1e191fd131b592c
+  version: 0b2019f8106068c1442789038b40af9dba082ba7
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -130,11 +130,11 @@
 
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
-  version: e56e623ab10244c385112f976ff38ca3efb8fb27
+  version: f334b2566e32771f9e498c14cf556bedaf7b3d73
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
-  version: b6fbd7d7546a55f70891fb7e6231bca3208140e0
+  version: d8736e79286fc81076d40cffb8ecb406ce6e3856
 
 - name: infra-role-commit-boost
   src: git@github.com:status-im/infra-role-commit-boost.git
