@@ -20,14 +20,19 @@
       changed_when: false
 
 - name: Bootstrap Python support for Ansible
-  gather_facts: False
-  hosts: all
+  become: true
+  hosts:
+    - all,!nimbus-hoodi-macos,!nimbus-hoodi-windows
   serial: '{{ serial|default(1) }}'
   roles:
-    - infra-role-bootstrap-linux/raw
+    - role: infra-role-bootstrap-linux/raw
+      when: ansible_system == 'Linux'
 
 - name: Bootstrap admin users and Consul
-  hosts: all
+  become: true
+  gather_facts: true
+  hosts:
+    - all,!nimbus-hoodi-macos,!nimbus-hoodi-windows
   serial: '{{ serial|default(1) }}'
   pre_tasks:
     - name: Enable Maintenance Mode
@@ -39,4 +44,39 @@
       command: 'maintenance disable'
       tags: always
   roles:
-    - infra-role-bootstrap-linux
+    - role: infra-role-bootstrap-linux
+      when: ansible_system == 'Linux'
+
+- name: Bootstrap MacOS hosts
+  become: true
+  hosts:
+    - nimbus-hoodi-macm2
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
+      tags: always
+      ignore_errors: true
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
+  roles:
+    - role: infra-role-bootstrap-macos
+      when: ansible_system == 'Darwin'
+
+- name: Bootstrap Windows hosts
+  become: false
+  hosts:
+    - nimbus-hoodi-windows
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      win_command: 'bash C:\consul\maintenance Ansible run by {{ lookup("env", "USER") }}'
+      tags: always
+      ignore_errors: true
+  post_tasks:
+    - name: Disable Maintenance Mode
+      win_command: 'bash C:\consul\maintenance disable'
+      tags: always
+  roles:
+    - role: infra-role-bootstrap-windows
+      vars: { fact_path: 'C:/ansible/facts.d' }
