@@ -185,4 +185,8 @@ open_ports_list:
   nimbus-light-client:
     - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp' }
     - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp' }
+  archive:
+    - { port: '9010', comment: 'rEth Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '5054', comment: 'Lighthouse Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '8000', comment: 'Eth Validators Watcher Metrics', ipset: 'hq.metrics',  iifname: 'wg0' }
 # Fleet layout can be found in: ansible/vars/layout/mainnet.yml

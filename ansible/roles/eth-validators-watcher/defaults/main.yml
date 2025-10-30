@@ -1,0 +1,3 @@
+---
+eth_val_watcher_service_name: 'eth-val-watcher'
+eth_val_watcher_service_path: '/docker/eth-val-watcher'

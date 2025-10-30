@@ -1,0 +1,32 @@
+---
+open_ports_list:
+  archive:
+    - { port: '9010', comment: 'rEth Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '5054', comment: 'Lighthouse Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '8000', comment: 'Eth Validators Watcher Metrics', ipset: 'hq.metrics',  iifname: 'wg0' }
+    - { port: '{{ reth_cont_port_rpc }}', comment: 'EL RPC endpoint for BI usage', ipset: 'bi.prod', iifname: 'wg0'}
+
+# Reth -------------------------------------------------------------------------
+reth_config_network_name: 'mainnet'
+reth_config_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
+reth_cont_port_rpc: 8546
+reth_config_partial_pruning: True
+
+# Lighthouse -------------------------------------------------------------------
+
+lighthouse_service_path: '/data/lighthouse'
+lighthouse_config_network: 'mainnet'
+lighthouse_config_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
+lighthouse_cont_external_networks: ['reth_default']
+lighthouse_config_execution_endpoint: 'http://reth:8551'
+
+# Eth validator Watcher --------------------------------------------------------
+eth_val_watcher_service_path: '/data/eth-validator-watcher'
+eth_val_watcher_bn_network: 'lighthouse'
+eth_val_watcher_bn_url: 'http://lighthouse:5052/'
+eth_val_watcher_validators_eth2: '{{ lookup("vault", "archive/eth2-validators", field="config")}} '
+eth_val_watcher_validators_lido_part_1: '{{ lookup("vault", "archive/lido-validators-part-1", field="config") }}'
+eth_val_watcher_validators_lido_part_2: '{{ lookup("vault", "archive/lido-validators-part-2", field="config") }}'
+eth_val_watcher_validators_lido_part_3: '{{ lookup("vault", "archive/lido-validators-part-3", field="config") }}'
+eth_val_watcher_validators: '{{ eth_val_watcher_validators_eth2 + eth_val_watcher_validators_lido_part_1 + eth_val_watcher_validators_lido_part_2 + eth_val_watcher_validators_lido_part_3 }}'
+
