@@ -138,3 +138,27 @@
         - node.el == "nec"
       with_items: '{{ nodes_layout[inventory_hostname] }}'
       loop_control: { loop_var: node, index_var: idx }
+
+- name: Deploy Mainnet Archive Reth + Ligthouse
+  become: true
+  hosts: nimbus-mainnet-archive
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
+      when: not testing
+  tasks:
+    - name: 'testing val list'
+      tags: 'testing'
+      debug:
+        msg: '{{ item.public_key }}'
+      with_items: '{{ eth_val_watcher_validators_eth2 }}'
+  roles:
+    - { role: infra-role-open-ports,            tags: [ open-ports ] }
+    - { role: infra-role-reth,                  tags: [reth] }
+    - { role: infra-role-lighthouse,            tags: [lighthouse] }
+    - { role: infra-role-eth-validator-watcher, tags: [eth-validator-watcher] }
