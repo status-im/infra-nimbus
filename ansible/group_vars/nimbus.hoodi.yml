@@ -91,7 +91,7 @@ beacon_node_doppelganger_detection: true
 beacon_node_suggested_gas_limit: 60000000
 # We map short names to branches to avoid too long service names.
 node_name_to_branch_map:
-  libp2p: 'nim-libp2p-auto-bump-unstable'
+  libp2p: 'syncv3'
 # Builds
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
@@ -140,7 +140,8 @@ beacon_node_consul_failures_before_critical: '{{ 720 if not node.get("public_api
 
 # Checkpoint Sync
 beacon_node_resync_enabled: true
-beacon_node_resync_timer_enabled: false
+beacon_node_resync_timer_enabled: '{{ node.branch == "libp2p" }}' # TEMP: syncv3 testing
+beacon_node_resync_timer_frequency: 'weekly'
 beacon_node_resync_timer_trusted_api_url: '{{ beacon_node_resync_timer_trusted_api_urls[idx] }}'
 beacon_node_resync_timer_trusted_api_urls:
   - 'https://checkpoint-sync.hoodi.ethpandaops.io/'
