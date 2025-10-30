@@ -139,3 +139,15 @@
 - name: infra-role-commit-boost
   src: git@github.com:status-im/infra-role-commit-boost.git
   version: 9910a0e12555ea66f17a7859e4eb35ed27a9968e
+
+- name: infra-role-reth
+  src: git@github.com:status-im/infra-role-reth.git
+  version: 8bcef96c013906e6456bb3358f3c3d25b525937d
+
+- name: infra-role-lighthouse
+  src: git@github.com:status-im/infra-role-lighthouse.git
+  version: ab172425fbc4f0452777796aed4620ac13f060fd
+
+- name: infra-role-eth-validator-watcher
+  src: git@github.com:status-im/infra-role-eth-validator-watcher.git
+  version: b57138ce67712a460367721eff47e56113ec3f3f
