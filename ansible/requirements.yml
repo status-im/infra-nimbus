@@ -34,15 +34,15 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 5bbc7592f8f98419dd7a9843af35c00d3a6bbd03
+  version: 28b983f82740fbb480bcae584b373ac928f735d3
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: e2e4314b5ebaa21cf7b7fea1cc9f9fdccbcfbe7e
+  version: f841f75ee776ee120303f474773dd6b4d0d06029
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: 20cb0e3b8d5f615beda643863c292cb29cc23a25
+  version: d91a3673055290fe2d91e3369d41ac6f889165b3
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: c80ad65643fd00f4ae46281f0bffcaafdf89122c
+  version: 8b6730515780ee3ee721c4d30987a08aa211f027
 
 - name: infra-role-nimbus-portal-client
   src: git@github.com:status-im/infra-role-nimbus-portal-client.git
