@@ -22,7 +22,7 @@ lighthouse_config_execution_endpoint: 'http://reth:8551'
 # Eth validator Watcher --------------------------------------------------------
 eth_val_watcher_bn_network: 'lighthouse'
 eth_val_watcher_bn_url: 'http://lighthouse:5052/'
-eth_val_watcher_validators_eth2: '{{ lookup("vault", "archive/eth2-validators-pub-key", field="config") | split }}'
+eth_val_watcher_validators_eth2: '{{ lookup("vault", "archive/eth2-validators-pub-key", field="config") | to_yaml }} '
 eth_val_watcher_validators_lido_part_1: '{{ lookup("vault", "archive/lido-validators-lido-part-1", field="config") }}'
 eth_val_watcher_validators_lido_part_2: '{{ lookup("vault", "archive/lido-validators-lido-part-2", field="config") }}'
 eth_val_watcher_validators_lido_part_3: '{{ lookup("vault", "archive/lido-validators-lido-part-3", field="config") }}'
