@@ -28,6 +28,7 @@ geth_expo_cont_port: 9401
 beacon_node_service_name: 'aztec-beacon-node-{{ beacon_node_network }}'
 beacon_node_network: 'sepolia'
 beacon_node_history_retention: 'archive'
+beacon_node_peerdas_supernode: true
 # Execution layer Enginer API
 beacon_node_exec_layer_urls: ['http://localhost:{{ geth_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", env="nimbus", stage="all")}}'
