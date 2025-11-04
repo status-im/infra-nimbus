@@ -11,6 +11,9 @@ commit_boost_relays:
     url: 'https://0x821f2a65afb70e7f2e820a925a9b4c80a159620582c1766b1b09729fec178b11ea22abb3a51f07b288be815a1a2ff516@bloxroute.hoodi.blxrbdn.com'
 commit_boost_cont_port: 18550
 
+# Default is 2000ms, since this node has 2660 validators there is a delay within VC
+commit_boost_late_in_slot_time_ms: 2500
+
 beacon_node_payload_builder_url: 'http://localhost:{{ commit_boost_cont_port }}'
 
 open_ports_list:
