@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 0b2019f8106068c1442789038b40af9dba082ba7
+  version: 20125d6e857d7e6ac874913360e7da0fe7c806a3
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 48acfafd5f54fa870ac17edf9abc1dda0645ea91
+  version: c5cc411ad596c30dbbe0b1954fdf659fe4ffd0b2
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
@@ -130,12 +130,12 @@
 
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
-  version: f334b2566e32771f9e498c14cf556bedaf7b3d73
+  version: 9d47eab7499bd75fbcb3a87ceb8ed1ec6e09fd9c
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
-  version: 989b6069a915beb94b62a79e67b7041dde83bb1c
+  version: 40d02706280c8f225720fd3bfd7052a3e1f234e9
 
 - name: infra-role-commit-boost
   src: git@github.com:status-im/infra-role-commit-boost.git
-  version: 9ee307e7e6fc9dc78c06e628e553698cefe05642
+  version: ed5b987cbe144728ba77a429b8ca5c02b7ed16fc
