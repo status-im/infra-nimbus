@@ -94,7 +94,11 @@ node_name_to_branch_map:
   libp2p: 'syncv3'
 # Builds
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
-beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
+beacon_node_update_build_nim_flags: >-
+  -d:noSignalHandler
+  {# Temporary for debugging of possible futures leak. #}
+  {% if node.branch == "libp2p" %}-d:chronosFutureTracking{% endif %}
+  {{ node.get("nim_flags", "") }}
 beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 # Monitoring
 beacon_node_validator_monitor_auto: true
