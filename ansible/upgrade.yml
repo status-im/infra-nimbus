@@ -13,12 +13,12 @@
       command: 'maintenance disable'
       tags: always
   tasks:
-    #- name: Upgrade packages
-    #  apt:
-    #    upgrade: true
-    #    update_cache: true
-    #    cache_valid_time: 86400 # One day
-    #  register: packages
+    - name: Upgrade packages
+      apt:
+        upgrade: true
+        update_cache: true
+        cache_valid_time: 86400 # One day
+      register: packages
     - reboot:
     - name: Remove unused packages
       apt:
