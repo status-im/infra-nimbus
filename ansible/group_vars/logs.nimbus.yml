@@ -8,7 +8,7 @@ origin_certs:
 
 # Syncing can use a lot of memory
 swap_file_path: '/main.swap'
-swap_file_size_mb: 2048
+swap_file_size_mb: 8192
 
 # ElasticSearch Cluster
 es_service_name: 'elasticsearch'
