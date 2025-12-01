@@ -34,9 +34,9 @@ Usage: $0 [FLEET] <COMMAND>
 
 Examples:
 
-$0 nimbus.sepolia 'systemctl start build-beacon-node-sepolia-stable'
+$0 nimbus.sepolia 'sudo systemctl start update-beacon-node-sepolia-stable'
 
-echo linux-01.ih-eu-mda1.nimbus.sepolia | $0 'systemctl start build-beacon-node-sepolia-stable'
+echo linux-01.ih-eu-mda1.nimbus.sepolia | $0 'sudo systemctl start update-beacon-node-sepolia-stable'
 "
 }
 
