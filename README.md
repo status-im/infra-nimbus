@@ -64,7 +64,7 @@ They are recorded in the [`eth2-networks`](https://github.com/eth-clients/eth2-n
 
 Simplest way to run commands on fleets if you have SSH access:
 ```
- > ./foreach.sh nimbus-mainnet-small "sudo systemctl --no-block restart 'build-beacon-node-*'"
+ > ./foreach.sh nimbus-mainnet-small "sudo systemctl --no-block restart 'update-beacon-node-*'"
 stable-small-01.aws-eu-central-1a.nimbus.mainnet
 stable-small-02.aws-eu-central-1a.nimbus.mainnet
 ```
