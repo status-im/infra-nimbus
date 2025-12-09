@@ -3,6 +3,5 @@ bootstrap__extra_volume_bind_paths:
   DATA_VOLUME1: ['/data']
   DATA_VOLUME2: ['/era']
 
-nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
 nimbus_portal_client_host_number_of_public_ips: 32
 nimbus_portal_client_listening_addr: '194.33.43.{{ (32 + index|default(1)|int - 1) }}'
