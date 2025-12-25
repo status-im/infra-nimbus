@@ -1,7 +1,7 @@
 ---
 # ElasticSearch LB needs a bit
 swap_file_path: '/main.swap'
-swap_file_size_mb: 2048
+swap_file_size_mb: 4096
 
 # CloudFlare Origin certificates
 origin_certs:
