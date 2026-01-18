@@ -329,7 +329,7 @@ def handle_role(role, check=False, update=False, install=False, fetch=False):
         return role
 
     # Check if current version is older.
-    if (update or install) and role.is_old():
+    if update and role.is_old():
         return role
 
     # Check if current version matches required.
