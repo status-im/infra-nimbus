@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 6ea837b625093059d9a9e2aa92465f7c6e7b8f42
+  version: e1750d6c60a4075b0cd3376c97f7033d72b9ecad
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -118,7 +118,7 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: 7917215a4ec890d948fb3d100fee811a66804dcf
+  version: 29117257800eaf19b47f54be48f38e00d2b7a1be
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
@@ -130,7 +130,7 @@
 
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
-  version: f696b5e3803160c1480c8d243e91d05b79d7240f
+  version: ce30d1a7ea704d29f28809c9e97e07a307458234
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git

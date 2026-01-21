@@ -26,6 +26,10 @@
     - { role: infra-role-geth,              tags: geth             }
     - { role: infra-role-geth-exporter,     tags: geth-exporter    }
     - { role: infra-role-beacon-node-linux, tags: beacon-node      }
-    - { role: infra-role-validator-client,  tags: validator-client }
-    - { role: infra-role-obol-charon,       tags: obol-charon      }
     - { role: obol-prometheus,              tags: obol-prometheus  }
+    # Hoodi stVault Standard Pool - No Looping
+    - { role: infra-role-validator-client,  tags: validator-client, vars: { cluster_type: 'standard' } }
+    - { role: infra-role-obol-charon,       tags: obol-charon,      vars: { cluster_type: 'standard' } }
+    # Hoodi stVault Strategy Pool - With Looping
+    - { role: infra-role-validator-client,  tags: validator-client, vars: { cluster_type: 'strategy' } }
+    - { role: infra-role-obol-charon,       tags: obol-charon,      vars: { cluster_type: 'strategy' } }
