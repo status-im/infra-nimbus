@@ -74,7 +74,7 @@
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: 11438c28906078ff8d47563b169926b5c2a89b96
+  version: 0f5fcecc2f7005c19b67da9cf36c30d4fed7aaf2
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 20125d6e857d7e6ac874913360e7da0fe7c806a3
+  version: ed93a01ccc8085c485a9ad524a7df96e2338805f
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,11 +102,11 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 837182ba87d5f99d4909b50f82f1a7ca75be4f1f
+  version: 46c8f900d1f298e51bb42d3954528c2174d1312d
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 5b7c8a455e75c58884aba8b5b34de25253501c4b
+  version: 5f17485687bc14ade752434d0ab2a9e2e4524755
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
@@ -118,7 +118,7 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: b7769b993243c06139a71d69ba3c7c608562460b
+  version: 7917215a4ec890d948fb3d100fee811a66804dcf
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
@@ -130,7 +130,7 @@
 
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
-  version: 9d47eab7499bd75fbcb3a87ceb8ed1ec6e09fd9c
+  version: f696b5e3803160c1480c8d243e91d05b79d7240f
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
