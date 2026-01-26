@@ -69,10 +69,6 @@ nimbus_eth1_metrics_address: '0.0.0.0'
 # API secert
 nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 
-# We map short names to branches to avoid too long service names.
-node_name_to_branch_map:
-  libp2p: 'nim-libp2p-auto-bump-unstable'
-
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
