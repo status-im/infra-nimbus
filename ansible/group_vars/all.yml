@@ -12,7 +12,7 @@ bootstrap__consul_certs_ca_crt:               '{{lookup("vault", "consul/certs",
 bootstrap__consul_certs_client_crt:           '{{lookup("vault", "consul/certs",      field="client.pem",           env="all", stage="all")}}'
 bootstrap__consul_certs_client_key:           '{{lookup("vault", "consul/certs",      field="client-key.pem",       env="all", stage="all")}}'
 # Vault certificate
-bootstrap__vault_ca_cert:                     '{{ lookup("passwordstore", "services/vault/certs/root-ca/cert returnall=true")}}'
+bootstrap__vault_ca_cert:                     '{{ lookup("passwordstore", "services/vault/certs/ca-chain returnall=true")}}'
 bootstrap__vault_client_cert:                 '{{ lookup("passwordstore", "services/vault/certs/client-host/cert returnall=true")}}'
 bootstrap__vault_client_key:                  '{{ lookup("passwordstore", "services/vault/certs/client-host/privkey returnall=true")}}'
 # SSHGuard
