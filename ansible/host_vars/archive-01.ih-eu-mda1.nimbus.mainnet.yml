@@ -1,4 +1,7 @@
 ---
+bootstrap__active_extra_users:
+  - { name: claire, uid: 8101, admin: false, key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgINjtkQ789LSTdiz6p+thygZmnSajP5oj/SAJCSExj claire@status.im' }
+  - { name: nikolay, uid: 8102, admin: false, key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfk8m/aEINHjPFNfa00TnsHSA+AGxucFnP7h+HY4qNDHZFH1hVPLnHzYsHChYIMc0S66sWVQJN4CbcradTxQgubbTg9MpULfPrRxjIKXVaxgJ5+TvV5st/2/6LxDnlV6gSb6hpGzyuVp8hhVz5aOCHNaBVr4ccRIOaFj4CTjynqpR5Hq2qNyy9bMRv9XZsVpwER6FzWSxKdXhHwRF7wjyPvqlqhwzhp/9jdrDLfnO4LpUkQcBIjIfDuxI81VRbjRKrRZA7bJ/1rmyQ/6ZYSRb+tOkIivAj4ETfDKwidKyCzAAn0qF9VorCJsPJfLSU2SWUbvrwysquuo58HmiV1Pa9 nikolay@status.im' }
 open_ports_list:
   archive:
     - { port: '9010', comment: 'rEth Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
@@ -9,7 +12,8 @@ open_ports_list:
 # Reth -------------------------------------------------------------------------
 reth_config_network_name: 'mainnet'
 reth_config_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
-reth_cont_port_rpc: 8546
+reth_cont_port_http_rpc: 8545
+reth_cont_port_ws_rpc: 8546
 reth_config_partial_pruning: True
 
 # Lighthouse -------------------------------------------------------------------
