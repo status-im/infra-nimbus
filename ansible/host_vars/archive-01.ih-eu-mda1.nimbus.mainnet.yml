@@ -7,7 +7,8 @@ open_ports_list:
     - { port: '9010', comment: 'rEth Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
     - { port: '5054', comment: 'Lighthouse Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
     - { port: '8000', comment: 'Eth Validators Watcher Metrics', ipset: 'hq.metrics',  iifname: 'wg0' }
-    - { port: '{{ reth_cont_port_rpc }}', comment: 'EL RPC endpoint for BI usage', ipset: 'bi.prod', iifname: 'wg0'}
+    - { port: ['{{ reth_cont_port_http_rpc }}', '{{ reth_cont_port_ws_rpc}}'], comment: 'EL RPC endpoint for BI usage', ipset: 'bi.test', iifname: 'wg0'}
+    - { port: ['{{ reth_cont_port_http_rpc }}', '{{ reth_cont_port_ws_rpc}}'], comment: 'EL RPC endpoint for BI usage', ipset: 'bi.prod', iifname: 'wg0'}
 
 # Reth -------------------------------------------------------------------------
 reth_config_network_name: 'mainnet'
