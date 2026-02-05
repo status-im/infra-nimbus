@@ -1,0 +1,46 @@
+---
+bootstrap__active_extra_users:
+  - { name: claire, uid: 8101, admin: false, key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgINjtkQ789LSTdiz6p+thygZmnSajP5oj/SAJCSExj claire@status.im' }
+  - { name: nikolay, uid: 8102, admin: false, key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfk8m/aEINHjPFNfa00TnsHSA+AGxucFnP7h+HY4qNDHZFH1hVPLnHzYsHChYIMc0S66sWVQJN4CbcradTxQgubbTg9MpULfPrRxjIKXVaxgJ5+TvV5st/2/6LxDnlV6gSb6hpGzyuVp8hhVz5aOCHNaBVr4ccRIOaFj4CTjynqpR5Hq2qNyy9bMRv9XZsVpwER6FzWSxKdXhHwRF7wjyPvqlqhwzhp/9jdrDLfnO4LpUkQcBIjIfDuxI81VRbjRKrRZA7bJ/1rmyQ/6ZYSRb+tOkIivAj4ETfDKwidKyCzAAn0qF9VorCJsPJfLSU2SWUbvrwysquuo58HmiV1Pa9 nikolay@status.im' }
+open_ports_list:
+  archive:
+    - { port: '9010', comment: 'rEth Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '5054', comment: 'Lighthouse Metrics',   ipset: 'hq.metrics',            iifname: 'wg0' }
+    - { port: '8000', comment: 'Eth Validators Watcher Metrics', ipset: 'hq.metrics',  iifname: 'wg0' }
+    - { port: ['{{ reth_cont_port_http_rpc }}', '{{ reth_cont_port_ws_rpc}}'], comment: 'EL RPC endpoint for BI usage', ipset: 'bi.test', iifname: 'wg0'}
+    - { port: ['{{ reth_cont_port_http_rpc }}', '{{ reth_cont_port_ws_rpc}}'], comment: 'EL RPC endpoint for BI usage', ipset: 'bi.prod', iifname: 'wg0'}
+
+# Reth -------------------------------------------------------------------------
+reth_config_network_name: 'mainnet'
+reth_config_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
+reth_cont_port_http_rpc: 8545
+reth_cont_port_ws_rpc: 8546
+reth_config_partial_pruning: True
+
+# Lighthouse -------------------------------------------------------------------
+
+lighthouse_service_path: '/data/lighthouse'
+lighthouse_config_network: 'mainnet'
+lighthouse_config_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
+lighthouse_cont_external_networks: ['reth_default']
+lighthouse_config_execution_endpoint: 'http://reth:8551'
+
+# Eth validator Watcher --------------------------------------------------------
+eth_val_watcher_service_path: '/data/eth-validator-watcher'
+eth_val_watcher_bn_network: 'lighthouse'
+eth_val_watcher_bn_url: 'http://lighthouse:5052/'
+eth_val_watcher_validators_eth2: '{{ lookup("vault", "archive/eth2-validators", field="config")}} '
+eth_val_watcher_validators_lido_geth_1: '{{ lookup("vault", "archive/lido-geth-01", field="config") }}'
+eth_val_watcher_validators_lido_geth_2: '{{ lookup("vault", "archive/lido-geth-02", field="config") }}'
+eth_val_watcher_validators_lido_geth_3: '{{ lookup("vault", "archive/lido-geth-03", field="config") }}'
+eth_val_watcher_validators_lido_geth_4: '{{ lookup("vault", "archive/lido-geth-04", field="config") }}'
+eth_val_watcher_validators_lido_geth_5: '{{ lookup("vault", "archive/lido-geth-05", field="config") }}'
+eth_val_watcher_validators_lido_geth_6: '{{ lookup("vault", "archive/lido-geth-06", field="config") }}'
+eth_val_watcher_validators_lido_node_1: '{{ lookup("vault", "archive/lido-node-01", field="config") }}'
+eth_val_watcher_validators_lido_node_2: '{{ lookup("vault", "archive/lido-node-02", field="config") }}'
+eth_val_watcher_validators_lido_node_3: '{{ lookup("vault", "archive/lido-node-03", field="config") }}'
+eth_val_watcher_validators_lido_node_4: '{{ lookup("vault", "archive/lido-node-04", field="config") }}'
+eth_val_watcher_validators_lido_node_5: '{{ lookup("vault", "archive/lido-node-05", field="config") }}'
+eth_val_watcher_validators_lido_node_6: '{{ lookup("vault", "archive/lido-node-06", field="config") }}'
+
+eth_val_watcher_validators: '{{ eth_val_watcher_validators_eth2 + eth_val_watcher_validators_lido_geth_1 + eth_val_watcher_validators_lido_geth_2 + eth_val_watcher_validators_lido_geth_3 + eth_val_watcher_validators_lido_geth_4 + eth_val_watcher_validators_lido_geth_5 + eth_val_watcher_validators_lido_geth_6 + eth_val_watcher_validators_lido_node_1 + eth_val_watcher_validators_lido_node_2 + eth_val_watcher_validators_lido_node_3 + eth_val_watcher_validators_lido_node_4 + eth_val_watcher_validators_lido_node_5 + eth_val_watcher_validators_lido_node_6 }}'

@@ -139,3 +139,9 @@
 - name: infra-role-commit-boost
   src: git@github.com:status-im/infra-role-commit-boost.git
   version: ed5b987cbe144728ba77a429b8ca5c02b7ed16fc
+
+- name: infra-role-reth
+  src: git@github.com:status-im/infra-role-reth.git
+
+- name: infra-role-lighthouse
+  src: git@github.com:status-im/infra-role-lighthouse.git
