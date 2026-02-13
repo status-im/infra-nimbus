@@ -73,7 +73,7 @@ nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
 beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
-beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
+beacon_node_repo_branch: '{{ node.branch }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 beacon_node_doppelganger_detection: true
 beacon_node_suggested_gas_limit: 60000000
