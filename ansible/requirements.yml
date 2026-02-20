@@ -18,7 +18,7 @@
 
 - name: infra-role-nginx
   src: git@github.com:status-im/infra-role-nginx.git
-  version: 44c1ce3e28e944e1ff52314cc884ae5f88f8f507
+  version: 7186070dc036f6df2a51781cb831dd340a1db054
 
 - name: infra-role-origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: fab445098af49d4a980897c0972eb421e57a6659
+  version: e336252adcbaaf0e0c63c29e1f26bc481645d3b9
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 2ab3525a15b56ca4a63d304b8ed74f5ae21d48e9
+  version: 5f29de37974d69d04afaba733f178d92b7d55d05
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 57b783fe46e0fce7857734485066fa1d0a15c0f5
+  version: c2ede8d8491691afdf25bbfd3d26b60fb3fe3707
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
