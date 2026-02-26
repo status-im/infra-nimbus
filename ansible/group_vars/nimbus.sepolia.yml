@@ -46,29 +46,6 @@ geth_expo_source_cont_name: '{{ geth_cont_name }}'
 geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
 geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
 
-# Nimbus ETH1 ------------------------------------------------------------------
-
-nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch | mandatory }}'
-nimbus_eth1_repo_branch: 'devnet-6-pectra'
-nimbus_eth1_network: 'sepolia'
-nimbus_eth1_max_peers: 160
-nimbus_eth1_gas_limit: 60000000
-nimbus_eth1_log_level: 'DEBUG'
-nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
-nimbus_eth1_engine_http_enabled: true
-nimbus_eth1_engine_ws_enabled: true
-nimbus_eth1_era_dir:  '{{ nimbus_era_files_timer_path }}'
-nimbus_eth1_era1_dir: '/data/era1'
-# Ports
-nimbus_eth1_listening_port:   '{{ exec_layer_p2p_port }}'
-nimbus_eth1_discovery_port:   '{{ exec_layer_p2p_port }}'
-nimbus_eth1_http_port:        '{{ exec_layer_rpc_port }}'
-nimbus_eth1_metrics_port:     '{{ exec_layer_metrics_port }}'
-nimbus_eth1_engine_http_port: '{{ exec_layer_authrpc_port }}'
-nimbus_eth1_metrics_address: '0.0.0.0'
-# API secert
-nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
-
 # Beacon Nodes
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
