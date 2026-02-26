@@ -9,44 +9,19 @@ exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
 exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
 exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
 
-# Go-Ethereum
-geth_service_name: 'geth-sepolia-{{ node.branch }}'
-geth_network_name: 'sepolia'
-geth_service_path: '/docker/{{ geth_service_name }}'
-geth_cont_name: '{{ geth_service_name }}-node'
-geth_cont_vol: '{{ geth_service_path }}/node'
-geth_sync_mode: 'snap'
-geth_gas_limit: 60000000
-geth_log_level_name: info
-# Geth auth & JWT token
-geth_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
-geth_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
-# Memory settings
-geth_cont_mem_ratio: 0.3
-# Genesis
-geth_init_enabled: false
-# Ports
-geth_rpc_enabled: true
-geth_rpc_addr: '0.0.0.0'
-geth_authrpc_addr: '0.0.0.0'
-geth_websocket_enabled: true
-geth_websocket_addr: '0.0.0.0'
-geth_port:           '{{ exec_layer_p2p_port }}'
-geth_metrics_port:   '{{ exec_layer_metrics_port }}'
-geth_rpc_port:       '{{ exec_layer_rpc_port }}'
-geth_authrpc_port:   '{{ exec_layer_authrpc_port }}'
-geth_websocket_port: '{{ 9546  + idx|int + 11 }}'
-# Parameter for waku RLN keystore generation
-geth_extra_flags_allow_unprotected_txs: '{{ ["--rpc.allow-unprotected-txs"] if idx == 0 else [] }}'
-geth_extra_flags: '{{ geth_extra_flags_allow_unprotected_txs }}'
+# Nethermind -------------------------------------------------------------------
+nethermind_network_name: 'sepolia'
+nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ node.branch | mandatory }}'
+nethermind_service_path: '/docker/{{ nethermind_service_name }}'
+nethermind_sync_mode: 'snap'
+nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
+nethermind_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
+nethermind_port:         '{{ exec_layer_p2p_port }}'
+nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
+nethermind_authrpc_port: '{{ exec_layer_authrpc_port }}'
+nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 
-# Geth metrics¬
-geth_expo_service_name: '{{ geth_service_name }}'
-geth_expo_source_cont_name: '{{ geth_cont_name }}'
-geth_expo_source_data_path: '{{ geth_cont_vol }}/data'
-geth_expo_cont_port:  '{{ 9400 + (idx|int) + 1 }}'
-
-# Beacon Nodes
+# Beacon Node ------------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
 beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
@@ -87,7 +62,7 @@ beacon_node_consul_success_before_passing:    60 # 1h
 beacon_node_consul_failures_before_warning:  360 # 6h
 beacon_node_consul_failures_before_critical: 720 # 12h
 
-# Validator Client
+# Validator Client -------------------------------------------------------------
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
 validator_client_service_enabled: '{{ node.vc }}'
 validator_client_network: '{{ beacon_node_network }}'
@@ -121,7 +96,7 @@ validator_client_dist_validators_end:   '{{ (not node.vc) | ternary(0, node.end)
 # Dist validators
 dist_validators_repo_ssh_key: '{{lookup("vault", "dist-validators/deploy-key", field="private", stage="all")}}'
 
-# ERA files geneartion.
+# ERA files geneartion ---------------------------------------------------------
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '/data/era'
 nimbus_era_files_network: '{{ beacon_node_network }}'
