@@ -48,6 +48,7 @@ validator_client_network: '{{ beacon_node_network }}'
 validator_client_beacon_node_urls: ['http://127.0.0.1:{{ obol_charon_validator_api_port }}']
 validator_client_doppelganger_detection: false
 validator_client_extra_flags: ['--distributed']
+validator_client_payload_builder_enabled: true
 #validator_client_suggested_fee_recipient: 'TODO'
 # Keymanager
 validator_client_keymanager_enabled: true
@@ -62,6 +63,7 @@ validator_client_keymanager_port: '{{ validator_client_keymanager_ports[cluster_
 # Obol Charon DVT
 obol_charon_service_name: 'obol-charon-stv-{{ cluster_type | mandatory }}'
 obol_charon_nickname: 'Develp'
+obol_charon_builder_api: true
 obol_charon_beacon_node_urls: ['http://localhost:{{ beacon_node_rest_port }}']
 obol_charon_execution_client_rpc_url: ['http://localhost:{{ geth_rpc_port }}']
 obol_charon_validator_api_ports: { standard: 13600, strategy: 23600 }
