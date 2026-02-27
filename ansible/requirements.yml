@@ -86,7 +86,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 89cdbc2a7e28adca7fc59f5523a5a2192b21cec1
+  version: 50cf0cd4ef1a83cfe7e3be21707dfd09453c391d
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
