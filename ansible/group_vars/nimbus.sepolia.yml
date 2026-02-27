@@ -14,6 +14,8 @@ nethermind_network_name: 'sepolia'
 nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ node.branch | mandatory }}'
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
 nethermind_sync_mode: 'snap'
+nethermind_pruning_trigger: 'VolumeFreeSpace'
+nethermind_pruning_threshold_mb: 240000
 nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
 nethermind_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 nethermind_port:         '{{ exec_layer_p2p_port }}'
