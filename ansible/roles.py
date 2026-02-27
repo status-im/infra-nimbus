@@ -262,11 +262,11 @@ class Role:
         return remote
 
     def best_remote(self):
-        if 'https-origin' in self._git('remote'):
-            return 'https-origin'
-        elif not self.is_private():
-            # Using SSH for fetching branches is too slow.
-            return self.add_https_remote()
+        if not self.is_private(): # Using SSH for fetching branches is too slow.
+            if 'https-origin' in self._git('remote'):
+                return 'https-origin'
+            else:
+                return self.add_https_remote()
         return 'origin'
 
     def fetch(self, remote=None):
