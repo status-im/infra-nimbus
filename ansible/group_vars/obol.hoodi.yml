@@ -71,6 +71,9 @@ obol_charon_validator_api_port: '{{ obol_charon_validator_api_ports[cluster_type
 obol_charon_monitoring_host: '0.0.0.0'
 obol_charon_monitoring_ports: { standard: 13620, strategy: 23620 }
 obol_charon_monitoring_port: '{{ obol_charon_monitoring_ports[cluster_type] }}'
+obol_charon_p2p_host: '0.0.0.0'
+obol_charon_p2p_port: '{{ obol_charon_p2p_ports[cluster_type] }}'
+obol_charon_p2p_ports: { standard: 13610, strategy: 23610 }
 
 # Prometheus
 prometheus_service_name: 'obol-prometheus'
@@ -101,8 +104,13 @@ prometheus_jobs:
 docker_net_addr: '{{ bootstrap__docker_default_addr_network }}'
 # Open Ports
 open_ports_list:
-  obol-charon:
+  obol-charon-standard:
+    - { port: '{{ obol_charon_p2p_ports["standard"] }}',          comment: 'Charon Obol LibP2P',       protocol: 'tcp'                     }
+    - { port: '{{ obol_charon_p2p_ports["standard"] }}',          comment: 'Charon Obol LibP2P',       protocol: 'udp'                     }
     - { port: '{{ obol_charon_monitoring_ports["standard"] }}',   comment: 'Charon Obol Metrics',      ipset: 'hq.metrics', iifname: 'wg0' }
+  obol-charon-strategy:
+    - { port: '{{ obol_charon_p2p_ports["strategy"] }}',          comment: 'Charon Obol LibP2P',       protocol: 'tcp'                     }
+    - { port: '{{ obol_charon_p2p_ports["strategy"] }}',          comment: 'Charon Obol LibP2P',       protocol: 'udp'                     }
     - { port: '{{ obol_charon_monitoring_ports["strategy"] }}',   comment: 'Charon Obol Metrics',      ipset: 'hq.metrics', iifname: 'wg0' }
   obol-validator-client:
     - { port: '{{ validator_client_metrics_ports["standard"] }}', comment: 'Validator Client Metrics', ipset: 'hq.metrics', iifname: 'wg0' }
