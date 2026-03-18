@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: e336252adcbaaf0e0c63c29e1f26bc481645d3b9
+  version: f3414f774f2f087a326bc1ef2f352b844ab8be05
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -130,7 +130,7 @@
 
 - name: infra-role-obol-charon
   src: git@github.com:status-im/infra-role-obol-charon.git
-  version: 5910cd42f31139679bbc5161c0f252d9356df5b8
+  version: d286022962e206b30d32489285bdacd932580384
 
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
