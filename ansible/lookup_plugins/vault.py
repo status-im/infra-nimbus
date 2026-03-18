@@ -35,7 +35,7 @@ options:
         description: Field to return from vault
         required: true
     stage:
-        description: Override the value of stage used in the path 
+        description: Override the value of stage used in the path
         required: false
     env:
         description: Override the value of the env used in the path
@@ -52,7 +52,7 @@ Examples = """
   vars:
     env: 'example'
     stage: 'test'
-- name: Get 'username' from Vault entry 'config' to fetch secret from 'example-2/prod/config' 
+- name: Get 'username' from Vault entry 'config' to fetch secret from 'example-2/prod/config'
   debug:
     msg: "{{ lookup('vault, 'test', field='username', stage='prod', env='example-2' )}}"
   vars:
@@ -107,7 +107,7 @@ class LookupModule(LookupBase):
         if cached_data:
             return cached_data
         display.vvv(f"{LOG_PREFIX} Querying Vault field {field} at path {term}")
-        val = self.vault.secrets.kv.read_secret_version(term)
+        val = self.vault.secrets.kv.read_secret_version(term, raise_on_deleted_version=True)
         if not val:
             return None
         if field not in val['data']['data']:

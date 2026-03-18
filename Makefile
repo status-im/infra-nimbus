@@ -23,7 +23,7 @@ PROVISIONER_ARCHIVE = $(PROVISIONER_NAME)-$(ARCH)-$(PROVISIONER_VERSION)
 PROVISIONER_URL = https://github.com/status-im/terraform-provisioner-ansible/releases/download/$(PROVISIONER_VERSION)/$(PROVISIONER_ARCHIVE)
 PROVISIONER_PATH = $(TF_PLUGINS_DIR)/$(PROVISIONER_NAME)
 
-all: roles-install install-provisioner secrets init-terraform checks
+all: roles-install install-provisioner init-terraform checks
 	@echo "Success!"
 
 roles-install:
@@ -48,12 +48,8 @@ install-provisioner: $(PROVISIONER_PATH)
 		|| rm -v $(PROVISIONER_PATH)
 
 secrets:
-	pass services/consul/ca-crt > ansible/files/consul-ca.crt
-	pass services/consul/client-crt > ansible/files/consul-client.crt
-	pass services/consul/client-key > ansible/files/consul-client.key
-	pass services/vault/certs/ca-chain > ansible/files/vault-ca.crt
-	pass services/vault/certs/client-user/cert > ansible/files/vault-client-user.crt
-	pass services/vault/certs/client-user/privkey > ansible/files/vault-client-user.key
+	rm -fr $(SECRETS_DIR)
+	direnv reload
 
 init-terraform: consul-check
 	terraform init -upgrade=true

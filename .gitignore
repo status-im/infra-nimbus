@@ -6,5 +6,8 @@
 *.retry
 .direnv/
 
-ansible/files/*
 __pycache__
+
+# FIXME: Remove once all old cert files are cleaned up.
+ansible/files/*.crt
+ansible/files/*.key
