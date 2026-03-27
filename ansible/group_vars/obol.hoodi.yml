@@ -64,6 +64,7 @@ validator_client_keymanager_port: '{{ validator_client_keymanager_ports[cluster_
 obol_charon_service_name: 'obol-charon-stv-{{ cluster_type | mandatory }}'
 obol_charon_nickname: 'Develp'
 obol_charon_builder_api: true
+obol_charon_loki_address: '{{ lookup("vault", "loki/backend", field="url") }}'
 obol_charon_beacon_node_urls: ['http://localhost:{{ beacon_node_rest_port }}']
 obol_charon_execution_client_rpc_url: ['http://localhost:{{ geth_rpc_port }}']
 obol_charon_validator_api_ports: { standard: 13600, strategy: 23600 }
