@@ -83,6 +83,12 @@ nimbus_eth1_http_port:        8545
 nimbus_eth1_metrics_port:     9093
 nimbus_eth1_engine_http_port: 8550
 nimbus_eth1_metrics_address: '0.0.0.0'
+# Consul healthchecks
+nimbus_eth1_consul_check_interval: '60s'
+nimbus_eth1_consul_check_timeout: '10s'
+nimbus_eth1_consul_success_before_passing:   60 # 1h
+nimbus_eth1_consul_failures_before_warning: 120 # 2h
+nimbus_eth1_consul_failures_before_critical: 180 # 3h
 # API secert
 nimbus_eth1_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 
