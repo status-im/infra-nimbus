@@ -6,7 +6,7 @@ nimbus_era_files_timer_enabled: true
 nimbus_era_files_timer_path: '/docker/era'
 nimbus_era_files_timer_user: 'nimbus'
 nimbus_era_files_timer_group: 'staff'
-nimbus_era_files_timer_frequency: 'weekly'
+nimbus_era_files_timer_frequency: 'daily'
 nimbus_era_files_timer_timeout_sec: 82800 # 23 hours
 nimbus_era_files_timer_random_delay_sec: '{{ 60 * 60 * 12 }}'
 nimbus_era_files_timer_ionice_class: 'idle'
