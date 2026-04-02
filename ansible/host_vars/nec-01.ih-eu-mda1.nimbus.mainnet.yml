@@ -1,7 +1,6 @@
 ---
 # Era1 files hosting
 era1_files_domain: 'mainnet.era1.nimbus.team'
-era1_files_path: '/docker/era1'
 
 # CloudFlare Origin certificates
 origin_certs:

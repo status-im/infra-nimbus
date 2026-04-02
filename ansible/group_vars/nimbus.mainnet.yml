@@ -9,6 +9,9 @@ exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
 exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
 exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
 
+era_files_path: '/data/era'
+era1_files_path: '/data/era1'
+
 # Go-Ethereum ------------------------------------------------------------------
 
 geth_service_name: 'geth-{{ geth_network_name }}-{{ node.branch | mandatory }}'
@@ -67,8 +70,8 @@ nimbus_eth1_log_level: 'DEBUG'
 nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
 nimbus_eth1_engine_http_enabled: true
 nimbus_eth1_engine_ws_enabled: true
-nimbus_eth1_era_dir: '{{ nimbus_era_files_timer_path }}'
-nimbus_eth1_era1_dir: '/docker/era1'
+nimbus_eth1_era_dir: '{{ era_files_path }}'
+nimbus_eth1_era1_dir: '{{ era1_files_path }}'
 # Ports
 nimbus_eth1_listening_port:   '{{ exec_layer_p2p_port }}'
 nimbus_eth1_discovery_port:   '{{ exec_layer_p2p_port }}'
@@ -84,7 +87,7 @@ nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 beacon_node_network: 'mainnet'
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch | mandatory }}'
 beacon_node_service_path: '/data/{{ beacon_node_service_name }}'
-beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
+beacon_node_era_dir_path: '{{ era_files_path }}'
 beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
 # Tuning
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
@@ -153,7 +156,7 @@ beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_
 
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
-nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_timer_path: '{{ era_files_path }}'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 # FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-testing/data/db'

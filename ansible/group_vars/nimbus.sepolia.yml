@@ -23,10 +23,12 @@ nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
 nethermind_authrpc_port: '{{ exec_layer_authrpc_port }}'
 nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 
+era_files_path: '/data/era'
+
 # Beacon Node ------------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
-beacon_node_era_dir_path: '{{ nimbus_era_files_timer_path }}'
+beacon_node_era_dir_path: '{{ era_files_path }}'
 beacon_node_repo_branch: '{{ node.branch }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 beacon_node_doppelganger_detection: true
@@ -100,7 +102,7 @@ dist_validators_repo_ssh_key: '{{lookup("vault", "dist-validators/deploy-key", f
 
 # ERA files geneartion ---------------------------------------------------------
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
-nimbus_era_files_timer_path: '/data/era'
+nimbus_era_files_timer_path: '{{ era_files_path }}'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'
 nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/bin/ncli_db'
