@@ -3,3 +3,6 @@
 bootstrap__admin_pass: '{{lookup("passwordstore", "hosts/macos/admin/pass")}}'
 # No ELs available for MacOS right now.
 beacon_node_exec_layer_urls: []
+
+bootstrap__nix_extra_packages:
+  - llvmPackages_18.clang
