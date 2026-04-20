@@ -59,6 +59,8 @@ bootstrap__extra_packages:
   - gdb
   - linux-tools-common
   - linux-tools-generic
+  - sqlite3
+  - sqlite3-tools
 bootstrap_sysctl_config:
   kernel.core_pattern: '/var/lib/systemd/coredump/core.%e.%p.%u.%t'
   fs.inotify.max_user_watches: 131072
