@@ -1,4 +1,5 @@
 ---
+# Use `-e branch_filter=<branch>` to limit runs to a single branch (default: all branches).
 - name: Verify Ansible versions
   hosts: all
   tags: always
@@ -49,21 +50,21 @@
         apply:
           tags: always
       tags: [ rpc-snooper ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
     - include_role:
         name: infra-role-beacon-node-linux
         apply:
           tags: always
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
     - include_role:
         name: infra-role-validator-client
         apply:
           tags: always
       tags: [ validator-client ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       when: validator_client_service_enabled
       loop_control: { loop_var: node, index_var: idx }
 
@@ -80,7 +81,7 @@
           tags: always
       tags: [ geth ]
       when: node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
     - include_role:
@@ -89,7 +90,7 @@
           tags: always
       tags: [ geth-exporter ]
       when: node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Hoodi Nethermind Nodes
@@ -104,7 +105,7 @@
           tags: always
       tags: [ nethermind ]
       when: node.el == "nethermind"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Hoodi Nimbus ETH1 Nodes
@@ -121,7 +122,7 @@
       when:
         - "'el' in node"
         - node.el == "nec"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Hoodi MacOS Beacon Nodes
@@ -135,7 +136,7 @@
         apply:
           tags: always
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Hoodi Windows Beacon Nodes
@@ -150,5 +151,5 @@
         apply:
           tags: always
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }

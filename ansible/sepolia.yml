@@ -1,4 +1,5 @@
 ---
+# Use `-e branch_filter=<branch>` to limit runs to a single branch (default: all branches).
 - name: Verify Ansible versions
   hosts: all
   tags: always
@@ -38,7 +39,7 @@
       when:
         - "'el' in node"
         - node.el == "nethermind"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
     - include_role:
@@ -46,7 +47,7 @@
         apply:
           tags: always
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control:
         loop_var: node
         index_var: idx
@@ -56,7 +57,7 @@
         apply:
           tags: always
       tags: [ validator-client ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       when: validator_client_service_enabled
       loop_control:
         loop_var: node
