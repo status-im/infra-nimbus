@@ -1,4 +1,5 @@
 ---
+# Use `-e branch_filter=<branch>` to limit runs to a single branch (default: all branches).
 - name: 'Verify Ansible versions'
   hosts: all
   tags: always
@@ -35,7 +36,7 @@
         name: infra-role-beacon-node-linux
         apply: { tags: always }
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control:
         loop_var: node
         index_var: idx
@@ -72,7 +73,7 @@
         name: infra-role-beacon-node-linux
         apply: { tags: always }
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control:
         loop_var: node
         index_var: idx
@@ -91,7 +92,7 @@
       when:
         - "'el' in node"
         - node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
     - include_role:
@@ -102,7 +103,7 @@
       when:
         - "'el' in node"
         - node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Mainnet Erigon Nodes
@@ -119,7 +120,7 @@
       when:
         - "'el' in node"
         - node.el == "erigon"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
 
 - name: Deploy Mainnet Nimbus ETH1 Nodes
@@ -136,5 +137,5 @@
       when:
         - "'el' in node"
         - node.el == "nec"
-      with_items: '{{ nodes_layout[inventory_hostname] }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node, index_var: idx }
