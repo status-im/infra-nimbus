@@ -1,4 +1,5 @@
 from jinja2.runtime import Undefined
+import json
 
 
 def filter_by_branch(nodes, branch=None):
@@ -12,17 +13,26 @@ def filter_by_branch(nodes, branch=None):
 
     Usage on CLI:
         ansible-playbook ansible/hoodi.yml -l <host> -e branch_filter=libp2p
+        ansible-playbook ansible/hoodi.yml -l <host> -e branch_filter=libp2p,unstable
         ansible-playbook ansible/hoodi.yml -l <host> -e 'branch_filter=["libp2p","unstable"]'
-        ansible-playbookansible/hoodi.yml -l <host> # no filter, loops through all branches
+        ansible-playbook ansible/hoodi.yml -l <host> -e '{"branch_filter": ["libp2p","unstable"]}'
+        ansible-playbook ansible/hoodi.yml -l <host>  # no filter, loops through all branches
 
-    Accepts a single branch as string, list of branches, or None/undefined
-    (returns all nodes unchanged).
+    Accepts a single branch as string, comma-separated string, JSON list string,
+    native list, or None/undefined (returns all nodes unchanged).
+    All returned nodes include an _idx field with their original position in the list.
     """
     if branch is None or isinstance(branch, Undefined):
-        return nodes
+        return [dict(n, _idx=i) for i, n in enumerate(nodes)]
+
     if isinstance(branch, str):
-        branch = [branch]
-    return [n for n in nodes if n.get('branch') in branch]
+        try:
+            parsed = json.loads(branch)
+            branch = parsed if isinstance(parsed, list) else [branch]
+        except (json.JSONDecodeError, ValueError):
+            branch = [b.strip() for b in branch.split(',')]
+
+    return [dict(n, _idx=i) for i, n in enumerate(nodes) if n.get('branch') in branch]
 
 
 class FilterModule(object):
