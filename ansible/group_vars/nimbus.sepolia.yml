@@ -4,10 +4,10 @@ mev_boost_cont_tag: '1.10a5'
 mev_boost_relays:
   - 'https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-sepolia.flashbots.net'
 # Ports used for all 2 EL nodes as they are mutually exclusive.
-exec_layer_p2p_port:     '{{ 30303 + 3*idx|int + 1 }}'
-exec_layer_rpc_port:     '{{ 8545  +   idx|int + 1 }}'
-exec_layer_authrpc_port: '{{ 8551  +   idx|int + 1 }}'
-exec_layer_metrics_port: '{{ 6060  +   idx|int + 1 }}'
+exec_layer_p2p_port:     '{{ 30303 + 3*node._idx|int + 1 }}'
+exec_layer_rpc_port:     '{{ 8545  +   node._idx|int + 1 }}'
+exec_layer_authrpc_port: '{{ 8551  +   node._idx|int + 1 }}'
+exec_layer_metrics_port: '{{ 6060  +   node._idx|int + 1 }}'
 
 # Nethermind -------------------------------------------------------------------
 nethermind_network_name: 'sepolia'
@@ -36,7 +36,7 @@ beacon_node_suggested_gas_limit: 60000000
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
 # Updates
-beacon_node_update_frequency: '*-*-* {{ "%02d" | format(idx * 2) }}:00:00'
+beacon_node_update_frequency: '*-*-* {{ "%02d" | format(node._idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 # Monitoring
@@ -55,10 +55,10 @@ beacon_node_dist_validators_start: '{{ node.vc | ternary(0, node.start) | mandat
 beacon_node_dist_validators_end:   '{{ node.vc | ternary(0, node.end)   | mandatory }}'
 # Ports
 beacon_node_rest_port_base: 9300
-beacon_node_discovery_port: '{{ 9000 + idx|int + 11 }}'
-beacon_node_listening_port: '{{ 9000 + idx|int + 11 }}'
-beacon_node_metrics_port:   '{{ 9200 + idx|int + 11 }}'
-beacon_node_rest_port:      '{{ beacon_node_rest_port_base + idx|int + 11 }}'
+beacon_node_discovery_port: '{{ 9000 + node._idx|int + 11 }}'
+beacon_node_listening_port: '{{ 9000 + node._idx|int + 11 }}'
+beacon_node_metrics_port:   '{{ 9200 + node._idx|int + 11 }}'
+beacon_node_rest_port:      '{{ beacon_node_rest_port_base + node._idx|int + 11 }}'
 beacon_node_rest_address:   '0.0.0.0'
 # Reduce Consul alerts sensitivity
 beacon_node_consul_check_disabled: '{{ node.get("public_api", false) }}'
@@ -87,8 +87,8 @@ validator_client_beacon_node_urls:
 validator_client_repo_branch: '{{ beacon_node_repo_branch }}'
 validator_client_update_frequency: 'daily'
 # Ports
-validator_client_metrics_port:    '{{ 8108 + idx|int + 1 }}'
-validator_client_keymanager_port: '{{ 5052 + idx|int + 1 }}'
+validator_client_metrics_port:    '{{ 8108 + node._idx|int + 1 }}'
+validator_client_keymanager_port: '{{ 5052 + node._idx|int + 1 }}'
 # Suggests it to the Execution Layer client and the builder network.
 validator_client_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
 # Keymanager

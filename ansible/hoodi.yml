@@ -51,14 +51,14 @@
           tags: always
       tags: [ rpc-snooper ]
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node}
     - include_role:
         name: infra-role-beacon-node-linux
         apply:
           tags: always
       tags: [ beacon-node ]
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node}
     - include_role:
         name: infra-role-validator-client
         apply:
@@ -66,7 +66,7 @@
       tags: [ validator-client ]
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       when: validator_client_service_enabled
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node}
 
 - name: Deploy Hoodi Geth Nodes
   become: true
@@ -82,7 +82,7 @@
       tags: [ geth ]
       when: node.el == "geth"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
     - include_role:
         name: infra-role-geth-exporter
@@ -91,7 +91,7 @@
       tags: [ geth-exporter ]
       when: node.el == "geth"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
 - name: Deploy Hoodi Nethermind Nodes
   become: true
@@ -106,7 +106,7 @@
       tags: [ nethermind ]
       when: node.el == "nethermind"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
 - name: Deploy Hoodi Nimbus ETH1 Nodes
   become: true
@@ -123,7 +123,7 @@
         - "'el' in node"
         - node.el == "nec"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
 - name: Deploy Hoodi MacOS Beacon Nodes
   become: true
@@ -137,7 +137,7 @@
           tags: always
       tags: [ beacon-node ]
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
 - name: Deploy Hoodi Windows Beacon Nodes
   become: true
@@ -152,4 +152,4 @@
           tags: always
       tags: [ beacon-node ]
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }

@@ -39,7 +39,6 @@
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control:
         loop_var: node
-        index_var: idx
 
 - name: Deploy mainnet linux beacon nodes
   become: true
@@ -76,7 +75,6 @@
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control:
         loop_var: node
-        index_var: idx
 
 - name: Deploy Mainnet Geth Nodes
   become: true
@@ -93,7 +91,7 @@
         - "'el' in node"
         - node.el == "geth"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
     - include_role:
         name: infra-role-geth-exporter
@@ -104,7 +102,7 @@
         - "'el' in node"
         - node.el == "geth"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
 - name: Deploy Mainnet Erigon Nodes
   become: true
@@ -121,7 +119,7 @@
         - "'el' in node"
         - node.el == "erigon"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
 
 - name: Deploy Mainnet Nimbus ETH1 Nodes
   become: true
@@ -138,4 +136,4 @@
         - "'el' in node"
         - node.el == "nec"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
-      loop_control: { loop_var: node, index_var: idx }
+      loop_control: { loop_var: node }
