@@ -30,7 +30,7 @@
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 8fb9aad11459adae3faf3fd3216b8fbd3dafa5f4
+  version: 10c7b36a32121bad60fb28372186ce9fd754ac73
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
@@ -94,7 +94,7 @@
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 45460ee49ca8befb84dbf55b3b09eb8d036c07cd
+  version: f6ba80df00e6726c0f0d51e97c5ae01917a4e94c
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,11 +102,11 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: c2ede8d8491691afdf25bbfd3d26b60fb3fe3707
+  version: 17f353b06bbc35a46eb968d2acc7fe422afd8e3f
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 64a2c0f29ef55e99f8ecbf05e8958a8b4e538bf9
+  version: 025df2466c2a5b503b6eee07d153d13b1f60bbff
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
