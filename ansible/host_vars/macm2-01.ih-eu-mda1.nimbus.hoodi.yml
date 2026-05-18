@@ -3,6 +3,10 @@
 bootstrap__admin_pass: '{{lookup("passwordstore", "hosts/macos/admin/pass")}}'
 # No ELs available for MacOS right now.
 beacon_node_exec_layer_urls: []
+# Avoid override from group
+beacon_node_era_dir_path: '{{ beacon_node_data_path }}/era'
+# Avoid breaking Launchd timer format
+beacon_node_resync_timer_frequency: 604800
 
 bootstrap__nix_extra_packages:
   - llvmPackages_18.clang
