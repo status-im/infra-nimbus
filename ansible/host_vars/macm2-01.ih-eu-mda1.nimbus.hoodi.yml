@@ -8,5 +8,5 @@ beacon_node_era_dir_path: '{{ beacon_node_data_path }}/era'
 # Avoid breaking Launchd timer format
 beacon_node_resync_timer_frequency: 604800
 
-bootstrap__nix_extra_packages:
+nix_extra_packages:
   - llvmPackages_18.clang
