@@ -158,6 +158,9 @@ beacon_node_resync_timer_trusted_api_urls:
   - 'https://beaconstate-hoodi.chainsafe.io/'
   - 'https://hoodi.beaconstate.ethstaker.cc/'
 
+# Nix - GCC11 for building BN
+beacon_node_nix_flake_target: "{{ 'beacon_node_gcc11' if node.branch == 'unstable' else 'beacon_node' }}"
+
 # Validator Client -------------------------------------------------------------
 
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
@@ -182,6 +185,8 @@ validator_client_keymanager_token: '{{lookup("vault", "validator-client", field=
 validator_client_dist_validators_enabled: '{{ beacon_node_dist_validators_enabled }}'
 validator_client_dist_validators_start: '{{ (not node.get("vc", false)) | ternary(0, node.start) | mandatory }}'
 validator_client_dist_validators_end:   '{{ (not node.get("vc", false)) | ternary(0, node.end)   | mandatory }}'
+# Nix - GCC11 for building VC
+validator_client_nix_flake_target: "{{ 'validator_client_gcc11' if node.branch == 'unstable' else 'validator_client' }}"
 
 # Dist validators
 dist_validators_repo_ssh_key: '{{lookup("vault", "dist-validators/deploy-key", field="private", stage="all")}}'

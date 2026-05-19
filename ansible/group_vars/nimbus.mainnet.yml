@@ -153,6 +153,9 @@ beacon_node_resync_timer_enabled: '{{ node.branch == "libp2p" }}' # TEMP: syncv3
 beacon_node_resync_timer_frequency: 'weekly'
 beacon_node_resync_timer_trusted_api_url: 'http://localhost:{{ beacon_node_rest_port_base + 1 }}/' # stable
 
+# Nix - GCC11 for building BN
+beacon_node_nix_flake_target: "{{ 'beacon_node_gcc11' if node.branch == 'unstable' else 'beacon_node' }}"
+
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
 nimbus_era_files_timer_path: '{{ era_files_path }}'

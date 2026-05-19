@@ -67,6 +67,8 @@ beacon_node_consul_check_timeout: '10s'
 beacon_node_consul_success_before_passing:    60 # 1h
 beacon_node_consul_failures_before_warning:  360 # 6h
 beacon_node_consul_failures_before_critical: 720 # 12h
+# Nix - GCC11 for building BN
+beacon_node_nix_flake_target: "{{ 'beacon_node_gcc11' if node.branch == 'unstable' else 'beacon_node' }}"
 
 # Validator Client -------------------------------------------------------------
 validator_client_service_name: 'validator-client-{{ validator_client_network }}-{{ node.branch }}'
