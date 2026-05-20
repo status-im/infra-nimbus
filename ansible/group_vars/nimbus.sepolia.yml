@@ -115,6 +115,15 @@ nimbus_era_files_nclidb_path: '/data/beacon-node-{{ beacon_node_network }}-unsta
 # https://github.com/status-im/infra-misc/issues/301
 bootstrap__firewall_nftables: true
 
+# Nix Daemon settings
+nix_settings:
+  'build-users-group': 'nixbld'
+  'auto-allocate-uids': 'false'
+  'experimental-features': 'flakes nix-command auto-allocate-uids'
+  'download-buffer-size': '268435456'
+  'extra-substituters': 'https://nix-cache.status.im/''
+  'extra-trusted-public-keys': 'nix-cache.status.im-1:x/93lOfLU+duPplwMSBR+OlY4+mo+dCN7n0mr4oPwgY='
+
 # Open Ports
 host_el_type: 'EL node'
 open_ports_list:
