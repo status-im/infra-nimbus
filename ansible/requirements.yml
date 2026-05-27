@@ -30,11 +30,11 @@
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 10c7b36a32121bad60fb28372186ce9fd754ac73
+  version: 16d9af36f69c6cb5fd61a6e13f011a96f279af6f
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 7b4b4472dda3a7dca9d2228cec37c648694313df
+  version: 9b8a6d75cc45977d9b09d3152eda1701761eb8d4
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 0fd4f76581caa0109fe0ba97ddbf66185c23336e
+  version: 47fad68a9ad75da75eb0b577e9e29fe7fec33113
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -86,11 +86,11 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 50cf0cd4ef1a83cfe7e3be21707dfd09453c391d
+  version: a0b3d048879914b71194ad269628c1d72bf46036
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: 60e09a62fe67fbd0679d1522d0841cd8392d38dd
+  version: 157e1534bd5275aa691638d4c6ede2e1e508d2ed
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
