@@ -11,7 +11,7 @@ nodes_layout:
   'geth-02.ih-eu-mda1.nimbus.hoodi': # 1 each
     - { branch: 'stable',   start:     0, end:    1,  el: 'geth', vc: true  }
     - { branch: 'testing',  start:     1, end:    2,  el: 'geth', vc: false, public_api: true }
-    - { branch: 'unstable', start:     2, end:    3,  el: 'geth', vc: false }
+    - { branch: 'unstable', start:     2, end:    3,  el: 'geth', vc: false, debug_quic: true }
     - { branch: 'libp2p',   start:     3, end:    4,  el: 'geth', vc: false }
 
   'geth-03.ih-eu-mda1.nimbus.hoodi': # 4 each
@@ -27,7 +27,7 @@ nodes_layout:
     - { branch: 'libp2p',    start: 4520, end: 6020,  el: 'geth', vc: false }
 
   'geth-05.ih-eu-mda1.nimbus.hoodi': # 2660 each
-    - { branch: 'stable',   start: 6020,  end: 8680, el: 'geth', vc: true,  payload_builder: true }
+    - { branch: 'stable',   start: 6020,  end: 8680, el: 'geth', vc: true,   payload_builder: true }
     - { branch: 'testing',  start: 8680,  end: 11340, el: 'geth', vc: false }
     - { branch: 'unstable', start: 11340, end: 14000, el: 'geth', vc: false }
     - { branch: 'libp2p',   start: 14000, end: 16660, el: 'geth', vc: false }
@@ -48,7 +48,7 @@ nodes_layout:
   'nec-03.ih-eu-mda1.nimbus.hoodi': # 4 each
     - { branch: 'stable',   start: 16664, end: 16668, el: 'nec', vc: false }
     - { branch: 'testing',  start: 16668, end: 16672, el: 'nec', vc: false }
-    - { branch: 'unstable', start: 16672, end: 16676, el: 'nec', vc: true  }
+    - { branch: 'unstable', start: 16672, end: 16676, el: 'nec', vc: true,  debug_quic: true }
     - { branch: 'libp2p',   start: 16676, end: 16680, el: 'nec', vc: false }
 
   'nec-04.ih-eu-mda1.nimbus.hoodi': # 1500 each
@@ -91,7 +91,7 @@ nodes_layout:
   'neth-05.ih-eu-mda1.nimbus.hoodi': # 2680 each
     - { branch: 'stable',   start: 39340, end: 42005, el: 'nethermind', vc: false, payload_builder: true }
     - { branch: 'testing',  start: 42005, end: 44670, el: 'nethermind', vc: false, rpc_snooper: true }
-    - { branch: 'unstable', start: 44670, end: 47335, el: 'nethermind', vc: true  }
+    - { branch: 'unstable', start: 44670, end: 47335, el: 'nethermind', vc: true,  debug_quic: true }
     - { branch: 'libp2p',   start: 47335, end: 50000, el: 'nethermind', vc: false }
 
   # MacOS --------------------------------------------------------------------------
