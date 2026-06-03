@@ -34,19 +34,19 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 9b8a6d75cc45977d9b09d3152eda1701761eb8d4
+  version: ed72d93327b2c8706e0909a4bd78ac1c7a18c3f6
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
-  version: 31e5fc6c20828088eeba624e818cee932e8a3b58
+  version: c4f1c8194608452c5705787d62d341c498550e1c
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: fd3c1008ac547e019181f7a871c11c08bbdb7ebe
+  version: 159783567b569cfd6d7b0d0045d647526921aebc
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 47fad68a9ad75da75eb0b577e9e29fe7fec33113
+  version: f83211b8b4b8fb7c7cd9d8de05e2c6656eae2430
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: e68972c5c28222a2c2152670bca09a9306fbce0b
+  version: 21f2c0fe9c94e7342bbf61d24e035ba42fd1fe96
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -90,11 +90,11 @@
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: 157e1534bd5275aa691638d4c6ede2e1e508d2ed
+  version: 67a6e63350faffedbec8027fbe58e8314ae06735
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: f6ba80df00e6726c0f0d51e97c5ae01917a4e94c
+  version: 3f5a4a2edd16b3f9744537abf8d05086e07a5343
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -106,7 +106,7 @@
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 025df2466c2a5b503b6eee07d153d13b1f60bbff
+  version: 799df4c218f60b4af7c608f28ff3439694acb697
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git
