@@ -18,13 +18,13 @@ nodes_layout:
     - { branch: 'stable',   start:     4, end:    8,  el: 'geth', vc: true  }
     - { branch: 'testing',  start:     8, end:   12,  el: 'geth', vc: false, rpc_snooper: true }
     - { branch: 'unstable', start:    12, end:   16,  el: 'geth', vc: false }
-    - { branch: 'libp2p',   start:    16, end:   20,  el: 'geth', vc: false }
+    - { branch: 'syncv3',   start:    16, end:   20,  el: 'geth', vc: false, resync: true }
 
   'geth-04.ih-eu-mda1.nimbus.hoodi': # 1500 each
     - { branch: 'stable',    start: 20,   end: 1520,  el: 'geth', vc: false, payload_builder: true }
     - { branch: 'testing',   start: 1520, end: 3020,  el: 'geth', vc: false }
     - { branch: 'unstable',  start: 3020, end: 4520,  el: 'geth', vc: true  }
-    - { branch: 'libp2p',    start: 4520, end: 6020,  el: 'geth', vc: false }
+    - { branch: 'syncv3',    start: 4520, end: 6020,  el: 'geth', vc: false, resync: true }
 
   'geth-05.ih-eu-mda1.nimbus.hoodi': # 2660 each
     - { branch: 'stable',   start: 6020,  end: 8680, el: 'geth', vc: true,   payload_builder: true }
@@ -49,13 +49,13 @@ nodes_layout:
     - { branch: 'stable',   start: 16664, end: 16668, el: 'nec', vc: false }
     - { branch: 'testing',  start: 16668, end: 16672, el: 'nec', vc: false }
     - { branch: 'unstable', start: 16672, end: 16676, el: 'nec', vc: true,  debug_quic: true }
-    - { branch: 'libp2p',   start: 16676, end: 16680, el: 'nec', vc: false }
+    - { branch: 'syncv3',   start: 16676, end: 16680, el: 'nec', vc: false, resync: true }
 
   'nec-04.ih-eu-mda1.nimbus.hoodi': # 1500 each
     - { branch: 'stable',   start: 16680, end: 18180, el: 'nec', vc: false }
     - { branch: 'testing',  start: 18180, end: 19680, el: 'nec', vc: false, payload_builder: true }
     - { branch: 'unstable', start: 19680, end: 21180, el: 'nec', vc: true  }
-    - { branch: 'libp2p',   start: 21180, end: 22680, el: 'nec', vc: false }
+    - { branch: 'syncv3',   start: 21180, end: 22680, el: 'nec', vc: false, resync: true }
 
   'nec-05.ih-eu-mda1.nimbus.hoodi': # 2660 each
     - { branch: 'stable',   start: 22680, end: 25340, el: 'nec', vc: false }
@@ -80,13 +80,13 @@ nodes_layout:
     - { branch: 'stable',   start: 33324, end: 33328, el: 'nethermind', vc: true  }
     - { branch: 'testing',  start: 33328, end: 33332, el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 33332, end: 33336, el: 'nethermind', vc: true,  payload_builder: true }
-    - { branch: 'libp2p',   start: 33336, end: 33340, el: 'nethermind', vc: false }
+    - { branch: 'syncv3',   start: 33336, end: 33340, el: 'nethermind', vc: false, resync: true }
 
   'neth-04.ih-eu-mda1.nimbus.hoodi': # 1500 each
     - { branch: 'stable',   start: 33340, end: 34840, el: 'nethermind', vc: false }
     - { branch: 'testing',  start: 34840, end: 36340, el: 'nethermind', vc: false }
     - { branch: 'unstable', start: 36340, end: 37840, el: 'nethermind', vc: true,  payload_builder: true }
-    - { branch: 'libp2p',   start: 37840, end: 39340, el: 'nethermind', vc: false }
+    - { branch: 'syncv3',   start: 37840, end: 39340, el: 'nethermind', vc: false, resync: false }
 
   'neth-05.ih-eu-mda1.nimbus.hoodi': # 2680 each
     - { branch: 'stable',   start: 39340, end: 42005, el: 'nethermind', vc: false, payload_builder: true }
