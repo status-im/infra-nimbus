@@ -6,6 +6,7 @@ bench-01.he-eu-hel1.nimbus.eth1 ansible_host=65.21.46.185 data_center=he-eu-hel1
 bench-02.he-eu-hel1.nimbus.eth1 ansible_host=65.21.46.216 data_center=he-eu-hel1 dns_domain=status.im dns_entry=bench-02.he-eu-hel1.nimbus.eth1.status.im env=nimbus region=eu-hel1 stage=eth1
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet ansible_host=3.120.104.18 data_center=aws-eu-central-1a dns_domain=status.im dns_entry=bootstrap-01.aws-eu-central-1a.nimbus.mainnet.status.im env=nimbus region=eu-central-1a stage=mainnet
 bootstrap-02.aws-eu-central-1a.nimbus.mainnet ansible_host=3.64.117.223 data_center=aws-eu-central-1a dns_domain=status.im dns_entry=bootstrap-02.aws-eu-central-1a.nimbus.mainnet.status.im env=nimbus region=eu-central-1a stage=mainnet
+ef-bench-01.he-eu-hel1.nimbus.eth1 ansible_host=135.181.227.67 data_center=he-eu-hel1 dns_domain=status.im dns_entry=ef-bench-01.he-eu-hel1.nimbus.eth1.status.im env=nimbus region=eu-hel1 stage=eth1
 erigon-01.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.99 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=erigon-01.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
 erigon-02.ih-eu-mda1.nimbus.mainnet ansible_host=194.33.40.100 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=erigon-02.ih-eu-mda1.nimbus.mainnet.status.im env=nimbus region=eu-mda1 stage=mainnet
 geth-01.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.130 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus region=eu-mda1 stage=hoodi
@@ -52,6 +53,7 @@ node-01.aws-eu-central-1a.dash.nimbus
 [he-eu-hel1]
 bench-01.he-eu-hel1.nimbus.eth1
 bench-02.he-eu-hel1.nimbus.eth1
+ef-bench-01.he-eu-hel1.nimbus.eth1
 store-01.he-eu-hel1.logs.nimbus
 store-02.he-eu-hel1.logs.nimbus
 store-03.he-eu-hel1.logs.nimbus
@@ -100,6 +102,9 @@ store-03.he-eu-hel1.logs.nimbus
 [nimbus-eth1-bench]
 bench-01.he-eu-hel1.nimbus.eth1
 bench-02.he-eu-hel1.nimbus.eth1
+
+[nimbus-eth1-ef-bench]
+ef-bench-01.he-eu-hel1.nimbus.eth1
 
 [nimbus-hoodi-geth]
 geth-01.ih-eu-mda1.nimbus.hoodi
@@ -160,6 +165,7 @@ linux-01.ih-eu-mda1.nimbus.sepolia
 [nimbus.eth1]
 bench-01.he-eu-hel1.nimbus.eth1
 bench-02.he-eu-hel1.nimbus.eth1
+ef-bench-01.he-eu-hel1.nimbus.eth1
 
 [nimbus.hoodi]
 geth-01.ih-eu-mda1.nimbus.hoodi

@@ -22,3 +22,19 @@ module "nimbus_eth1_node_benchmark" {
     "65.21.46.216"  # "bench-02.he-eu-hel1.nimbus.eth1"
   ]
 }
+
+/* benchmarking node given to EF to manage */
+module "nimbus_eth1_node_benchmark_ef" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "ef-bench"
+  env    = "nimbus"
+  stage  = "eth1"
+  group  = "nimbus-eth1-ef-bench"
+  region = "eu-hel1"
+  prefix = "he"
+
+  ips = [
+    "135.181.227.67" # ef-bench-01.he-eu-hel1.nimbus.eth1
+  ]
+}

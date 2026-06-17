@@ -1,0 +1,11 @@
+---
+bootstrap__active_extra_users:
+  # https://github.com/skylenet.keys
+  - { name: skylenet, uid: 8020, admin: false, key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFnYEFQstXfFvgqfNPn7yNww6+3CygkVCzS23qzdaVy2H0mEJH4r9quNCuduJI9Cj8xoMM7l5d04hfcNoODUdoZ76bEtcNOhekRJ0pFDqofxj5eixU+unkrTxyHnyS1LwM8ABixEndF/FcDDsNwbN3kHOGD5OK7CN9HjA+LhE+7Qv/aRiRZLa5L6f+G4pbHsKB0JeLBqEYhXDIC3CmXmX92VbDCBIJGYR17yNtBSkxW9lWxSVi+HFo7v4QB38NjrSyUWksZxHsu7kamb9hk7wzq58cNzwda/orjHyTawTS5bx+sajyJHjoRiq22JVpAfCKRMWdg2sWroNAkvOgXL5D skylenet' }
+  # https://github.com/parithosh.keys (two keys)
+  - name: parithosh
+    uid: 8021
+    admin: false
+    key: |-
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAiL82k0HKfSFp3JgdpShVvx9mRDk5fyYQyto00tBdeC parithosh
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCaGt9t5OUBJdR9ccTbCMNTQgyXTAogtgSyK/sH4h9X parithosh
