@@ -1,4 +1,36 @@
 ---
+- name: Ensure ncli_db work directory exists
+  file:
+    path: '{{ nimbus_era_files_nclidb_result_path | dirname }}'
+    state: directory
+    owner: '{{ nimbus_era_files_nclidb_timer_user }}'
+    group: '{{ nimbus_era_files_nclidb_timer_group }}'
+    mode: '0755'
+
+- name: Check if ncli_db binary exists
+  stat:
+    path: '{{ nimbus_era_files_nclidb_path }}'
+  register: ncli_db_bin
+
+- name: Create timer for ncli_db update
+  include_role: name=infra-role-systemd-timer
+  vars:
+    systemd_timer_description:       'Update ncli_db executable'
+    systemd_timer_name:              '{{ nimbus_era_files_nclidb_timer_update_name }}'
+    systemd_timer_user:              '{{ nimbus_era_files_nclidb_timer_user }}'
+    systemd_timer_group:             '{{ nimbus_era_files_nclidb_timer_group }}'
+    systemd_timer_ionice_class:      '{{ nimbus_era_files_nclidb_timer_ionice_class }}'
+    systemd_timer_start_on_creation: '{{ not ncli_db_bin.stat.exists }}'
+    systemd_timer_enabled:           '{{ nimbus_era_files_nclidb_timer_enabled }}'
+    systemd_timer_frequency:         '{{ nimbus_era_files_nclidb_timer_frequency }}'
+    systemd_timer_timeout_sec:       '{{ nimbus_era_files_nclidb_timer_timeout_sec }}'
+    systemd_timer_work_dir:          '{{ nimbus_era_files_nclidb_result_path | dirname }}'
+    systemd_timer_script_path:       '/nix/var/nix/profiles/default/bin/nix'
+    systemd_timer_script_args: >-
+      build --no-write-lock-file --refresh
+      --out-link {{ nimbus_era_files_nclidb_result_path }}
+      "git+{{ nimbus_era_files_nclidb_repo_url }}?submodules=1&ref={{ nimbus_era_files_nclidb_repo_branch }}#{{ nimbus_era_files_nclidb_nix_flake_target }}"
+
 - name: Create timer for ERA file updates
   include_role: name=infra-role-systemd-timer
   vars:

@@ -1,8 +1,10 @@
 # Description
 
-This role configures a Systemd timer which generates Nimbus ERA files weekly.
+This role configures Systemd timers for managing Nimbus beacon node ERA files:
 
-The purpose of those is to save space by sharing the same historical data between nodes.
+- **update** — generates ERA files weekly to save space by sharing the same historical data between nodes.
+- **verify** — checks the integrity of generated ERA files.
+- **ncli-db-update** — builds/updates the `ncli_db` executable from source via Nix. This is the binary used to generate the ERA files, so it's kept current on its own schedule.
 
 Read more about ERA files [here](https://github.com/status-im/nimbus-eth2/blob/unstable/docs/e2store.md#era-files).
 
@@ -12,10 +14,9 @@ Read more about ERA files [here](https://github.com/status-im/nimbus-eth2/blob/u
 nimbus_era_files_timer_name: 'nimbus-era-files'
 nimbus_era_files_timer_update_name: '{{ nimbus_era_files_timer_name }}-update'
 nimbus_era_files_timer_verify_name: '{{ nimbus_era_files_timer_name }}-verify'
-nimbus_era_files_timer_path: '/data/era'
-nimbus_era_files_nclidb_path: '/data/nimbus/bin/ncli_db'
-nimbus_era_files_db_path: '/data/nimbus/data/db'
-#nimbus_era_files_network: 'hoodi'
+nimbus_era_files_timer_path: '/docker/era'
+nimbus_era_files_db_path: '/data/nimbus/data/db'   # mandatory
+nimbus_era_files_network: 'hoodi'                  # mandatory
 ```
 
 # Management

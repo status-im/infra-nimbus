@@ -12,7 +12,21 @@ nimbus_era_files_timer_random_delay_sec: '{{ 60 * 60 * 12 }}'
 nimbus_era_files_timer_ionice_class: 'idle'
 nimbus_era_files_timer_script: '{{ nimbus_era_files_timer_path }}/update.sh'
 
+nimbus_era_files_nclidb_timer_name: 'nimbus-era-files-ncli-db'
+nimbus_era_files_nclidb_timer_update_name: '{{ nimbus_era_files_nclidb_timer_name }}-update'
+nimbus_era_files_nclidb_timer_enabled: true
+nimbus_era_files_nclidb_timer_user: 'nimbus'
+nimbus_era_files_nclidb_timer_group: 'staff'
+nimbus_era_files_nclidb_timer_frequency: 'daily'
+nimbus_era_files_nclidb_timer_timeout_sec: 1500 # 25 minutes
+nimbus_era_files_nclidb_timer_ionice_class: 'idle'
+nimbus_era_files_nclidb_repo_url: 'https://github.com/status-im/nimbus-eth2'
+nimbus_era_files_nclidb_nix_flake_target: 'ncli_db'
+#FIXME using unstable branch until the feature propagates to stable branch
+nimbus_era_files_nclidb_repo_branch: 'unstable'
+nimbus_era_files_nclidb_result_path: '/var/lib/nimbus-era-files/result'
+nimbus_era_files_nclidb_path: '{{ nimbus_era_files_nclidb_result_path }}/bin/nimbus_ncli_db'
+
 # Mandatory
-#nimbus_era_files_nclidb_path: ~
 #nimbus_era_files_db_path: ~
 #nimbus_era_files_network: ~
