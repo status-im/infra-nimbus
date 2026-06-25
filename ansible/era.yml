@@ -26,6 +26,7 @@
       command: 'maintenance disable'
       tags: always
   roles:
-    - { role: infra-role-open-ports,   tags: open-ports   }
-    - { role: infra-role-origin-certs, tags: origin-certs }
-    - { role: infra-role-nginx,        tags: nginx        }
+    - { role: infra-role-open-ports,   tags: open-ports       }
+    - { role: infra-role-origin-certs, tags: origin-certs     }
+    - { role: nimbus-era-files,        tags: nimbus-era-files }
+    - { role: infra-role-nginx,        tags: nginx            }

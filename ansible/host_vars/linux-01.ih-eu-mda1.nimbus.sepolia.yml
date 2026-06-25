@@ -1,4 +1,6 @@
 ---
+bootstrap__rsyslog_docker_logs_path: '/var/log/docker'
+
 # Community test REST API endpoint.
 beacon_node_rest_address: '0.0.0.0'
 
@@ -20,11 +22,11 @@ redirect_ports:
 
 # Era files hosting
 era_files_domain: 'sepolia.era.nimbus.team'
-era_files_path: '/data/era'
+era_files_path: '/era'
 
 # Era1 files hosting
 era1_files_domain: 'sepolia.era1.nimbus.team'
-era1_files_path: '/data/era1'
+era1_files_path: '/era1'
 
 # CloudFlare Origin certificates
 origin_certs:

@@ -29,7 +29,6 @@
     - { role: infra-role-open-ports,    tags: [ open-ports ]                                      }
     - { role: redirect-ports,           tags: [ redirect-ports ]                                  }
     - { role: infra-role-mev-boost,     tags: mev-boost                                           }
-    - { role: nimbus-era-files,         tags: [ nimbus-era-files ]                                }
   tasks:
     - include_role:
         name: infra-role-nethermind
