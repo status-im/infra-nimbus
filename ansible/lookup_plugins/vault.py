@@ -71,8 +71,10 @@ RETURN = """
     description:
       - Items for Hashicorp Vault
 """
+CACHE_DIR         = os.environ.get('SECRETS_DIR',       './ansible/files/cache')
 VAULT_CACERT      = os.environ.get('VAULT_CACERT',      './ansible/files/vault-ca.crt')
 VAULT_CLIENT_CERT = os.environ.get('VAULT_CLIENT_CERT', './ansible/files/vault-client-user.crt')
+VAULT_CLIENT_KEY  = os.environ.get('VAULT_CLIENT_KEY',  './ansible/files/vault-client-user.key')
 VAULT_CLIENT_KEY  = os.environ.get('VAULT_CLIENT_KEY',  './ansible/files/vault-client-user.key')
 
 LOG_PREFIX = "[lookup/vault]"
@@ -82,7 +84,7 @@ class LookupModule(LookupBase):
     def run(self, terms, field: str, variables=None, override: str = False, **kwargs):
         self.vault = hvac.Client(cert=(VAULT_CLIENT_CERT, VAULT_CLIENT_KEY),verify=VAULT_CACERT)
         parent_pid = os.getppid()
-        self.cache_file = f"./ansible/files/cache/vault/{parent_pid}.cache"
+        self.cache_file = f"{CACHE_DIR}/vault-lookup-{parent_pid}.cache"
         self.cache_encryption_key = base64.urlsafe_b64encode(hashlib.sha256(self.vault.token.encode()).digest())
         values = []
         env = kwargs.get("env", variables["env"])

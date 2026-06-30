@@ -60,7 +60,7 @@ ansible-playbook ansible/main.yml -e compose_recreate=always
 
 Secrets are stored and provided in three ways:
 
-* [password-store](https://www.passwordstore.org/) - Using [`passwordstore`](https://docs.ansible.com/ansible/latest/collections/community/general/passwordstore_lookup.html) plugin for core infra secrets.
+* [gopass](https://www.gopass.pw/) - Using [`passwordstore`](https://docs.ansible.com/ansible/latest/collections/community/general/passwordstore_lookup.html) plugin for core infra secrets.
 * [Vault](https://www.vaultproject.io/) - Using [`vault`](./lookup_plugins/vault.py) plugin for service secrets.
 
 Read [secrets management guide](https://docs.infra.status.im/guides/secret_management.html) for more details.

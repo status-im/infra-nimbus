@@ -8,7 +8,7 @@ terraform {
     /* KV store has a limit of 512KB */
     gzip = true
     /* WARNING This needs to be changed for every repo. */
-    path      = "terraform/nimbus/"
+    path = "terraform/nimbus/"
   }
 }
 

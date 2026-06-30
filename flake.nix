@@ -1,7 +1,7 @@
 {
   description = "infra-shell";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
   outputs = { self, nixpkgs }:
     let
@@ -15,26 +15,30 @@
         pkgs = pkgsFor.${system};
       in {
         default = let
-          pythonPkgs = pkgs.python312.withPackages (
-            _: with (pkgs.python312Packages); [
-              ipython pyyaml jinja2 PyGithub
-              pyopenssl cryptography hvac
+          pythonPkgs = pkgs.python313.withPackages (
+            _: with (pkgs.python313Packages); [
+              ipython pyyaml jinja2 pygithub
+              pyopenssl cryptography hvac pysocks
             ]
           );
         in pkgs.mkShellNoCC {
-          packages = with pkgs.buildPackages; [
+          packages = with pkgs.buildPackages; let
+            # Optional pkgs.nix for customizing repo dev shell.
+            extraPkgs = pkgs.lib.optionals (builtins.pathExists ./pkgs.nix)
+              (import ./pkgs.nix { inherit pkgs; });
+          in [
             # misc
             git openssh jq silver-searcher direnv
             # networking
             curl nmap nettools dnsutils
             # infra
-            terraform ansible_2_17 pythonPkgs
+            terraform ansible_2_18 pythonPkgs
             # security
-            pass vault yubikey-manager pwgen
+            gopass vault yubikey-manager pwgen
             # cloud
             aliyun-cli awscli doctl google-cloud-sdk
             hcloud s3cmd scaleway-cli
-          ];
+          ] ++ extraPkgs;
 
           shellHook = ''
             make checks
