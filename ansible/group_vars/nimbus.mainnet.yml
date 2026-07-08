@@ -95,6 +95,11 @@ beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined els
 beacon_node_cores_per_node: '{{ (ansible_processor_vcpus / nodes_layout[inventory_hostname]|length) | round(0, "ceil") | int }}'
 beacon_node_threads: '{{ (node.branch == "libp2p") | ternary(1, beacon_node_cores_per_node) }}'
 # We map short names to branches to avoid too long service names.
+
+# QUIC feature not yet available in stable branch.
+beacon_node_quic_enabled: '{{ node.branch in ["testing", "unstable"] }}'
+beacon_node_quic_port: '{{ 9100 + node._idx|int + 1 }}'
+
 node_name_to_branch_map:
   libp2p: 'syncv3'
 # Builds
@@ -184,6 +189,7 @@ open_ports_list:
     - { port: '{{ beacon_node_closed_libp2p_ports }}', comment: 'Block Beacon Node Discovery', protocol: 'udp', verdict: 'drop', disabled: '{{ beacon_node_closed_libp2p_ports|trim == "" }}' }
     - { port: '9001-9004',                             comment: 'Beacon Node libp2p',          protocol: 'tcp'                                }
     - { port: '9001-9004',                             comment: 'Beacon Node discovery',       protocol: 'udp'                                }
+    - { port: '9101-9104',                             comment: 'Beacon Node QUIC',            protocol: 'udp'                                }
     - { port: '9201-9204',                             comment: 'Beacon Node Metrics',         ipset: 'hq.metrics',            iifname: 'wg0' }
     - { port: '9301-9304',                             comment: 'Beacon Node REST API',        ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
   nimbus-light-client:
