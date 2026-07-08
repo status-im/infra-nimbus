@@ -91,8 +91,10 @@ beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branc
 beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
 beacon_node_extra_flags:
   'local-block-value-boost': '{{ (0 if node.get("payload_builder", false) else 10) | int }}'
-  'debug-quic': '{{ node.get("debug_quic", false) | bool }}'
-  'debug-quic-port': '{{ 9100 + node._idx|int + 1 }}'
+
+# QUIC feature not yet available in stable branch.
+beacon_node_quic_enabled: '{{ node.branch in ["testing", "unstable"] }}'
+beacon_node_quic_port: '{{ 9100 + node._idx|int + 1 }}'
 
 beacon_node_doppelganger_detection: true
 beacon_node_suggested_gas_limit: 60000000

@@ -35,6 +35,10 @@ beacon_node_doppelganger_detection: true
 beacon_node_suggested_gas_limit: 60000000
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
+
+# QUIC feature not yet available in stable branch.
+beacon_node_quic_enabled: '{{ node.branch in ["testing", "unstable"] }}'
+beacon_node_quic_port: '{{ 9100 + node._idx|int + 11 }}'
 # Updates
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(node._idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
@@ -77,7 +81,6 @@ validator_client_network: '{{ beacon_node_network }}'
 validator_client_log_level: 'INFO'
 validator_client_doppelganger_detection: '{{ beacon_node_doppelganger_detection }}'
 validator_client_payload_builder_enabled: '{{ beacon_node_payload_builder_enabled }}'
-validator_client_beacon_node_urls:
 validator_client_beacon_node_urls: ['http://127.0.0.1:{{ beacon_node_rest_port }}']
 
 # Builds
@@ -122,6 +125,7 @@ open_ports_list:
     beacon-node:
       - { port: '9011-9014',   comment: 'Beacon Node libp2p',    protocol: 'tcp'                                    }
       - { port: '9011-9014',   comment: 'Beacon Node discovery', protocol: 'udp'                                    }
+      - { port: '9111-9114',   comment: 'Beacon Node QUIC',      protocol: 'udp'                                    }
       - { port: '9211-9214',   comment: 'Beacon Node Metrics',   ipset: 'hq.metrics',                iifname: 'wg0' }
       - { port: '9311-9314',   comment: 'Beacon Node REST API',  ipset: '{{ env }}.{{ stage }}',     iifname: 'wg0' }
     validator-client:
