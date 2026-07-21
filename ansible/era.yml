@@ -15,7 +15,6 @@
     - erigon-01.ih-eu-mda1.nimbus.mainnet
     - geth-01.ih-eu-mda1.nimbus.hoodi
     - linux-01.ih-eu-mda1.nimbus.sepolia
-    - metal-01.ih-eu-mda1.nimbus.eth1
     - nec-01.ih-eu-mda1.nimbus.mainnet
   pre_tasks:
     - name: Enable Maintenance Mode
