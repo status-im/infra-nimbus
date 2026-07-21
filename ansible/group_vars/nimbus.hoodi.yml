@@ -198,7 +198,7 @@ validator_client_nix_flake_target: "{{ 'validator_client_gcc11' if node.branch =
 dist_validators_repo_ssh_key: '{{lookup("vault", "dist-validators/deploy-key", field="private", stage="all")}}'
 
 # ERA files generation ---------------------------------------------------------
-nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
+nimbus_era_files_timer_enabled: true
 nimbus_era_files_timer_path: '{{ era_files_path }}'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'

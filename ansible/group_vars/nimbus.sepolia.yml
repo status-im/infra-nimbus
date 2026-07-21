@@ -23,7 +23,8 @@ nethermind_rpc_port:     '{{ exec_layer_rpc_port }}'
 nethermind_authrpc_port: '{{ exec_layer_authrpc_port }}'
 nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 
-era_files_path: '/data/era'
+era_files_path: '/era'
+era1_files_path: '/era1'
 
 # Beacon Node ------------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
@@ -103,7 +104,7 @@ validator_client_dist_validators_end:   '{{ (not node.vc) | ternary(0, node.end)
 dist_validators_repo_ssh_key: '{{lookup("vault", "dist-validators/deploy-key", field="private", stage="all")}}'
 
 # ERA files geneartion ---------------------------------------------------------
-nimbus_era_files_timer_enabled: '{{ (nodes_layout[inventory_hostname]|length) > 1 }}'
+nimbus_era_files_timer_enabled: true
 nimbus_era_files_timer_path: '{{ era_files_path }}'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-unstable/data/db'

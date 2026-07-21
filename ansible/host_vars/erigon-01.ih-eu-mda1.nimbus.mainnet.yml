@@ -1,6 +1,6 @@
 ---
+# Era files hosting
 era_files_domain: 'mainnet.era.nimbus.team'
-era_files_path: '/data/era'
 
 # CloudFlare Origin certificates
 origin_certs:

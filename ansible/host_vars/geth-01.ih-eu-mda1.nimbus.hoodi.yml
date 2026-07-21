@@ -20,7 +20,6 @@ redirect_ports:
 
 # Era files hosting
 era_files_domain: 'hoodi.era.nimbus.team'
-era_files_path: '/docker/era'
 
 # CloudFlare Origin certificates
 origin_certs:
