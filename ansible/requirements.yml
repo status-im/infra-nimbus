@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 21f2c0fe9c94e7342bbf61d24e035ba42fd1fe96
+  version: 88116f89c71edac71b6d772b2dfee8af4401690d
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -90,11 +90,11 @@
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: 67a6e63350faffedbec8027fbe58e8314ae06735
+  version: f2806b08800ea8626867f0c7bb2212ab0d8d16f6
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: 3f5a4a2edd16b3f9744537abf8d05086e07a5343
+  version: 62b507347dc37af8bd23bf82cfa7e8a2dab9a2c2
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,11 +102,11 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 17f353b06bbc35a46eb968d2acc7fe422afd8e3f
+  version: c7c8605ca3ac1540e394d6f44039545837b080c7
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
-  version: 799df4c218f60b4af7c608f28ff3439694acb697
+  version: 575b8cb6a1b5e5b334ba04ecaab0c62731755869
 
 - name: infra-role-smart-metrics
   src: git@github.com:status-im/infra-role-smart-metrics.git

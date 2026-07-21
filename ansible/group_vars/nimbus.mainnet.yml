@@ -54,7 +54,6 @@ erigon_metrics_enabled: true
 erigon_rpc_addr: '0.0.0.0'
 erigon_authrpc_addr: '0.0.0.0'
 erigon_port:              '{{ exec_layer_p2p_port }}'
-erigon_p2p_allowed_ports: ['{{ erigon_port }}', '{{ erigon_port|int + 1 }}']
 erigon_rpc_port:          '{{ exec_layer_rpc_port }}'
 erigon_metrics_port:      '{{ exec_layer_metrics_port }}'
 erigon_authrpc_port:      '{{ exec_layer_authrpc_port }}'
