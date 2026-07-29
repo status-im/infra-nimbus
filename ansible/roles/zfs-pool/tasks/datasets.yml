@@ -1,0 +1,22 @@
+---
+- name: 'Datasets | Create the datasets'
+  community.general.zfs:
+    name: '{{ zfs_pool_name }}/{{ item.name }}'
+    state: 'present'
+    extra_zfs_properties:
+      mountpoint: '{{ item.mountpoint }}'
+      recordsize: '{{ item.recordsize }}'
+      canmount: 'on'
+  loop: '{{ zfs_pool_datasets }}'
+  loop_control: {label: '{{ item.name }} -> {{ item.mountpoint }}'}
+
+- name: 'Datasets | Verify every dataset is mounted from the pool'
+  command: 'findmnt --noheadings --output SOURCE,FSTYPE --target {{ item.mountpoint }}'
+  loop: '{{ zfs_pool_datasets }}'
+  loop_control: {label: '{{ item.mountpoint }}'}
+  register: zfs_pool_mounts
+  changed_when: false
+  failed_when: >-
+    zfs_pool_mounts.rc != 0
+    or 'zfs' not in zfs_pool_mounts.stdout
+    or zfs_pool_name not in zfs_pool_mounts.stdout
