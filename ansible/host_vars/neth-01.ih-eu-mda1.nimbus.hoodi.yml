@@ -1,0 +1,9 @@
+---
+# Storage is a ZFS pool, not auto-detected extra volumes. See infra-nimbus#287.
+bootstrap__extra_volume_enabled: false
+# Keep the log write path off the ZFS pool, matches linux-01.ih-eu-mda1.nimbus.sepolia.
+bootstrap__rsyslog_docker_logs_path: '/var/log/docker'
+# Archive files live on their own datasets.
+era_files_path:  '/era'
+era1_files_path: '/era1'
+ere_files_path:  '/ere'
