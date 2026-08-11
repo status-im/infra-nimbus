@@ -11,6 +11,7 @@ module "nimbus_nodes_mainnet_innova_nec" {
   group  = "nimbus-mainnet-nec"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.70",   /* nec-01.ih-eu-mda1.nimbus.mainnet */
@@ -28,6 +29,7 @@ module "nimbus_nodes_mainnet_innova_erigon" {
   group  = "nimbus-mainnet-erigon"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.99",   /* erigon-01.ih-eu-mda1.nimbus.mainnet */
@@ -44,6 +46,7 @@ module "nimbus_nodes_mainnet_innova_geth" {
   group  = "nimbus-mainnet-geth"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.101",  /* geth-01.ih-eu-mda1.nimbus.mainnet */
@@ -60,6 +63,7 @@ module "nimbus_nodes_mainnet_innova_archive" {
   group  = "nimbus-mainnet-archive"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.248",   # archive-01.ih-eu-mda1.nimbus.mainnet

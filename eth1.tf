@@ -16,6 +16,7 @@ module "nimbus_eth1_node_benchmark" {
   group  = "nimbus-eth1-bench"
   region = "eu-hel1"
   prefix = "he"
+  type   = "AX42"
 
   ips = [
     "65.21.46.185", # "bench-01.he-eu-hel1.nimbus.eth1"

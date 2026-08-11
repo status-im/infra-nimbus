@@ -7,6 +7,7 @@ module "nimbus_nodes_hoodi_innova_geth" {
   group  = "nimbus-hoodi-geth"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.130",   # geth-01.ih-eu-mda1.nimbus.hoodi
@@ -26,6 +27,7 @@ module "nimbus_nodes_hoodi_innova_neth" {
   group  = "nimbus-hoodi-neth"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.148",   # neth-01.ih-eu-mda1.nimbus.hoodi
@@ -45,6 +47,7 @@ module "nimbus_nodes_hoodi_innova_nec" {
   group  = "nimbus-hoodi-nec"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = [
     "194.33.40.242",   # nec-01.ih-eu-mda1.nimbus.hoodi
@@ -64,6 +67,7 @@ module "nimbus_nodes_hoodi_innova_macm2" {
   group  = "nimbus-hoodi-macm2"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Mac M2"
 
   ips = [
     "185.181.230.76" # macm2-01.ih-eu-mda1.nimbus.hoodi
@@ -79,6 +83,7 @@ module "nimbus_nodes_hoodi_innova_windows" {
   group  = "nimbus-hoodi-windows"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   /* Windows */
   become_user   = "admin"

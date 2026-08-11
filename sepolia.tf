@@ -7,6 +7,7 @@ module "nimbus_nodes_sepolia_innova" {
   group  = "nimbus-sepolia-linux"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom C"
 
   ips = [
     "185.181.230.77", # linux-01.ih-eu-mda1.nimbus.sepolia

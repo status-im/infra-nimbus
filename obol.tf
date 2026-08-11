@@ -14,6 +14,7 @@ module "obol_hoodi_innova" {
   group  = "obol-hoodi-metal"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom A"
 
   ips = ["194.33.40.237"] # metal-01.ih-eu-mda1.obol.hoodi
 }

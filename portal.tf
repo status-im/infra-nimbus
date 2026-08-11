@@ -12,6 +12,7 @@ module "nimbus_nodes_portal_innova" {
   group  = "nimbus-portal-metal"
   region = "eu-mda1"
   prefix = "ih"
+  type   = "Custom B"
 
   ips = [
     "194.33.40.238", # metal-01.ih-eu-mda1.nimbus.portal

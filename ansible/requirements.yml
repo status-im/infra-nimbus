@@ -50,7 +50,7 @@
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
-  version: b59615ff8936b271e5cb89c91a94668f1b5c4cac
+  version: 74524a6c831e37e2710c18693237989a11a5520f
 
 - name: infra-role-nimbus-portal-client
   src: git@github.com:status-im/infra-role-nimbus-portal-client.git
@@ -86,7 +86,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: a0b3d048879914b71194ad269628c1d72bf46036
+  version: 632ffdde287858135e55941b37cdd4ac017193e6
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
