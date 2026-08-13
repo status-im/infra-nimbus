@@ -43,11 +43,10 @@ resource "cloudflare_record" "era1_mainnet" {
 }
 
 /* Nimbus-eth1 DB hosting */
-
 resource "cloudflare_record" "nimbus_eth1_db" {
   zone_id = local.zones["nimbus.team"]
   name    = "eth1-db"
-  value   = module.obol_hoodi_innova.public_ips[0]
+  value   = module.nimbus_nodes_hoodi_innova_libp2p.public_ips[0]
   type    = "A"
   proxied = true
 }

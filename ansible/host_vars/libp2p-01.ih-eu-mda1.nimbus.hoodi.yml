@@ -1,9 +1,22 @@
 ---
+bootstrap__extra_volume_devices:
+  - 'disk/by-id/scsi-0HP_LOGICAL_VOLUME_01000000'
+  - 'disk/by-id/scsi-0HP_LOGICAL_VOLUME_03000000'
+bootstrap__extra_volume_bind_paths:
+  DATA_VOLUME1: ['/data']
+  DATA_VOLUME2: ['/docker']
+
 # Eth1 DB files hosting
 eth1_db_files_domain: 'eth1-db.nimbus.team'
-eth1_db_files_path: '/nimbus-eth1-db'
+eth1_db_files_path: '/docker/nimbus-eth1-db'
 
-# CloudFlare Origin certificates
+# Beacon Nodes -----------------------------------------------------------------
+beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}-{{ node.index }}'
+# Temporary fix for broken BN build
+node_name_to_branch_map:
+  libp2p: 'nim-libp2p-last-working'
+
+# CloudFlare Origin certificates -----------------------------------------------
 origin_certs:
   - domain: 'nimbus.team'
     crt: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.crt")}}'

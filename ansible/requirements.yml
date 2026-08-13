@@ -128,10 +128,6 @@
   src: git@github.com:status-im/infra-role-rpc-snooper.git
   version: fc8f4d5a1dad3c004b4f8f2fc020751324511539
 
-- name: infra-role-obol-charon
-  src: git@github.com:status-im/infra-role-obol-charon.git
-  version: 6383a1bc14e678f862f6a0464d78b1db8c084c8e
-
 - name: infra-role-aztec
   src: git@github.com:status-im/infra-role-aztec.git
   version: 2caa72cc15ba66fa44354d094d5bb01badc55545

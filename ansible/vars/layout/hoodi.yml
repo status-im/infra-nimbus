@@ -94,6 +94,13 @@ nodes_layout:
     - { branch: 'unstable', start: 44670, end: 47335, el: 'nethermind', vc: true  }
     - { branch: 'libp2p',   start: 47335, end: 50000, el: 'nethermind', vc: false }
 
+  # LibP2P Autobump ----------------------------------------------------------------
+  'libp2p-01.ih-eu-mda1.nimbus.hoodi': # 0 each
+    - { branch: 'libp2p',   index: '01',              el: 'geth',       vc: false, rpc_snooper: true }
+    - { branch: 'libp2p',   index: '02',                                vc: false                    }
+    - { branch: 'syncv3',   index: '01',              el: 'nethermind', vc: false, resync: true      }
+    - { branch: 'syncv3',   index: '02',                                vc: false, resync: true      }
+
   # MacOS --------------------------------------------------------------------------
   'macm2-01.ih-eu-mda1.nimbus.hoodi':
     - { branch: 'stable',   build_start: '13:00:00' }

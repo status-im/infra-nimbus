@@ -58,6 +58,20 @@ module "nimbus_nodes_hoodi_innova_nec" {
   ]
 }
 
+module "nimbus_nodes_hoodi_innova_libp2p" {
+  source = "github.com/status-im/infra-tf-dummy-module"
+
+  name   = "libp2p"
+  env    = "nimbus"
+  stage  = "hoodi"
+  group  = "nimbus-hoodi-libp2p"
+  region = "eu-mda1"
+  prefix = "ih"
+  type   = "Custom A"
+
+  ips = ["194.33.40.237"] # libp2p-01.ih-eu-mda1.nimbus.hoodi
+}
+
 module "nimbus_nodes_hoodi_innova_macm2" {
   source = "github.com/status-im/infra-tf-dummy-module"
 

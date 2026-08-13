@@ -17,6 +17,7 @@
     - nimbus-hoodi-geth
     - nimbus-hoodi-nec
     - nimbus-hoodi-neth
+    - nimbus-hoodi-libp2p
   vars_files: layout/hoodi.yml
   pre_tasks:
     - name: Enable Maintenance Mode
@@ -43,6 +44,7 @@
     - nimbus-hoodi-geth
     - nimbus-hoodi-nec
     - nimbus-hoodi-neth
+    - nimbus-hoodi-libp2p
   vars_files: layout/hoodi.yml
   tasks:
     - include_role:
@@ -73,6 +75,7 @@
   serial: '{{ serial|default(1) }}'
   hosts:
     - nimbus-hoodi-geth
+    - nimbus-hoodi-libp2p
   vars_files: layout/hoodi.yml
   tasks:
     - include_role:
@@ -80,7 +83,7 @@
         apply:
           tags: always
       tags: [ geth ]
-      when: node.el == "geth"
+      when: node.get("el") == "geth"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node }
 
@@ -89,14 +92,16 @@
         apply:
           tags: always
       tags: [ geth-exporter ]
-      when: node.el == "geth"
+      when: node.get("el") == "geth"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node }
 
 - name: Deploy Hoodi Nethermind Nodes
   become: true
   serial: '{{ serial|default(1) }}'
-  hosts: nimbus-hoodi-neth
+  hosts:
+    - nimbus-hoodi-neth
+    - nimbus-hoodi-libp2p
   vars_files: layout/hoodi.yml
   tasks:
     - include_role:
@@ -104,7 +109,7 @@
         apply:
           tags: always
       tags: [ nethermind ]
-      when: node.el == "nethermind"
+      when: node.get("el") == "nethermind"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node }
 
@@ -119,9 +124,7 @@
         apply:
           tags: always
       tags: [ nimbus-eth1 ]
-      when:
-        - "'el' in node"
-        - node.el == "nec"
+      when: node.get("el") == "nec"
       with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
       loop_control: { loop_var: node }
 

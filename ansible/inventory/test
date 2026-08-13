@@ -15,10 +15,10 @@ geth-02.ih-eu-mda1.nimbus.mainnet ansible_host=185.181.229.82 data_center=ih-eu-
 geth-03.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.140 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-03.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus host_type=Custom A region=eu-mda1 stage=hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.141 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-04.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus host_type=Custom A region=eu-mda1 stage=hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.147 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=geth-05.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus host_type=Custom A region=eu-mda1 stage=hoodi
+libp2p-01.ih-eu-mda1.nimbus.hoodi ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=libp2p-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus host_type=Custom A region=eu-mda1 stage=hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia ansible_host=185.181.230.77 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=linux-01.ih-eu-mda1.nimbus.sepolia.status.im env=nimbus host_type=Custom C region=eu-mda1 stage=sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi ansible_host=185.181.230.76 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=macm2-01.ih-eu-mda1.nimbus.hoodi.status.im env=nimbus host_type=Mac M2 region=eu-mda1 stage=hoodi
 metal-01.ih-eu-mda1.nimbus.portal ansible_host=194.33.40.238 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.nimbus.portal.status.im env=nimbus host_type=Custom B region=eu-mda1 stage=portal
-metal-01.ih-eu-mda1.obol.hoodi ansible_host=194.33.40.237 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-01.ih-eu-mda1.obol.hoodi.status.im env=obol host_type=Custom A region=eu-mda1 stage=hoodi
 metal-02.ih-eu-mda1.nimbus.portal ansible_host=194.33.40.239 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-02.ih-eu-mda1.nimbus.portal.status.im env=nimbus host_type=Custom B region=eu-mda1 stage=portal
 metal-03.ih-eu-mda1.nimbus.portal ansible_host=82.25.203.2 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-03.ih-eu-mda1.nimbus.portal.status.im env=nimbus host_type=Custom B region=eu-mda1 stage=portal
 metal-04.ih-eu-mda1.nimbus.portal ansible_host=82.25.203.66 data_center=ih-eu-mda1 dns_domain=status.im dns_entry=metal-04.ih-eu-mda1.nimbus.portal.status.im env=nimbus host_type=Custom B region=eu-mda1 stage=portal
@@ -67,10 +67,10 @@ geth-02.ih-eu-mda1.nimbus.mainnet
 geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
+libp2p-01.ih-eu-mda1.nimbus.hoodi
 linux-01.ih-eu-mda1.nimbus.sepolia
 macm2-01.ih-eu-mda1.nimbus.hoodi
 metal-01.ih-eu-mda1.nimbus.portal
-metal-01.ih-eu-mda1.obol.hoodi
 metal-02.ih-eu-mda1.nimbus.portal
 metal-03.ih-eu-mda1.nimbus.portal
 metal-04.ih-eu-mda1.nimbus.portal
@@ -107,6 +107,9 @@ geth-02.ih-eu-mda1.nimbus.hoodi
 geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
+
+[nimbus-hoodi-libp2p]
+libp2p-01.ih-eu-mda1.nimbus.hoodi
 
 [nimbus-hoodi-macm2]
 macm2-01.ih-eu-mda1.nimbus.hoodi
@@ -167,6 +170,7 @@ geth-02.ih-eu-mda1.nimbus.hoodi
 geth-03.ih-eu-mda1.nimbus.hoodi
 geth-04.ih-eu-mda1.nimbus.hoodi
 geth-05.ih-eu-mda1.nimbus.hoodi
+libp2p-01.ih-eu-mda1.nimbus.hoodi
 macm2-01.ih-eu-mda1.nimbus.hoodi
 nec-01.ih-eu-mda1.nimbus.hoodi
 nec-02.ih-eu-mda1.nimbus.hoodi
@@ -200,10 +204,4 @@ metal-04.ih-eu-mda1.nimbus.portal
 
 [nimbus.sepolia]
 linux-01.ih-eu-mda1.nimbus.sepolia
-
-[obol-hoodi-metal]
-metal-01.ih-eu-mda1.obol.hoodi
-
-[obol.hoodi]
-metal-01.ih-eu-mda1.obol.hoodi
 

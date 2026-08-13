@@ -14,6 +14,7 @@
   hosts:
     - erigon-01.ih-eu-mda1.nimbus.mainnet
     - geth-01.ih-eu-mda1.nimbus.hoodi
+    - libp2p-01.ih-eu-mda1.nimbus.hoodi
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - nec-01.ih-eu-mda1.nimbus.mainnet
   pre_tasks:
