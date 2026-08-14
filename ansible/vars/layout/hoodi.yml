@@ -29,8 +29,8 @@ nodes_layout:
   'geth-05.ih-eu-mda1.nimbus.hoodi': # 2660 each
     - { branch: 'stable',   start: 6020,  end: 8680, el: 'geth', vc: true,   payload_builder: true }
     - { branch: 'testing',  start: 8680,  end: 11340, el: 'geth', vc: false }
-    - { branch: 'unstable', start: 11340, end: 14000, el: 'geth', vc: false }
-    - { branch: 'libp2p',   start: 14000, end: 16660, el: 'geth', vc: false }
+    - { branch: 'unstable', start: 11340, end: 13110, el: 'geth', vc: false }
+    - { branch: 'libp2p',   start: 13110, end: 16660, el: 'geth', vc: false } # Temp 3550 vals stress test
 
   # Nimbus-eth1 ---------------------------------------------------------------------
   'nec-01.ih-eu-mda1.nimbus.hoodi': # 0 each
