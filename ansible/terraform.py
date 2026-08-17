@@ -445,7 +445,7 @@ def _backup_ansible(inventory):
     text += '[all]\n'
     for hostname, host in sorted(inventory.hosts.items()):
         host_vars = {k: v for k, v in host.host_vars.items() if k != 'hostname'}
-        vars_text = " ".join(f"{k}={v}" for k,v in host_vars.items())
+        vars_text = " ".join(f"{k}={repr(v)}" for k,v in host_vars.items())
         text += f"{hostname} {vars_text}\n"
     text += '\n'
     for name, hosts in sorted(inventory.groups.items()):
