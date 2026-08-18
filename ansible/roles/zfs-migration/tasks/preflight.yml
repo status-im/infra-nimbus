@@ -1,0 +1,104 @@
+---
+- name: 'Preflight | Confirm the target host'
+  assert:
+    that: ['zfs_migration_confirm | default("") == inventory_hostname']
+    fail_msg: |-
+      This destroys all data on the host's data disks. Name the target explicitly:
+
+        ansible-playbook ansible/zfs-migrate.yml \
+          --limit {{ inventory_hostname }} \
+          -e zfs_migration_confirm={{ inventory_hostname }}
+
+- name: 'Preflight | Look for an existing ZFS pool'
+  command: 'zpool list -H -o name,health {{ zfs_pool_name | default("ethdata") }}'
+  register: zfs_existing_pool
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: 'Preflight | Decide whether migration is needed'
+  set_fact:
+    zfs_migration_needed: '{{ zfs_existing_pool.rc != 0 or zfs_migration_force | bool }}'
+
+- name: 'Preflight | Verify volume auto-detection is disabled'
+  assert:
+    that: ['not bootstrap__extra_volume_enabled | default(true) | bool']
+    fail_msg: |-
+      Add to ansible/group_vars/nimbus.hoodi.yml before migrating:
+        bootstrap__extra_volume_enabled: false
+        bootstrap__rsyslog_docker_logs_path: '/var/log/docker'
+        era_files_path: '/era'
+        era1_files_path: '/era1'
+
+- name: 'Preflight | Verify the ERA paths point at the new datasets'
+  assert:
+    that:
+      - "era_files_path | default('') == '/era'"
+      - "era1_files_path | default('') == '/era1'"
+    fail_msg: |-
+      ERA paths do not match the datasets this role creates.
+        era_files_path  : {{ era_files_path | default('undefined') }}, expected /era
+        era1_files_path : {{ era1_files_path | default('undefined') }}, expected /era1
+
+- name: 'Preflight | Pre-wipe checks'
+  when: 'zfs_migration_needed | bool'
+  block:
+    - name: 'Preflight | Look for the HP array CLI'
+      stat: {path: '/usr/sbin/ssacli'}
+      register: zfs_ssacli
+      check_mode: false
+
+    - name: 'Preflight | Read controller configuration'
+      command: 'ssacli controller all show'
+      register: zfs_ctrl
+      changed_when: false
+      failed_when: false
+      check_mode: false
+      when: 'zfs_ssacli.stat.exists'
+
+    - name: 'Preflight | Verify the controller is in HBA mode'
+      assert:
+        that: ["'HBA Mode' in zfs_ctrl.stdout"]
+        fail_msg: |-
+          Controller is not in HBA mode:
+
+          {{ zfs_ctrl.stdout }}
+
+          Switching it destroys all logical volumes including the boot volume, so
+          this host needs a reinstall, not this playbook. Stop and escalate.
+      when: 'zfs_ssacli.stat.exists and zfs_ctrl.rc == 0'
+
+    - name: 'Preflight | Resolve the data disks'
+      include_role:
+        name: 'zfs-pool'
+        tasks_from: 'disks.yml'
+
+    - name: 'Preflight | Summary'
+      debug:
+        msg: |-
+          host          : {{ inventory_hostname }}
+          os            : {{ ansible_distribution }} {{ ansible_distribution_version }} / {{ ansible_kernel }}
+          controller    : {{ "HBA mode verified" if (zfs_ssacli.stat.exists and zfs_ctrl.rc | default(1) == 0)
+                             else "ssacli unavailable, not verified" }}
+          boot disk     : {{ zfs_pool_boot_disk }} (excluded)
+          pool          : {{ zfs_pool_name }} / {{ zfs_pool_type }}
+          arc cap       : {{ (zfs_pool_arc_max_bytes | int / 1024 / 1024 / 1024) | round(1) }} GiB
+                          of {{ (ansible_memtotal_mb | int / 1024) | round(1) }} GiB RAM
+          disks to wipe :
+          {% for d in zfs_pool_disks %}
+            - {{ zfs_pool_disk_ids[loop.index0] }}
+              {{ d.path }}  {{ (d.size / 1000 / 1000 / 1000) | round(1) }} GB
+          {% endfor %}
+          raw capacity  : {{ ((zfs_pool_disks | map(attribute='size') | first | int)
+                              * (zfs_pool_disk_count | int - 1) / 1024 / 1024 / 1024 / 1024)
+                             | round(2) }} TiB usable, before ZFS overhead
+
+          The disks listed above WILL BE WIPED.
+
+- name: 'Preflight | Summary (already migrated)'
+  debug:
+    msg: |-
+      host      : {{ inventory_hostname }}
+      pool      : {{ zfs_existing_pool.stdout | trim }}
+      migration : already done, destructive phases skipped
+  when: 'not zfs_migration_needed | bool'

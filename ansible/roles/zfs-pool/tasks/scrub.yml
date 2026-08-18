@@ -1,0 +1,7 @@
+---
+- name: 'Scrub | Enable the pool scrub timer'
+  systemd:
+    name: 'zfs-scrub-{{ zfs_pool_scrub_schedule }}@{{ zfs_pool_name }}.timer'
+    enabled: true
+    state: 'started'
+    daemon_reload: true
