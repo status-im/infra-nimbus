@@ -12,9 +12,10 @@ eth1_db_files_path: '/docker/nimbus-eth1-db'
 
 # Beacon Nodes -----------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}-{{ node.index }}'
+beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
 # Temporary fix for broken BN build
 node_name_to_branch_map:
-  libp2p: 'nim-libp2p-last-working'
+  libp2p: 'nim-libp2p-auto-bump-unstable'
 
 # CloudFlare Origin certificates -----------------------------------------------
 origin_certs:
