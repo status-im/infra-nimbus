@@ -9,6 +9,7 @@ reth_config_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 reth_cont_port_http_rpc: 8545
 reth_cont_port_ws_rpc: 8546
 reth_config_partial_pruning: True
+reth_static_files_path: '/data/reth/static_files'
 
 # Lighthouse -------------------------------------------------------------------
 
