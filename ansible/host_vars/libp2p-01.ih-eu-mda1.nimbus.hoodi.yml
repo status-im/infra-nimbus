@@ -23,11 +23,6 @@ origin_certs:
     crt: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.crt")}}'
     key: '{{lookup("bitwarden", "CloudFlare/nimbus.team", file="origin.key")}}'
 
-# Open Ports
-open_ports_list:
-  nginx:
-    - { port: '443', comment: 'Nginx' }
-
 nginx_sites:
   eth1_db:
     - listen 443 ssl
