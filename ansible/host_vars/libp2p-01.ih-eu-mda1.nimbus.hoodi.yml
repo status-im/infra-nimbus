@@ -43,3 +43,7 @@ nginx_sites:
         default_type text/plain;
         add_header Content-Type text/plain;
      }
+
+# ERA files generation ---------------------------------------------------------
+# Override default path since this host doesn't have an 'unstable' node
+nimbus_era_files_db_path: '/data/beacon-node-{{ beacon_node_network }}-libp2p-01/data/db'
