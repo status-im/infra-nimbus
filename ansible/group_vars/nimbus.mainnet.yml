@@ -171,7 +171,8 @@ bootstrap__firewall_nftables: true
 
 # Open Ports
 host_el_type: '{{ ansible_hostname|split("-")|first }}'
-open_ports_list:
+open_ports_list: '{{ open_ports_base | combine(open_ports_extra|default({}), recursive=true) }}'
+open_ports_base:
   nginx:
     - { port: '443', comment: 'Nginx' }
   exec-node:

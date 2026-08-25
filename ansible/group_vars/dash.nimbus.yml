@@ -56,7 +56,8 @@ bootstrap__firewall_nftables: true
 
 # Open Nginx Ports
 open_ports_default_comment: 'ElasticSearch LB'
-open_ports_list:
+open_ports_list: '{{ open_ports_base | combine(open_ports_extra|default({}), recursive=true) }}'
+open_ports_base:
   elasticsearch_lb:
     - { port: '{{ es_lb_api_port }}',   ipset: 'logs.nimbus', iifname: 'wg0', comment: 'Elasticsearch LB' }
     - { port: '{{ es_lb_node_port }}',  ipset: 'logs.nimbus', iifname: 'wg0', comment: 'Elasticsearch LB' }

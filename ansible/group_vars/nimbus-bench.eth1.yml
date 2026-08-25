@@ -14,7 +14,8 @@ nimbus_eth1_era_dir: '/data/era'
 nimbus_eth1_era1_dir: '/data/era1'
 
 # Open Ports -------------------------------------------------------------------
-open_ports_list:
+open_ports_list: '{{ open_ports_base | combine(open_ports_extra|default({}), recursive=true) }}'
+open_ports_base:
   el-node:
     - { port: '{{ nimbus_eth1_listening_port }}', comment: 'Nimbus node listening port', protocol: 'tcp' }
     - { port: '{{ nimbus_eth1_discovery_port }}', comment: 'Nimbus node discovery port', protocol: 'udp' }

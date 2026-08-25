@@ -10,7 +10,7 @@ nimbus_portal_client_metrics_port:     '{{ portal_bridge_portal_client_metrics_p
 nimbus_portal_client_listening_port:   '{{ portal_bridge_portal_client_listening_port }}'
 
 # Open Ports -------------------------------------------------------------------
-open_ports_list:
+open_ports_extra:
   nimbus-portal:
     - { comment: 'Nimbus Portal',          port: '{{ portal_bridge_portal_client_listening_port }}',                                      protocol: 'udp' }
     - { comment: 'Nimbus Portal Metrics',  port: '{{ portal_bridge_portal_client_metrics_port }}',   ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }

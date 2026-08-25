@@ -15,7 +15,7 @@ beacon_node_metrics_port: 9200
 beacon_node_rest_port: 9300
 
 # Open Ports
-open_ports_list:
+open_ports_extra:
   nginx:
     - { port: '443', comment: 'Nginx' }
   beacon-node:

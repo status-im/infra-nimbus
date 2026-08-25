@@ -97,7 +97,8 @@ nimbus_eth1_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stag
 bootstrap__firewall_nftables: true
 
 # Open Ports -------------------------------------------------------------------
-open_ports_list:
+open_ports_list: '{{ open_ports_base | combine(open_ports_extra|default({}), recursive=true) }}'
+open_ports_base:
   nimbus-portal-client:
     - { comment: 'Nimbus Portal Client',         port: '{{ nimbus_portal_client_listening_port }}',                                                        protocol: 'udp' }
     - { comment: 'Nimbus Portal Client Metrics', port: '9201-92{{ nimbus_portal_client_host_number_of_public_ips }}', ipset: 'hq.metrics', iifname: 'wg0', protocol: 'tcp' }

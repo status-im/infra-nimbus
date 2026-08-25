@@ -53,7 +53,8 @@ bootstrap__firewall_nftables: true
 
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
-open_ports_list:
+open_ports_list: '{{ open_ports_base | combine(open_ports_extra|default({}), recursive=true) }}'
+open_ports_base:
   elasticsearch:
     - { port: '{{ es_api_port  }}',              ipset: 'hq.metrics',  iifname: 'wg0' }
     - { port: '{{ es_api_port  }}',              ipset: 'hq.logs',     iifname: 'wg0' }
