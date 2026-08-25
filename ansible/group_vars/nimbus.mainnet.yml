@@ -159,6 +159,7 @@ beacon_node_nix_flake_target: "{{ 'beacon_node_gcc11' if node.branch == 'unstabl
 
 # ERA files geneartion.
 nimbus_era_files_timer_enabled: "{{ not inventory_hostname.startswith('bootstrap') }}"
+nimbus_era_files_nclidb_timer_frequency: '*-*-* 00:40:00'
 nimbus_era_files_timer_path: '{{ era_files_path }}'
 nimbus_era_files_network: '{{ beacon_node_network }}'
 # FIXME: Not pretty, since hardcoded, but the simplest way to do it right now.
