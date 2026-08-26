@@ -100,7 +100,7 @@ module "nimbus_nodes_mainnet_stable_small" {
   type          = "t3a.large"
   root_vol_size = 30
   data_vol_size = 3500
-  data_vol_type = "gp2"
+  data_vol_type = "gp3"
   host_count    = 2
 
   /* Firewall */
