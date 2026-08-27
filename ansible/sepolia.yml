@@ -39,7 +39,7 @@
       when:
         - "'el' in node"
         - node.el == "nethermind"
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control: { loop_var: node }
 
     - include_role:
@@ -47,7 +47,7 @@
         apply:
           tags: always
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control:
         loop_var: node
 
@@ -56,7 +56,7 @@
         apply:
           tags: always
       tags: [ validator-client ]
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       when: validator_client_service_enabled
       loop_control:
         loop_var: node

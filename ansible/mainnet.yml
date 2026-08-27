@@ -36,7 +36,7 @@
         name: infra-role-beacon-node-linux
         apply: { tags: always }
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control:
         loop_var: node
 
@@ -72,7 +72,7 @@
         name: infra-role-beacon-node-linux
         apply: { tags: always }
       tags: [ beacon-node ]
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control:
         loop_var: node
 
@@ -90,7 +90,7 @@
       when:
         - "'el' in node"
         - node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control: { loop_var: node }
 
     - include_role:
@@ -101,7 +101,7 @@
       when:
         - "'el' in node"
         - node.el == "geth"
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control: { loop_var: node }
 
 - name: Deploy Mainnet Erigon Nodes
@@ -118,7 +118,7 @@
       when:
         - "'el' in node"
         - node.el == "erigon"
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control: { loop_var: node }
 
 - name: Deploy Mainnet Nimbus ETH1 Nodes
@@ -135,5 +135,5 @@
       when:
         - "'el' in node"
         - node.el == "nec"
-      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter) }}'
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
       loop_control: { loop_var: node }
