@@ -1,0 +1,14 @@
+---
+# ElasticSearch Node Certificates
+vault_pki_ca_key_name:    'nimbus-logs.infra.status.im-ca'
+vault_pki_ca_common_name: 'nimbus-logs.infra.status.im CA'
+vault_pki_role_name:      'nimbus-logs.infra.status.im-role'
+vault_pki_common_name:    '{{ hostname }}.wg'
+vault_pki_ip_sans:        ['{{ ansible_local.wireguard.address }}']
+vault_pki_store_path:     '{{ es_transport_certs_path | default(es_lb_transport_certs_path) }}'
+vault_pki_user:           '{{ es_node_host_uid | default(es_lb_host_uid) }}'
+vault_pki_group:          'docker'
+vault_pki_info:
+  organization: 'status.im'
+  unit:         'Infra'
+  country:      'DE'

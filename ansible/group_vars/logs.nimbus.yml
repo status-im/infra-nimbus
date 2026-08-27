@@ -13,6 +13,7 @@ swap_file_size_mb: 16384
 # ElasticSearch Cluster
 es_service_name: 'elasticsearch'
 es_service_path: '/docker/{{ es_service_name }}'
+es_node_host_config_path: '{{ es_service_path }}/node/conf'
 es_cluster_name: 'nimbus-logs-search'
 es_docker_network_name: '{{ es_service_name }}'
 es_api_port: 9200
@@ -29,6 +30,52 @@ es_master_nodes: |
      addr: ansible_local.wireguard.vpn_ip,
      port: to_string(es_node_port)
    }') }}
+
+# Authentication, Roles, Users. See vars/es-vault-pki-certs.yml for PKI config.
+es_security_enabled: true
+es_transport_certs_path: '{{ es_node_host_config_path }}/certs'
+es_transport_pem_path: '{{ es_transport_certs_path }}/{{ hostname }}.wg.pem'
+es_transport_key_path: '{{ es_transport_certs_path }}/{{ hostname }}.wg.key'
+es_transport_ca_pem_path: '{{ es_transport_certs_path }}/{{ vault_pki_ca_key_name }}.pem'
+es_admin_username: 'elastic' # HARDCODED
+es_admin_password: '{{ lookup("vault", "elasticsearch/users", field="elastic") }}'
+es_roles:
+  - name: 'logstash_writer'
+    cluster: ['monitor', 'manage_index_templates']
+    indices:
+      - names: ['logstash-*']
+        privileges: ['write', 'create', 'create_index']
+
+es_users:
+  - name: 'logstash'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="logstash") }}'
+    full_name: 'Logstash Writer User'
+    roles: ['logstash_writer']
+    enabled: true
+
+  - name: 'kibana_guest'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="kibana_guest") }}'
+    full_name: 'Kibana guest user for anonymous login'
+    roles: ['viewer']
+    enabled: true
+
+  - name: 'es_comrade'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="es_comrade") }}'
+    full_name: 'ElasticSearch Admin Panel'
+    roles: ['remote_monitoring_collector']
+    enabled: true
+
+  # Built-in users
+  - name: 'apm_system'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="apm_system") }}'
+  - name: 'beats_system'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="beats_system") }}'
+  - name: 'kibana_system'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="kibana_system") }}'
+  - name: 'logstash_system'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="logstash_system") }}'
+  - name: 'remote_monitoring_user'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="remote_monitoring_user") }}'
 
 # Since Logstash stores 1 index per day this is fine.
 # See: https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster

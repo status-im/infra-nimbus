@@ -74,11 +74,11 @@
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: f06d250c754c1871f72f00edaac4e0dfcb64d724
+  version: 5a3c29ad3b8e3809ab540a72fcebbde27f78c3f7
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 1437372044dd5d209bd5fc3c587f063195e8a8db
+  version: b2859ce9deaa32b3d2dcb61b5eb542fca8e0caad
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git

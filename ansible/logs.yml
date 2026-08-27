@@ -12,6 +12,8 @@
 - name: Configure ElasticSearch servers
   become: true
   hosts: logs.nimbus
+  vars_files:
+    - vars/es-vault-pki-certs.yml
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -23,11 +25,14 @@
   roles:
     - { role: infra-role-swap-file,        tags: swap-file }
     - { role: infra-role-open-ports,       tags: open-ports }
+    - { role: infra-role-vault-pki,        tags: vault-pki }
     - { role: infra-role-elasticsearch,    tags: elasticsearch }
 
 - name: Configure ElasticSearch servers
   become: true
   hosts: dash.nimbus
+  vars_files:
+    - vars/es-vault-pki-certs.yml
   pre_tasks:
     - name: Fetch available elasticsearch nodes
       uri:
@@ -57,6 +62,7 @@
   roles:
     - { role: infra-role-swap-file,        tags: swap-file }
     - { role: infra-role-open-ports,       tags: open-ports }
+    - { role: infra-role-vault-pki,        tags: vault-pki }
     - { role: infra-role-elasticsearch-lb, tags: elasticsearch-lb }
     - { role: logclean-job,                tags: logclean-job }
     - { role: infra-role-kibana,           tags: kibana }

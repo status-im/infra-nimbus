@@ -19,6 +19,12 @@ kibana_cont_tag: '7.17.28'
 kibana_cont_port: 5601
 kibana_es_lb_addr: '{{ es_lb_cont_name }}'
 kibana_es_lb_port: '{{ es_lb_api_port }}'
+kibana_es_lb_user: 'kibana_system'
+kibana_es_lb_pass: '{{ lookup("vault", "elasticsearch/users", field="kibana_system", stage="logs") }}'
+# Allow anonymouse Guest viewer user
+kibana_guest_allow_anonymous_login: true
+kibana_guest_user: 'kibana_guest'
+kibana_guest_pass: '{{ lookup("vault", "elasticsearch/users", field="kibana_guest", stage="logs") }}'
 
 # oauth access
 oauth_service_name: '{{ kibana_service_name }}'
@@ -36,14 +42,25 @@ oauth_cookie_secret: '{{lookup("vault", "kibana/oauth", field="cookie-secret", e
 
 # ElasticSearch Load Balancer
 es_lb_service_name: 'elasticsearch'
-es_lb_docker_network_name: '{{ kibana_docker_network_name }}'
+es_lb_service_path: '/docker/{{ es_lb_service_name }}'
 es_lb_cont_name: '{{ es_lb_service_name }}-lb'
+es_lb_cont_vol: '{{ es_lb_service_path }}/node'
+es_lb_host_config_path: '{{ es_lb_cont_vol }}/conf'
 es_lb_cont_tag: '7.17.28'
+es_lb_cont_uid: 1000
+es_lb_host_uid: '{{ 100000 + es_lb_cont_uid | int }}'
+es_lb_docker_network_name: '{{ kibana_docker_network_name }}'
 es_lb_data_center: do-ams3
 es_lb_cluster_name: 'nimbus-logs-search'
 es_lb_cluster_dc: 'he-eu-hel1'
 es_lb_api_port: 9200
 es_lb_node_port: 9300
+# Authentication, See vars/es-vault-pki-certs.yml for PKI config.
+es_lb_security_enabled: true
+es_lb_transport_certs_path: '{{ es_lb_host_config_path }}/certs'
+es_lb_transport_pem_path: '{{ es_lb_transport_certs_path }}/{{ hostname }}.wg.pem'
+es_lb_transport_key_path: '{{ es_lb_transport_certs_path }}/{{ hostname }}.wg.key'
+es_lb_transport_ca_pem_path: '{{ es_lb_transport_certs_path }}/{{ vault_pki_ca_key_name }}.pem'
 
 # Cleanup to avoid running out of space
 logclean_es_host: 'localhost'
