@@ -34,7 +34,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 95cd0c45aacb5537ed96c771310cc2ed2d8564e1
+  version: 0a62bc585f2987876ac30a8213e1ea2bc943667c
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
@@ -46,7 +46,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: f83211b8b4b8fb7c7cd9d8de05e2c6656eae2430
+  version: 4321fd2dda41434b7d13b4719d667a19b0922aab
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -66,7 +66,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 88116f89c71edac71b6d772b2dfee8af4401690d
+  version: d33b55df07fb4f21286bf9a138fa086d0c024684
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -90,11 +90,11 @@
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: f2806b08800ea8626867f0c7bb2212ab0d8d16f6
+  version: 4e4c6da774d8007d9a3563322cbce2e215be5bb1
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git
-  version: ab9e6ebddb654cb4aab5aff42188f2423ecbbd9e
+  version: f346c9cadc099356e5975809d4875100eded99c0
 
 - name: infra-role-geth-exporter
   src: git@github.com:status-im/infra-role-geth-exporter.git
@@ -102,7 +102,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: c7c8605ca3ac1540e394d6f44039545837b080c7
+  version: 33d5e2041b98dcd3f12c580a2f1109b5258a52e8
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
@@ -118,11 +118,11 @@
 
 - name: infra-role-nimbus-bench-eth1
   src: git@github.com:status-im/infra-role-nimbus-bench-eth1.git
-  version: e625217d6dc226f335ec53c7585aac2a631c9801
+  version: 29dcb23bd9f2f7e8060ed58480721548442e369e
 
 - name: infra-role-nimbus-light-client
   src: git@github.com:status-im/infra-role-nimbus-light-client.git
-  version: c05f66f51e184d026405cb105c3a957a5e41bf9c
+  version: 093a071539a2f036bbf7d9118ea4649160561a86
 
 - name: infra-role-rpc-snooper
   src: git@github.com:status-im/infra-role-rpc-snooper.git
