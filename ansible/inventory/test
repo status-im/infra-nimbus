@@ -35,7 +35,6 @@ neth-02.ih-eu-mda1.nimbus.hoodi ansible_host='194.33.40.149' data_center='ih-eu-
 neth-03.ih-eu-mda1.nimbus.hoodi ansible_host='194.33.40.151' data_center='ih-eu-mda1' dns_domain='status.im' dns_entry='neth-03.ih-eu-mda1.nimbus.hoodi.status.im' env='nimbus' host_type='Custom A' region='eu-mda1' stage='hoodi'
 neth-04.ih-eu-mda1.nimbus.hoodi ansible_host='194.33.40.157' data_center='ih-eu-mda1' dns_domain='status.im' dns_entry='neth-04.ih-eu-mda1.nimbus.hoodi.status.im' env='nimbus' host_type='Custom A' region='eu-mda1' stage='hoodi'
 neth-05.ih-eu-mda1.nimbus.hoodi ansible_host='194.33.40.241' data_center='ih-eu-mda1' dns_domain='status.im' dns_entry='neth-05.ih-eu-mda1.nimbus.hoodi.status.im' env='nimbus' host_type='Custom A' region='eu-mda1' stage='hoodi'
-node-01.aws-eu-central-1a.dash.nimbus ansible_host='52.28.100.116' data_center='aws-eu-central-1a' dns_domain='status.im' dns_entry='node-01.aws-eu-central-1a.dash.nimbus.status.im' env='dash' host_type='t3a.medium' region='eu-central-1a' stage='nimbus'
 store-01.he-eu-hel1.nimbus.logs ansible_host='65.108.226.62' data_center='he-eu-hel1' dns_domain='status.im' dns_entry='store-01.he-eu-hel1.nimbus.logs.status.im' env='nimbus' host_type='AX101' region='eu-hel1' stage='logs'
 store-02.he-eu-hel1.nimbus.logs ansible_host='65.109.62.247' data_center='he-eu-hel1' dns_domain='status.im' dns_entry='store-02.he-eu-hel1.nimbus.logs.status.im' env='nimbus' host_type='AX101' region='eu-hel1' stage='logs'
 store-03.he-eu-hel1.nimbus.logs ansible_host='65.109.49.101' data_center='he-eu-hel1' dns_domain='status.im' dns_entry='store-03.he-eu-hel1.nimbus.logs.status.im' env='nimbus' host_type='AX101' region='eu-hel1' stage='logs'
@@ -44,10 +43,6 @@ windows-01.ih-eu-mda1.nimbus.hoodi ansible_become_method='runas' ansible_become_
 [aws-eu-central-1a]
 bootstrap-01.aws-eu-central-1a.nimbus.mainnet
 bootstrap-02.aws-eu-central-1a.nimbus.mainnet
-node-01.aws-eu-central-1a.dash.nimbus
-
-[dash.nimbus]
-node-01.aws-eu-central-1a.dash.nimbus
 
 [he-eu-hel1]
 bench-01.he-eu-hel1.nimbus.eth1
@@ -88,9 +83,6 @@ neth-03.ih-eu-mda1.nimbus.hoodi
 neth-04.ih-eu-mda1.nimbus.hoodi
 neth-05.ih-eu-mda1.nimbus.hoodi
 windows-01.ih-eu-mda1.nimbus.hoodi
-
-[log-dash]
-node-01.aws-eu-central-1a.dash.nimbus
 
 [nimbus-eth1-bench]
 bench-01.he-eu-hel1.nimbus.eth1

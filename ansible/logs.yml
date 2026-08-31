@@ -12,6 +12,8 @@
 - name: Configure ElasticSearch servers
   become: true
   hosts: nimbus-logs-store
+  vars_files:
+    - vars/vault-pki/nimbus-logs-search.yml
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -23,42 +25,6 @@
   roles:
     - { role: infra-role-swap-file,        tags: swap-file }
     - { role: infra-role-open-ports,       tags: open-ports }
+    - { role: infra-role-vault-pki,        tags: vault-pki }
     - { role: infra-role-elasticsearch,    tags: elasticsearch }
-
-- name: Configure ElasticSearch servers
-  become: true
-  hosts: dash.nimbus
-  pre_tasks:
-    - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
-      tags: always
-
-    - name: Fetch available elasticsearch nodes
-      uri:
-        url: '{{ consul_catalog_url }}/service/elasticsearch?dc={{ es_lb_cluster_dc }}&tag={{ es_lb_cluster_name }}'
-      register: es_services
-
-    - name: Extract ElasticSearch hostnames
-      set_fact:
-        # we also need to remove our own node from the list
-        es_lb_master_nodes: |
-          {{ es_services.json
-            | rejectattr("Node", "equalto", inventory_hostname)
-            | list
-            | json_query(
-            '[].{
-              name: Node,
-              addr: ServiceAddress,
-              port: to_string(ServiceMeta.cluster_port)
-            }') }}
-  post_tasks:
-    - name: Disable Maintenance Mode
-      command: 'maintenance disable'
-      tags: always
-  roles:
-    - { role: infra-role-swap-file,        tags: swap-file }
-    - { role: infra-role-open-ports,       tags: open-ports }
-    - { role: infra-role-elasticsearch-lb, tags: elasticsearch-lb }
     - { role: logclean-job,                tags: logclean-job }
-    - { role: infra-role-kibana,           tags: kibana }
-    - { role: infra-role-oauth-proxy,      tags: oauth-proxy }

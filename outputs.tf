@@ -1,6 +1,5 @@
 output "hosts" {
   value = merge(
-    module.nimbus_dashboard.hosts,
     module.nimbus_eth1_node_benchmark.hosts,
     module.nimbus_logs_store.hosts,
     module.nimbus_nodes_portal_innova.hosts,

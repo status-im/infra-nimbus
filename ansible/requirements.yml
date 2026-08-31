@@ -74,15 +74,19 @@
 
 - name: infra-role-kibana
   src: git@github.com:status-im/infra-role-kibana.git
-  version: f06d250c754c1871f72f00edaac4e0dfcb64d724
+  version: 32c6f04d83605dcd0b42dc41857faea8cba925e8
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 1437372044dd5d209bd5fc3c587f063195e8a8db
+  version: 54493cc5f0f9efc57c29b380b141e932d0c439fc
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
-  version: 4b1c87de28c48f885c3cba58bb592aaf8c647b1c
+  version: 5cf124f24d386b6c19dc9a01a0b1c3f3f2e8a3c5
+
+- name: infra-role-vault-pki
+  src: git@github.com:status-im/infra-role-vault-pki.git
+  version: c1892667bd905f40bf8334c1fe9ad267ec14a1e0
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
