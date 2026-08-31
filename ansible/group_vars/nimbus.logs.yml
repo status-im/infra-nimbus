@@ -1,11 +1,4 @@
 ---
-# CloudFlare Origin certificates
-origin_certs:
-  - domain: 'status.im'
-    crt: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.crt", stage="all", env="all")}}'
-    key: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.key", stage="all", env="all")}}'
-    default: true
-
 # Syncing can use a lot of memory
 swap_file_path: '/main.swap'
 swap_file_size_mb: 16384
@@ -47,10 +40,6 @@ es_jvm_heap_auto: false
 es_jvm_min_heap: 40g
 es_jvm_max_heap: 40g
 
-# Migrated to NFTables from IPTables.
-# https://github.com/status-im/infra-misc/issues/301
-bootstrap__firewall_nftables: true
-
 # Open Ports
 open_ports_default_comment: 'ElasticSearch'
 open_ports_list: '{{ open_ports_base | combine(open_ports_extra|default({}), recursive=true) }}'
@@ -58,9 +47,9 @@ open_ports_base:
   elasticsearch:
     - { port: '{{ es_api_port  }}',              ipset: 'hq.metrics',  iifname: 'wg0' }
     - { port: '{{ es_api_port  }}',              ipset: 'hq.logs',     iifname: 'wg0' }
-    - { port: '{{ es_api_port }}',               ipset: 'logs.nimbus', iifname: 'wg0' }
+    - { port: '{{ es_api_port }}',               ipset: 'nimbus.logs', iifname: 'wg0' }
     - { port: '{{ es_api_port  }}',              ipset: 'dash.nimbus', iifname: 'wg0' }
-    - { port: '{{ es_node_port }}',              ipset: 'logs.nimbus', iifname: 'wg0' }
+    - { port: '{{ es_node_port }}',              ipset: 'nimbus.logs', iifname: 'wg0' }
     - { port: '{{ es_node_port }}',              ipset: 'dash.nimbus', iifname: 'wg0' }
   elasticsearch_metrics:
     - { port: '{{ es_exp_cont_port }}',          ipset: 'hq.metrics',  iifname: 'wg0' }

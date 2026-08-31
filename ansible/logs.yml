@@ -11,7 +11,7 @@
 
 - name: Configure ElasticSearch servers
   become: true
-  hosts: logs.nimbus
+  hosts: nimbus-logs-store
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -29,10 +29,15 @@
   become: true
   hosts: dash.nimbus
   pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
+      tags: always
+
     - name: Fetch available elasticsearch nodes
       uri:
         url: '{{ consul_catalog_url }}/service/elasticsearch?dc={{ es_lb_cluster_dc }}&tag={{ es_lb_cluster_name }}'
       register: es_services
+
     - name: Extract ElasticSearch hostnames
       set_fact:
         # we also need to remove our own node from the list
@@ -46,10 +51,6 @@
               addr: ServiceAddress,
               port: to_string(ServiceMeta.cluster_port)
             }') }}
-  pre_tasks:
-    - name: Enable Maintenance Mode
-      command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
-      tags: always
   post_tasks:
     - name: Disable Maintenance Mode
       command: 'maintenance disable'
