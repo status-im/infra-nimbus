@@ -1,0 +1,19 @@
+---
+nimbus_ere_files_timer_name: 'nimbus-ere-files'
+nimbus_ere_files_timer_generate_name: '{{ nimbus_ere_files_timer_name }}-generate'
+nimbus_ere_files_timer_verify_name: '{{ nimbus_ere_files_timer_name }}-verify'
+nimbus_ere_files_timer_enabled: false
+nimbus_ere_files_timer_user: 'nimbus'
+nimbus_ere_files_timer_group: 'staff'
+nimbus_ere_files_timer_frequency: 'daily'
+nimbus_ere_files_timer_timeout_sec: 82800 # 23 hours
+nimbus_ere_files_timer_random_delay_sec: '{{ 60 * 60 * 12 }}'
+nimbus_ere_files_timer_ionice_class: 'idle'
+
+# Paths
+nimbus_ere_files_dir:           '/docker/ere'
+nimbus_ere_files_era_dir:       '/docker/era'
+#nimbus_ere_files_exporter_path: ~
+#nimbus_ere_files_nec_data_dir: ~
+#nimbus_ere_files_network: ~
+#nimbus_ere_files_nec_service_name: ~

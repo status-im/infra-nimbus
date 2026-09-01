@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+set -euo pipefail
+
+ARGS=(
+  exportEre
+  --network:'{{ nimbus_ere_files_network | mandatory }}'
+  --el-data-dir:'{{ nimbus_ere_files_nec_data_dir | mandatory }}'
+  --ere-dir:'{{ nimbus_ere_files_dir }}'
+  --era-dir:'{{ nimbus_ere_files_era_dir }}'
+)
+
+exec '{{ nimbus_ere_files_exporter_path | mandatory }}' "${ARGS[@]}" "$@"

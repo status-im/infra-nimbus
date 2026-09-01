@@ -1,0 +1,4 @@
+---
+nimbus_eth1_import_bodies: "{{ node.branch == 'stable' }}"
+nimbus_eth1_import_receipts: "{{ node.branch == 'stable' }}"
+nimbus_eth1_pruning_enabled: "{{ node.branch != 'stable' }}"

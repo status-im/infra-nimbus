@@ -38,6 +38,7 @@ sudo zpool create -f \
 DATASETS=(
   "era     /era     1M"  # CL archive files
   "era1    /era1    1M"  # EL archive files
+  "ere     /ere     1M"  # EL archive files
   "data    /data    16K" # Nimbus SQLite DB, page_size=4096
   "docker  /docker  64K" # Geth LevelDB + big ancient files
 )
