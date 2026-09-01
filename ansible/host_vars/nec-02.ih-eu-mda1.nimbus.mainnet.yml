@@ -1,0 +1,3 @@
+---
+nimbus_eth1_import_bodies: true
+nimbus_eth1_import_receipts: true
