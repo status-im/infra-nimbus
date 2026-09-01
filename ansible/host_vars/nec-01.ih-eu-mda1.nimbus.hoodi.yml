@@ -1,0 +1,35 @@
+---
+nimbus_eth1_ere_dir: "{{ ere_files_path if node.branch == 'stable' else omit }}"
+
+# ERE files generation ---------------------------------------------------------
+nimbus_ere_files_timer_enabled: true
+nimbus_ere_files_dir:           '{{ ere_files_path }}'
+nimbus_ere_files_era_dir:       '{{ era_files_path }}'
+nimbus_ere_files_nec_data_dir:  '/docker/{{ nimbus_ere_files_nec_service_name }}/data/shared_hoodi_0'
+nimbus_ere_files_exporter_path: '/docker/{{ nimbus_ere_files_nec_service_name }}/repo/build/nimbus_history_exporter'
+nimbus_ere_files_network:       '{{ nimbus_eth1_network }}'
+nimbus_ere_files_nec_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-stable'
+
+# Ere files hosting
+ere_files_domain: 'hoodi.ere.nimbus.team'
+
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'nimbus.team'
+    crt: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.crt", stage="all", env="all")}}'
+    key: '{{lookup("vault", "certs/cloudflare/nimbus.team", field="origin.key", stage="all", env="all")}}'
+
+nginx_sites:
+  ere_files:
+    - listen 443 ssl
+
+    - server_name {{ ere_files_domain }}
+
+    - ssl_certificate     /certs/nimbus.team/origin.crt
+    - ssl_certificate_key /certs/nimbus.team/origin.key
+
+    - location / {
+        root {{ ere_files_path }};
+        autoindex on;
+        autoindex_format html;
+      }

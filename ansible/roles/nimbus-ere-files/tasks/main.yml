@@ -1,0 +1,50 @@
+---
+- name: Ensure ERE files role runs on Linux only
+  ansible.builtin.assert:
+    that: ansible_system == 'Linux'
+    fail_msg: 'nimbus-ere-files supports Linux/systemd only'
+
+- name: Create ERE files directory
+  ansible.builtin.file:
+    path: '{{ nimbus_ere_files_dir }}'
+    owner: '{{ nimbus_ere_files_timer_user }}'
+    group: '{{ nimbus_ere_files_timer_group }}'
+    state: 'directory'
+    mode: '0755'
+
+- name: Create ERE generation service
+  ansible.builtin.include_role:
+    name: infra-role-systemd-timer
+  vars:
+    systemd_timer_description:       'Generate Nimbus ERE files'
+    systemd_timer_start_on_creation: false
+    systemd_timer_enabled:           '{{ nimbus_ere_files_timer_enabled }}'
+    systemd_timer_name:              '{{ nimbus_ere_files_timer_generate_name }}'
+    systemd_timer_user:              '{{ nimbus_ere_files_timer_user }}'
+    systemd_timer_group:             '{{ nimbus_ere_files_timer_group }}'
+    systemd_timer_frequency:         '{{ nimbus_ere_files_timer_frequency }}'
+    systemd_timer_random_delay_sec:  '{{ nimbus_ere_files_timer_random_delay_sec }}'
+    systemd_timer_timeout_sec:       '{{ nimbus_ere_files_timer_timeout_sec }}'
+    systemd_timer_ionice_class:      '{{ nimbus_ere_files_timer_ionice_class }}'
+    systemd_timer_work_dir:          '{{ nimbus_ere_files_dir }}'
+    systemd_timer_script_content:    '{{ lookup("ansible.builtin.template", "generate.sh.j2") }}'
+    systemd_timer_unit_conflicts:    '{{ nimbus_ere_files_nec_service_name | mandatory }}.service'
+
+- name: Create ERE verification service
+  ansible.builtin.include_role:
+    name: infra-role-systemd-timer
+  vars:
+    systemd_timer_description:       'Verify Nimbus ERE files'
+    systemd_timer_start_on_creation: false
+    systemd_timer_consul_warning:    false
+    systemd_timer_enabled:           '{{ nimbus_ere_files_timer_enabled }}'
+    systemd_timer_name:              '{{ nimbus_ere_files_timer_verify_name }}'
+    systemd_timer_user:              '{{ nimbus_ere_files_timer_user }}'
+    systemd_timer_group:             '{{ nimbus_ere_files_timer_group }}'
+    systemd_timer_frequency:         '{{ nimbus_ere_files_timer_frequency }}'
+    systemd_timer_random_delay_sec:  '{{ nimbus_ere_files_timer_random_delay_sec }}'
+    systemd_timer_timeout_sec:       '{{ nimbus_ere_files_timer_timeout_sec }}'
+    systemd_timer_ionice_class:      '{{ nimbus_ere_files_timer_ionice_class }}'
+    systemd_timer_work_dir:          '{{ nimbus_ere_files_dir }}'
+    systemd_timer_after_extra:       '{{ nimbus_ere_files_timer_generate_name }}.service'
+    systemd_timer_script_content:    '{{ lookup("ansible.builtin.template", "verify.sh.j2") }}'

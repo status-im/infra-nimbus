@@ -9,7 +9,7 @@
     - local_action: command ./roles.py --check
       changed_when: false
 
-- name: Configure ERA, ERA1, and DB files hosting
+- name: Configure ERA, ERA1, ERE and DB files hosting
   become: true
   hosts:
     - erigon-01.ih-eu-mda1.nimbus.mainnet
@@ -17,6 +17,7 @@
     - libp2p-01.ih-eu-mda1.nimbus.hoodi
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - nec-01.ih-eu-mda1.nimbus.mainnet
+    - nec-01.ih-eu-mda1.nimbus.hoodi
   pre_tasks:
     - name: Enable Maintenance Mode
       command: 'maintenance Ansible run by {{ lookup("env", "USER") }}'
@@ -29,4 +30,5 @@
     - { role: infra-role-open-ports,   tags: open-ports       }
     - { role: infra-role-origin-certs, tags: origin-certs     }
     - { role: nimbus-era-files,        tags: nimbus-era-files }
+    - { role: nimbus-ere-files,        tags: nimbus-ere-files,   when: nimbus_ere_files_timer_enabled }
     - { role: infra-role-nginx,        tags: nginx            }
