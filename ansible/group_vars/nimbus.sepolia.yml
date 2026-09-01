@@ -26,6 +26,30 @@ nethermind_metrics_port: '{{ exec_layer_metrics_port }}'
 era_files_path: '/era'
 era1_files_path: '/era1'
 
+# Nimbus ETH1 ------------------------------------------------------------------
+
+nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch | mandatory }}'
+nimbus_eth1_repo_branch: 'master'
+nimbus_eth1_network: 'sepolia'
+nimbus_eth1_max_peers: 160
+nimbus_eth1_log_level: 'DEBUG'
+nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
+nimbus_eth1_engine_http_enabled: true
+nimbus_eth1_engine_ws_enabled: true
+nimbus_eth1_era_dir: '{{ era_files_path }}'
+nimbus_eth1_era1_dir: '{{ era1_files_path }}'
+# Ports
+nimbus_eth1_listening_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_discovery_port:   '{{ exec_layer_p2p_port }}'
+nimbus_eth1_http_port:        '{{ exec_layer_rpc_port }}'
+nimbus_eth1_metrics_port:     '{{ exec_layer_metrics_port }}'
+nimbus_eth1_engine_http_port: '{{ exec_layer_authrpc_port }}'
+nimbus_eth1_metrics_address: '0.0.0.0'
+# API secert
+nimbus_eth1_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
+
+nimbus_eth1_build_targets: ['nimbus', 'nimbus_history_exporter']
+
 # Beacon Node ------------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
 beacon_node_network: 'sepolia'
@@ -40,7 +64,6 @@ beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
 # Updates
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(node._idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
-beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: true

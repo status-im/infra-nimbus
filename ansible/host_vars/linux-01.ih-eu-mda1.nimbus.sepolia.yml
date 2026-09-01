@@ -1,6 +1,9 @@
 ---
 bootstrap__rsyslog_docker_logs_path: '/var/log/docker'
 
+nimbus_eth1_import_bodies: true
+nimbus_eth1_import_receipts: true
+
 # Community test REST API endpoint.
 beacon_node_rest_address: '0.0.0.0'
 
