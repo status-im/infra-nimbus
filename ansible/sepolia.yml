@@ -43,6 +43,15 @@
       loop_control: { loop_var: node }
 
     - include_role:
+        name: infra-role-nimbus-eth1
+        apply:
+          tags: always
+      tags: [ nimbus-eth1 ]
+      when: node.get("el") == "nec"
+      with_items: '{{ nodes_layout[inventory_hostname] | filter_by_branch(branch_filter|default(None)) }}'
+      loop_control: { loop_var: node }
+
+    - include_role:
         name: infra-role-beacon-node-linux
         apply:
           tags: always
