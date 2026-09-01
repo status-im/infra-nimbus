@@ -65,7 +65,6 @@ nimbus_eth1_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-{{ node.branch 
 nimbus_eth1_repo_branch: 'master'
 nimbus_eth1_network: 'hoodi'
 nimbus_eth1_max_peers: 160
-nimbus_eth1_gas_limit: 60000000
 nimbus_eth1_log_level: 'DEBUG'
 nimbus_eth1_service_path: '/docker/{{ nimbus_eth1_service_name }}'
 nimbus_eth1_engine_http_enabled: true
@@ -104,7 +103,6 @@ beacon_node_update_build_nim_flags: >-
   {# Temporary for debugging of possible futures leak. #}
   {% if node.branch == "libp2p" %}-d:chronosFutureTracking -d:chronosDebug{% endif %}
   {{ node.get("nim_flags", "") }}
-beacon_node_update_build_targets: ['nimbus_beacon_node', 'ncli_db']
 # Monitoring
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: >-
