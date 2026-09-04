@@ -90,7 +90,7 @@ es_jvm_max_heap: 40g
 
 # Cleanup to avoid running out of space
 logclean_es_host: 'localhost'
-logclean_es_port: '{{ es_lb_api_port }}'
+logclean_es_port: '{{ es_api_port }}'
 logclean_keep_indices: 21
 logclean_timer_frequency: 'daily'
 
