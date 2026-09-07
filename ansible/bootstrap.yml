@@ -19,6 +19,16 @@
     - local_action: command ./roles.py --check
       changed_when: false
 
+# Fresh macOS hosts have no Command Line Tools.
+- name: Bootstrap Command Line Tools for Ansible
+  become: true
+  gather_facts: false
+  hosts:
+    - nimbus-hoodi-macm2
+  serial: '{{ serial|default(1) }}'
+  roles:
+    - role: infra-role-bootstrap-macos/raw
+
 - name: Bootstrap Python support for Ansible
   become: true
   hosts:
