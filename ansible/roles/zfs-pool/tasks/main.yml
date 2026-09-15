@@ -1,0 +1,29 @@
+---
+- name: 'Install ZFS'
+  include_tasks: 'install.yml'
+  tags: ['zfs-pool-install']
+
+- name: 'Discover data disks'
+  include_tasks: 'disks.yml'
+  when: 'zfs_pool_disk_ids is not defined'
+  tags: ['zfs-pool-disks']
+
+- name: 'Create the pool'
+  include_tasks: 'pool.yml'
+  tags: ['zfs-pool-create']
+
+- name: 'Create the datasets'
+  include_tasks: 'datasets.yml'
+  tags: ['zfs-pool-datasets']
+
+- name: 'Tune ARC'
+  include_tasks: 'tune.yml'
+  tags: ['zfs-pool-tune']
+
+- name: 'Schedule scrubs'
+  include_tasks: 'scrub.yml'
+  tags: ['zfs-pool-scrub']
+
+- name: 'Verify'
+  include_tasks: 'verify.yml'
+  tags: ['zfs-pool-verify']
