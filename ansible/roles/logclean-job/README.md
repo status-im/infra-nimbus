@@ -16,7 +16,7 @@ logclean_service_name: 'logclean-job'
 logclean_service_timeout: 60
 logclean_timer_frequency: 'daily'
 ```
-For sake of security minimum for `logclean_keep_indices` is `60`.
+For sake of security minimum for `logclean_keep_indices` is `10`.
 
 # Usage
 

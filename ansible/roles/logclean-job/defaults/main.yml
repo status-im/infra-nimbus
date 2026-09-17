@@ -1,6 +1,8 @@
 ---
 logclean_es_host: ~
 logclean_es_port: ~
+logclean_es_username: ''
+logclean_es_password: ''
 logclean_script_path: '/usr/local/bin/logclean'
 logclean_index_regex: 'logstash-*'
 logclean_keep_indices: 20
