@@ -95,7 +95,9 @@ beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node
 beacon_node_extra_flags:
   'local-block-value-boost': '{{ (0 if node.get("payload_builder", false) else 10) | int }}'
 
-beacon_node_doppelganger_detection: true
+# Added flock as a safety mechanism
+# https://github.com/Develp-GmbH/infra-hq/issues/80
+beacon_node_doppelganger_detection: false
 beacon_node_suggested_gas_limit: 60000000
 # Builds
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(node._idx * 2) }}:00:00'
