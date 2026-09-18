@@ -44,6 +44,14 @@ resource "cloudflare_record" "era1_mainnet" {
 
 /* ERE Files hosting */
 
+resource "cloudflare_record" "ere_sepolia" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "sepolia.ere"
+  value   = module.nimbus_nodes_sepolia_innova.public_ips[0]
+  type    = "A"
+  proxied = true
+}
+
 resource "cloudflare_record" "ere_hoodi" {
   zone_id = local.zones["nimbus.team"]
   name    = "hoodi.ere"
