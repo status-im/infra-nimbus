@@ -6,7 +6,7 @@
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: 4f31de8190c63b63c7d456abc8e1b639ea77c650 
+  version: 4f31de8190c63b63c7d456abc8e1b639ea77c650
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
@@ -35,7 +35,7 @@
 
 - name: infra-role-beacon-node-linux
   src: git@github.com:status-im/infra-role-beacon-node-linux.git
-  version: 17b3e6e13380f803d2cea1ab2b142177b956a10e
+  version: 72c8de4e5e291137f1fac3c3cff8448abed5b3ac
 
 - name: infra-role-beacon-node-windows
   src: git@github.com:status-im/infra-role-beacon-node-windows.git
@@ -47,7 +47,7 @@
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
-  version: 4321fd2dda41434b7d13b4719d667a19b0922aab
+  version: f64fd0e691a16f29d69341f9bcc5809d4bec1438
 
 - name: infra-role-nimbus-eth1
   src: git@github.com:status-im/infra-role-nimbus-eth1.git
@@ -67,7 +67,7 @@
 
 - name: infra-role-rocketpool
   src: git@github.com:status-im/infra-role-rocketpool.git
-  version: 60d86f94ac78aa208596a04f7fadf7cce54f4e8c
+  version: 3fcf4705d5c9ae2d01610cbc4ed823576b3e77f8
 
 - name: infra-role-winsw
   src: git@github.com:status-im/infra-role-winsw.git
@@ -91,7 +91,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 9fa6e6ae5273c09cf5386ed8397259c20d8f90af
+  version: 36edaff499f1cd0492292ab07f60428b35a8d3aa
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
