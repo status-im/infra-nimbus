@@ -3,23 +3,28 @@
 # ElasticSearch access
 ES_HOST="{{ logclean_es_host | mandatory }}"
 ES_PORT="{{ logclean_es_port | mandatory }}"
-ES_USERNAME="{{ logclean_es_username | default('', true) }}"
-ES_PASSWORD="{{ logclean_es_password | default('', true) }}"
+ES_USERNAME="{{ logclean_es_username }}"
+ES_PASSWORD="{{ logclean_es_password }}"
 
 # Keep only this number of newest indices
 INDICES_KEEP="{{ logclean_keep_indices | mandatory }}"
 ES_REGEX="{{ logclean_index_regex }}"
 
 ES_URL="http://${ES_HOST}:${ES_PORT}"
-CURL_ARGS=(-s)
+CURL_ARGS=(-s -f)
 if [[ -n "${ES_USERNAME}" ]]; then
     CURL_ARGS+=(-u "${ES_USERNAME}:${ES_PASSWORD}")
 fi
 
+function _call_es() {
+    local ES_PATH=${1}; shift
+    curl "${CURL_ARGS[@]}" "${@}" "${ES_URL}/${ES_PATH}"
+}
+
 echo "Checking ElasticSearch for indices to clean...."
 
 # Get list of indices
-if ! INDICES=$(curl -f "${CURL_ARGS[@]}" "${ES_URL}/_cat/indices/${ES_REGEX}?pretty&h=index&s=index"); then
+if ! INDICES=$(_call_es "_cat/indices/${ES_REGEX}?pretty&h=index&s=index"); then
     echo "Failed to list indices from ${ES_URL}!" >&2
     exit 1
 fi
@@ -40,7 +45,7 @@ RC=0
 while IFS= read -r INDEX; do
     echo "Deleting: ${INDEX}"
     # Every cluster node runs this job, so the index might be already gone.
-    HTTP_CODE=$(curl "${CURL_ARGS[@]}" -o /dev/null -w '%{http_code}' -XDELETE "${ES_URL}/${INDEX}")
+    HTTP_CODE=$(_call_es "${INDEX}" -XDELETE -o /dev/null -w '%{http_code}')
     if [[ "${HTTP_CODE}" != "200" && "${HTTP_CODE}" != "404" ]]; then
         echo "Failed to delete ${INDEX}: HTTP ${HTTP_CODE}" >&2
         RC=1
