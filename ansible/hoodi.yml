@@ -47,8 +47,6 @@
     - nimbus-hoodi-neth
     - nimbus-hoodi-libp2p
   vars_files: layout/hoodi.yml
-  ignore_errors: true
-  ignore_unreachable: true
   tasks:
     - include_role:
         name: infra-role-rpc-snooper
