@@ -1,0 +1,27 @@
+---
+- name: 'Preflight checks'
+  include_tasks: 'preflight.yml'
+  tags: ['zfs-preflight', 'always']
+
+- name: 'Drain and wipe'
+  when: 'zfs_migration_needed | bool'
+  block:
+    - name: 'Stop services'
+      include_tasks: 'stop.yml'
+      tags: ['zfs-stop']
+
+    - name: 'Tear down old storage'
+      include_tasks: 'teardown.yml'
+      tags: ['zfs-teardown']
+
+- name: 'Build the pool'
+  include_role:
+    name: 'zfs-pool'
+    apply: {tags: ['zfs-pool']}
+  vars:
+    zfs_pool_create_force: '{{ zfs_migration_needed | bool }}'
+  tags: ['zfs-pool']
+
+- name: 'Verify the migration'
+  include_tasks: 'verify.yml'
+  tags: ['zfs-verify']

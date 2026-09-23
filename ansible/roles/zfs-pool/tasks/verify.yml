@@ -1,0 +1,34 @@
+---
+- name: 'Verify | Read the pool status'
+  command: 'zpool status -v {{ zfs_pool_name }}'
+  register: zfs_pool_v_status
+  changed_when: false
+
+- name: 'Verify | Pool is ONLINE with no errors'
+  assert:
+    that:
+      - "'state: ONLINE' in zfs_pool_v_status.stdout"
+      - "'errors: No known data errors' in zfs_pool_v_status.stdout"
+    fail_msg: '{{ zfs_pool_v_status.stdout }}'
+
+- name: 'Verify | Read pool capacity'
+  command: 'zpool list -H -o name,size,alloc,free,cap,frag,health {{ zfs_pool_name }}'
+  register: zfs_pool_v_list
+  changed_when: false
+
+- name: 'Verify | Read dataset layout'
+  command: 'zfs list -o name,used,avail,recordsize,compressratio,mountpoint -r {{ zfs_pool_name }}'
+  register: zfs_pool_v_datasets
+  changed_when: false
+
+- name: 'Verify | Summary'
+  debug:
+    msg: |-
+      pool
+        {{ zfs_pool_v_list.stdout }}
+
+      datasets
+      {{ zfs_pool_v_datasets.stdout | indent(2, true) }}
+
+      arc cap : {{ (zfs_pool_arc_max_bytes | int / 1024 / 1024 / 1024) | round(1) }} GiB
+      scrub   : zfs-scrub-{{ zfs_pool_scrub_schedule }}@{{ zfs_pool_name }}.timer
