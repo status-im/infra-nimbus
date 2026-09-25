@@ -1,9 +1,9 @@
 ---
 bootstrap__rsyslog_docker_logs_path: '/var/log/docker'
 
-nimbus_eth1_import_bodies: "{{ node.branch == 'stable' }}"
-nimbus_eth1_import_receipts: "{{ node.branch == 'stable' }}"
-nimbus_eth1_pruning_enabled: "{{ node.branch != 'stable' }}"
+nimbus_eth1_import_bodies: true
+nimbus_eth1_import_receipts: true
+nimbus_eth1_pruning_enabled: false
 
 # Community test REST API endpoint.
 beacon_node_rest_address: '0.0.0.0'
@@ -25,13 +25,13 @@ redirect_ports:
     comment: 'Public Beacon API ({{ test_api_beacon_node_branch }}-0{{ test_api_beacon_node_rest_index|int - 1 }})'
 
 # ERE files generation ---------------------------------------------------------
-nimbus_ere_files_timer_enabled: false
+nimbus_ere_files_timer_enabled: true
 nimbus_ere_files_dir:           '{{ ere_files_path }}'
 nimbus_ere_files_era_dir:       '{{ era_files_path }}'
 nimbus_ere_files_nec_data_dir:  '/docker/{{ nimbus_ere_files_nec_service_name }}/data/shared_{{ nimbus_eth1_network }}_0'
 nimbus_ere_files_exporter_path: '/docker/{{ nimbus_ere_files_nec_service_name }}/repo/build/nimbus_history_exporter'
 nimbus_ere_files_network:       '{{ nimbus_eth1_network }}'
-nimbus_ere_files_nec_service_name: 'nimbus-eth1-{{ nimbus_eth1_network }}-stable'
+nimbus_ere_files_nec_service_name: '{{ nimbus_eth1_service_name }}'
 
 # Era files hosting
 era_files_domain: 'sepolia.era.nimbus.team'
