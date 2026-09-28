@@ -20,6 +20,8 @@ nimbus_era_files_nclidb_timer_group: 'staff'
 nimbus_era_files_nclidb_timer_frequency: 'daily'
 nimbus_era_files_nclidb_timer_timeout_sec: 1500 # 25 minutes
 nimbus_era_files_nclidb_timer_ionice_class: 'idle'
+nimbus_era_files_timer_restart: 'on-failure'
+nimbus_era_files_timer_restart_delay: '1800' # 30 minutes
 nimbus_era_files_nclidb_repo_url: 'https://github.com/status-im/nimbus-eth2'
 nimbus_era_files_nclidb_nix_flake_target: 'ncli_db'
 #FIXME using unstable branch until the feature propagates to stable branch
