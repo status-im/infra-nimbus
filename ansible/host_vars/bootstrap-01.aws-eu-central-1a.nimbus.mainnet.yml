@@ -8,6 +8,9 @@ beacon_node_netkey: '{{lookup("vault", "beacon-node/netkey", field=hostname)}}'
 # Not necessary to stress test bootnodes.
 beacon_node_subscribe_all: false
 
+# Preserve original behavior after 26.9.0 release.
+beacon_node_history_retention: 'column-archive'
+
 # These bootstrap nodes were published with these ports.
 beacon_node_discovery_port: 9100
 beacon_node_listening_port: 9100

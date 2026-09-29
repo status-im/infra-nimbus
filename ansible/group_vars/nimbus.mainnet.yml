@@ -93,7 +93,7 @@ beacon_node_era_dir_path: '{{ era_files_path }}'
 beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
 # Tuning
 beacon_node_quic_enabled: true
-beacon_node_history_retention: '{{ "archive" if node.get("public_api") else node.get("history", "prune") }}'
+beacon_node_history_retention: '{{ "column-archive" if node.get("public_api") else node.get("history", "prune") }}'
 beacon_node_extra_flags: '{{ node.extra_flags if node.extra_flags is defined else {} }}'
 beacon_node_cores_per_node: '{{ (ansible_processor_vcpus / nodes_layout[inventory_hostname]|length) | round(0, "ceil") | int }}'
 beacon_node_threads: '{{ (node.branch == "libp2p") | ternary(1, beacon_node_cores_per_node) }}'
