@@ -52,7 +52,6 @@ nethermind_service_name: 'nethermind-{{ nethermind_network_name }}-{{ node.branc
 nethermind_service_path: '/docker/{{ nethermind_service_name }}'
 # FIXME: Switch back to snap sync after Pectra upgrade issue are resolved.
 nethermind_sync_mode: 'full'
-nethermind_gas_limit: 60000000
 nethermind_account_pass:      '{{lookup("vault", "geth",       field="password",  stage="all")}}'
 nethermind_authrpc_jwtsecret: '{{ beacon_node_exec_layer_jwt_secret }}'
 nethermind_port:         '{{ exec_layer_p2p_port }}'
