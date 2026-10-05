@@ -59,7 +59,9 @@ local_beacon_node_rest_port: 9313 # unstable
 light_client_exec_layer_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
 light_client_exec_layer_urls:
   - "http://localhost:{{ nimbus_eth1_engine_http_port }}"
-  - "http://localhost:8552" # nethermind stable
+  # TODO: sync after nimbus-eth1 is done re-importing
+  # check there is enough disk space
+  # - "http://localhost:8552" # nethermind stable
 
 # Beacon Node ------------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
