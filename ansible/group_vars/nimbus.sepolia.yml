@@ -77,6 +77,8 @@ beacon_node_suggested_gas_limit: 60000000
 beacon_node_payload_builder_enabled: '{{ node.get("payload_builder", false) }}'
 beacon_node_payload_builder_url: 'http://localhost:{{ mev_boost_cont_port }}'
 # Updates
+# TODO: re-enable after Glamsterdam
+beacon_node_update_timer_enabled: false
 beacon_node_update_frequency: '*-*-* {{ "%02d" | format(node._idx * 2) }}:00:00'
 beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags", "") }}'
 # Monitoring
