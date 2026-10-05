@@ -29,6 +29,8 @@ nimbus_ere_files_exporter_path: '/docker/{{ nimbus_ere_files_nec_service_name }}
 nimbus_ere_files_network:       '{{ nimbus_eth1_network }}'
 nimbus_ere_files_nec_service_name: '{{ nimbus_eth1_service_name }}'
 
+nimbus_eth1_ere_dir: '{{ ere_files_path }}'
+
 # Era files hosting
 era_files_domain: 'sepolia.era.nimbus.team'
 

@@ -1,5 +1,5 @@
 ---
-nimbus_eth1_ere_dir: "{{ ere_files_path if node.branch == 'stable' else omit }}"
+nimbus_eth1_ere_dir: '{{ ere_files_path }}'
 
 # ERE files generation ---------------------------------------------------------
 nimbus_ere_files_timer_enabled: true
