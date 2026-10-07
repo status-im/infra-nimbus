@@ -7,6 +7,12 @@ beacon_node_exec_layer_urls: []
 beacon_node_era_dir_path: '{{ beacon_node_data_path }}/era'
 # Avoid breaking Launchd timer format
 beacon_node_resync_timer_frequency: 604800
+# FIXME: Until testing and stable receive build fix:
+# https://github.com/status-im/nimbus-eth2/pull/9219
+beacon_node_repo_branch: '{{ node_name_to_branch_map.get(node.branch, node.branch) }}'
+node_name_to_branch_map:
+  stable:  'unstable'
+  testing: 'unstable'
 
 nix_extra_packages:
   - llvmPackages_18.clang
