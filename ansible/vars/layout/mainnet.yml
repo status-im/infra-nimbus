@@ -46,7 +46,7 @@ nodes_layout:
     - { branch: 'libp2p'                                 }
 
   'geth-02.ih-eu-mda1.nimbus.mainnet':
-    - { branch: 'stable'                                 }
+    - { branch: 'stable',   extra_flags: {'dump': true}  }
     - { branch: 'testing',  el: 'geth', public_api: true } # we need one testing node with EL for public_api
     - { branch: 'unstable', el: 'geth'                   }
     - { branch: 'libp2p'                                 }

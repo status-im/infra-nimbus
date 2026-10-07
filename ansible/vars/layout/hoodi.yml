@@ -3,7 +3,7 @@
 # To search for a validator ID see: ansible/files/layouts/nimbus.hoodi.tsv
 nodes_layout:
   'geth-01.ih-eu-mda1.nimbus.hoodi': # 0 each
-    - { branch: 'stable',                             el: 'geth', vc: true  }
+    - { branch: 'stable',                             el: 'geth', vc: true,  extra_flags: {'dump': true}  }
     - { branch: 'testing',                            el: 'geth', vc: false }
     - { branch: 'unstable',                           el: 'geth', vc: false, public_api: true }
 
