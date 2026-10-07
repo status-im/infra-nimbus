@@ -172,6 +172,11 @@ open_ports_base:
     - { port: '30303-30314', comment: '{{ host_el_type }} Discovery', protocol: 'udp'                     }
     - { port: '6060-6064',   comment: '{{ host_el_type }} Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
     - { port: '9401-9404',   comment: '{{ host_el_type }} Exporter',  ipset: 'hq.metrics', iifname: 'wg0' }
+  nimbus-light-client:
+    - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp'                     }
+    - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp'                     }
+    - { port: '9504', comment: 'Nimbus Light Client QUIC',      protocol: 'udp'                     }
+    - { port: '9603', comment: 'Nimbus Light Client Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
   beacon-node:
     - { port: '9011-9014',   comment: 'Beacon Node libp2p',    protocol: 'tcp'                                    }
     - { port: '9011-9014',   comment: 'Beacon Node discovery', protocol: 'udp'                                    }

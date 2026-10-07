@@ -237,7 +237,9 @@ open_ports_base:
     - { port: '5053-5056', comment: 'Validator Client REST API', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
     - { port: '8109-8112', comment: 'Validator Client Metrics',  ipset: 'hq.metrics',            iifname: 'wg0' }
   nimbus-light-client:
-    - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp' }
-    - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp' }
+    - { port: '9503', comment: 'Nimbus Light Client LibP2P',    protocol: 'tcp'                     }
+    - { port: '9503', comment: 'Nimbus Light Client Discovery', protocol: 'udp'                     }
+    - { port: '9504', comment: 'Nimbus Light Client QUIC',      protocol: 'udp'                     }
+    - { port: '9603', comment: 'Nimbus Light Client Metrics',   ipset: 'hq.metrics', iifname: 'wg0' }
 
 # Fleet layout can be found in: ansible/vars/layout/hoodi.yml
