@@ -57,9 +57,7 @@ nimbus_eth1_consul_check_disabled: false
 light_client_network: '{{ beacon_node_network }}'
 local_beacon_node_rest_port: 9313 # unstable
 light_client_exec_layer_jwt_secret: '{{ beacon_node_exec_layer_jwt_secret }}'
-light_client_exec_layer_urls:
-  - "http://localhost:{{ nimbus_eth1_engine_http_port }}"
-  - "http://localhost:8552" # nethermind stable
+light_client_exec_layer_urls: ["http://localhost:{{ nimbus_eth1_engine_http_port }}"]
 
 # Beacon Node ------------------------------------------------------------------
 beacon_node_service_name: 'beacon-node-{{ beacon_node_network }}-{{ node.branch }}'
@@ -81,14 +79,7 @@ beacon_node_update_build_nim_flags: '-d:noSignalHandler {{ node.get("nim_flags",
 beacon_node_validator_monitor_auto: true
 beacon_node_validator_monitor_details: true
 # Execution layer Enginer API
-# TODO: switch back when nimbus-eth1 is healthy
-# beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
-exec_layer_ports:
-  testing:  8553 # nethermind-sepolia-testing
-  stable:   8553 # nethermind-sepolia-testing
-  unstable: 8554 # nethermind-sepolia-unstable
-beacon_node_exec_layer_urls:
-  - "http://localhost:{{ exec_layer_ports[node.branch] }}"
+beacon_node_exec_layer_urls: ['http://localhost:{{ exec_layer_authrpc_port }}']
 beacon_node_exec_layer_jwt_secret: '{{lookup("vault", "engine-api", field="jwt-token", stage="all")}}'
 # Suggests it to the Execution Layer client.
 beacon_node_suggested_fee_recipient: '{{lookup("vault", "testnet-wallet", field="address", stage="all")}}'
