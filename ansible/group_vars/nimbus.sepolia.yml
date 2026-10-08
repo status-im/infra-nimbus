@@ -88,7 +88,8 @@ beacon_node_rest_allow_origin: '{{ "*" if node.get("public_api") else "" }}'
 # Light client data
 beacon_node_light_client_data_enabled: '{{ (node.public_api is defined and node.public_api) }}'
 beacon_node_light_client_data_serve: true
-beacon_node_light_client_data_import_mode: 'full'
+# With 'full' it was starting too slowely, but maybe one-time to populate some history
+beacon_node_light_client_data_import_mode: 'only-new'
 # Validators from nimbus-private repo¬
 beacon_node_dist_validators_enabled: '{{ node.start is defined and node.end is defined }}'
 beacon_node_dist_validators_start: '{{ node.vc | ternary(0, node.start) | mandatory }}'
