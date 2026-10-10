@@ -39,11 +39,23 @@ es_roles:
       - names: ['logstash-*']
         privileges: ['write', 'create', 'create_index']
 
+  - name: 'logclean'
+    cluster: ['monitor']
+    indices:
+      - names: ['logstash-*']
+        privileges: ['monitor', 'delete_index']
+
 es_users:
   - name: 'logstash'
     pass: '{{ lookup("vault", "elasticsearch/users", field="logstash") }}'
     full_name: 'Logstash Writer User'
     roles: ['logstash_writer']
+    enabled: true
+
+  - name: 'logclean'
+    pass: '{{ lookup("vault", "elasticsearch/users", field="logclean") }}'
+    full_name: 'Log Clean Job User'
+    roles: ['logclean']
     enabled: true
 
   - name: 'kibana_guest'
@@ -91,6 +103,8 @@ es_jvm_max_heap: 40g
 # Cleanup to avoid running out of space
 logclean_es_host: 'localhost'
 logclean_es_port: '{{ es_api_port }}'
+logclean_es_username: 'logclean'
+logclean_es_password: '{{ lookup("vault", "elasticsearch/users", field="logclean") }}'
 logclean_keep_indices: 21
 logclean_timer_frequency: 'daily'
 
