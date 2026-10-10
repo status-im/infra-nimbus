@@ -1,0 +1,78 @@
+---
+# Migrate a Nimbus host from ext4 + mdadm to a single ZFS RAIDZ1 pool.
+# See https://github.com/status-im/infra-nimbus/issues/287
+#
+# THIS DESTROYS ALL DATA ON THE HOST'S DATA DISKS.
+#
+#   # Read-only, proves every assumption. Safe any time.
+#   ansible-playbook ansible/zfs-migrate.yml \
+#     --limit neth-01.ih-eu-mda1.nimbus.hoodi \
+#     -e zfs_migration_confirm=neth-01.ih-eu-mda1.nimbus.hoodi \
+#     -t zfs-preflight
+#
+#   # Migrate.
+#   ansible-playbook ansible/zfs-migrate.yml \
+#     --limit neth-01.ih-eu-mda1.nimbus.hoodi \
+#     -e zfs_migration_confirm=neth-01.ih-eu-mda1.nimbus.hoodi
+#
+#   # Redeploy.
+#   ansible-playbook ansible/bootstrap.yml --limit neth-01.ih-eu-mda1.nimbus.hoodi
+#   ansible-playbook ansible/hoodi.yml     --limit neth-01.ih-eu-mda1.nimbus.hoodi
+#
+#
+- name: Verify Ansible versions
+  hosts: all
+  tags: always
+  become: false
+  run_once: true
+  gather_facts: false
+  tasks:
+    - local_action: command ./roles.py --check
+      changed_when: false
+
+- name: Migrate host storage to ZFS
+  become: true
+  gather_facts: true
+  hosts: all
+  serial: 1
+  any_errors_fatal: true
+  vars_files: vars/layout/hoodi.yml
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance ZFS migration by {{ lookup("env", "USER") }} (infra-nimbus#287)'
+      tags: always
+  roles:
+    - {role: zfs-migration, tags: zfs}
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
+
+    - name: Next steps
+      tags: always
+      debug:
+        msg: |-
+          Storage migration finished on {{ inventory_hostname }}.
+          The pool is empty. Nothing was carried over, so every node resyncs from
+          scratch.
+
+          1. Redeploy. Validator keys and secrets come back from nimbus-private.
+
+            ansible-playbook ansible/bootstrap.yml --limit {{ inventory_hostname }}
+            ansible-playbook ansible/hoodi.yml     --limit {{ inventory_hostname }}
+
+          2. Seed ERA files from a host that already has them, they are not
+             backed up and downloading them again is slow.
+
+            sudo rsync -aHAX --info=progress2 \
+              geth-03.ih-eu-mda1.nimbus.hoodi:/docker/era/ /era/
+
+          3. Checkpoint sync each beacon node.
+
+          4. Reboot and confirm the pool imports on its own.
+
+            ssh {{ inventory_hostname }} sudo reboot
+            ssh {{ inventory_hostname }} zpool status ethdata
+
+          Monthly scrubs are already scheduled by zfs-scrub-monthly@ethdata.timer.
+

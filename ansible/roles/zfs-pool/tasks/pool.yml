@@ -1,0 +1,35 @@
+---
+- name: 'Pool | Look for an existing pool'
+  command: 'zpool list -H -o name {{ zfs_pool_name }}'
+  register: zfs_pool_existing
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: 'Pool | Destroy the existing pool'
+  command: 'zpool destroy -f {{ zfs_pool_name }}'
+  when: 'zfs_pool_existing.rc == 0 and zfs_pool_rebuild | bool'
+  changed_when: true
+
+- name: 'Pool | Create the pool'
+  command: >-
+    zpool create {{ '-f' if zfs_pool_create_force | bool else '' }}
+    {% for k, v in zfs_pool_options.items() %}-o {{ k }}={{ v }} {% endfor %}
+    {% for k, v in zfs_pool_fs_options.items() %}-O {{ k }}={{ v }} {% endfor %}
+    {{ zfs_pool_name }} {{ zfs_pool_type }}
+    {{ zfs_pool_disk_ids | join(' ') }}
+  when: 'zfs_pool_existing.rc != 0 or zfs_pool_rebuild | bool'
+  changed_when: true
+
+- name: 'Pool | Read the pool status'
+  command: 'zpool status {{ zfs_pool_name }}'
+  register: zfs_pool_status
+  changed_when: false
+
+- name: 'Pool | Verify the pool is healthy and uses by-id names'
+  assert:
+    that:
+      - "'state: ONLINE' in zfs_pool_status.stdout"
+      - 'zfs_pool_type in zfs_pool_status.stdout'
+      - "'/dev/' not in zfs_pool_status.stdout"
+    fail_msg: '{{ zfs_pool_status.stdout }}'

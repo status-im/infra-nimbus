@@ -1,0 +1,9 @@
+---
+#zfs_migration_confirm: ~
+
+# Rebuild a host that already has the pool. Destroys data.
+zfs_migration_force: false
+
+# Torn down and replaced by pool datasets. Anything under /mnt/ goes too.
+zfs_migration_legacy_mounts: ['/data', '/docker', '/era', '/era1']
+zfs_migration_protected_mounts: ['/', '/boot', '/boot/efi', '/nix', '/var', '/usr']

@@ -1,0 +1,20 @@
+---
+- name: 'Verify | Read fstab'
+  slurp: {src: '/etc/fstab'}
+  register: zfs_v_fstab
+
+- name: 'Verify | fstab carries no stale volume entries'
+  assert:
+    that:
+      - "(zfs_v_fstab.content | b64decode) is not search('DATA_VOLUME')"
+      - "(zfs_v_fstab.content | b64decode) is not search('(?m)^\\s*/mnt/')"
+    fail_msg: '{{ zfs_v_fstab.content | b64decode }}'
+
+- name: 'Verify | No MD arrays remain'
+  slurp: {src: '/proc/mdstat'}
+  register: zfs_v_mdstat
+
+- name: 'Verify | mdstat lists no active arrays'
+  assert:
+    that: ["(zfs_v_mdstat.content | b64decode) is not search('(?m)^md[0-9]+\\s*:')"]
+    fail_msg: '{{ zfs_v_mdstat.content | b64decode }}'
