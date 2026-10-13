@@ -6,7 +6,7 @@
 
 - name: infra-role-bootstrap-macos
   src: git@github.com:status-im/infra-role-bootstrap-macos.git
-  version: 54ac526e16817e707ed338fe87f4a05f0b105cee
+  version: 0b7a71891c85b23b64c4966d87b56d60639f38c2
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
@@ -79,7 +79,7 @@
 
 - name: infra-role-elasticsearch
   src: git@github.com:status-im/infra-role-elasticsearch.git
-  version: 2c772ab3dad7bbf41d5a4deed03c7f41bc8fd380
+  version: 84933b3068da2389c9adeb68314d03e5eda9a082
 
 - name: infra-role-elasticsearch-lb
   src: git@github.com:status-im/infra-role-elasticsearch-lb.git
@@ -107,7 +107,7 @@
 
 - name: infra-role-erigon
   src: git@github.com:status-im/infra-role-erigon.git
-  version: 33d5e2041b98dcd3f12c580a2f1109b5258a52e8
+  version: 8c01724fc4ed7b91ebc44736f0dc2d9876cd48f3
 
 - name: infra-role-nethermind
   src: git@github.com:status-im/infra-role-nethermind.git
