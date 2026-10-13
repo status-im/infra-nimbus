@@ -23,6 +23,7 @@
     systemd_timer_start_on_creation: '{{ not ncli_db_bin.stat.exists }}'
     systemd_timer_enabled:           '{{ nimbus_era_files_nclidb_timer_enabled }}'
     systemd_timer_frequency:         '{{ nimbus_era_files_nclidb_timer_frequency }}'
+    systemd_timer_restart_retries:   '{{ nimbus_era_files_nclidb_timer_restart_retries }}'
     systemd_timer_timeout_sec:       '{{ nimbus_era_files_nclidb_timer_timeout_sec }}'
     systemd_timer_work_dir:          '{{ nimbus_era_files_nclidb_result_path | dirname }}'
     systemd_timer_script_path:       '/nix/var/nix/profiles/default/bin/nix'
@@ -48,7 +49,7 @@
     systemd_timer_script_path:       '{{ nimbus_era_files_nclidb_path }}'
     systemd_timer_restart:           '{{ nimbus_era_files_timer_restart }}'
     systemd_timer_restart_delay:     '{{ nimbus_era_files_timer_restart_delay }}'
-    systemd_timer_after_extra:       '{{ nimbus_era_files_nclidb_timer_update_name }}'
+    systemd_timer_after_extra:       '{{ nimbus_era_files_nclidb_timer_update_name }}.service'
     systemd_timer_script_args: >
       --network={{ nimbus_era_files_network }} exportEra --db={{ nimbus_era_files_db_path }}
 

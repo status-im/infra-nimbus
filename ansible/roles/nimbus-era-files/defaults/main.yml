@@ -18,6 +18,7 @@ nimbus_era_files_nclidb_timer_enabled: true
 nimbus_era_files_nclidb_timer_user: 'nimbus'
 nimbus_era_files_nclidb_timer_group: 'staff'
 nimbus_era_files_nclidb_timer_frequency: 'daily'
+nimbus_era_files_nclidb_timer_restart_retries: 2
 nimbus_era_files_nclidb_timer_timeout_sec: 1500 # 25 minutes
 nimbus_era_files_nclidb_timer_ionice_class: 'idle'
 nimbus_era_files_timer_restart: 'on-failure'
