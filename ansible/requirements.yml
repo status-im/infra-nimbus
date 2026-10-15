@@ -43,7 +43,7 @@
 
 - name: infra-role-beacon-node-macos
   src: git@github.com:status-im/infra-role-beacon-node-macos.git
-  version: c365c804dc199aa214fb79c92ff85836ce7fefc6
+  version: 3a6d4b5e62e7f7fc155fe35d961a3d081edde520
 
 - name: infra-role-validator-client
   src: git@github.com:status-im/infra-role-validator-client.git
@@ -87,7 +87,7 @@
 
 - name: infra-role-vault-pki
   src: git@github.com:status-im/infra-role-vault-pki.git
-  version: d4e3591acd496ac01fbb00c26c3379888192ec44
+  version: ef29560043557e9c9537324659945ad09a0158a4
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
@@ -95,7 +95,7 @@
 
 - name: infra-role-launchd-timer
   src: git@github.com:status-im/infra-role-launchd-timer.git
-  version: cc0e72a5b2ff04677bd102b15e4646e477a9568e
+  version: 41b335c0d7d16214ae0f1a3f8c9deab53b2c6dbf
 
 - name: infra-role-geth
   src: git@github.com:status-im/infra-role-geth.git

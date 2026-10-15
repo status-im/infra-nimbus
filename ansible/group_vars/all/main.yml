@@ -54,6 +54,21 @@ consul_catalog_url: 'http://localhost:8500/v1/catalog'
 swap_file_path: '/docker/main.swap'
 swap_file_size_mb: 2048
 
+# Nix settings ------------------------
+nix_cache_endpoints:
+  - 'https://cache.nix.free.technology/public'
+  - 'https://nix-cache.status.im/'
+  - 'https://cache.nixos.org/'
+nix_cache_public_keys:
+  - 'public:vAX6ZzpZzkgFEKPjf8r3Y3dSxrjZMu5+b1STWsvffeI=' # IFT
+  - 'nix-cache.status.im-1:x/93lOfLU+duPplwMSBR+OlY4+mo+dCN7n0mr4oPwgY='
+  - 'cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY='
+nix_extra_settings:
+  'substituters':         '{{ nix_cache_endpoints | join(" ") }}'
+  'trusted-substituters': '{{ nix_cache_endpoints | join(" ") }}'
+  'trusted-public-keys':  '{{ nix_cache_public_keys | join(" ") }}'
+
+
 # Nimbus ------------------------------
 beacon_node_log_level: DEBUG
 light_client_log_level: DEBUG
