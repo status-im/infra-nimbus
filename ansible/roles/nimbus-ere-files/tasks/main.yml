@@ -29,6 +29,11 @@
     systemd_timer_work_dir:          '{{ nimbus_ere_files_dir }}'
     systemd_timer_script_content:    '{{ lookup("ansible.builtin.template", "generate.sh.j2") }}'
     systemd_timer_unit_conflicts:    '{{ nimbus_ere_files_nec_service_name | mandatory }}.service'
+    # FIXME: Can fail when EL is ahead of ERA files. Retry for now.
+    # https://github.com/status-im/nimbus-eth1/issues/5000
+    systemd_timer_restart:           'on-failure'
+    systemd_timer_restart_delay:     600
+    systemd_timer_restart_retries:   3
 
 - name: Create ERE verification service
   ansible.builtin.include_role:
