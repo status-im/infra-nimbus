@@ -11,7 +11,7 @@ exec_layer_metrics_port: '{{ 6060  +   node._idx|int + 1 }}'
 
 era_files_path: '/data/era'
 era1_files_path: '/data/era1'
-ere_files_path: '/data/ere'
+ere_files_path: '/docker/ere'
 
 # Go-Ethereum ------------------------------------------------------------------
 

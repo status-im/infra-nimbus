@@ -17,6 +17,7 @@
     - libp2p-01.ih-eu-mda1.nimbus.hoodi
     - linux-01.ih-eu-mda1.nimbus.sepolia
     - nec-01.ih-eu-mda1.nimbus.mainnet
+    - nec-02.ih-eu-mda1.nimbus.mainnet
     - nec-01.ih-eu-mda1.nimbus.hoodi
   pre_tasks:
     - name: Enable Maintenance Mode
@@ -27,8 +28,5 @@
       command: 'maintenance disable'
       tags: always
   roles:
-    - { role: infra-role-open-ports,   tags: open-ports       }
     - { role: infra-role-origin-certs, tags: origin-certs     }
-    - { role: nimbus-era-files,        tags: nimbus-era-files }
-    - { role: nimbus-ere-files,        tags: nimbus-ere-files,   when: nimbus_ere_files_timer_enabled }
     - { role: infra-role-nginx,        tags: nginx            }

@@ -60,6 +60,14 @@ resource "cloudflare_record" "ere_hoodi" {
   proxied = true
 }
 
+resource "cloudflare_record" "ere_mainnet" {
+  zone_id = local.zones["nimbus.team"]
+  name    = "mainnet.ere"
+  value   = module.nimbus_nodes_mainnet_innova_nec.public_ips[1] # nec-02.ih-eu-mda1.nimbus.mainnet
+  type    = "A"
+  proxied = true
+}
+
 /* Nimbus-eth1 DB hosting */
 resource "cloudflare_record" "nimbus_eth1_db" {
   zone_id = local.zones["nimbus.team"]
