@@ -1,0 +1,112 @@
+---
+- name: 'Teardown | Read fstab'
+  slurp: {src: '/etc/fstab'}
+  register: zfs_fstab
+
+- name: 'Teardown | Collect every known mount point'
+  set_fact:
+    zfs_migration_all_mounts: >-
+      {{ ((zfs_fstab.content | b64decode).splitlines()
+          | reject('match', '^\s*#')
+          | select('search', '\S')
+          | map('split')
+          | selectattr('1', 'defined')
+          | map(attribute='1')
+          | list)
+         + (ansible_mounts | map(attribute='mount') | list) }}
+
+- name: 'Teardown | Select the mount points to tear down'
+  set_fact:
+    zfs_migration_stale_mounts: >-
+      {{ ((zfs_migration_all_mounts | select('in', zfs_migration_legacy_mounts) | list)
+          + (zfs_migration_all_mounts | select('match', '^/mnt/') | list))
+         | unique | sort | reverse | list }}
+
+- name: 'Teardown | Verify nothing protected is about to be unmounted'
+  assert:
+    that: ['zfs_migration_stale_mounts | select("in", zfs_migration_protected_mounts) | list | length == 0']
+    fail_msg: |-
+      A protected mount point matched the teardown list, refusing to continue.
+      Candidates: {{ zfs_migration_stale_mounts | join(", ") }}
+
+- name: 'Teardown | Report'
+  debug:
+    msg: 'Unmounting in order: {{ zfs_migration_stale_mounts | join(" -> ") }}'
+
+- name: 'Teardown | Back up fstab'
+  copy:
+    src: '/etc/fstab'
+    dest: '/etc/fstab.pre-zfs'
+    remote_src: true
+    force: false
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: 'Teardown | Unmount and drop the fstab entries'
+  mount:
+    path: '{{ item }}'
+    state: 'absent'
+  loop: '{{ zfs_migration_stale_mounts }}'
+
+- name: 'Teardown | Verify fstab is still valid'
+  command: 'findmnt --verify --verbose'
+  register: zfs_fstab_verify
+  changed_when: false
+  failed_when: 'zfs_fstab_verify.rc != 0'
+
+- name: 'Teardown | Verify every remaining fstab entry still mounts'
+  command: 'mount -av'
+  register: zfs_mount_av
+  changed_when: false
+  failed_when: 'zfs_mount_av.rc != 0'
+
+- name: 'Teardown | Read /proc/mdstat'
+  slurp: {src: '/proc/mdstat'}
+  register: zfs_mdstat
+
+- name: 'Teardown | Identify MD arrays'
+  set_fact:
+    zfs_migration_md_arrays: "{{ (zfs_mdstat.content | b64decode) | regex_findall('(?m)^(md[0-9]+)\\s*:') }}"
+
+- name: 'Teardown | Stop MD arrays'
+  command: 'mdadm --stop /dev/{{ item }}'
+  loop: '{{ zfs_migration_md_arrays }}'
+  changed_when: true
+
+- name: 'Teardown | Clear MD superblocks'
+  command: 'mdadm --zero-superblock {{ item }}'
+  loop: '{{ zfs_pool_disk_ids }}'
+  register: zfs_zero_sb
+  changed_when: 'zfs_zero_sb.rc == 0'
+  failed_when: false
+
+- name: 'Teardown | Wipe filesystem signatures'
+  command: 'wipefs --all {{ item }}'
+  loop: '{{ zfs_pool_disk_ids }}'
+  changed_when: true
+
+- name: 'Teardown | Settle udev so by-id links are refreshed'
+  command: 'udevadm settle --timeout=30'
+  changed_when: false
+
+- name: 'Teardown | Look for an mdadm config'
+  stat: {path: '/etc/mdadm/mdadm.conf'}
+  register: zfs_mdadm_conf
+
+- name: 'Teardown | Comment out stale MD array definitions'
+  replace:
+    path: '/etc/mdadm/mdadm.conf'
+    regexp: '(?m)^(ARRAY\s+.*)$'
+    replace: '# removed by zfs-migration: \1'
+  when: 'zfs_mdadm_conf.stat.exists'
+
+- name: 'Teardown | Rebuild the initramfs without the MD arrays'
+  command: 'update-initramfs -u'
+  changed_when: true
+
+- name: 'Teardown | Remove the empty legacy mount directories'
+  file:
+    path: '{{ item }}'
+    state: 'absent'
+  loop: '{{ zfs_migration_stale_mounts | select("match", "^/mnt/") | list }}'

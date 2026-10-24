@@ -1,0 +1,47 @@
+---
+- name: 'Stop | Stop timers'
+  command: >-
+    systemctl stop
+    update-beacon-node-*.timer
+    update-validator-client-*.timer
+    resync-beacon-node-*.timer
+    build-nimbus-light-client-*.timer
+    nimbus-era-files*.timer
+    docker-prune*.timer
+  changed_when: true
+
+- name: 'Stop | Stop Nimbus services'
+  command: >-
+    systemctl stop
+    beacon-node-*.service
+    validator-client-*.service
+    rpc-snooper-*.service
+    nimbus-light-client-*.service
+  changed_when: true
+
+- name: 'Stop | Stop Docker'
+  systemd:
+    name: '{{ item }}'
+    state: 'stopped'
+  loop: ['docker.socket', 'docker.service', 'containerd.service']
+  failed_when: false
+
+- name: 'Stop | Look for processes holding the volumes'
+  command: 'fuser -vm /data /docker'
+  register: zfs_holders
+  changed_when: false
+  failed_when: false
+
+- name: 'Stop | Fail if the volumes are still busy'
+  assert:
+    that: ['zfs_holders.rc != 0']
+    fail_msg: |-
+      Processes are still using /data or /docker:
+
+      {{ zfs_holders.stderr }}
+
+      Find and stop them rather than force-unmounting.
+
+- name: 'Stop | Flush pending writes'
+  command: 'sync'
+  changed_when: false

@@ -1,0 +1,23 @@
+---
+- name: 'Install | Install ZFS userland'
+  apt:
+    name: '{{ zfs_pool_packages }}'
+    state: 'present'
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: 'Install | Load the ZFS module'
+  modprobe:
+    name: 'zfs'
+    state: 'present'
+
+- name: 'Install | Enable the ZFS boot units'
+  systemd:
+    name: '{{ item }}'
+    enabled: true
+  loop:
+    - 'zfs.target'
+    - 'zfs-import.target'
+    - 'zfs-import-cache.service'
+    - 'zfs-mount.service'
+    - 'zfs-zed.service'

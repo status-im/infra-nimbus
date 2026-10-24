@@ -1,0 +1,42 @@
+---
+zfs_pool_name: 'ethdata'
+zfs_pool_type: 'raidz1'
+
+# Number of equal-sized data disks expected in the vdev, excluding the boot
+# disk. Disks are discovered, never named by hand. Set zfs_pool_disk_ids to skip
+# discovery and name them explicitly.
+zfs_pool_disk_count: 3
+#zfs_pool_disk_ids: ['/dev/disk/by-id/scsi-SHITACHI_...']
+
+zfs_pool_packages: ['zfsutils-linux', 'zfs-zed']
+
+zfs_pool_create_force: false
+
+# Destroy and rebuild an existing pool. Destroys data.
+zfs_pool_rebuild: false
+
+# ashift and normalization cannot be changed after creation, so these must stay
+# identical to scripts/create-zfs-pool.sh, which built the reference pool on
+# linux-01.ih-eu-mda1.nimbus.sepolia. See infra-nimbus#287.
+zfs_pool_options:
+  ashift: 12
+  autotrim: 'on'
+  autoexpand: 'on'
+zfs_pool_fs_options:
+  compression: 'lz4'
+  atime: 'off'
+  acltype: 'posixacl'
+  xattr: 'sa'
+  dnodesize: 'auto'
+  normalization: 'formD'
+  mountpoint: 'none'
+  canmount: 'off'
+
+zfs_pool_datasets:
+  - {name: 'data',   mountpoint: '/data',   recordsize: '16K'}  # Nimbus SQLite DB, page_size=4096
+  - {name: 'docker', mountpoint: '/docker', recordsize: '64K'}  # Geth/Nethermind KV store plus ancient files
+  - {name: 'era',    mountpoint: '/era',    recordsize: '1M'}   # CL archive files, large sequential reads
+  - {name: 'era1',   mountpoint: '/era1',   recordsize: '1M'}   # EL archive files, large sequential reads
+
+# zfsutils-linux ships zfs-scrub-{weekly,monthly}@.timer from OpenZFS 2.1.
+zfs_pool_scrub_schedule: 'monthly'
