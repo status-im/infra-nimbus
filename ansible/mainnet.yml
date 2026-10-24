@@ -66,6 +66,7 @@
     - { role: redirect-ports,                 tags: [ redirect-ports ] }
     - { role: get-geth-api-urls,              tags: [ get-geth-api-urls, beacon-node ] }
     - { role: nimbus-era-files,               tags: [ nimbus-era-files ] }
+    - { role: nimbus-ere-files,               tags: [ nimbus-ere-files ], when: nimbus_ere_files_timer_enabled }
     - { role: infra-role-nimbus-light-client, tags: [ nimbus-light-client ] }
   tasks:
     - include_role:
