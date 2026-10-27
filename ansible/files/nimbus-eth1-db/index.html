@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nimbus-eth1 Database Files</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #fafafa;
+      color: #222;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    #readme {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      line-height: 1.6;
+    }
+
+    #files {
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    #files ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #files li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    a {
+      color: #0969da;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img alt="Nimbus Logo" height="150" src="https://nimbus.team/theme/image/logo-black-1.svg">
+
+    <article id="readme"></article>
+
+    <section id="files">
+      <h2>Files</h2>
+      <ul id="file-list"></ul>
+    </section>
+  </main>
+
+  <script>
+    const base = "/files/";
+
+    async function loadReadme() {
+      const readme = document.getElementById("readme");
+
+      try {
+        const response = await fetch(base + "README.md");
+        if (!response.ok) return;
+
+        const text = await response.text();
+        /* make links in brackets clickable */
+        readme.innerHTML = text.replace(/<(https:\/\/[^<>\s]+)>/g, '<a href="$1">$1</a>');
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function loadFiles() {
+      const list = document.getElementById("file-list");
+
+      try {
+        const response = await fetch("files/list.json");
+        if (!response.ok) throw new Error("Listing unavailable");
+
+        const files = await response.json();
+
+        files
+          .sort((a, b) => {
+            if (a.name === "README.md") return -1;
+            if (b.name === "README.md") return 1;
+
+            const aDir = a.type === "directory";
+            const bDir = b.type === "directory";
+
+            if (aDir !== bDir) return aDir ? -1 : 1;
+            return a.name.localeCompare(b.name);
+          })
+          .forEach(file => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+
+            const isDir = file.type === "directory";
+            a.textContent = (isDir ? "📁 " : "📄 ") + file.name;
+            a.href = base + encodeURIComponent(file.name) + (isDir ? "/" : "");
+
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+      } catch (error) {
+        list.textContent = "File listing unavailable";
+      }
+    }
+
+    loadReadme();
+    loadFiles();
+  </script>
+</body>
+</html>

@@ -14,8 +14,8 @@
   hosts:
     - erigon-01.ih-eu-mda1.nimbus.mainnet
     - geth-01.ih-eu-mda1.nimbus.hoodi
+    - libp2p-01.ih-eu-mda1.nimbus.hoodi
     - linux-01.ih-eu-mda1.nimbus.sepolia
-    - metal-01.ih-eu-mda1.nimbus.eth1
     - nec-01.ih-eu-mda1.nimbus.mainnet
   pre_tasks:
     - name: Enable Maintenance Mode
@@ -26,6 +26,16 @@
       command: 'maintenance disable'
       tags: always
   roles:
-    - { role: infra-role-open-ports,   tags: open-ports   }
-    - { role: infra-role-origin-certs, tags: origin-certs }
-    - { role: infra-role-nginx,        tags: nginx        }
+    #- { role: infra-role-open-ports,   tags: open-ports   }
+    #- { role: infra-role-origin-certs, tags: origin-certs }
+    #- { role: infra-role-nginx,        tags: nginx        }
+  tasks:
+    - debug: var=inventory_hostname
+    - name: Create Nimbus-eth1 DB index page
+      when: inventory_hostname == "libp2p-01.ih-eu-mda1.nimbus.hoodi"
+      copy:
+        src:   'files/nimbus-eth1-db/index.html'
+        dest:  '{{ eth1_db_files_path }}/index.html'
+        owner: 'nimbus'
+        group: 'staff'
+        mode:  '0o664'
