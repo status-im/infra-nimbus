@@ -1,0 +1,83 @@
+---
+- name: 'Disks | Find the device carrying /'
+  command: 'findmnt --noheadings --output SOURCE --target /'
+  register: zfs_pool_root_source
+  changed_when: false
+  check_mode: false
+
+- name: 'Disks | Find the disk that device belongs to'
+  command: 'lsblk --noheadings --output PKNAME {{ zfs_pool_root_source.stdout | trim }}'
+  register: zfs_pool_root_pkname
+  changed_when: false
+  check_mode: false
+
+- name: 'Disks | Record the boot disk'
+  set_fact:
+    zfs_pool_boot_disk: >-
+      {{ (zfs_pool_root_pkname.stdout_lines | select | first | default('')) | trim }}
+
+- name: 'Disks | Verify the boot disk was identified'
+  assert:
+    that: ["zfs_pool_boot_disk is match('^[a-z]+$')"]
+    fail_msg: |-
+      Could not identify the boot disk from '{{ zfs_pool_root_source.stdout | trim }}'.
+      Refusing to guess which disks to use.
+
+- name: 'Disks | Inventory block devices'
+  command: 'lsblk --json --bytes --output NAME,PATH,SIZE,TYPE,RO,RM'
+  register: zfs_pool_lsblk
+  changed_when: false
+  check_mode: false
+
+- name: 'Disks | Select data disks'
+  set_fact:
+    zfs_pool_disks: >-
+      {{ (zfs_pool_lsblk.stdout | from_json).blockdevices
+         | selectattr('type', 'equalto', 'disk')
+         | rejectattr('ro', 'equalto', true)
+         | rejectattr('rm', 'equalto', true)
+         | rejectattr('name', 'equalto', zfs_pool_boot_disk)
+         | rejectattr('name', 'match', '^(sr|loop|zram)')
+         | sort(attribute='name')
+         | list }}
+
+# Unequal disks in a RAIDZ vdev are truncated to the smallest, wasting the
+# difference on every member.
+- name: 'Disks | Verify the disk count and that all disks match'
+  assert:
+    that:
+      - 'zfs_pool_disks | length == zfs_pool_disk_count | int'
+      - 'zfs_pool_disks | map(attribute="size") | unique | length == 1'
+    fail_msg: |-
+      A {{ zfs_pool_type }} vdev needs exactly {{ zfs_pool_disk_count }} equal
+      disks. Found {{ zfs_pool_disks | length }} (boot disk
+      {{ zfs_pool_boot_disk }} excluded):
+      {% for d in zfs_pool_disks %}
+        {{ d.name }}  {{ d.size }} bytes
+      {% endfor %}
+
+# Pool members must be listed by by-id name. Kernel sdX names are reordered by
+# a reboot, which would make every destructive command point somewhere else.
+- name: 'Disks | Resolve a stable by-id path for each data disk'
+  shell: |
+    set -euo pipefail
+    for LINK in /dev/disk/by-id/scsi-S* /dev/disk/by-id/nvme-*; do
+      [ -e "${LINK}" ] || continue
+      case "${LINK}" in *-part*) continue ;; esac
+      if [ "$(readlink -f "${LINK}")" = "{{ item.path }}" ]; then
+        echo "${LINK}"
+        exit 0
+      fi
+    done
+    echo "no by-id link for {{ item.path }}" >&2
+    exit 1
+  args: {executable: '/bin/bash'}
+  loop: '{{ zfs_pool_disks }}'
+  loop_control: {label: '{{ item.name }}'}
+  register: zfs_pool_byid
+  changed_when: false
+  check_mode: false
+
+- name: 'Disks | Record the disk IDs to use'
+  set_fact:
+    zfs_pool_disk_ids: '{{ zfs_pool_byid.results | map(attribute="stdout") | map("trim") | list }}'

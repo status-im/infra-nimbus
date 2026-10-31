@@ -1,0 +1,25 @@
+---
+- name: 'Install ZFS'
+  import_tasks: 'install.yml'
+  tags: ['zfs-pool-install']
+
+- name: 'Discover data disks'
+  import_tasks: 'disks.yml'
+  when: 'zfs_pool_disk_ids is not defined'
+  tags: ['zfs-pool-disks']
+
+- name: 'Create the pool'
+  import_tasks: 'pool.yml'
+  tags: ['zfs-pool-create']
+
+- name: 'Create the datasets'
+  import_tasks: 'datasets.yml'
+  tags: ['zfs-pool-datasets']
+
+- name: 'Schedule scrubs'
+  import_tasks: 'scrub.yml'
+  tags: ['zfs-pool-scrub']
+
+- name: 'Verify'
+  import_tasks: 'verify.yml'
+  tags: ['zfs-pool-verify']
